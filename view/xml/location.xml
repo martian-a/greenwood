@@ -1,0 +1,18 @@
+xquery version "3.0";
+
+declare namespace request="http://exist-db.org/xquery/request";
+
+import module namespace loc = "http://ns.greenwood.thecodeyard.co.uk/location" at "/db/apps/greenwood/modules/location.xq";
+declare option exist:serialize "method=xml media-type=text/xml omit-xml-declaration=no indent=yes";
+
+let $request-id := string(request:get-parameter("id", ""))
+
+return
+    if ($request-id != "")
+    then
+        let $location := loc:get-location($request-id, true())
+        return $location
+                
+    else 
+		let $locations := $loc:db/game/map/locations
+        return $locations

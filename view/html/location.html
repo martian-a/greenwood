@@ -1,0 +1,20 @@
+xquery version "3.0";
+
+declare namespace request="http://exist-db.org/xquery/request";
+
+import module namespace loc = "http://ns.greenwood.thecodeyard.co.uk/location" at "/db/apps/greenwood/modules/location.xq";
+
+declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
+
+let $request-id := string(request:get-parameter("id", ""))
+let $stylesheet := doc("/db/apps/greenwood/xslt/location.xsl")
+let $parameters := 
+    <parameters />
+return
+    if ($request-id != "")
+    then
+        let $xml := loc:request-xml(concat('location.xml?id=', $request-id))
+        return transform:transform($xml, $stylesheet, $parameters)
+    else 
+        let $xml := loc:request-xml('location.xml')
+        return transform:transform($xml, $stylesheet, $parameters)

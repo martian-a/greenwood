@@ -118,8 +118,8 @@
         <xsl:apply-templates select="map/routes">
             <xsl:with-param name="colour" select="map/colours/colour" as="element()*" tunnel="yes"/>
         </xsl:apply-templates>
-        <xsl:apply-templates select="tickets"/>
         <xsl:apply-templates select="map/locations"/>
+        <xsl:apply-templates select="tickets"/>
     </xsl:template>
     
     
@@ -151,33 +151,41 @@
             <!-- create an array with nodes -->
             <xsl:text>var nodes = new vis.DataSet([</xsl:text>
             <xsl:for-each select="ancestor::map[1]/locations/descendant::location">
+                <xsl:variable name="total-tickets" select="count(ancestor::game[1]/tickets/ticket[location/@ref = current()/@id or country/@ref = current()/ancestor::country[1]/@id])" as="xs:integer" />
                 <xsl:text>{
                     id: '</xsl:text>
                         <xsl:value-of select="@id"/>
                         <xsl:text>', 
                     label: '</xsl:text>
                         <xsl:apply-templates select="." mode="location.name"/>
-                        <xsl:text>'
+                        <xsl:text>',
+                    size: </xsl:text>
+                        <xsl:value-of select="sum(10 * sum(1 + $total-tickets))" />
+                        <xsl:text>,
+                    mass: </xsl:text>
+                        <xsl:value-of select="sum(1 + $total-tickets)" />
+                        <xsl:text>
                 }</xsl:text>
                 <xsl:if test="position() != last()">,</xsl:if>
             </xsl:for-each>
             <xsl:text>]);</xsl:text>
             <!-- create an array with edges -->
             <xsl:text>var edges = new vis.DataSet([</xsl:text>
-            <xsl:for-each select="route">
-                <xsl:variable name="colour" select="if (@colour) then @colour else colour[1]/@ref"/>
+            <xsl:for-each select="route/(@colour | colour)">
+                <xsl:variable name="route" select="ancestor::route[1]" />
+                <xsl:variable name="colour" select="if (self::colour) then @ref else ."/>
                 <xsl:text>{
                     from: '</xsl:text>
-                        <xsl:value-of select="location[1]/@ref"/>
+                        <xsl:value-of select="$route/location[1]/@ref"/>
                         <xsl:text>', 
                     to: '</xsl:text>
-                        <xsl:value-of select="location[2]/@ref"/>
+                        <xsl:value-of select="$route/location[2]/@ref"/>
                         <xsl:text>',
                     color: '</xsl:text>
                         <xsl:value-of select="gw:getColourHex($colour)"/>
                         <xsl:text>',
                     length: </xsl:text>
-                        <xsl:value-of select="sum(100* number(@length))" />
+                        <xsl:value-of select="sum(150 * number($route/@length))" />
                         <xsl:text>
                 }</xsl:text>
                 <xsl:if test="position() != last()">,</xsl:if>
@@ -200,7 +208,7 @@
                     mass: 1
                 },
                 edges: {
-                    width: 8
+                    width: 12
                 },
                 physics: {
                     barnesHut: {

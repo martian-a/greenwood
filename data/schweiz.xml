@@ -2,7 +2,7 @@
 	<title>Schweiz</title>
 	<map>
 		<locations>
-			<country>
+			<country id="SWI">
 				<name>Schweiz</name>
 				<location id="GEN">
 					<name>Geneve</name>
@@ -107,14 +107,14 @@
 					<name>Brusio</name>
 				</location>
 			</country>
-			<country>
+			<country id="FRA">
 				<name>France</name>
 				<location id="FRA1" />
 				<location id="FRA2" />
 				<location id="FRA3" />
 				<location id="FRA4" />
 			</country>
-			<country>
+			<country id="ITA">
 				<name>Italia</name>
 				<location id="ITA1" />
 				<location id="ITA2" />
@@ -122,7 +122,7 @@
 				<location id="ITA4" />
 				<location id="ITA5" />
 			</country>
-			<country>
+			<country id="GER">
 				<name>Deutschland</name>
 				<location id="GER1" />
 				<location id="GER2" />
@@ -130,7 +130,7 @@
 				<location id="GER4" />
 				<location id="GER5" />
 			</country>
-			<country>
+			<country id="AUS">
 				<name>Österreich</name>
 				<location id="AUS1" />
 				<location id="AUS2" />
@@ -498,6 +498,263 @@
 		</colours>
 	</map>
 	<tickets>
-	
+		<ticket points="6">
+			<!-- City-to-city -->
+			<location ref="BER" />
+			<location ref="ZUR" />
+		</ticket>
+		<ticket>
+			<!-- City-to-country -->
+			<location ref="BER" />
+			<country ref="FRA" points="5" />
+			<country ref="GER" points="6" />
+			<country ref="AUS" points="11" />
+			<country ref="ITA" points="8" />
+		</ticket>
+		<ticket>
+			<!-- Country-to-country -->
+			<country ref="ITA" />
+			<country ref="FRA" points="11" />
+			<country ref="GER" points="13" />
+			<country ref="AUS" points="6" />
+		</ticket>
+		<ticket>
+			<!-- City-to-country -->
+			<location ref="CHU" />
+			<country ref="FRA" points="12" />
+			<country ref="GER" points="6" />
+			<country ref="AUS" points="3" />
+			<country ref="ITA" points="5" />
+		</ticket>
+		<ticket>
+			<!-- City-to-country -->
+			<location ref="LUG" />
+			<country ref="FRA" points="14" />
+			<country ref="GER" points="12" />
+			<country ref="AUS" points="13" />
+			<country ref="ITA" points="2" />
+		</ticket>
+		<ticket>
+			<!-- City-to-country -->
+			<location ref="ZUR" />
+			<country ref="FRA" points="7" />
+			<country ref="GER" points="3" />
+			<country ref="AUS" points="7" />
+			<country ref="ITA" points="11" />
+		</ticket>
+		<ticket>
+			<!-- Country-to-country -->
+			<country ref="ITA" />
+			<country ref="FRA" points="11" />
+			<country ref="GER" points="13" />
+			<country ref="AUS" points="6" />
+		</ticket>
+		<ticket>
+			<!-- Country-to-country -->
+			<country ref="FRA" />
+			<country ref="ITA" points="11" />
+			<country ref="GER" points="5" />
+			<country ref="AUS" points="14" />
+		</ticket>
+		<ticket>
+			<!-- Country-to-country -->
+			<country ref="FRA" />
+			<country ref="ITA" points="11" />
+			<country ref="GER" points="5" />
+			<country ref="AUS" points="14" />
+		</ticket>
+		<ticket>
+			<!-- Country-to-country -->
+			<country ref="GER" />
+			<country ref="ITA" points="13" />
+			<country ref="FRA" points="5" />
+			<country ref="AUS" points="5" />
+		</ticket>
+		<ticket>
+			<!-- Country-to-country -->
+			<country ref="GER" />
+			<country ref="ITA" points="13" />
+			<country ref="FRA" points="5" />
+			<country ref="AUS" points="5" />
+		</ticket>
+		<ticket>
+			<!-- Country-to-country -->
+			<country ref="AUS" />
+			<country ref="GER" points="5" />
+			<country ref="FRA" points="14" />
+			<country ref="ITA" points="6" />
+		</ticket>
+		<ticket>
+			<!-- Country-to-country -->
+			<country ref="AUS" />
+			<country ref="GER" points="5" />
+			<country ref="FRA" points="14" />
+			<country ref="ITA" points="6" />
+		</ticket>
+		<ticket points="6">
+			<!-- City-to-city -->
+			<location ref="LUZ" />
+			<location ref="VAD" />
+		</ticket>
+		<ticket points="2">
+			<!-- City-to-city -->
+			<location ref="LUZ" />
+			<location ref="ZUR" />
+		</ticket>
+		<ticket points="3">
+			<!-- City-to-city -->
+			<location ref="CDF" />
+			<location ref="BER" />
+		</ticket>
+		<ticket points="3">
+			<!-- City-to-city -->
+			<location ref="SFH" />
+			<location ref="ZUG" />
+		</ticket>
+		<ticket points="3">
+			<!-- City-to-city -->
+			<location ref="WIN" />
+			<location ref="SWZ" />
+		</ticket>
+		<ticket points="3">
+			<!-- City-to-city -->
+			<location ref="KRE" />
+			<location ref="ZUR" />
+		</ticket>
+		<ticket points="4">
+			<!-- City-to-city -->
+			<location ref="ZUR" />
+			<location ref="BAS" />
+		</ticket>
+		<ticket points="4">
+			<!-- City-to-city -->
+			<location ref="SFH" />
+			<location ref="STG" />
+		</ticket>
+		<ticket points="5">
+			<!-- City-to-city -->
+			<location ref="OLT" />
+			<location ref="SFH" />
+		</ticket>
+		<ticket points="5">
+			<!-- City-to-city -->
+			<location ref="BER" />
+			<location ref="SWZ" />
+		</ticket>
+		<ticket points="5">
+			<!-- City-to-city -->
+			<location ref="BAS" />
+			<location ref="BER" />
+		</ticket>
+		<ticket points="5">
+			<!-- City-to-city -->
+			<location ref="FRI" />
+			<location ref="LUZ" />
+		</ticket>
+		<ticket points="6">
+			<!-- City-to-city -->
+			<location ref="ZUR" />
+			<location ref="VAD" />
+		</ticket>
+		<ticket points="7">
+			<!-- City-to-city -->
+			<location ref="LAU" />
+			<location ref="INT" />
+		</ticket>
+		<ticket points="7">
+			<!-- City-to-city -->
+			<location ref="INT" />
+			<location ref="WIN" />
+		</ticket>
+		<ticket points="7">
+			<!-- City-to-city -->
+			<location ref="CDF" />
+			<location ref="LUZ" />
+		</ticket>
+		<ticket points="8">
+			<!-- City-to-city -->
+			<location ref="BAS" />
+			<location ref="STG" />
+		</ticket>
+		<ticket points="8">
+			<!-- City-to-city -->
+			<location ref="GEN" />
+			<location ref="BER" />
+		</ticket>
+		<ticket points="8">
+			<!-- City-to-city -->
+			<location ref="CDF" />
+			<location ref="ZUR" />
+		</ticket>
+		<ticket points="8">
+			<!-- City-to-city -->
+			<location ref="LAU" />
+			<location ref="LUZ" />
+		</ticket>
+		<ticket points="9">
+			<!-- City-to-city -->
+			<location ref="NEU" />
+			<location ref="WIN" />
+		</ticket>
+		<ticket points="9">
+			<!-- City-to-city -->
+			<location ref="STG" />
+			<location ref="BRU" />
+		</ticket>
+		<ticket points="9">
+			<!-- City-to-city -->
+			<location ref="ZUR" />
+			<location ref="LUG" />
+		</ticket>
+		<ticket points="10">
+			<!-- City-to-city -->
+			<location ref="BER" />
+			<location ref="CHU" />
+		</ticket>
+		<ticket points="10">
+			<!-- City-to-city -->
+			<location ref="GEN" />
+			<location ref="SIO" />
+		</ticket>
+		<ticket points="10">
+			<!-- City-to-city -->
+			<location ref="BAS" />
+			<location ref="BRI" />
+		</ticket>
+		<ticket points="10">
+			<!-- City-to-city -->
+			<location ref="LUG" />
+			<location ref="CHU" />
+		</ticket>
+		<ticket points="11">
+			<!-- City-to-city -->
+			<location ref="ZUR" />
+			<location ref="BRU" />
+		</ticket>
+		<ticket points="12">
+			<!-- City-to-city -->
+			<location ref="BER" />
+			<location ref="LUG" />
+		</ticket>
+		<ticket points="13">
+			<!-- City-to-city -->
+			<location ref="LAU" />
+			<location ref="STG" />
+		</ticket>
+		<ticket points="13">
+			<!-- City-to-city -->
+			<location ref="GEN" />
+			<location ref="BAS" />
+		</ticket>
+		<ticket points="14">
+			<!-- City-to-city -->
+			<location ref="GEN" />
+			<location ref="ZUR" />
+		</ticket>
+		<ticket points="15">
+			<!-- City-to-city -->
+			<location ref="SFH" />
+			<location ref="MAR" />
+		</ticket>
 	</tickets>
 </game>

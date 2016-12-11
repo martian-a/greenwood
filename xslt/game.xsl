@@ -1,4 +1,4 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+<xsl:stylesheet xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
     <xsl:template match="/">
         <html>
             <head>
@@ -16,6 +16,8 @@
         <title>
             <xsl:value-of select="title"/>
         </title>
+        <script type="text/javascript" src="../../js/vis.js"/>
+        <link type="text/css" href="../../js/vis.css" rel="stylesheet"/>
         <style type="text/css">
             div.locations ul {
                 -webkit-column-count: 3; /* Chrome, Safari, Opera */
@@ -24,6 +26,12 @@
                 -webkit-column-gap: 5em; /* Chrome, Safari, Opera */
                 -moz-column-gap: 5em; /* Firefox */
                 column-gap: 5em;
+            }
+
+            #mynetwork {
+                width: 600px;
+                height: 400px;
+                border: 1px solid lightgray;
             }
         </style>
     </xsl:template>
@@ -197,6 +205,55 @@
                 </td>
             </tr>
         </table>
+        <h3>Network</h3>
+        <div id="mynetwork"/>
+        <script type="text/javascript">
+            <!-- create an array with nodes -->
+            <xsl:text>var nodes = new vis.DataSet([</xsl:text>
+            <xsl:for-each select="ancestor::map[1]/locations/descendant::location">
+                <xsl:text>{id: '</xsl:text>
+                <xsl:value-of select="@id"/>
+                <xsl:text>', label: '</xsl:text>
+                <xsl:apply-templates select="." mode="location.name"/>
+                <xsl:text>'}</xsl:text>
+                <xsl:if test="position() != last()">,</xsl:if>
+            </xsl:for-each>
+            <xsl:text>]);</xsl:text>
+            <!-- create an array with edges -->
+            <xsl:text>var edges = new vis.DataSet([</xsl:text>
+            <xsl:for-each select="route">
+                <xsl:variable name="colour" select="if (@colour) then else colour[1]/@ref"/>
+                <xsl:text>{
+                        from: '</xsl:text>
+                <xsl:value-of select="location[1]/@ref"/>
+                <xsl:text>', 
+                        to: '</xsl:text>
+                <xsl:value-of select="location[2]/@ref"/>
+                <xsl:text>',
+                        color: '</xsl:text>
+                <xsl:value-of select="gw:getColourHex($colour)"/>
+                <xsl:text>'}</xsl:text>
+                <xsl:if test="position() != last()">,</xsl:if>
+            </xsl:for-each>
+            <xsl:text>]);</xsl:text>
+            <!-- create a network -->
+            <xsl:text>var container = document.getElementById('mynetwork');</xsl:text>
+            <!-- provide the data in the vis format -->
+            <xsl:text>
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            </xsl:text>
+            <!-- set options -->
+            <xsl:text>
+            var options = {};
+            </xsl:text>
+            <!-- initialise the network -->
+            <xsl:text>
+            var network = new vis.Network(container, data, options);
+            </xsl:text>
+        </script>
     </xsl:template>
     <xsl:template match="game" mode="game.name">
         <xsl:value-of select="title"/>
@@ -207,4 +264,21 @@
     <xsl:template match="location[not(name)]" mode="location.name">
         <xsl:value-of select="concat(ancestor::country[1]/name, ' (', @id, ')')"/>
     </xsl:template>
+    <xsl:function name="gw:getColourHex" as="xs:string">
+        <xsl:param name="colour-id" as="xs:string"/>
+        <xsl:choose>
+            <xsl:when test="$colour-id = 'RED'">#FF0000</xsl:when>
+            <xsl:when test="$colour-id = 'ORA'">#FF8C00</xsl:when>
+            <xsl:when test="$colour-id = 'YEL'">#FFD700</xsl:when>
+            <xsl:when test="$colour-id = 'GRN'">#32CD32</xsl:when>
+            <xsl:when test="$colour-id = 'BLU'">#4169E1</xsl:when>
+            <xsl:when test="$colour-id = 'VIO'">#9370DB</xsl:when>
+            <xsl:when test="$colour-id = 'BLA'">#000000</xsl:when>
+            <xsl:when test="$colour-id = 'WHI'">#FFFFFF</xsl:when>
+            <xsl:when test="$colour-id = 'GRY'">#C0C0C0</xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$colour-id"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
 </xsl:stylesheet>

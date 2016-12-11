@@ -1,9 +1,11 @@
 <xsl:stylesheet 
-xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" 
-xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-version="2.0"
-exclude-result-prefixes="#all">
+	xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	version="2.0"
+	exclude-result-prefixes="#all">
+	
+	
     <xsl:template match="/">
         <html>
             <head>
@@ -14,9 +16,13 @@ exclude-result-prefixes="#all">
             </body>
         </html>
     </xsl:template>
+    
+    
     <xsl:template match="games" mode="html.header">
         <title>Games</title>
     </xsl:template>
+    
+    
     <xsl:template match="game" mode="html.header">
         <title>
             <xsl:value-of select="title"/>
@@ -32,6 +38,48 @@ exclude-result-prefixes="#all">
                 -moz-column-gap: 5em; /* Firefox */
                 column-gap: 5em;
             }
+            
+            div.tickets table {
+                border-collapse: collapse;
+            }
+            div.tickets table th,
+            div.tickets table td {
+                border: 1px solid black;
+                padding: .25em;
+            }
+            div.tickets table th {
+                text-align: left;
+                white-space: wrap;
+            }
+            div.tickets table td {
+                text-align: center;
+            }
+            div.tickets table td.empty {
+                background-color: #c0c0c0;
+            }
+            div.tickets table th.destination {
+                height: 12em;
+                white-space: nowrap;
+                width: 2em;
+            }
+            div.tickets table th.destination span {
+                display: block;
+                position: relative;
+                width: 1.5em;
+                line-height: 2em;
+                margin: 0;
+                transform: rotate(-90deg);
+                transform-origin: 3.25em 3.25em 0;
+            }
+            div.tickets table th.total {
+                whitespace: wrap;
+                width: 3em;
+                vertical-align: bottom;
+            }
+            div.tickets table td.destination {
+                text-align: left;
+                font-weight: bold;
+            }
 
             #mynetwork {
                 width: 1200px;
@@ -41,6 +89,8 @@ exclude-result-prefixes="#all">
             }
         </style>
     </xsl:template>
+    
+    
     <xsl:template match="games" mode="html.body">
         <p>
             <a href="../xml/game.xml">XML</a>
@@ -56,6 +106,8 @@ exclude-result-prefixes="#all">
             </xsl:for-each>
         </ul>
     </xsl:template>
+    
+    
     <xsl:template match="game" mode="html.body">
         <p>
             <a href="game.html">Games</a> | <a href="../xml/game.xml?id={@id}">XML</a>
@@ -69,6 +121,8 @@ exclude-result-prefixes="#all">
         <xsl:apply-templates select="tickets"/>
         <xsl:apply-templates select="map/locations"/>
     </xsl:template>
+    
+    
     <xsl:template match="locations">
         <div class="locations">
             <h2>Locations</h2>
@@ -85,6 +139,8 @@ exclude-result-prefixes="#all">
             </ul>
         </div>
     </xsl:template>
+    
+    
     <xsl:template match="routes">
         <xsl:param name="colour" as="element()*" tunnel="yes"/>
         <xsl:variable name="routes" select="." as="element()"/>
@@ -292,11 +348,87 @@ exclude-result-prefixes="#all">
         </table>
     </xsl:template>
     
+    
+    
     <xsl:template match="tickets">
+        <xsl:variable name="tickets" select="ticket" as="element()*" />
+    	<xsl:variable name="destinations" as="element()*">
+    		<xsl:for-each-group select="descendant::ticket/location" group-by="@ref">
+    			<xsl:copy-of select="ancestor::game[1]/map/locations/descendant::location[@id = current-grouping-key()]" />
+    		</xsl:for-each-group>
+    		<xsl:for-each-group select="descendant::ticket/country" group-by="@ref">
+    			<xsl:copy-of select="ancestor::game[1]/map/locations/descendant::country[@id = current-grouping-key()]" />
+    		</xsl:for-each-group>
+    	</xsl:variable>
+    	
         <div class="tickets">
             <h2>Tickets</h2>
-            <p>Total: <xsl:value-of select="count(descendant::ticket)"/>
-            </p>
+            <p>Total: <xsl:value-of select="count(descendant::ticket)"/></p>
+            <table>
+            	<tr>
+            		<th> </th>
+            		<xsl:for-each select="$destinations">
+            			<xsl:sort select="name" data-type="text" order="ascending" />
+            			<th class="destination"><span><xsl:apply-templates select="." mode="location.name"/></span></th>
+            		</xsl:for-each>
+            		<th class="total">Total Tickets</th>
+            		<th class="total">Max Points</th>
+            	</tr>
+            	<xsl:for-each select="$destinations">
+            		<xsl:sort select="name" data-type="text" order="ascending" />
+            		<xsl:variable name="from" select="." as="element()" /> 
+            		<xsl:variable name="tickets-from" select="$tickets[*/@ref = $from/@id]" as="element()*" />
+            		<tr>
+            			<td class="destination"><xsl:apply-templates select="$from" mode="location.name"/></td>
+            			<xsl:for-each select="$destinations">
+	            			<xsl:sort select="name" data-type="text" order="ascending" />
+            				<xsl:variable name="to" select="." as="element()" />
+	            			<td>
+	            				<xsl:choose>
+	            					<xsl:when test="$from/@id = $to/@id">
+    	            					<xsl:attribute name="class">self</xsl:attribute>
+    	            					<xsl:text>-</xsl:text>
+	            					</xsl:when>
+	                                <xsl:when test="not($tickets-from[*/@ref = $to/@id])">
+	                                    <xsl:attribute name="class">empty</xsl:attribute>
+	                                </xsl:when>
+	            					<xsl:otherwise>
+	            						<xsl:value-of select="
+	            						    sum($tickets-from[*/@ref = $to/@id]/@points) + 
+	            						    sum($tickets-from[not(@points)][*[not(@points)]/@ref = $from/@id]/*[@ref = $to/@id]/@points) + 
+	            						    sum($tickets-from[not(@points)][*[not(@points)]/@ref = $to/@id]/*[@ref = $from/@id]/@points)
+	            						" />
+	            					</xsl:otherwise>
+	            				</xsl:choose>
+	            			</td>
+            		    </xsl:for-each>
+            		    <td><xsl:value-of select="count($tickets-from)" /></td>
+            		    <td>
+            		        <xsl:variable name="max-points" as="element()*">
+            		            <!-- city-to-city tickets -->
+            		            <xsl:for-each select="$tickets-from[@points]">
+            		                <points><xsl:value-of select="@points" /></points>
+            		            </xsl:for-each>
+            		            <!-- dependency on this location -->
+            		            <xsl:for-each select="$tickets-from[not(@points)][*[not(@points)]/@ref = $from/@id]">
+            		                <!-- Find the destination with the highest points -->
+            		                <xsl:for-each select="*[@points]">
+            		                    <xsl:sort select="@points" data-type="number" order="descending" />
+            		                    <xsl:if test="position() = 1">
+            		                        <points><xsl:value-of select="@points" /></points>
+            		                    </xsl:if>
+            		                </xsl:for-each>
+            		            </xsl:for-each>
+            		            <!--dpendency on another location -->
+            		            <xsl:for-each select="$tickets-from[not(@points)]/*[@ref = $from/@id][@points]">
+            		                <points><xsl:value-of select="@points" /></points>
+            		            </xsl:for-each>
+            		        </xsl:variable>
+            		        <xsl:value-of select="sum($max-points)" />
+            		    </td>
+            		</tr>
+            	</xsl:for-each>
+            </table>
             <ul>
             	<li>
             		<h3>City-to-city</h3>
@@ -326,27 +458,41 @@ exclude-result-prefixes="#all">
             </ul>
         </div>
     </xsl:template>
+    
+    
     <xsl:template match="game" mode="game.name">
         <xsl:value-of select="title"/>
     </xsl:template>
+    
+    
     <xsl:template match="location[@ref] | country[@ref]" mode="location.name">
         <xsl:apply-templates select="ancestor::game[1]/map/locations/descendant::*[name() = current()/name()][@id = current()/@ref]" mode="#current" />
     </xsl:template>
+    
+    
     <xsl:template match="location[@id][name]" mode="location.name">
         <xsl:value-of select="name"/>
     </xsl:template>
+    
+    
     <xsl:template match="location[@id][not(name)]" mode="location.name">
         <xsl:value-of select="concat(ancestor::country[1]/name, ' (', @id, ')')"/>
     </xsl:template>
+    
+    
     <xsl:template match="country[@id]" mode="location.name">
         <xsl:value-of select="name"/>
     </xsl:template>
+    
+    
     <xsl:template match="ticket[count(*) = 2]" mode="ticket.name">
     	<xsl:apply-templates select="*[1]" mode="location.name"/>
     	<xsl:text> to </xsl:text>
     	<xsl:apply-templates select="*[2]" mode="location.name" />
     	<xsl:value-of select="concat(' [', @points ,']')" />
     </xsl:template>
+    
+    
     <xsl:template match="ticket[count(*) > 2]" mode="ticket.name">
     	<xsl:apply-templates select="*[not(@points)]" mode="location.name" />
     	<xsl:text> to </xsl:text>
@@ -359,6 +505,8 @@ exclude-result-prefixes="#all">
     		</xsl:if>
     	</xsl:for-each>
     </xsl:template>
+    
+    
     <xsl:function name="gw:getColourHex" as="xs:string">
         <xsl:param name="colour-id" as="xs:string"/>
         <xsl:choose>
@@ -376,4 +524,6 @@ exclude-result-prefixes="#all">
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
+
+
 </xsl:stylesheet>

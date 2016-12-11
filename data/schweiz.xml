@@ -1,760 +1,760 @@
 <game id="SWI">
-	<title>Schweiz</title>
-	<map>
-		<locations>
-			<country id="SWI">
-				<name>Schweiz</name>
-				<location id="GEN">
-					<name>Geneve</name>
-				</location>
-				<location id="LAU">
-					<name>Lausanne</name>
-				</location>	
-				<location id="MAR">
-					<name>Martigny</name>
-				</location>
-				<location id="SIO">
-					<name>Sion</name>
-				</location>
-				<location id="BRI">
-					<name>Brig</name>
-				</location>
-				<location id="LOC">
-					<name>Locarno</name>
-				</location>
-				<location id="WAS">
-					<name>Wassen</name>
-				</location>
-				<location id="INT">
-					<name>Interlaken</name>
-				</location>
-				<location id="FRI">
-					<name>Fribourg</name>
-				</location>
-				<location id="YVE">
-					<name>Yverdon</name>
-				</location>
-				<location id="LUG">
-					<name>Lugano</name>
-				</location>
-				<location id="BEL">
-					<name>Bellinzona</name>
-				</location>
-				<location id="CDF">
-					<name>La Chaux-de-fonds</name>
-				</location>
-				<location id="NEU">
-					<name>Neuchâtel</name>
-				</location>
-				<location id="BER">
-					<name>Bern</name>
-				</location>
-				<location id="DEL">
-					<name>Delémont</name>
-				</location>
-				<location id="BAS">
-					<name>Basel</name>
-				</location>
-				<location id="SOL">
-					<name>Solothurn</name>
-				</location>
-				<location id="BAD">
-					<name>Baden</name>
-				</location>
-				<location id="OLT">
-					<name>Olten</name>
-				</location>
-				<location id="LUZ">
-					<name>Luzern</name>
-				</location>
-				<location id="ZUG">
-					<name>Zug</name>
-				</location>
-				<location id="SWZ">
-					<name>Schwyz</name>
-				</location>
-				<location id="PFA">
-					<name>Pfäffikon</name>
-				</location>
-				<location id="ZUR">
-					<name>Zürich</name>
-				</location>
-				<location id="SFH">
-					<name>Schaffhausen</name>
-				</location>
-				<location id="WIN">
-					<name>Winterthur</name>
-				</location>
-				<location id="STG">
-					<name>St Gallen</name>
-				</location>
-				<location id="VAD">
-					<name>Vaduz</name>
-				</location>
-				<location id="KRE">
-					<name>Kreuzlingen</name>
-				</location>
-				<location id="SAR">
-					<name>Sargans</name>
-				</location>
-				<location id="CHU">
-					<name>Chur</name>
-				</location>
-				<location id="DAV">
-					<name>Davos</name>
-				</location>
-				<location id="BRU">
-					<name>Brusio</name>
-				</location>
-			</country>
-			<country id="FRA">
-				<name>France</name>
-				<location id="FRA1" />
-				<location id="FRA2" />
-				<location id="FRA3" />
-				<location id="FRA4" />
-			</country>
-			<country id="ITA">
-				<name>Italia</name>
-				<location id="ITA1" />
-				<location id="ITA2" />
-				<location id="ITA3" />
-				<location id="ITA4" />
-				<location id="ITA5" />
-			</country>
-			<country id="GER">
-				<name>Deutschland</name>
-				<location id="GER1" />
-				<location id="GER2" />
-				<location id="GER3" />
-				<location id="GER4" />
-				<location id="GER5" />
-			</country>
-			<country id="AUS">
-				<name>Österreich</name>
-				<location id="AUS1" />
-				<location id="AUS2" />
-				<location id="AUS3" />
-			</country>
-		</locations>
-		<routes>
-			<route length="1" colour="YEL">
-				<location ref="GEN" />
-				<location ref="FRA3" />
-			</route>
-			<route length="4">
-				<location ref="GEN" />
-				<location ref="LAU" />
-				<colour ref="BLU" />
-				<colour ref="WHI" />
-			</route>
-			<route length="4" colour="ORA" tunnel="true">
-				<location ref="MAR" />
-				<location ref="LAU" />
-			</route>
-			<route length="2" colour="GRY" tunnel="true">
-				<location ref="MAR" />
-				<location ref="FRA4" />
-			</route>
-			<route length="2" colour="GRN" tunnel="true">
-				<location ref="MAR" />
-				<location ref="SIO" />
-			</route>
-			<route length="3" colour="BLA" tunnel="true">
-				<location ref="SIO" />
-				<location ref="BRI" />
-			</route>
-			<route length="3" colour="GRN" tunnel="true">
-				<location ref="ITA1" />
-				<location ref="BRI" />
-			</route>
-			<route length="6" colour="GRY" tunnel="true">
-				<location ref="LOC" />
-				<location ref="BRI" />
-			</route>
-			<route length="2" colour="ORA" tunnel="true">
-				<location ref="LOC" />
-				<location ref="ITA2" />
-			</route>
-			<route length="4" colour="RED" tunnel="true">
-				<location ref="BRI" />
-				<location ref="WAS" />
-			</route>
-			<route length="2" colour="WHI" tunnel="true">
-				<location ref="BRI" />
-				<location ref="INT" />
-			</route>
-			<route length="3">
-				<location ref="LAU" />
-				<location ref="FRI" />
-				<colour ref="RED" />
-				<colour ref="VIO" />
-			</route>
-			<route length="6" colour="GRY">
-				<location ref="GEN" />
-				<location ref="YVE" />
-			</route>
-			<route length="1" colour="VIO" tunnel="true">
-				<location ref="LOC" />
-				<location ref="LUG" />
-			</route>
-			<route length="1" colour="BLA" tunnel="true">
-				<location ref="LOC" />
-				<location ref="BEL" />
-			</route>
-			<route length="1" tunnel="true">
-				<location ref="BEL" />
-				<location ref="LUG" />
-				<colour ref="RED" />
-				<colour ref="YEL" />
-			</route>
-			<route length="4" tunnel="true">
-				<location ref="WAS" />
-				<location ref="BEL" />
-				<colour ref="GRY" />
-				<colour ref="GRY" />
-			</route>
-			<route length="2" tunnel="true">
-				<location ref="WAS" />
-				<location ref="SWZ" />
-				<colour ref="GRN" />
-				<colour ref="YEL" />
-			</route>
-			<route length="1" colour="VIO">
-				<location ref="SWZ" />
-				<location ref="PFA" />
-			</route>
-			<route length="1">
-				<location ref="SWZ" />
-				<location ref="ZUG" />
-				<colour ref="WHI" />
-				<colour ref="BLA" />
-			</route>
-			<route length="1" colour="BLU">
-				<location ref="SWZ" />
-				<location ref="LUZ" />
-			</route>
-			<route length="2" colour="BLU">
-				<location ref="PFA" />
-				<location ref="ZUR" />
-			</route>
-			<route length="1">
-				<location ref="ZUR" />
-				<location ref="ZUG" />
-				<colour ref="RED" />
-				<colour ref="GRN" />
-			</route>
-			<route length="1">
-				<location ref="LUZ" />
-				<location ref="ZUG" />
-				<colour ref="ORA" />
-				<colour ref="YEL" />
-			</route>
-			<route length="4">
-				<location ref="LUZ" />
-				<location ref="BER" />
-				<colour ref="GRY" />
-				<colour ref="GRY" />
-			</route>
-			<route length="1">
-				<location ref="BER" />
-				<location ref="FRI" />
-				<colour ref="ORA" />
-				<colour ref="YEL" />
-			</route>
-			<route length="1">
-				<location ref="ZUR" />
-				<location ref="WIN" />
-				<colour ref="BLU" />
-				<colour ref="VIO" />
-			</route>
-			<route length="1">
-				<location ref="WIN" />
-				<location ref="SFH" />
-				<colour ref="BLA" />
-				<colour ref="WHI" />
-			</route>
-			<route length="1" colour="YEL">
-				<location ref="SFH" />
-				<location ref="GER2" />
-			</route>
-			<route length="3" colour="ORA">
-				<location ref="SFH" />
-				<location ref="ZUR" />
-			</route>
-			<route length="1" colour="YEL">
-				<location ref="ZUR" />
-				<location ref="BAD" />
-			</route>
-			<route length="3" colour="WHI">
-				<location ref="ZUR" />
-				<location ref="OLT" />
-			</route>
-			<route length="3" colour="GRN">
-				<location ref="OLT" />
-				<location ref="LUZ" />
-			</route>
-			<route length="2" colour="VIO">
-				<location ref="OLT" />
-				<location ref="BAD" />
-			</route>
-			<route length="3" colour="RED" tunnel="true">
-				<location ref="BAD" />
-				<location ref="BAS" />
-			</route>
-			<route length="1" colour="BLU" tunnel="true">
-				<location ref="BAS" />
-				<location ref="GER1" />
-			</route>
-			<route length="2" colour="ORA" tunnel="true">
-				<location ref="BAS" />
-				<location ref="OLT" />
-			</route>
-			<route length="1" colour="BLU">
-				<location ref="OLT" />
-				<location ref="SOL" />
-			</route>
-			<route length="2" colour="YEL" tunnel="true">
-				<location ref="BAS" />
-				<location ref="DEL" />
-			</route>
-			<route length="2" colour="BLA" tunnel="true">
-				<location ref="DEL" />
-				<location ref="FRA1" />
-			</route>
-			<route length="1" colour="VIO" tunnel="true">
-				<location ref="DEL" />
-				<location ref="SOL" />
-			</route>
-			<route length="2" colour="BLA">
-				<location ref="SOL" />
-				<location ref="BER" />
-			</route>
-			<route length="2" colour="RED">
-				<location ref="BER" />
-				<location ref="NEU" />
-			</route>
-			<route length="4" colour="GRY">
-				<location ref="LAU" />
-				<location ref="NEU" />
-			</route>
-			<route length="5" colour="GRY" tunnel="true">
-				<location ref="WAS" />
-				<location ref="CHU" />
-			</route>
-			<route length="3" colour="BLU">
-				<location ref="BER" />
-				<location ref="INT" />
-			</route>
-			<route length="4" colour="VIO">
-				<location ref="LUZ" />
-				<location ref="INT" />
-			</route>
-			<route length="3" colour="WHI" tunnel="true">
-				<location ref="DEL" />
-				<location ref="CDF" />
-			</route>
-			<route length="2" colour="GRN" tunnel="true">
-				<location ref="FRA2" />
-				<location ref="CDF" />
-			</route>
-			<route length="3" colour="YEL" tunnel="true">
-				<location ref="YVE" />
-				<location ref="CDF" />
-			</route>
-			<route length="1" colour="ORA" tunnel="true">
-				<location ref="NEU" />
-				<location ref="CDF" />
-			</route>
-			<route length="2" colour="WHI" tunnel="true">
-				<location ref="LUG" />
-				<location ref="ITA3" />
-			</route>
-			<route length="2" colour="BLA">
-				<location ref="YVE" />
-				<location ref="NEU" />
-			</route>
-			<route length="4" colour="GRN">
-				<location ref="NEU" />
-				<location ref="SOL" />
-			</route>
-			<route length="2" colour="GRN" tunnel="true">
-				<location ref="BRU" />
-				<location ref="ITA4" />
-			</route>
-			<route length="4" colour="BLU" tunnel="true">
-				<location ref="BRU" />
-				<location ref="DAV" />
-			</route>
-			<route length="5" colour="GRY" tunnel="true">
-				<location ref="BRU" />
-				<location ref="CHU" />
-			</route>
-			<route length="2" colour="VIO" tunnel="true">
-				<location ref="CHU" />
-				<location ref="DAV" />
-			</route>
-			<route length="1" colour="WHI" tunnel="true">
-				<location ref="CHU" />
-				<location ref="SAR" />
-			</route>
-			<route length="3" colour="GRY" tunnel="true">
-				<location ref="DAV" />
-				<location ref="ITA5" />
-			</route>
-			<route length="3" colour="GRY" tunnel="true">
-				<location ref="DAV" />
-				<location ref="AUS3" />
-			</route>
-			<route length="3" colour="BLA" tunnel="true">
-				<location ref="DAV" />
-				<location ref="SAR" />
-			</route>
-			<route length="1" colour="ORA">
-				<location ref="KRE" />
-				<location ref="GER3" />
-			</route>
-			<route length="1" colour="WHI">
-				<location ref="KRE" />
-				<location ref="GER4" />
-			</route>
-			<route length="1" colour="GRN">
-				<location ref="KRE" />
-				<location ref="STG" />
-			</route>
-			<route length="2" colour="YEL">
-				<location ref="KRE" />
-				<location ref="WIN" />
-			</route>
-			<route length="3" colour="VIO">
-				<location ref="KRE" />
-				<location ref="SFH" />
-			</route>
-			<route length="3" colour="ORA">
-				<location ref="PFA" />
-				<location ref="STG" />
-			</route>
-			<route length="3" colour="YEL" tunnel="true">
-				<location ref="PFA" />
-				<location ref="SAR" />
-			</route>
-			<route length="1" colour="ORA">
-				<location ref="SAR" />
-				<location ref="VAD" />
-			</route>
-			<route length="3" colour="RED">
-				<location ref="STG" />
-				<location ref="WIN" />
-			</route>
-			<route length="4" colour="BLA">
-				<location ref="STG" />
-				<location ref="ZUR" />
-			</route>
-			<route length="2" colour="BLU" tunnel="true">
-				<location ref="STG" />
-				<location ref="VAD" />
-			</route>
-			<route length="4" colour="GRY" tunnel="true">
-				<location ref="STG" />
-				<location ref="AUS1" />
-			</route>
-			<route length="2" colour="GRY">
-				<location ref="STG" />
-				<location ref="GER5" />
-			</route>
-			<route length="1" colour="RED" tunnel="true">
-				<location ref="VAD" />
-				<location ref="AUS2" />
-			</route>
-		</routes>
-		<colours>
-			<colour id="RED">
-				<name>Red</name>
-			</colour>
-			<colour id="ORA">
-				<name>Orange</name>
-			</colour>
-			<colour id="YEL">
-				<name>Yellow</name>
-			</colour>
-			<colour id="GRN">
-				<name>Green</name>
-			</colour>
-			<colour id="BLU">
-				<name>Blue</name>
-			</colour>
-			<colour id="VIO">
-				<name>Pink</name>
-			</colour>
-			<colour id="WHI">
-				<name>White</name>
-			</colour>
-			<colour id="BLA">
-				<name>Black</name>
-			</colour>
-			<colour id="GRY">
-				<name>Grey</name>
-			</colour>
-		</colours>
-	</map>
-	<tickets>
-		<ticket points="6">
+    <title>Schweiz</title>
+    <map>
+        <locations>
+            <country id="SWI">
+                <name>Schweiz</name>
+                <location id="GEN">
+                    <name>Geneve</name>
+                </location>
+                <location id="LAU">
+                    <name>Lausanne</name>
+                </location>
+                <location id="MAR">
+                    <name>Martigny</name>
+                </location>
+                <location id="SIO">
+                    <name>Sion</name>
+                </location>
+                <location id="BRI">
+                    <name>Brig</name>
+                </location>
+                <location id="LOC">
+                    <name>Locarno</name>
+                </location>
+                <location id="WAS">
+                    <name>Wassen</name>
+                </location>
+                <location id="INT">
+                    <name>Interlaken</name>
+                </location>
+                <location id="FRI">
+                    <name>Fribourg</name>
+                </location>
+                <location id="YVE">
+                    <name>Yverdon</name>
+                </location>
+                <location id="LUG">
+                    <name>Lugano</name>
+                </location>
+                <location id="BEL">
+                    <name>Bellinzona</name>
+                </location>
+                <location id="CDF">
+                    <name>La Chaux-de-fonds</name>
+                </location>
+                <location id="NEU">
+                    <name>Neuchâtel</name>
+                </location>
+                <location id="BER">
+                    <name>Bern</name>
+                </location>
+                <location id="DEL">
+                    <name>Delémont</name>
+                </location>
+                <location id="BAS">
+                    <name>Basel</name>
+                </location>
+                <location id="SOL">
+                    <name>Solothurn</name>
+                </location>
+                <location id="BAD">
+                    <name>Baden</name>
+                </location>
+                <location id="OLT">
+                    <name>Olten</name>
+                </location>
+                <location id="LUZ">
+                    <name>Luzern</name>
+                </location>
+                <location id="ZUG">
+                    <name>Zug</name>
+                </location>
+                <location id="SWZ">
+                    <name>Schwyz</name>
+                </location>
+                <location id="PFA">
+                    <name>Pfäffikon</name>
+                </location>
+                <location id="ZUR">
+                    <name>Zürich</name>
+                </location>
+                <location id="SFH">
+                    <name>Schaffhausen</name>
+                </location>
+                <location id="WIN">
+                    <name>Winterthur</name>
+                </location>
+                <location id="STG">
+                    <name>St Gallen</name>
+                </location>
+                <location id="VAD">
+                    <name>Vaduz</name>
+                </location>
+                <location id="KRE">
+                    <name>Kreuzlingen</name>
+                </location>
+                <location id="SAR">
+                    <name>Sargans</name>
+                </location>
+                <location id="CHU">
+                    <name>Chur</name>
+                </location>
+                <location id="DAV">
+                    <name>Davos</name>
+                </location>
+                <location id="BRU">
+                    <name>Brusio</name>
+                </location>
+            </country>
+            <country id="FRA">
+                <name>France</name>
+                <location id="FRA1"/>
+                <location id="FRA2"/>
+                <location id="FRA3"/>
+                <location id="FRA4"/>
+            </country>
+            <country id="ITA">
+                <name>Italia</name>
+                <location id="ITA1"/>
+                <location id="ITA2"/>
+                <location id="ITA3"/>
+                <location id="ITA4"/>
+                <location id="ITA5"/>
+            </country>
+            <country id="GER">
+                <name>Deutschland</name>
+                <location id="GER1"/>
+                <location id="GER2"/>
+                <location id="GER3"/>
+                <location id="GER4"/>
+                <location id="GER5"/>
+            </country>
+            <country id="AUS">
+                <name>Österreich</name>
+                <location id="AUS1"/>
+                <location id="AUS2"/>
+                <location id="AUS3"/>
+            </country>
+        </locations>
+        <routes>
+            <route length="1" colour="YEL">
+                <location ref="GEN"/>
+                <location ref="FRA3"/>
+            </route>
+            <route length="4">
+                <location ref="GEN"/>
+                <location ref="LAU"/>
+                <colour ref="BLU"/>
+                <colour ref="WHI"/>
+            </route>
+            <route length="4" colour="ORA" tunnel="true">
+                <location ref="MAR"/>
+                <location ref="LAU"/>
+            </route>
+            <route length="2" colour="GRY" tunnel="true">
+                <location ref="MAR"/>
+                <location ref="FRA4"/>
+            </route>
+            <route length="2" colour="GRN" tunnel="true">
+                <location ref="MAR"/>
+                <location ref="SIO"/>
+            </route>
+            <route length="3" colour="BLA" tunnel="true">
+                <location ref="SIO"/>
+                <location ref="BRI"/>
+            </route>
+            <route length="3" colour="GRN" tunnel="true">
+                <location ref="ITA1"/>
+                <location ref="BRI"/>
+            </route>
+            <route length="6" colour="GRY" tunnel="true">
+                <location ref="LOC"/>
+                <location ref="BRI"/>
+            </route>
+            <route length="2" colour="ORA" tunnel="true">
+                <location ref="LOC"/>
+                <location ref="ITA2"/>
+            </route>
+            <route length="4" colour="RED" tunnel="true">
+                <location ref="BRI"/>
+                <location ref="WAS"/>
+            </route>
+            <route length="2" colour="WHI" tunnel="true">
+                <location ref="BRI"/>
+                <location ref="INT"/>
+            </route>
+            <route length="3">
+                <location ref="LAU"/>
+                <location ref="FRI"/>
+                <colour ref="RED"/>
+                <colour ref="VIO"/>
+            </route>
+            <route length="6" colour="GRY">
+                <location ref="GEN"/>
+                <location ref="YVE"/>
+            </route>
+            <route length="1" colour="VIO" tunnel="true">
+                <location ref="LOC"/>
+                <location ref="LUG"/>
+            </route>
+            <route length="1" colour="BLA" tunnel="true">
+                <location ref="LOC"/>
+                <location ref="BEL"/>
+            </route>
+            <route length="1" tunnel="true">
+                <location ref="BEL"/>
+                <location ref="LUG"/>
+                <colour ref="RED"/>
+                <colour ref="YEL"/>
+            </route>
+            <route length="4" tunnel="true">
+                <location ref="WAS"/>
+                <location ref="BEL"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="2" tunnel="true">
+                <location ref="WAS"/>
+                <location ref="SWZ"/>
+                <colour ref="GRN"/>
+                <colour ref="YEL"/>
+            </route>
+            <route length="1" colour="VIO">
+                <location ref="SWZ"/>
+                <location ref="PFA"/>
+            </route>
+            <route length="1">
+                <location ref="SWZ"/>
+                <location ref="ZUG"/>
+                <colour ref="WHI"/>
+                <colour ref="BLA"/>
+            </route>
+            <route length="1" colour="BLU">
+                <location ref="SWZ"/>
+                <location ref="LUZ"/>
+            </route>
+            <route length="2" colour="BLU">
+                <location ref="PFA"/>
+                <location ref="ZUR"/>
+            </route>
+            <route length="1">
+                <location ref="ZUR"/>
+                <location ref="ZUG"/>
+                <colour ref="RED"/>
+                <colour ref="GRN"/>
+            </route>
+            <route length="1">
+                <location ref="LUZ"/>
+                <location ref="ZUG"/>
+                <colour ref="ORA"/>
+                <colour ref="YEL"/>
+            </route>
+            <route length="4">
+                <location ref="LUZ"/>
+                <location ref="BER"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="1">
+                <location ref="BER"/>
+                <location ref="FRI"/>
+                <colour ref="ORA"/>
+                <colour ref="YEL"/>
+            </route>
+            <route length="1">
+                <location ref="ZUR"/>
+                <location ref="WIN"/>
+                <colour ref="BLU"/>
+                <colour ref="VIO"/>
+            </route>
+            <route length="1">
+                <location ref="WIN"/>
+                <location ref="SFH"/>
+                <colour ref="BLA"/>
+                <colour ref="WHI"/>
+            </route>
+            <route length="1" colour="YEL">
+                <location ref="SFH"/>
+                <location ref="GER2"/>
+            </route>
+            <route length="3" colour="ORA">
+                <location ref="SFH"/>
+                <location ref="ZUR"/>
+            </route>
+            <route length="1" colour="YEL">
+                <location ref="ZUR"/>
+                <location ref="BAD"/>
+            </route>
+            <route length="3" colour="WHI">
+                <location ref="ZUR"/>
+                <location ref="OLT"/>
+            </route>
+            <route length="3" colour="GRN">
+                <location ref="OLT"/>
+                <location ref="LUZ"/>
+            </route>
+            <route length="2" colour="VIO">
+                <location ref="OLT"/>
+                <location ref="BAD"/>
+            </route>
+            <route length="3" colour="RED" tunnel="true">
+                <location ref="BAD"/>
+                <location ref="BAS"/>
+            </route>
+            <route length="1" colour="BLU" tunnel="true">
+                <location ref="BAS"/>
+                <location ref="GER1"/>
+            </route>
+            <route length="2" colour="ORA" tunnel="true">
+                <location ref="BAS"/>
+                <location ref="OLT"/>
+            </route>
+            <route length="1" colour="BLU">
+                <location ref="OLT"/>
+                <location ref="SOL"/>
+            </route>
+            <route length="2" colour="YEL" tunnel="true">
+                <location ref="BAS"/>
+                <location ref="DEL"/>
+            </route>
+            <route length="2" colour="BLA" tunnel="true">
+                <location ref="DEL"/>
+                <location ref="FRA1"/>
+            </route>
+            <route length="1" colour="VIO" tunnel="true">
+                <location ref="DEL"/>
+                <location ref="SOL"/>
+            </route>
+            <route length="2" colour="BLA">
+                <location ref="SOL"/>
+                <location ref="BER"/>
+            </route>
+            <route length="2" colour="RED">
+                <location ref="BER"/>
+                <location ref="NEU"/>
+            </route>
+            <route length="4" colour="GRY">
+                <location ref="LAU"/>
+                <location ref="NEU"/>
+            </route>
+            <route length="5" colour="GRY" tunnel="true">
+                <location ref="WAS"/>
+                <location ref="CHU"/>
+            </route>
+            <route length="3" colour="BLU">
+                <location ref="BER"/>
+                <location ref="INT"/>
+            </route>
+            <route length="4" colour="VIO">
+                <location ref="LUZ"/>
+                <location ref="INT"/>
+            </route>
+            <route length="3" colour="WHI" tunnel="true">
+                <location ref="DEL"/>
+                <location ref="CDF"/>
+            </route>
+            <route length="2" colour="GRN" tunnel="true">
+                <location ref="FRA2"/>
+                <location ref="CDF"/>
+            </route>
+            <route length="3" colour="YEL" tunnel="true">
+                <location ref="YVE"/>
+                <location ref="CDF"/>
+            </route>
+            <route length="1" colour="ORA" tunnel="true">
+                <location ref="NEU"/>
+                <location ref="CDF"/>
+            </route>
+            <route length="2" colour="WHI" tunnel="true">
+                <location ref="LUG"/>
+                <location ref="ITA3"/>
+            </route>
+            <route length="2" colour="BLA">
+                <location ref="YVE"/>
+                <location ref="NEU"/>
+            </route>
+            <route length="4" colour="GRN">
+                <location ref="NEU"/>
+                <location ref="SOL"/>
+            </route>
+            <route length="2" colour="GRN" tunnel="true">
+                <location ref="BRU"/>
+                <location ref="ITA4"/>
+            </route>
+            <route length="4" colour="BLU" tunnel="true">
+                <location ref="BRU"/>
+                <location ref="DAV"/>
+            </route>
+            <route length="5" colour="GRY" tunnel="true">
+                <location ref="BRU"/>
+                <location ref="CHU"/>
+            </route>
+            <route length="2" colour="VIO" tunnel="true">
+                <location ref="CHU"/>
+                <location ref="DAV"/>
+            </route>
+            <route length="1" colour="WHI" tunnel="true">
+                <location ref="CHU"/>
+                <location ref="SAR"/>
+            </route>
+            <route length="3" colour="GRY" tunnel="true">
+                <location ref="DAV"/>
+                <location ref="ITA5"/>
+            </route>
+            <route length="3" colour="GRY" tunnel="true">
+                <location ref="DAV"/>
+                <location ref="AUS3"/>
+            </route>
+            <route length="3" colour="BLA" tunnel="true">
+                <location ref="DAV"/>
+                <location ref="SAR"/>
+            </route>
+            <route length="1" colour="ORA">
+                <location ref="KRE"/>
+                <location ref="GER3"/>
+            </route>
+            <route length="1" colour="WHI">
+                <location ref="KRE"/>
+                <location ref="GER4"/>
+            </route>
+            <route length="1" colour="GRN">
+                <location ref="KRE"/>
+                <location ref="STG"/>
+            </route>
+            <route length="2" colour="YEL">
+                <location ref="KRE"/>
+                <location ref="WIN"/>
+            </route>
+            <route length="3" colour="VIO">
+                <location ref="KRE"/>
+                <location ref="SFH"/>
+            </route>
+            <route length="3" colour="ORA">
+                <location ref="PFA"/>
+                <location ref="STG"/>
+            </route>
+            <route length="3" colour="YEL" tunnel="true">
+                <location ref="PFA"/>
+                <location ref="SAR"/>
+            </route>
+            <route length="1" colour="ORA">
+                <location ref="SAR"/>
+                <location ref="VAD"/>
+            </route>
+            <route length="3" colour="RED">
+                <location ref="STG"/>
+                <location ref="WIN"/>
+            </route>
+            <route length="4" colour="BLA">
+                <location ref="STG"/>
+                <location ref="ZUR"/>
+            </route>
+            <route length="2" colour="BLU" tunnel="true">
+                <location ref="STG"/>
+                <location ref="VAD"/>
+            </route>
+            <route length="4" colour="GRY" tunnel="true">
+                <location ref="STG"/>
+                <location ref="AUS1"/>
+            </route>
+            <route length="2" colour="GRY">
+                <location ref="STG"/>
+                <location ref="GER5"/>
+            </route>
+            <route length="1" colour="RED" tunnel="true">
+                <location ref="VAD"/>
+                <location ref="AUS2"/>
+            </route>
+        </routes>
+        <colours>
+            <colour id="RED">
+                <name>Red</name>
+            </colour>
+            <colour id="ORA">
+                <name>Orange</name>
+            </colour>
+            <colour id="YEL">
+                <name>Yellow</name>
+            </colour>
+            <colour id="GRN">
+                <name>Green</name>
+            </colour>
+            <colour id="BLU">
+                <name>Blue</name>
+            </colour>
+            <colour id="VIO">
+                <name>Pink</name>
+            </colour>
+            <colour id="WHI">
+                <name>White</name>
+            </colour>
+            <colour id="BLA">
+                <name>Black</name>
+            </colour>
+            <colour id="GRY">
+                <name>Grey</name>
+            </colour>
+        </colours>
+    </map>
+    <tickets>
+        <ticket points="6">
 			<!-- City-to-city -->
-			<location ref="BER" />
-			<location ref="ZUR" />
-		</ticket>
-		<ticket>
+            <location ref="BER"/>
+            <location ref="ZUR"/>
+        </ticket>
+        <ticket>
 			<!-- City-to-country -->
-			<location ref="BER" />
-			<country ref="FRA" points="5" />
-			<country ref="GER" points="6" />
-			<country ref="AUS" points="11" />
-			<country ref="ITA" points="8" />
-		</ticket>
-		<ticket>
+            <location ref="BER"/>
+            <country ref="FRA" points="5"/>
+            <country ref="GER" points="6"/>
+            <country ref="AUS" points="11"/>
+            <country ref="ITA" points="8"/>
+        </ticket>
+        <ticket>
 			<!-- Country-to-country -->
-			<country ref="ITA" />
-			<country ref="FRA" points="11" />
-			<country ref="GER" points="13" />
-			<country ref="AUS" points="6" />
-		</ticket>
-		<ticket>
+            <country ref="ITA"/>
+            <country ref="FRA" points="11"/>
+            <country ref="GER" points="13"/>
+            <country ref="AUS" points="6"/>
+        </ticket>
+        <ticket>
 			<!-- City-to-country -->
-			<location ref="CHU" />
-			<country ref="FRA" points="12" />
-			<country ref="GER" points="6" />
-			<country ref="AUS" points="3" />
-			<country ref="ITA" points="5" />
-		</ticket>
-		<ticket>
+            <location ref="CHU"/>
+            <country ref="FRA" points="12"/>
+            <country ref="GER" points="6"/>
+            <country ref="AUS" points="3"/>
+            <country ref="ITA" points="5"/>
+        </ticket>
+        <ticket>
 			<!-- City-to-country -->
-			<location ref="LUG" />
-			<country ref="FRA" points="14" />
-			<country ref="GER" points="12" />
-			<country ref="AUS" points="13" />
-			<country ref="ITA" points="2" />
-		</ticket>
-		<ticket>
+            <location ref="LUG"/>
+            <country ref="FRA" points="14"/>
+            <country ref="GER" points="12"/>
+            <country ref="AUS" points="13"/>
+            <country ref="ITA" points="2"/>
+        </ticket>
+        <ticket>
 			<!-- City-to-country -->
-			<location ref="ZUR" />
-			<country ref="FRA" points="7" />
-			<country ref="GER" points="3" />
-			<country ref="AUS" points="7" />
-			<country ref="ITA" points="11" />
-		</ticket>
-		<ticket>
+            <location ref="ZUR"/>
+            <country ref="FRA" points="7"/>
+            <country ref="GER" points="3"/>
+            <country ref="AUS" points="7"/>
+            <country ref="ITA" points="11"/>
+        </ticket>
+        <ticket>
 			<!-- Country-to-country -->
-			<country ref="ITA" />
-			<country ref="FRA" points="11" />
-			<country ref="GER" points="13" />
-			<country ref="AUS" points="6" />
-		</ticket>
-		<ticket>
+            <country ref="ITA"/>
+            <country ref="FRA" points="11"/>
+            <country ref="GER" points="13"/>
+            <country ref="AUS" points="6"/>
+        </ticket>
+        <ticket>
 			<!-- Country-to-country -->
-			<country ref="FRA" />
-			<country ref="ITA" points="11" />
-			<country ref="GER" points="5" />
-			<country ref="AUS" points="14" />
-		</ticket>
-		<ticket>
+            <country ref="FRA"/>
+            <country ref="ITA" points="11"/>
+            <country ref="GER" points="5"/>
+            <country ref="AUS" points="14"/>
+        </ticket>
+        <ticket>
 			<!-- Country-to-country -->
-			<country ref="FRA" />
-			<country ref="ITA" points="11" />
-			<country ref="GER" points="5" />
-			<country ref="AUS" points="14" />
-		</ticket>
-		<ticket>
+            <country ref="FRA"/>
+            <country ref="ITA" points="11"/>
+            <country ref="GER" points="5"/>
+            <country ref="AUS" points="14"/>
+        </ticket>
+        <ticket>
 			<!-- Country-to-country -->
-			<country ref="GER" />
-			<country ref="ITA" points="13" />
-			<country ref="FRA" points="5" />
-			<country ref="AUS" points="5" />
-		</ticket>
-		<ticket>
+            <country ref="GER"/>
+            <country ref="ITA" points="13"/>
+            <country ref="FRA" points="5"/>
+            <country ref="AUS" points="5"/>
+        </ticket>
+        <ticket>
 			<!-- Country-to-country -->
-			<country ref="GER" />
-			<country ref="ITA" points="13" />
-			<country ref="FRA" points="5" />
-			<country ref="AUS" points="5" />
-		</ticket>
-		<ticket>
+            <country ref="GER"/>
+            <country ref="ITA" points="13"/>
+            <country ref="FRA" points="5"/>
+            <country ref="AUS" points="5"/>
+        </ticket>
+        <ticket>
 			<!-- Country-to-country -->
-			<country ref="AUS" />
-			<country ref="GER" points="5" />
-			<country ref="FRA" points="14" />
-			<country ref="ITA" points="6" />
-		</ticket>
-		<ticket>
+            <country ref="AUS"/>
+            <country ref="GER" points="5"/>
+            <country ref="FRA" points="14"/>
+            <country ref="ITA" points="6"/>
+        </ticket>
+        <ticket>
 			<!-- Country-to-country -->
-			<country ref="AUS" />
-			<country ref="GER" points="5" />
-			<country ref="FRA" points="14" />
-			<country ref="ITA" points="6" />
-		</ticket>
-		<ticket points="6">
+            <country ref="AUS"/>
+            <country ref="GER" points="5"/>
+            <country ref="FRA" points="14"/>
+            <country ref="ITA" points="6"/>
+        </ticket>
+        <ticket points="6">
 			<!-- City-to-city -->
-			<location ref="LUZ" />
-			<location ref="VAD" />
-		</ticket>
-		<ticket points="2">
+            <location ref="LUZ"/>
+            <location ref="VAD"/>
+        </ticket>
+        <ticket points="2">
 			<!-- City-to-city -->
-			<location ref="LUZ" />
-			<location ref="ZUR" />
-		</ticket>
-		<ticket points="3">
+            <location ref="LUZ"/>
+            <location ref="ZUR"/>
+        </ticket>
+        <ticket points="3">
 			<!-- City-to-city -->
-			<location ref="CDF" />
-			<location ref="BER" />
-		</ticket>
-		<ticket points="3">
+            <location ref="CDF"/>
+            <location ref="BER"/>
+        </ticket>
+        <ticket points="3">
 			<!-- City-to-city -->
-			<location ref="SFH" />
-			<location ref="ZUG" />
-		</ticket>
-		<ticket points="3">
+            <location ref="SFH"/>
+            <location ref="ZUG"/>
+        </ticket>
+        <ticket points="3">
 			<!-- City-to-city -->
-			<location ref="WIN" />
-			<location ref="SWZ" />
-		</ticket>
-		<ticket points="3">
+            <location ref="WIN"/>
+            <location ref="SWZ"/>
+        </ticket>
+        <ticket points="3">
 			<!-- City-to-city -->
-			<location ref="KRE" />
-			<location ref="ZUR" />
-		</ticket>
-		<ticket points="4">
+            <location ref="KRE"/>
+            <location ref="ZUR"/>
+        </ticket>
+        <ticket points="4">
 			<!-- City-to-city -->
-			<location ref="ZUR" />
-			<location ref="BAS" />
-		</ticket>
-		<ticket points="4">
+            <location ref="ZUR"/>
+            <location ref="BAS"/>
+        </ticket>
+        <ticket points="4">
 			<!-- City-to-city -->
-			<location ref="SFH" />
-			<location ref="STG" />
-		</ticket>
-		<ticket points="5">
+            <location ref="SFH"/>
+            <location ref="STG"/>
+        </ticket>
+        <ticket points="5">
 			<!-- City-to-city -->
-			<location ref="OLT" />
-			<location ref="SFH" />
-		</ticket>
-		<ticket points="5">
+            <location ref="OLT"/>
+            <location ref="SFH"/>
+        </ticket>
+        <ticket points="5">
 			<!-- City-to-city -->
-			<location ref="BER" />
-			<location ref="SWZ" />
-		</ticket>
-		<ticket points="5">
+            <location ref="BER"/>
+            <location ref="SWZ"/>
+        </ticket>
+        <ticket points="5">
 			<!-- City-to-city -->
-			<location ref="BAS" />
-			<location ref="BER" />
-		</ticket>
-		<ticket points="5">
+            <location ref="BAS"/>
+            <location ref="BER"/>
+        </ticket>
+        <ticket points="5">
 			<!-- City-to-city -->
-			<location ref="FRI" />
-			<location ref="LUZ" />
-		</ticket>
-		<ticket points="6">
+            <location ref="FRI"/>
+            <location ref="LUZ"/>
+        </ticket>
+        <ticket points="6">
 			<!-- City-to-city -->
-			<location ref="ZUR" />
-			<location ref="VAD" />
-		</ticket>
-		<ticket points="7">
+            <location ref="ZUR"/>
+            <location ref="VAD"/>
+        </ticket>
+        <ticket points="7">
 			<!-- City-to-city -->
-			<location ref="LAU" />
-			<location ref="INT" />
-		</ticket>
-		<ticket points="7">
+            <location ref="LAU"/>
+            <location ref="INT"/>
+        </ticket>
+        <ticket points="7">
 			<!-- City-to-city -->
-			<location ref="INT" />
-			<location ref="WIN" />
-		</ticket>
-		<ticket points="7">
+            <location ref="INT"/>
+            <location ref="WIN"/>
+        </ticket>
+        <ticket points="7">
 			<!-- City-to-city -->
-			<location ref="CDF" />
-			<location ref="LUZ" />
-		</ticket>
-		<ticket points="8">
+            <location ref="CDF"/>
+            <location ref="LUZ"/>
+        </ticket>
+        <ticket points="8">
 			<!-- City-to-city -->
-			<location ref="BAS" />
-			<location ref="STG" />
-		</ticket>
-		<ticket points="8">
+            <location ref="BAS"/>
+            <location ref="STG"/>
+        </ticket>
+        <ticket points="8">
 			<!-- City-to-city -->
-			<location ref="GEN" />
-			<location ref="BER" />
-		</ticket>
-		<ticket points="8">
+            <location ref="GEN"/>
+            <location ref="BER"/>
+        </ticket>
+        <ticket points="8">
 			<!-- City-to-city -->
-			<location ref="CDF" />
-			<location ref="ZUR" />
-		</ticket>
-		<ticket points="8">
+            <location ref="CDF"/>
+            <location ref="ZUR"/>
+        </ticket>
+        <ticket points="8">
 			<!-- City-to-city -->
-			<location ref="LAU" />
-			<location ref="LUZ" />
-		</ticket>
-		<ticket points="9">
+            <location ref="LAU"/>
+            <location ref="LUZ"/>
+        </ticket>
+        <ticket points="9">
 			<!-- City-to-city -->
-			<location ref="NEU" />
-			<location ref="WIN" />
-		</ticket>
-		<ticket points="9">
+            <location ref="NEU"/>
+            <location ref="WIN"/>
+        </ticket>
+        <ticket points="9">
 			<!-- City-to-city -->
-			<location ref="STG" />
-			<location ref="BRU" />
-		</ticket>
-		<ticket points="9">
+            <location ref="STG"/>
+            <location ref="BRU"/>
+        </ticket>
+        <ticket points="9">
 			<!-- City-to-city -->
-			<location ref="ZUR" />
-			<location ref="LUG" />
-		</ticket>
-		<ticket points="10">
+            <location ref="ZUR"/>
+            <location ref="LUG"/>
+        </ticket>
+        <ticket points="10">
 			<!-- City-to-city -->
-			<location ref="BER" />
-			<location ref="CHU" />
-		</ticket>
-		<ticket points="10">
+            <location ref="BER"/>
+            <location ref="CHU"/>
+        </ticket>
+        <ticket points="10">
 			<!-- City-to-city -->
-			<location ref="GEN" />
-			<location ref="SIO" />
-		</ticket>
-		<ticket points="10">
+            <location ref="GEN"/>
+            <location ref="SIO"/>
+        </ticket>
+        <ticket points="10">
 			<!-- City-to-city -->
-			<location ref="BAS" />
-			<location ref="BRI" />
-		</ticket>
-		<ticket points="10">
+            <location ref="BAS"/>
+            <location ref="BRI"/>
+        </ticket>
+        <ticket points="10">
 			<!-- City-to-city -->
-			<location ref="LUG" />
-			<location ref="CHU" />
-		</ticket>
-		<ticket points="11">
+            <location ref="LUG"/>
+            <location ref="CHU"/>
+        </ticket>
+        <ticket points="11">
 			<!-- City-to-city -->
-			<location ref="ZUR" />
-			<location ref="BRU" />
-		</ticket>
-		<ticket points="12">
+            <location ref="ZUR"/>
+            <location ref="BRU"/>
+        </ticket>
+        <ticket points="12">
 			<!-- City-to-city -->
-			<location ref="BER" />
-			<location ref="LUG" />
-		</ticket>
-		<ticket points="13">
+            <location ref="BER"/>
+            <location ref="LUG"/>
+        </ticket>
+        <ticket points="13">
 			<!-- City-to-city -->
-			<location ref="LAU" />
-			<location ref="STG" />
-		</ticket>
-		<ticket points="13">
+            <location ref="LAU"/>
+            <location ref="STG"/>
+        </ticket>
+        <ticket points="13">
 			<!-- City-to-city -->
-			<location ref="GEN" />
-			<location ref="BAS" />
-		</ticket>
-		<ticket points="14">
+            <location ref="GEN"/>
+            <location ref="BAS"/>
+        </ticket>
+        <ticket points="14">
 			<!-- City-to-city -->
-			<location ref="GEN" />
-			<location ref="ZUR" />
-		</ticket>
-		<ticket points="15">
+            <location ref="GEN"/>
+            <location ref="ZUR"/>
+        </ticket>
+        <ticket points="15">
 			<!-- City-to-city -->
-			<location ref="SFH" />
-			<location ref="MAR" />
-		</ticket>
-	</tickets>
+            <location ref="SFH"/>
+            <location ref="MAR"/>
+        </ticket>
+    </tickets>
 </game>

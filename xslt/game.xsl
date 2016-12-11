@@ -1,4 +1,9 @@
-<xsl:stylesheet xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+<xsl:stylesheet 
+xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" 
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+version="2.0"
+exclude-result-prefixes="#all">
     <xsl:template match="/">
         <html>
             <head>
@@ -29,9 +34,10 @@
             }
 
             #mynetwork {
-                width: 600px;
-                height: 400px;
+                width: 1200px;
+                height: 800px;
                 border: 1px solid lightgray;
+                background-color: #f5f5f5;
             }
         </style>
     </xsl:template>
@@ -57,11 +63,11 @@
         <h1>
             <xsl:value-of select="title"/>
         </h1>
-        <xsl:apply-templates select="map/locations"/>
         <xsl:apply-templates select="map/routes">
             <xsl:with-param name="colour" select="map/colours/colour" as="element()*" tunnel="yes"/>
         </xsl:apply-templates>
         <xsl:apply-templates select="tickets"/>
+        <xsl:apply-templates select="map/locations"/>
     </xsl:template>
     <xsl:template match="locations">
         <div class="locations">
@@ -83,6 +89,84 @@
         <xsl:param name="colour" as="element()*" tunnel="yes"/>
         <xsl:variable name="routes" select="." as="element()"/>
         <h2>Routes</h2>
+        <h3>Network</h3>
+        <div id="mynetwork"/>
+        <script type="text/javascript">
+            <!-- create an array with nodes -->
+            <xsl:text>var nodes = new vis.DataSet([</xsl:text>
+            <xsl:for-each select="ancestor::map[1]/locations/descendant::location">
+                <xsl:text>{
+                    id: '</xsl:text>
+                        <xsl:value-of select="@id"/>
+                        <xsl:text>', 
+                    label: '</xsl:text>
+                        <xsl:apply-templates select="." mode="location.name"/>
+                        <xsl:text>'
+                }</xsl:text>
+                <xsl:if test="position() != last()">,</xsl:if>
+            </xsl:for-each>
+            <xsl:text>]);</xsl:text>
+            <!-- create an array with edges -->
+            <xsl:text>var edges = new vis.DataSet([</xsl:text>
+            <xsl:for-each select="route">
+                <xsl:variable name="colour" select="if (@colour) then @colour else colour[1]/@ref"/>
+                <xsl:text>{
+                    from: '</xsl:text>
+                        <xsl:value-of select="location[1]/@ref"/>
+                        <xsl:text>', 
+                    to: '</xsl:text>
+                        <xsl:value-of select="location[2]/@ref"/>
+                        <xsl:text>',
+                    color: '</xsl:text>
+                        <xsl:value-of select="gw:getColourHex($colour)"/>
+                        <xsl:text>',
+                    length: </xsl:text>
+                        <xsl:value-of select="sum(100* number(@length))" />
+                        <xsl:text>
+                }</xsl:text>
+                <xsl:if test="position() != last()">,</xsl:if>
+            </xsl:for-each>
+            <xsl:text>]);</xsl:text>
+            <!-- create a network -->
+            <xsl:text>var container = document.getElementById('mynetwork');</xsl:text>
+            <!-- provide the data in the vis format -->
+            <xsl:text>
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            </xsl:text>
+            <!-- set options -->
+            <xsl:text>
+            var options = {
+                nodes: {
+                    shape: 'dot',
+                    mass: 1
+                },
+                edges: {
+                    width: 8
+                },
+                physics: {
+                    barnesHut: {
+                        gravitationalConstant: -2000,
+                        centralGravity: 0.3,
+                        springLength: 95,
+                        springConstant: 0.04,
+                        damping: 0.09,
+                        avoidOverlap: 1
+                    },
+                    maxVelocity: 50,
+                    minVelocity: 0.1,
+                    solver: 'barnesHut',
+                    timestep: 0.5
+                }
+            };
+            </xsl:text>
+            <!-- initialise the network -->
+            <xsl:text>
+            var network = new vis.Network(container, data, options);
+            </xsl:text>
+        </script>
         <h3>Options</h3>
         <table>
             <tr>
@@ -206,55 +290,6 @@
                 </td>
             </tr>
         </table>
-        <h3>Network</h3>
-        <div id="mynetwork"/>
-        <script type="text/javascript">
-            <!-- create an array with nodes -->
-            <xsl:text>var nodes = new vis.DataSet([</xsl:text>
-            <xsl:for-each select="ancestor::map[1]/locations/descendant::location">
-                <xsl:text>{id: '</xsl:text>
-                <xsl:value-of select="@id"/>
-                <xsl:text>', label: '</xsl:text>
-                <xsl:apply-templates select="." mode="location.name"/>
-                <xsl:text>'}</xsl:text>
-                <xsl:if test="position() != last()">,</xsl:if>
-            </xsl:for-each>
-            <xsl:text>]);</xsl:text>
-            <!-- create an array with edges -->
-            <xsl:text>var edges = new vis.DataSet([</xsl:text>
-            <xsl:for-each select="route">
-                <xsl:variable name="colour" select="if (@colour) then else colour[1]/@ref"/>
-                <xsl:text>{
-                        from: '</xsl:text>
-                <xsl:value-of select="location[1]/@ref"/>
-                <xsl:text>', 
-                        to: '</xsl:text>
-                <xsl:value-of select="location[2]/@ref"/>
-                <xsl:text>',
-                        color: '</xsl:text>
-                <xsl:value-of select="gw:getColourHex($colour)"/>
-                <xsl:text>'}</xsl:text>
-                <xsl:if test="position() != last()">,</xsl:if>
-            </xsl:for-each>
-            <xsl:text>]);</xsl:text>
-            <!-- create a network -->
-            <xsl:text>var container = document.getElementById('mynetwork');</xsl:text>
-            <!-- provide the data in the vis format -->
-            <xsl:text>
-            var data = {
-                nodes: nodes,
-                edges: edges
-            };
-            </xsl:text>
-            <!-- set options -->
-            <xsl:text>
-            var options = {};
-            </xsl:text>
-            <!-- initialise the network -->
-            <xsl:text>
-            var network = new vis.Network(container, data, options);
-            </xsl:text>
-        </script>
     </xsl:template>
     
     <xsl:template match="tickets">

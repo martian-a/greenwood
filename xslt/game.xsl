@@ -302,11 +302,8 @@ exclude-result-prefixes="#all">
             		<h3>City-to-city</h3>
             		<ul>
 		         		<xsl:for-each select="descendant::ticket[not(country)]">
-		                    <li>
-		                        <a href="ticket.html?id={@id}">
-		                            <xsl:apply-templates select="." mode="ticket.name"/>
-		                        </a>
-		                    </li>
+		         		    <xsl:sort select="@points" data-type="number" order="ascending" />
+		                    <li><xsl:apply-templates select="." mode="ticket.name"/></li>
 		                </xsl:for-each>   			
             		</ul>
             	</li>
@@ -314,11 +311,7 @@ exclude-result-prefixes="#all">
             		<h3>City-to-country</h3>
             		<ul>
 		         		<xsl:for-each select="descendant::ticket[location][country]">
-		                    <li>
-		                        <a href="ticket.html?id={@id}">
-		                            <xsl:apply-templates select="." mode="ticket.name"/>
-		                        </a>
-		                    </li>
+		                    <li><xsl:apply-templates select="." mode="ticket.name"/></li>
 		                </xsl:for-each>   			
             		</ul>
             	</li>
@@ -326,11 +319,7 @@ exclude-result-prefixes="#all">
             		<h3>Country-to-country</h3>
             		<ul>
 		         		<xsl:for-each select="descendant::ticket[not(location)]">
-		                    <li>
-		                        <a href="ticket.html?id={@id}">
-		                            <xsl:apply-templates select="." mode="ticket.name"/>
-		                        </a>
-		                    </li>
+		                    <li><xsl:apply-templates select="." mode="ticket.name"/></li>
 		                </xsl:for-each>   			
             		</ul>
             	</li>
@@ -340,26 +329,31 @@ exclude-result-prefixes="#all">
     <xsl:template match="game" mode="game.name">
         <xsl:value-of select="title"/>
     </xsl:template>
-    <xsl:template match="location[name]" mode="location.name">
+    <xsl:template match="location[@ref] | country[@ref]" mode="location.name">
+        <xsl:apply-templates select="ancestor::game[1]/map/locations/descendant::*[name() = current()/name()][@id = current()/@ref]" mode="#current" />
+    </xsl:template>
+    <xsl:template match="location[@id][name]" mode="location.name">
         <xsl:value-of select="name"/>
     </xsl:template>
-    <xsl:template match="location[not(name)]" mode="location.name">
+    <xsl:template match="location[@id][not(name)]" mode="location.name">
         <xsl:value-of select="concat(ancestor::country[1]/name, ' (', @id, ')')"/>
     </xsl:template>
-    <xsl:template match="country" mode="location.name">
+    <xsl:template match="country[@id]" mode="location.name">
         <xsl:value-of select="name"/>
     </xsl:template>
     <xsl:template match="ticket[count(*) = 2]" mode="ticket.name">
     	<xsl:apply-templates select="*[1]" mode="location.name"/>
     	<xsl:text> to </xsl:text>
     	<xsl:apply-templates select="*[2]" mode="location.name" />
+    	<xsl:value-of select="concat(' [', @points ,']')" />
     </xsl:template>
     <xsl:template match="ticket[count(*) > 2]" mode="ticket.name">
-    	<xsl:apply-templates select="*[not(@points)]"/>
+    	<xsl:apply-templates select="*[not(@points)]" mode="location.name" />
     	<xsl:text> to </xsl:text>
     	<xsl:for-each select="*[@points]">
+    	    <xsl:sort select="@points" data-type="number" order="ascending" />
     		<xsl:apply-templates select="." mode="location.name" />
-    		<xsl:value-of select="concat('[', @points ,']')" />
+    		<xsl:value-of select="concat(' [', @points ,']')" />
     		<xsl:if test="position() != last()">
     			<xsl:text> or </xsl:text>
     		</xsl:if>

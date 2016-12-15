@@ -130,6 +130,7 @@
             </p>
             <ul>
                 <xsl:for-each select="descendant::location">
+                	<xsl:sort select="if (name) then name else ancestor::country[1]/concat(name, ' (', @id, ')')" data-type="text" order="ascending" />
                     <li>
                         <a href="location.html?id={@id}">
                             <xsl:apply-templates select="." mode="location.name"/>

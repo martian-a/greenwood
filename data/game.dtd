@@ -1,0 +1,34 @@
+<!ELEMENT game (title?, map?, tickets*)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT map (locations, routes?, colours)>
+<!ELEMENT locations (location*, country*)>
+<!ELEMENT country (name?, location*)>
+<!ELEMENT location (name?)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT routes (route*)>
+<!ELEMENT route (location+, colour*)> 
+<!ELEMENT colour (name?)>
+<!ELEMENT colours (colour*)>
+<!ELEMENT tickets (ticket*)>
+<!ELEMENT ticket (location*, country*)>
+
+<!ATTLIST game 
+	id ID #REQUIRED>
+<!ATTLIST country 
+	id ID #IMPLIED
+	ref IDREF #IMPLIED
+	points CDATA #IMPLIED>
+<!ATTLIST location 
+	id ID #IMPLIED
+	ref IDREF #IMPLIED
+	points CDATA #IMPLIED>
+<!ATTLIST route 
+	length (1|2|3|4|5|6|8) #REQUIRED
+	colour IDREF #IMPLIED
+	tunnel (true|false) "false"
+	ferry  (0|1|2) "0">
+<!ATTLIST colour 
+	id ID #IMPLIED
+	ref IDREF #IMPLIED>
+<!ATTLIST ticket 
+	points CDATA #IMPLIED>

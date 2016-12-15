@@ -567,7 +567,7 @@
 			<location ref="PNA" />
 		</ticket>
 		<ticket points="5">
-			<location ref="BOM" />
+			<location ref="BMB" />
 			<location ref="BEZ" />
 		</ticket>
 		<ticket points="5">
@@ -599,7 +599,7 @@
 			<location ref="CTA" />
 		</ticket>
 		<ticket points="6">
-			<location ref="BOM" />
+			<location ref="BMB" />
 			<location ref="QUI" />
 		</ticket>
 		<ticket points="6">
@@ -632,7 +632,7 @@
 		</ticket>
 		<ticket points="7">
 			<location ref="LUC" />
-			<location ref="BOM" />
+			<location ref="BMB" />
 		</ticket>
 		<ticket points="7">
 			<location ref="BHA" />
@@ -687,7 +687,7 @@
 			<location ref="BHO" />
 		</ticket>
 		<ticket points="9">
-			<location ref="DEL" />
+			<location ref="DHL" />
 			<location ref="IND" />
 		</ticket>
 		<ticket points="9">
@@ -704,7 +704,7 @@
 		</ticket>
 		<ticket points="10">
 			<location ref="JAC" />
-			<location ref="BOM" />
+			<location ref="BMB" />
 		</ticket>
 		<ticket points="10">
 			<location ref="AMB" />
@@ -723,7 +723,7 @@
 			<location ref="CAL" />
 		</ticket>
 		<ticket points="11">
-			<location ref="DEL" />
+			<location ref="DHL" />
 			<location ref="CAL" />
 		</ticket>
 		<ticket points="11">
@@ -752,7 +752,7 @@
 		</ticket>
 		<ticket points="13">
 			<location ref="JAR" />
-			<location ref="BOM" />
+			<location ref="BMB" />
 		</ticket>
 		<ticket points="13">
 			<location ref="LAH" />

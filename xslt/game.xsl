@@ -506,31 +506,157 @@
             		</tr>
             	</xsl:for-each>
             </table>
+            <h2>By Total Tickets</h2>
+            <table>
+            	<tr>
+            		<th>Location</th>
+            		<th>Total Tickets</th>
+            		<th>Max Points</th>
+            		<th>Points per Ticket</th>
+            	</tr>
+            	<xsl:for-each-group select="$tickets" group-by="*[self::location or self::country]/@ref">
+            		<xsl:sort select="count(current-group())" data-type="number" order="descending" />
+            		<xsl:sort select="sum(current-group()/gw:getMaxPoints(self::ticket, current-grouping-key()))" data-type="number" order="descending" />
+            		<xsl:sort select="$destinations[@id = current-grouping-key()]/name" data-type="text" order="ascending" />
+            		<xsl:variable name="total-tickets" select="count(current-group())" />
+            		<xsl:variable name="max-points" select="sum(current-group()/gw:getMaxPoints(self::ticket, current-grouping-key()))" />
+            		<tr>
+            			<td>
+							<xsl:choose>
+								<xsl:when test="$destinations[@id = current-grouping-key()]">
+									<a href="location.xml?id={current-grouping-key()}"><xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" /></a>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="current-grouping-key()" />
+								</xsl:otherwise>
+							</xsl:choose>
+            			</td>
+            			<td><xsl:value-of select="$total-tickets" /></td>
+            			<td><xsl:value-of select="$max-points" /></td>
+            			<td><xsl:value-of select="format-number($max-points div $total-tickets, '0.#')" /></td>
+            		</tr>
+            	</xsl:for-each-group>
+            	<xsl:for-each select="ancestor::game[1]/map/locations/descendant::location[not(@id = $destinations/@id)][not(ancestor::country[1]/@id = $destinations/@id)]">
+            		<tr>
+            			<td>
+							<a href="location.xml?id={@id}"><xsl:apply-templates select="." mode="location.name" /></a>
+            			</td>
+            			<td>0</td>
+            			<td>0</td>
+            			<td>0</td>
+            		</tr>
+            	</xsl:for-each>
+            </table>
+            <h2>By Max Points</h2>
+            <table>
+            	<tr>
+            		<th>Location</th>
+            		<th>Max Points</th>
+            		<th>Points per Ticket</th>
+            		<th>Total Tickets</th>
+            	</tr>
+            	<xsl:for-each-group select="$tickets" group-by="*[self::location or self::country]/@ref">
+            		<xsl:sort select="sum(current-group()/gw:getMaxPoints(self::ticket, current-grouping-key()))" data-type="number" order="descending" />
+            		<xsl:sort select="count(current-group())" data-type="number" order="ascending" />
+            		<xsl:sort select="$destinations[@id = current-grouping-key()]/name" data-type="text" order="ascending" />
+            		<xsl:variable name="total-tickets" select="count(current-group())" />
+            		<xsl:variable name="max-points" select="sum(current-group()/gw:getMaxPoints(self::ticket, current-grouping-key()))" />
+            		<tr>
+            			<td>
+							<xsl:choose>
+								<xsl:when test="$destinations[@id = current-grouping-key()]">
+									<a href="location.xml?id={current-grouping-key()}"><xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" /></a>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="current-grouping-key()" />
+								</xsl:otherwise>
+							</xsl:choose>
+            			</td>
+            			<td><xsl:value-of select="$max-points" /></td>
+            			<td><xsl:value-of select="format-number($max-points div $total-tickets, '0.#')" /></td>
+            			<td><xsl:value-of select="$total-tickets" /></td>
+            		</tr>
+            	</xsl:for-each-group>
+            </table>
+            <h2>By Points per Ticket</h2>
+            <table>
+            	<tr>
+            		<th>Location</th>
+            		<th>Points per Ticket</th>
+            		<th>Total Tickets</th>
+            		<th>Max Points</th>
+            	</tr>
+            	<xsl:for-each-group select="$tickets" group-by="*[self::location or self::country]/@ref">
+            		<xsl:sort select="sum(current-group()/gw:getMaxPoints(self::ticket, current-grouping-key())) div count(current-group())" data-type="number" order="descending" />
+            		<xsl:sort select="count(current-group())" data-type="number" order="descending" />
+            		<xsl:sort select="sum(current-group()/gw:getMaxPoints(self::ticket, current-grouping-key()))" data-type="number" order="descending" />
+            		<xsl:sort select="$destinations[@id = current-grouping-key()]/name" data-type="text" order="ascending" />
+            		<xsl:variable name="total-tickets" select="count(current-group())" />
+            		<xsl:variable name="max-points" select="sum(current-group()/gw:getMaxPoints(self::ticket, current-grouping-key()))" />
+            		<tr>
+            			<td>
+							<xsl:choose>
+								<xsl:when test="$destinations[@id = current-grouping-key()]">
+									<a href="location.xml?id={current-grouping-key()}"><xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" /></a>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="current-grouping-key()" />
+								</xsl:otherwise>
+							</xsl:choose>
+            			</td>
+            			<td><xsl:value-of select="format-number($max-points div $total-tickets, '0.#')" /></td>
+            			<td><xsl:value-of select="$total-tickets" /></td>
+            			<td><xsl:value-of select="$max-points" /></td>
+            		</tr>
+            	</xsl:for-each-group>
+            </table>
+            <h2>By Type</h2>
             <ul>
             	<li>
-            		<h3>City-to-city</h3>
-            		<ul>
-		         		<xsl:for-each select="descendant::ticket[not(country)]">
-		         		    <xsl:sort select="@points" data-type="number" order="ascending" />
-		                    <li><xsl:apply-templates select="." mode="ticket.name"/></li>
-		                </xsl:for-each>   			
-            		</ul>
+            		<h3>Settlement-to-settlement</h3>
+            		<xsl:choose>
+            			<xsl:when test="descendant::ticket[not(country)]">
+	            			<ul>
+				         		<xsl:for-each select="descendant::ticket[not(country)]">
+				         		    <xsl:sort select="@points" data-type="number" order="ascending" />
+				                    <li><xsl:apply-templates select="." mode="ticket.name"/></li>
+				                </xsl:for-each>   			
+		            		</ul>
+            			</xsl:when>
+            			<xsl:otherwise>
+            				<p class="none">[none]</p>
+            			</xsl:otherwise>
+            		</xsl:choose>
             	</li>
             	<li>
-            		<h3>City-to-country</h3>
-            		<ul>
-		         		<xsl:for-each select="descendant::ticket[location][country]">
-		                    <li><xsl:apply-templates select="." mode="ticket.name"/></li>
-		                </xsl:for-each>   			
-            		</ul>
+            		<h3>Settlement-to-region</h3>
+            		<xsl:choose>
+            			<xsl:when test="descendant::ticket[location][country]">
+	            			<ul>
+				         		<xsl:for-each select="descendant::ticket[location][country]">
+				                    <li><xsl:apply-templates select="." mode="ticket.name"/></li>
+				                </xsl:for-each>   			
+		            		</ul>
+            			</xsl:when>
+            			<xsl:otherwise>
+            				<p class="none">[none]</p>
+            			</xsl:otherwise>
+            		</xsl:choose>
             	</li>
             	<li>
-            		<h3>Country-to-country</h3>
-            		<ul>
-		         		<xsl:for-each select="descendant::ticket[not(location)]">
-		                    <li><xsl:apply-templates select="." mode="ticket.name"/></li>
-		                </xsl:for-each>   			
-            		</ul>
+            		<h3>Region-to-region</h3>
+            		<xsl:choose>
+            			<xsl:when test="descendant::ticket[not(location)]">
+	            			<ul>
+				         		<xsl:for-each select="descendant::ticket[not(location)]">
+				                    <li><xsl:apply-templates select="." mode="ticket.name"/></li>
+				                </xsl:for-each>   			
+		            		</ul>
+            			</xsl:when>
+            			<xsl:otherwise>
+            				<p class="none">[none]</p>
+            			</xsl:otherwise>
+            		</xsl:choose>
             	</li>
             </ul>
         </div>
@@ -600,6 +726,58 @@
                 <xsl:value-of select="$colour-id"/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:function>
+    
+    <xsl:function name="gw:getMaxPoints" as="xs:integer">
+		<xsl:param name="ticket" as="element()" />
+		<xsl:param name="location-id" as="xs:string?" />    
+		
+		<xsl:choose>
+			<!-- Location is a settlement -->
+			<xsl:when test="$ticket/location[@ref = $location-id]">
+				<xsl:choose>
+					<!-- settlement to settlement -->
+					<xsl:when test="$ticket/@points">
+						<xsl:value-of select="$ticket/@points" />
+					</xsl:when>
+					<!-- settlement to region (location is starting point) -->
+					<xsl:when test="$ticket/location[@ref = $location-id][not(@points)]">
+						<!-- Find the destination with the highest points -->
+   		                <xsl:for-each select="$ticket/*[@points]">
+   		                    <xsl:sort select="@points" data-type="number" order="descending" />
+   		                    <xsl:if test="position() = 1">
+   		                        <xsl:value-of select="@points" />
+   		                    </xsl:if>
+   		                </xsl:for-each>
+					</xsl:when>
+					<!-- settlement to region (location is destination)  -->
+					<xsl:otherwise>
+						<xsl:value-of select="$ticket/location[@ref = $location-id]/@points" />
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:when>
+			<!-- Location is a region -->
+			<xsl:when test="$ticket/country[@ref = $location-id]">
+				<xsl:variable name="country-id" select="$location-id" />
+				<xsl:choose>
+					<!-- region to region (location is starting point) -->
+					<xsl:when test="$ticket/country[@ref = $country-id][not(@points)]">
+						<!-- Find the destination with the highest points -->
+   		                <xsl:for-each select="$ticket/*[@points]">
+   		                    <xsl:sort select="@points" data-type="number" order="descending" />
+   		                    <xsl:if test="position() = 1">
+   		                        <xsl:value-of select="@points" />
+   		                    </xsl:if>
+   		                </xsl:for-each>
+					</xsl:when>
+					<!-- region to region (location is destination) --> 
+					<xsl:otherwise>
+						<xsl:value-of select="$ticket/country[@ref = $country-id]/@points" />
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:when>
+			<xsl:otherwise>0</xsl:otherwise>
+		</xsl:choose>
     </xsl:function>
 
 

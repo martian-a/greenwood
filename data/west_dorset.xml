@@ -1,0 +1,219 @@
+<game id="WDR">
+    <title>West Dorset</title>
+    <map>
+        <locations>
+            <country id="WDO">
+                <name>West Dorset</name>
+                <location id="ABB">
+                    <name>Abbotsbury</name>
+                </location>
+                <location id="EGG">
+                    <name>Eggardon Hill</name>
+                </location>
+                <location id="BEA">
+                    <name>Beaminster</name>
+                </location>
+                <location id="BRI">
+                    <name>Bridport</name>
+                </location>
+                <location id="BRM">
+                    <name>Broadmayne</name>
+                </location>
+                <location id="BRW">
+                    <name>Broadwindsor</name>
+                </location>
+                <location id="LIT">
+                    <name>Litton Cheney</name>
+                </location>
+                <location id="BUR">
+                    <name>Burton Bradstock</name>
+                </location>
+                <location id="CAT">
+                    <name>Cattistock</name>
+                </location>
+                <location id="CER">
+                    <name>Cerne Abbas</name>
+                </location>
+                <location id="CHM">
+                    <name>Charminster</name>
+                </location>
+                <location id="CTH">
+                    <name>Charmouth</name>
+                </location>
+                <location id="CDK">
+                    <name>Chideock</name>
+                </location>
+                <location id="CRO">
+                    <name>Crossways</name>
+                </location>
+                <location id="DOR">
+                    <name>Dorchester</name>
+                </location>
+                <location id="DFC">
+                    <name>Dorchester FC</name>
+                </location>
+                <location id="SFD">
+                    <name>Stinsford Roundabout</name>
+                </location>
+                <location id="EVE">
+                    <name>Evershot</name>
+                </location>
+                <location id="FOR">
+                    <name>Fortuneswell</name>
+                </location>
+                <location id="GRI">
+                    <name>Grimstone</name>
+                </location>
+                <location id="HAL">
+                    <name>Halstock</name>
+                </location>
+                <location id="KIN">
+                    <name>Kingston Russell</name>
+                </location>
+                <location id="LYM">
+                    <name>Lyme Regis</name>
+                </location>
+                <location id="MAI">
+                    <name>Maiden Newton</name>
+                </location>
+                <location id="MEL">
+                    <name>Melplash</name>
+                </location>
+                <location id="MID">
+                    <name>Middlemarsh</name>
+                </location>
+                <location id="MIN">
+                    <name>Mintern Magna</name>
+                </location>
+                <location id="MON">
+                    <name>Monkton Wyld</name>
+                </location>
+                <location id="MOS">
+                    <name>Mosterton</name>
+                </location>
+                <location id="OSM">
+                    <name>Osmington Mills</name>
+                </location>
+                <location id="POU">
+                    <name>Poundbury</name>
+                </location>
+                <location id="POW">
+                    <name>Powerstock</name>
+                </location>
+                <location id="PUD">
+                	<name>Puddletown</name>
+                </location>
+                <location id="RAM">
+                    <name>Rampisham</name>
+                </location>
+                <location id="RYM">
+                    <name>Ryme Intrinseca</name>
+                </location>
+                <location id="BIS">
+                	<name>Bishop&apos;s Caundle</name>
+                </location>
+                <location id="SHE">
+                	<name>Sherborne</name>
+                </location>
+                <location id="UPL">
+                	<name>Uploaders</name>
+                </location>
+                <location id="UPW">
+                	<name>Upwey</name>
+                </location>
+                <location id="WBY">
+                	<name>West Bay</name>
+                </location>
+                <location id="WEY">
+                	<name>Weymouth</name>
+                </location>
+                <location id="WIN">
+                	<name>Winterbourne Abbas</name>
+                </location>
+                <location id="WYN">
+                	<name>Wynford Eagle</name>
+                </location>
+                <location id="YET">
+                	<name>Yetminster</name>
+                </location>
+            </country>
+            <country id="DEV">
+                <name>Devon</name>
+                <location id="AXE">
+                	<name>Axminster</name>
+                </location>
+                <location id="ULM">
+                	<name>Uplyme</name>
+                </location>
+                <location id="SEA">
+                	<name>Seaton</name>
+                </location>
+            </country>
+            <country id="SOM">
+                <name>Somerset</name>
+                <location id="CHD">
+                	<name>Chard</name>
+                </location>
+                <location id="CKN">
+                	<name>Crewkerne</name>
+                </location>
+                <location id="YEO">
+                	<name>Yeovil</name>
+                </location>
+            </country>
+            <country id="NOR">
+                <name>North Dorset</name>
+                <location id="STU">
+                	<name>Sturminster Newton</name>
+                </location>
+                <location id="HAZ">
+                    <name>Hazelbury Bryan</name>
+                </location>
+                <location id="MSA">
+                	<name>Milborne St Andrew</name>
+                </location>
+            </country>
+            <country id="PUR">
+                <name>Purbeck</name>
+                <location id="BER">
+                	<name>Bere Regis</name>
+                </location>
+                <location id="MOR">
+                	<name>Moreton</name>
+                </location>
+                <location id="WLU">
+                	<name>West Lulworth</name>
+                </location>
+            </country>
+        </locations>
+        <colours>
+            <colour id="RED">
+                <name>Red</name>
+            </colour>
+            <colour id="ORA">
+                <name>Orange</name>
+            </colour>
+            <colour id="YEL">
+                <name>Yellow</name>
+            </colour>
+            <colour id="GRN">
+                <name>Green</name>
+            </colour>
+            <colour id="BLU">
+                <name>Blue</name>
+            </colour>
+            <colour id="VIO">
+                <name>Pink</name>
+            </colour>
+            <colour id="WHI">
+                <name>White</name>
+            </colour>
+            <colour id="BLA">
+                <name>Black</name>
+            </colour>
+            <colour id="GRY">
+                <name>Grey</name>
+            </colour>
+        </colours>
+    </map>
+</game>

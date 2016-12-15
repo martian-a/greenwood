@@ -69,7 +69,7 @@ function loc:get-connections($id as xs:string) as item() {
             let $terminus-id := string($route/location/@ref[. != $id])
             let $location := loc:get-location($terminus-id)
             return
-                <location id="{$location/@id}" length="{$route/@length}" tunnel="{boolean($route/@tunnel)}">
+                <location id="{$location/@id}" length="{$route/@length}" tunnel="{boolean($route/@tunnel)}" ferry="{if ($route/@ferry > 0) then ($route/@ferry) else 0}">
                     <name>{$location/name}</name>
                     {
                         for $colour-id in $route/(@colour | colour/@ref)

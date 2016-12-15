@@ -64,6 +64,7 @@
                 <th>Double</th>
                 <th>Colours</th>
                 <th>Tunnel</th>
+                <th>Ferries</th>
             </tr>
             <xsl:apply-templates select="location" mode="connections"/>
         </table>
@@ -86,6 +87,9 @@
             </td>
             <td>
                 <xsl:value-of select="@tunnel"/>
+            </td>
+            <td>
+            	<xsl:value-of select="if (@ferry > 0) then @ferry else 0" />
             </td>
         </tr>
     </xsl:template>

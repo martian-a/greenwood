@@ -533,4 +533,238 @@
             </colour>
         </colours>
     </map>
+	<tickets>
+		<ticket points="5">
+			<location ref="KAT" />
+			<location ref="KHA" />
+		</ticket>
+		<ticket points="5">
+			<location ref="BIL" />
+			<location ref="DHU" />
+		</ticket>
+		<ticket points="5">
+			<location ref="KAT" />
+			<location ref="WAL" />
+		</ticket>
+		<ticket points="5">
+			<location ref="JOD" />
+			<location ref="KHA" />
+		</ticket>
+		<ticket points="5">
+			<location ref="RAI" />
+			<location ref="MAN" />
+		</ticket>
+		<ticket points="5">
+			<location ref="BAR" />
+			<location ref="AHM" />
+		</ticket>
+		<ticket points="5">
+			<location ref="JAI" />
+			<location ref="PAT" />
+		</ticket>
+		<ticket points="5">
+			<location ref="JAI" />
+			<location ref="PNA" />
+		</ticket>
+		<ticket points="5">
+			<location ref="BOM" />
+			<location ref="BEZ" />
+		</ticket>
+		<ticket points="5">
+			<location ref="LAH" />
+			<location ref="DHL" />
+		</ticket>
+		<ticket points="5">
+			<location ref="JOD" />
+			<location ref="LUC" />
+		</ticket>
+		<ticket points="5">
+			<location ref="BHO" />
+			<location ref="MMG" />
+		</ticket>
+		<ticket points="5">
+			<location ref="JAI" />
+			<location ref="RAI" />
+		</ticket>
+		<ticket points="5">
+			<location ref="AMB" />
+			<location ref="RAT" />
+		</ticket>
+		<ticket points="6">
+			<location ref="WAL" />
+			<location ref="MGL" />
+		</ticket>
+		<ticket points="6">
+			<location ref="BAR" />
+			<location ref="CTA" />
+		</ticket>
+		<ticket points="6">
+			<location ref="BOM" />
+			<location ref="QUI" />
+		</ticket>
+		<ticket points="6">
+			<location ref="KAR" />
+			<location ref="AHM" />
+		</ticket>
+		<ticket points="6">
+			<location ref="BHO" />
+			<location ref="CTA" />
+		</ticket>
+		<ticket points="6">
+			<location ref="MAD" />
+			<location ref="QUI" />
+		</ticket>
+		<ticket points="7">
+			<location ref="MAN" />
+			<location ref="ERO" />
+		</ticket>
+		<ticket points="7">
+			<location ref="AHM" />
+			<location ref="CAL" />
+		</ticket>
+		<ticket points="7">
+			<location ref="KAR" />
+			<location ref="PNA" />
+		</ticket>
+		<ticket points="7">
+			<location ref="RAI" />
+			<location ref="GUN" />
+		</ticket>
+		<ticket points="7">
+			<location ref="LUC" />
+			<location ref="BOM" />
+		</ticket>
+		<ticket points="7">
+			<location ref="BHA" />
+			<location ref="BIL" />
+		</ticket>
+		<ticket points="7">
+			<location ref="ROH" />
+			<location ref="AGR" />
+		</ticket>
+		<ticket points="7">
+			<location ref="KAR" />
+			<location ref="DHL" />
+		</ticket>
+		<ticket points="8">
+			<location ref="KAT" />
+			<location ref="WAD" />
+		</ticket>
+		<ticket points="8">
+			<location ref="CTA" />
+			<location ref="IND" />
+		</ticket>
+		<ticket points="8">
+			<location ref="AGR" />
+			<location ref="JAR" />
+		</ticket>
+		<ticket points="8">
+			<location ref="RAT" />
+			<location ref="BEZ" />
+		</ticket>
+		<ticket points="9">
+			<location ref="DHL" />
+			<location ref="CHI" />
+		</ticket>
+		<ticket points="9">
+			<location ref="BHA" />
+			<location ref="MAN" />
+		</ticket>
+		<ticket points="9">
+			<location ref="JAC" />
+			<location ref="RAT" />
+		</ticket>
+		<ticket points="9">
+			<location ref="AHM" />
+			<location ref="WAL" />
+		</ticket>
+		<ticket points="9">
+			<location ref="JOD" />
+			<location ref="GUN" />
+		</ticket>
+		<ticket points="9">
+			<location ref="PSH" />
+			<location ref="BHO" />
+		</ticket>
+		<ticket points="9">
+			<location ref="DEL" />
+			<location ref="IND" />
+		</ticket>
+		<ticket points="9">
+			<location ref="CTA" />
+			<location ref="ERO" />
+		</ticket>
+		<ticket points="9">
+			<location ref="PAT" />
+			<location ref="MAD" />
+		</ticket>
+		<ticket points="10">
+			<location ref="PAT" />
+			<location ref="MMG" />
+		</ticket>
+		<ticket points="10">
+			<location ref="JAC" />
+			<location ref="BOM" />
+		</ticket>
+		<ticket points="10">
+			<location ref="AMB" />
+			<location ref="MMG" />
+		</ticket>
+		<ticket points="10">
+			<location ref="KHA" />
+			<location ref="CHI" />
+		</ticket>
+		<ticket points="10">
+			<location ref="BAR" />
+			<location ref="GUN" />
+		</ticket>
+		<ticket points="10">
+			<location ref="BIL" />
+			<location ref="CAL" />
+		</ticket>
+		<ticket points="11">
+			<location ref="DEL" />
+			<location ref="CAL" />
+		</ticket>
+		<ticket points="11">
+			<location ref="LUC" />
+			<location ref="ERO" />
+		</ticket>
+		<ticket points="11">
+			<location ref="CHI" />
+			<location ref="WAD" />
+		</ticket>
+		<ticket points="12">
+			<location ref="DHU" />
+			<location ref="MGL" />
+		</ticket>
+		<ticket points="12">
+			<location ref="LAH" />
+			<location ref="DHU" />
+		</ticket>
+		<ticket points="12">
+			<location ref="ROH" />
+			<location ref="MGL" />
+		</ticket>
+		<ticket points="13">
+			<location ref="JAC" />
+			<location ref="CTA" />
+		</ticket>
+		<ticket points="13">
+			<location ref="JAR" />
+			<location ref="BOM" />
+		</ticket>
+		<ticket points="13">
+			<location ref="LAH" />
+			<location ref="WAD" />
+		</ticket>
+		<ticket points="13">
+			<location ref="BHA" />
+			<location ref="BEZ" />
+		</ticket>
+		<ticket points="17">
+			<location ref="PSH" />
+			<location ref="MAD" />
+		</ticket>
+	</tickets>
 </game>

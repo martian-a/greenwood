@@ -1,0 +1,536 @@
+<?xml version="1.0"?>
+<!DOCTYPE game SYSTEM "game.dtd">
+<game id="GINDIA">
+    <title>India</title>
+    <map>
+        <locations>
+            <country id="CIND">
+                <name>India</name>
+                <location id="PSH">
+                    <name>Peshawar</name>
+                </location>
+                <location id="LAH">
+                    <name>Lahore</name>
+                </location>
+                <location id="JAC">
+                    <name>Jacobabad</name>
+                </location>
+                <location id="BHA">
+                    <name>Bhatinda</name>
+                </location>
+                <location id="AMB">
+                    <name>Ambala</name>
+                </location>
+                <location id="ROH">
+                    <name>Rohri</name>
+                </location>
+                <location id="DHL">
+                    <name>Delhi</name>
+                </location>
+                <location id="JOD">
+                    <name>Jodhpur</name>
+                </location>
+                <location id="KAR">
+                    <name>Karachi</name>
+                </location>
+                <location id="JAI">
+                    <name>Jaipur</name>
+                </location>
+                <location id="AGR">
+                    <name>Agra</name>
+                </location>
+                <location id="RAT">
+                    <name>Ratiam</name>
+                </location>
+                <location id="AHM">
+                    <name>Ahmadabad</name>
+                </location>
+                <location id="BHO">
+                    <name>Bhopal</name>
+                </location>
+                <location id="KHA">
+                    <name>Khandwa</name>
+                </location>
+                <location id="MAN">
+                    <name>Manmad</name>
+                </location>
+                <location id="BMB">
+                    <name>Bombay</name>
+                </location>
+                <location id="PNA">
+                    <name>Poona</name>
+                </location>
+                <location id="WAD">
+                    <name>Wadi</name>
+                </location>
+                <location id="MMG">
+                    <name>Mormugau</name>
+                </location>
+                <location id="GUN">
+                    <name>Guntakal</name>
+                </location>
+                <location id="MGL">
+                    <name>Mangalore</name>
+                </location>
+                <location id="CAL">
+                    <name>Calicut</name>
+                </location>
+                <location id="QUI">
+                    <name>Quilon</name>
+                </location>
+                <location id="BEZ">
+                    <name>Bezwada</name>
+                </location>
+                <location id="RAI">
+                    <name>Raipur</name>
+                </location>
+                <location id="BAR">
+                    <name>Bareilly</name>
+                </location>
+                <location id="LUC">
+                    <name>Lucknow</name>
+                </location>
+                <location id="KAT">
+                    <name>Katni</name>
+                </location>
+                <location id="PAT">
+                    <name>Patna</name>
+                </location>
+                <location id="JAR">
+                    <name>Jarhat</name>
+                </location>
+                <location id="DHU">
+                    <name>Dhubri</name>
+                </location>
+                <location id="CHI">
+                	<name>Chittagong</name>
+                </location>
+                <location id="CTA">
+                    <name>Calcutta</name>
+                </location>
+                <location id="BIL">
+                    <name>Bilaspur</name>
+                </location>
+                <location id="WAL">
+                	<name>Waltain</name>
+                </location>
+                <location id="MAD">
+                	<name>Madras</name>
+                </location>
+                <location id="ERO">
+                	<name>Erode</name>
+                </location>
+                <location id="IND">
+                	<name>Indur</name>
+                </location>
+            </country>
+        </locations>
+        <routes>
+            <route length="1">
+                <location ref="PSH"/>
+                <location ref="LAH"/>
+                <colour ref="VIO" />
+                <colour ref="GRN" />
+            </route>
+            <route length="3">
+                <location ref="PSH"/>
+                <location ref="JAC"/>
+                <colour ref="ORA"/>
+                <colour ref="YEL"/>
+            </route>
+            <route length="4" colour="BLA">
+                <location ref="LAH"/>
+                <location ref="AMB"/>
+            </route>
+            <route length="2">
+                <location ref="LAH"/>
+                <location ref="BHA"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="3" colour="RED">
+                <location ref="LAH"/>
+                <location ref="JAC"/>
+            </route>
+            <route length="2">
+                <location ref="AMB"/>
+                <location ref="BHA"/>
+                <colour ref="WHI"/>
+                <colour ref="YEL"/>
+            </route>
+            <route length="2" colour="ORA">
+                <location ref="AMB"/>
+                <location ref="BAR"/>
+            </route>
+            <route length="1" colour="GRY">
+                <location ref="BAR"/>
+                <location ref="LUC"/>
+            </route>
+            <route length="4" colour="GRN">
+                <location ref="BAR"/>
+                <location ref="PAT"/>
+            </route>
+            <route length="2">
+                <location ref="PAT"/>
+                <location ref="DHU"/>
+                <colour ref="BLU"/>
+                <colour ref="RED"/>
+            </route>
+            <route length="2" colour="VIO">
+                <location ref="PAT"/>
+                <location ref="CTA"/>
+            </route>
+            <route length="2">
+                <location ref="PAT"/>
+                <location ref="KAT"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="2">
+                <location ref="DHU"/>
+                <location ref="JAR"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="2" colour="WHI">
+                <location ref="DHU"/>
+                <location ref="CHI"/>
+            </route>
+            <route length="3" colour="GRY">
+                <location ref="JAR"/>
+                <location ref="CHI"/>
+            </route>
+            <route length="2" ferry="1">
+                <location ref="CHI"/>
+                <location ref="CTA"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="4" colour="YEL">
+                <location ref="CTA"/>
+                <location ref="BIL"/>
+            </route>
+            <route length="4" colour="BLU">
+                <location ref="CTA"/>
+                <location ref="RAI"/>
+            </route>
+            <route length="4" colour="RED">
+                <location ref="CTA"/>
+                <location ref="WAL"/>
+            </route>
+            <route length="8" colour="GRY" ferry="2">
+                <location ref="CTA"/>
+                <location ref="MAD"/>
+            </route>
+            <route length="4">
+                <location ref="RAI"/>
+                <location ref="WAL"/>
+                <colour ref="GRN"/>
+                <colour ref="WHI"/>
+            </route>
+            <route length="2">
+                <location ref="WAL"/>
+                <location ref="BEZ"/>
+                <colour ref="BLA"/>
+                <colour ref="ORA"/>
+            </route>
+            <route length="3" colour="YEL">
+                <location ref="WAL"/>
+                <location ref="MAD"/>
+            </route>
+            <route length="2">
+                <location ref="BEZ"/>
+                <location ref="IND"/>
+                <colour ref="GRN"/>
+                <colour ref="YEL"/>
+            </route>
+            <route length="1" colour="RED">
+                <location ref="BEZ"/>
+                <location ref="MAD"/>
+            </route>
+            <route length="2" colour="BLU">
+                <location ref="BEZ"/>
+                <location ref="GUN"/>
+            </route>
+            <route length="2">
+                <location ref="MAD"/>
+                <location ref="ERO"/>
+                <colour ref="GRN"/>
+                <colour ref="ORA"/>
+            </route>
+            <route length="4" colour="VIO">
+                <location ref="MAD"/>
+                <location ref="MGL"/>
+            </route>
+            <route length="2" colour="WHI">
+                <location ref="MAD"/>
+                <location ref="GUN"/>
+            </route>
+            <route length="3">
+                <location ref="ERO"/>
+                <location ref="CAL"/>
+                <colour ref="RED"/>
+                <colour ref="BLU"/>
+            </route>
+            <route length="4" colour="GRY">
+                <location ref="ERO"/>
+                <location ref="QUI"/>
+            </route>
+            <route length="2" ferry="1">
+                <location ref="QUI"/>
+                <location ref="CAL"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="2">
+                <location ref="CAL"/>
+                <location ref="MGL"/>
+                <colour ref="YEL"/>
+                <colour ref="WHI"/>
+            </route>
+            <route length="6" colour="GRY" ferry="2">
+                <location ref="CAL"/>
+                <location ref="BMB"/>
+            </route>
+            <route length="2" colour="GRY">
+                <location ref="MGL"/>
+                <location ref="GUN"/>
+            </route>
+            <route length="2" colour="BLA">
+                <location ref="MGL"/>
+                <location ref="MMG"/>
+            </route>
+            <route length="2" colour="RED">
+                <location ref="MMG"/>
+                <location ref="GUN"/>
+            </route>
+            <route length="2" colour="GRY">
+                <location ref="MMG"/>
+                <location ref="WAD"/>
+            </route>
+            <route length="1">
+                <location ref="GUN"/>
+                <location ref="WAD"/>
+                <colour ref="VIO" />
+                <colour ref="BLA" />
+            </route>
+            <route length="2" colour="GRY">
+                <location ref="IND"/>
+                <location ref="WAD"/>
+            </route>
+            <route length="1" colour="ORA">
+                <location ref="PNA"/>
+                <location ref="WAD"/>
+            </route>
+            <route length="1" colour="GRY">
+                <location ref="MMG"/>
+                <location ref="PNA"/>
+            </route>
+            <route length="1" colour="GRN">
+                <location ref="MMG"/>
+                <location ref="BMB"/>
+            </route>
+            <route length="1" colour="BLU">
+                <location ref="BMB"/>
+                <location ref="PNA"/>
+            </route>
+            <route length="1" colour="BLA">
+                <location ref="BMB"/>
+                <location ref="MAN"/>
+            </route>
+            <route length="3" colour="WHI">
+                <location ref="BMB"/>
+                <location ref="AHM"/>
+            </route>
+            <route length="6" ferry="2">
+                <location ref="BMB"/>
+                <location ref="KAR"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="2" colour="YEL">
+                <location ref="AHM"/>
+                <location ref="KHA"/>
+            </route>
+            <route length="1" colour="GRN">
+                <location ref="AHM"/>
+                <location ref="RAT"/>
+            </route>
+            <route length="3">
+                <location ref="AHM"/>
+                <location ref="JOD"/>
+                <colour ref="BLA"/>
+                <colour ref="VIO"/>
+            </route>
+            <route length="2" colour="RED">
+                <location ref="JOD"/>
+                <location ref="JAI"/>
+            </route>
+            <route length="3" colour="GRN">
+                <location ref="JOD"/>
+                <location ref="BHA"/>
+            </route>
+            <route length="3" colour="ORA">
+                <location ref="JOD"/>
+                <location ref="KAR"/>
+            </route>
+            <route length="3" colour="BLA">
+                <location ref="KAR"/>
+                <location ref="ROH"/>
+            </route>
+            <route length="4" colour="WHI">
+                <location ref="KAR"/>
+                <location ref="JAC"/>
+            </route>
+            <route length="2">
+                <location ref="JAC"/>
+                <location ref="ROH"/>
+                <colour ref="GRN"/>
+                <colour ref="BLU"/>
+            </route>
+            <route length="2" colour="VIO">
+                <location ref="BHA"/>
+                <location ref="ROH"/>
+            </route>
+            <route length="2">
+                <location ref="JAI"/>
+                <location ref="AGR"/>
+                <colour ref="BLU"/>
+                <colour ref="WHI"/>
+            </route>
+            <route length="2">
+                <location ref="JAI"/>
+                <location ref="RAT"/>
+                <colour ref="ORA"/>
+                <colour ref="YEL"/>
+            </route>
+            <route length="1">
+            	<location ref="LUC" />
+            	<location ref="KAT" />
+            	<colour ref="BLA" />
+            	<colour ref="BLU" />
+            </route>
+            <route length="2" colour="GRN">
+            	<location ref="LUC" />
+            	<location ref="AGR" />
+            </route>
+            <route length="2" colour="YEL">
+            	<location ref="LUC" />
+            	<location ref="DHL" />
+            </route>
+            <route length="3" colour="BLU">
+                <location ref="BHA"/>
+                <location ref="DHL"/>
+            </route>
+            <route length="1" colour="WHI">
+                <location ref="BAR"/>
+                <location ref="DHL"/>
+            </route>
+            <route length="2">
+                <location ref="AMB"/>
+                <location ref="DHL"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="2" colour="VIO">
+                <location ref="JAI"/>
+                <location ref="DHL"/>
+            </route>
+            <route length="2" colour="ORA">
+                <location ref="AGR"/>
+                <location ref="DHL"/>
+            </route>
+            <route length="2" colour="GRN">
+                <location ref="AGR"/>
+                <location ref="KAT"/>
+            </route>
+            <route length="2">
+                <location ref="AGR"/>
+                <location ref="BHO"/>
+                <colour ref="VIO"/>
+                <colour ref="RED"/>
+            </route>
+            <route length="2" colour="BLA">
+                <location ref="RAT"/>
+                <location ref="BHO"/>
+            </route>
+            <route length="2" colour="GRY">
+                <location ref="RAT"/>
+                <location ref="KHA"/>
+            </route>
+            <route length="2">
+                <location ref="BIL"/>
+                <location ref="BHO"/>
+                <colour ref="GRY"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="2" colour="BLU">
+                <location ref="KHA"/>
+                <location ref="BHO"/>
+            </route>
+            <route length="4" colour="ORA">
+                <location ref="KHA"/>
+                <location ref="RAI"/>
+            </route>
+            <route length="1" colour="RED">
+                <location ref="KHA"/>
+                <location ref="MAN"/>
+            </route>
+            <route length="3" colour="VIO">
+                <location ref="MAN"/>
+                <location ref="IND"/>
+            </route>
+            <route length="1" colour="GRY">
+                <location ref="MAN"/>
+                <location ref="PNA"/>
+            </route>
+            <route length="2">
+                <location ref="CTA"/>
+                <location ref="DHU"/>
+                <colour ref="GRY" />
+                <colour ref="GRY" />
+            </route>
+            <route length="1">
+                <location ref="KAT"/>
+                <location ref="BIL"/>
+                <colour ref="VIO" />
+                <colour ref="WHI" />
+            </route>
+            <route length="1">
+                <location ref="RAI"/>
+                <location ref="BIL"/>
+                <colour ref="RED" />
+                <colour ref="BLA" />
+            </route>
+        </routes>
+        <colours>
+            <colour id="RED">
+                <name>Red</name>
+            </colour>
+            <colour id="ORA">
+                <name>Orange</name>
+            </colour>
+            <colour id="YEL">
+                <name>Yellow</name>
+            </colour>
+            <colour id="GRN">
+                <name>Green</name>
+            </colour>
+            <colour id="BLU">
+                <name>Blue</name>
+            </colour>
+            <colour id="VIO">
+                <name>Pink</name>
+            </colour>
+            <colour id="WHI">
+                <name>White</name>
+            </colour>
+            <colour id="BLA">
+                <name>Black</name>
+            </colour>
+            <colour id="GRY">
+                <name>Grey</name>
+            </colour>
+        </colours>
+    </map>
+</game>

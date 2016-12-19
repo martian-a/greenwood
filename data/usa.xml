@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<!DOCTYPE game SYSTEM "game.dtd">
+<game id="GUSA">
+	<title>USA</title>
+	<map>
+		<locations>
+			<country id="CAN">
+				<location id="VAN">
+					<name>Vancouver</name>
+				</location>
+				<location id="CGY">
+					<name>Calgary</name>
+				</location>
+				<location id="WIN">
+					<name>Winnipeg</name>
+				</location>
+				<location id="TOR">
+					<name>Toronto</name>
+				</location>
+				<location id="MON">
+					<name>Montréal</name>
+				</location>
+				<location id="SAU">
+					<name>Sault St Marie</name>
+				</location>
+			</country>
+			<country id="USA">
+				<location id="SEA">
+					<name>Seattle</name>
+				</location>
+				<location id="HEL">
+					<name>Helena</name>
+				</location>
+				<location id="POR">
+					<name>Portland</name>
+				</location>
+				<location id="SFR">
+					<name>San Francisco</name>
+				</location>
+				<location id="LOS">
+					<name>Los Angeles</name>
+				</location>
+				<location id="PHO">
+					<name>Phoenix</name>
+				</location>
+				<location id="LAS">
+					<name>Las Vegas</name>
+				</location>
+				<location id="SLC">
+					<name>Salt Lake City</name>
+				</location>
+				<location id="SFE">
+					<name>Santa Fe</name>
+				</location>
+				<location id="ELP">
+					<name>El Paso</name>
+				</location>
+				<location id="DEN">
+					<name>Denver</name>
+				</location>
+				<location id="OKL">
+					<name>Oklahoma City</name>
+				</location>
+				<location id="DUL">
+					<name>Duluth</name>
+				</location>
+				<location id="OMA">
+					<name>Omaha</name>
+				</location>
+				<location id="KAN">
+					<name>Kansas City</name>
+				</location>
+				<location id="DAL">
+					<name>Dallas</name>
+				</location>
+				<location id="HOU">
+					<name>Houston</name>
+				</location>
+				<location id="NOL">
+					<name>New Orleans</name>
+				</location>
+				<location id="LRK">
+					<name>Little Rock</name>
+				</location>
+				<location id="STL">
+					<name>Saint Louis</name>
+				</location>
+				<location id="CCG">
+					<name>Chicago</name>
+				</location>
+				<location id="PIT">
+					<name>Pittsburgh</name>
+				</location>
+				<location id="BOS">
+					<name>Boston</name>
+				</location>
+				<location id="NYC">
+					<name>New York</name>
+				</location>
+				<location id="WAS">
+					<name>Washington</name>
+				</location>
+				<location id="RAL">
+					<name>Raleigh</name>
+				</location>
+				<location id="NAS">
+					<name>Nashville</name>
+				</location>
+				<location id="ATL">
+					<name>Atlanta</name>
+				</location>
+				<location id="CHA">
+					<name>Charleston</name>
+				</location>
+				<location id="MIA">
+					<name>Miami</name>
+				</location>
+			</country>
+		</locations>
+		<routes>
+			<route length="1">
+				<location ref="VAN" />
+				<location ref="SEA" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="VAN" />
+				<location ref="CGY" />
+			</route>
+			<route length="4" colour="GRY">
+				<location ref="CGY" />
+				<location ref="SEA" />
+			</route>
+			<route length="1">
+				<location ref="SEA" />
+				<location ref="POR" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="6" colour="YEL">
+				<location ref="SEA" />
+				<location ref="HEL" />
+			</route>
+			<route length="6" colour="BLU">
+				<location ref="POR" />
+				<location ref="SLC" />
+			</route>
+			<route length="5">
+				<location ref="POR" />
+				<location ref="SFR" />
+				<colour ref="VIO" />
+				<colour ref="GRN" />
+			</route>
+			<route length="3">
+				<location ref="SFR" />
+				<location ref="LOS" />
+				<colour ref="VIO" />
+				<colour ref="YEL" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="LOS" />
+				<location ref="LAS" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="LOS" />
+				<location ref="PHO" />
+			</route>
+			<route length="3" colour="ORA">
+				<location ref="LAS" />
+				<location ref="SLC" />
+			</route>
+			<route length="3" colour="VIO">
+				<location ref="SLC" />
+				<location ref="HEL" />
+			</route>
+			<route length="4" colour="GRY">
+				<location ref="CGY" />
+				<location ref="HEL" />
+			</route>
+			<route length="6" colour="WHI">
+				<location ref="CGY" />
+				<location ref="WIN" />
+			</route>
+			<route length="6" colour="BLA">
+				<location ref="LOS" />
+				<location ref="ELP" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="PHO" />
+				<location ref="SFE" />
+			</route>
+			<route length="5" colour="WHI">
+				<location ref="PHO" />
+				<location ref="DEN" />
+			</route>
+			<route length="4" colour="GRN">
+				<location ref="HEL" />
+				<location ref="DEN" />
+			</route>
+			<route length="3">
+				<location ref="SLC" />
+				<location ref="DEN" />
+				<colour ref="RED" />
+				<colour ref="YEL" />
+			</route>
+			<route length="4" colour="BLU">
+				<location ref="HEL" />
+				<location ref="WIN" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="DEN" />
+				<location ref="SFE" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="ELP" />
+				<location ref="SFE" />
+			</route>
+			<route length="6" colour="GRN">
+				<location ref="ELP" />
+				<location ref="HOU" />
+			</route>
+			<route length="4" colour="RED">
+				<location ref="ELP" />
+				<location ref="DAL" />
+			</route>
+			<route length="5" colour="YEL">
+				<location ref="ELP" />
+				<location ref="OKL" />
+			</route>
+			<route length="3" colour="BLU">
+				<location ref="SFE" />
+				<location ref="OKL" />
+			</route>
+			<route length="4" colour="RED">
+				<location ref="DEN" />
+				<location ref="OKL" />
+			</route>
+			<route length="4">
+				<location ref="DEN" />
+				<location ref="KAN" />
+				<colour ref="BLA" />
+				<colour ref="ORA" />
+			</route>
+			<route length="4" colour="VIO">
+				<location ref="DEN" />
+				<location ref="OMA" />
+			</route>
+			<route length="5" colour="RED">
+				<location ref="HEL" />
+				<location ref="OMA" />
+			</route>
+			<route length="6" colour="ORA">
+				<location ref="HEL" />
+				<location ref="DUL" />
+			</route>
+			<route length="4" colour="BLA">
+				<location ref="WIN" />
+				<location ref="DUL" />
+			</route>
+			<route length="6" colour="GRY">
+				<location ref="WIN" />
+				<location ref="SAU" />
+			</route>
+			<route length="5" colour="BLA">
+				<location ref="SAU" />
+				<location ref="MON" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="DUL" />
+				<location ref="SAU" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="SAU" />
+				<location ref="TOR" />
+			</route>
+			<route length="6" colour="VIO">
+				<location ref="DUL" />
+				<location ref="TOR" />
+			</route>
+			<route length="3" colour="RED">
+				<location ref="DUL" />
+				<location ref="CCG" />
+			</route>
+			<route length="4" colour="BLU">
+				<location ref="OMA" />
+				<location ref="CCG" />
+			</route>
+			<route length="4" colour="WHI">
+				<location ref="TOR" />
+				<location ref="CCG" />
+			</route>
+			<route length="2">
+				<location ref="CCG" />
+				<location ref="STL" />
+				<colour ref="GRN" />
+				<colour ref="WHI" />
+			</route>
+			<route length="3">
+				<location ref="CCG" />
+				<location ref="PIT" />
+				<colour ref="ORA" />
+				<colour ref="BLA" />
+			</route>
+			<route length="2">
+				<location ref="KAN" />
+				<location ref="STL" />
+				<colour ref="BLU" />
+				<colour ref="VIO" />
+			</route>
+			<route length="2">
+				<location ref="DUL" />
+				<location ref="OMA" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2">
+				<location ref="KAN" />
+				<location ref="OMA" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2">
+				<location ref="KAN" />
+				<location ref="OKL" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2">
+				<location ref="OKL" />
+				<location ref="DAL" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="1">
+				<location ref="DAL" />
+				<location ref="HOU" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="HOU" />
+				<location ref="NOL" />
+			</route>
+			<route length="3" colour="GRN">
+				<location ref="NOL" />
+				<location ref="LRK" />
+			</route>
+			<route length="6" colour="RED">
+				<location ref="NOL" />
+				<location ref="MIA" />
+			</route>
+			<route length="5" colour="BLU">
+				<location ref="MIA" />
+				<location ref="ATL" />
+			</route>
+			<route length="4">
+				<location ref="NOL" />
+				<location ref="ATL" />
+				<colour ref="YEL" />
+				<colour ref="ORA" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="ATL" />
+				<location ref="NAS" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="ATL" />
+				<location ref="CHA" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="RAL" />
+				<location ref="CHA" />
+			</route>
+			<route length="2">
+				<location ref="ATL" />
+				<location ref="RAL" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2">
+				<location ref="WAS" />
+				<location ref="RAL" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2">
+				<location ref="MON" />
+				<location ref="BOS" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2">
+				<location ref="BOS" />
+				<location ref="NYC" />
+				<colour ref="YEL" />
+				<colour ref="RED" />
+			</route>
+			<route length="2">
+				<location ref="NYC" />
+				<location ref="PIT" />
+				<colour ref="GRN" />
+				<colour ref="WHI" />
+			</route>
+			<route length="2">
+				<location ref="NYC" />
+				<location ref="WAS" />
+				<colour ref="BLA" />
+				<colour ref="ORA" />
+			</route>
+			<route length="3" colour="BLA">
+				<location ref="NAS" />
+				<location ref="RAL" />
+			</route>
+			<route length="4" colour="YEL">
+				<location ref="NAS" />
+				<location ref="PIT" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="TOR" />
+				<location ref="PIT" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="TOR" />
+				<location ref="MON" />
+			</route>
+			<route length="3" colour="BLU">
+				<location ref="MON" />
+				<location ref="NYC" />
+			</route>
+			<route length="4" colour="VIO">
+				<location ref="MIA" />
+				<location ref="CHA" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="LRK" />
+				<location ref="DAL" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="LRK" />
+				<location ref="OKL" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="LRK" />
+				<location ref="STL" />
+			</route>
+			<route length="3" colour="WHI">
+				<location ref="LRK" />
+				<location ref="NAS" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="RAL" />
+				<location ref="PIT" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="WAS" />
+				<location ref="PIT" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="PHO" />
+				<location ref="ELP" />
+			</route>
+			<route length="5">
+				<location ref="SFR" />
+				<location ref="SLC" />
+				<colour ref="WHI" />
+				<colour ref="ORA" />
+			</route>
+			<route length="5" colour="GRN">
+				<location ref="STL" />
+				<location ref="PIT" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="STL" />
+				<location ref="NAS" />
+			</route>
+		</routes>
+		<colours>
+            <colour id="RED">
+                <name>Red</name>
+            </colour>
+            <colour id="ORA">
+                <name>Orange</name>
+            </colour>
+            <colour id="YEL">
+                <name>Yellow</name>
+            </colour>
+            <colour id="GRN">
+                <name>Green</name>
+            </colour>
+            <colour id="BLU">
+                <name>Blue</name>
+            </colour>
+            <colour id="VIO">
+                <name>Pink</name>
+            </colour>
+            <colour id="WHI">
+                <name>White</name>
+            </colour>
+            <colour id="BLA">
+                <name>Black</name>
+            </colour>
+            <colour id="GRY">
+                <name>Grey</name>
+            </colour>
+        </colours>
+	</map>
+	<tickets>
+		<ticket points="4">
+			<location ref="DEN" />
+			<location ref="ELP" />
+		</ticket>
+		<ticket points="5">
+			<location ref="KAN" />
+			<location ref="HOU" />
+		</ticket>
+		<ticket points="6">
+			<location ref="NYC" />
+			<location ref="ATL" />
+		</ticket>
+		<ticket points="7">
+			<location ref="CGY" />
+			<location ref="SLC" />
+		</ticket>
+		<ticket points="7">
+			<location ref="CCG" />
+			<location ref="NOL" />
+		</ticket>
+		<ticket points="8">
+			<location ref="DUL" />
+			<location ref="HOU" />
+		</ticket>
+		<ticket points="8">
+			<location ref="SAU" />
+			<location ref="NAS" />
+		</ticket>
+		<ticket points="8">
+			<location ref="HEL" />
+			<location ref="LOS" />
+		</ticket>
+		<ticket points="9">
+			<location ref="SEA" />
+			<location ref="LOS" />
+		</ticket>
+		<ticket points="9">
+			<location ref="CCG" />
+			<location ref="SFE" />
+		</ticket>
+		<ticket points="9">
+			<location ref="SAU" />
+			<location ref="OKL" />
+		</ticket>
+		<ticket points="9">
+			<location ref="MON" />
+			<location ref="ATL" />
+		</ticket>
+		<ticket points="10">
+			<location ref="DUL" />
+			<location ref="ELP" />
+		</ticket>
+		<ticket points="10">
+			<location ref="TOR" />
+			<location ref="MIA" />
+		</ticket>
+		<ticket points="11">
+			<location ref="WIN" />
+			<location ref="LRK" />
+		</ticket>
+		<ticket points="11">
+			<location ref="DAL" />
+			<location ref="NYC" />
+		</ticket>
+		<ticket points="11">
+			<location ref="DEN" />
+			<location ref="PIT" />
+		</ticket>
+		<ticket points="11">
+			<location ref="POR" />
+			<location ref="PHO" />
+		</ticket>
+		<ticket points="12">
+			<location ref="BOS" />
+			<location ref="MIA" />
+		</ticket>
+		<ticket points="12">
+			<location ref="WIN" />
+			<location ref="HOU" />
+		</ticket>
+		<ticket points="13">
+			<location ref="VAN" />
+			<location ref="SFE" />
+		</ticket>
+		<ticket points="13">
+			<location ref="MON" />
+			<location ref="NOL" />
+		</ticket>
+		<ticket points="16">
+			<location ref="LOS" />
+			<location ref="CCG" />
+		</ticket>
+		<ticket points="17">
+			<location ref="POR" />
+			<location ref="NAS" />
+		</ticket>
+		<ticket points="17">
+			<location ref="SFR" />
+			<location ref="ATL" />
+		</ticket>
+		<ticket points="20">
+			<location ref="LOS" />
+			<location ref="MIA" />
+		</ticket>
+		<ticket points="20">
+			<location ref="VAN" />
+			<location ref="MON" />
+		</ticket>
+		<ticket points="21">
+			<location ref="LOS" />
+			<location ref="NYC" />
+		</ticket>
+		<ticket points="22">
+			<location ref="SEA" />
+			<location ref="NYC" />
+		</ticket>
+	</tickets>
+</game>

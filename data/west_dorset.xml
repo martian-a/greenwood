@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<!DOCTYPE game SYSTEM "game.dtd">
 <game id="WDR">
     <title>West Dorset</title>
     <map>
@@ -13,7 +15,7 @@
                 <location id="BEA">
                     <name>Beaminster</name>
                 </location>
-                <location id="BRI">
+                <location id="BDP">
                     <name>Bridport</name>
                 </location>
                 <location id="BRM">
@@ -37,7 +39,7 @@
                 <location id="CHM">
                     <name>Charminster</name>
                 </location>
-                <location id="CTH">
+                <location id="CMH">
                     <name>Charmouth</name>
                 </location>
                 <location id="CDK">
@@ -67,7 +69,19 @@
                 <location id="HAL">
                     <name>Halstock</name>
                 </location>
-                <location id="KIN">
+                 <location id="HSL">
+                    <name>Halstock Leigh</name>
+                </location>
+                 <location id="HOL">
+                    <name>Holywell</name>
+                </location>
+                 <location id="HOO">
+                    <name>Hooke</name>
+                </location>
+                 <location id="MBA">
+                    <name>Melbury&#8239;🛧</name>
+                </location>
+                <location id="KRL">
                     <name>Kingston Russell</name>
                 </location>
                 <location id="LYM">
@@ -85,7 +99,7 @@
                 <location id="MIN">
                     <name>Mintern Magna</name>
                 </location>
-                <location id="MON">
+                <location id="MNW">
                     <name>Monkton Wyld</name>
                 </location>
                 <location id="MOS">
@@ -103,8 +117,11 @@
                 <location id="PUD">
                 	<name>Puddletown</name>
                 </location>
-                <location id="RAM">
-                    <name>Rampisham</name>
+                <location id="SPE">
+                    <name>South Perrott</name>
+                </location>
+                <location id="TDG">
+                    <name>Toller Down Gate</name>
                 </location>
                 <location id="RYM">
                     <name>Ryme Intrinseca</name>
@@ -127,7 +144,7 @@
                 <location id="WEY">
                 	<name>Weymouth</name>
                 </location>
-                <location id="WIN">
+                <location id="WAB">
                 	<name>Winterbourne Abbas</name>
                 </location>
                 <location id="WYN">
@@ -136,17 +153,47 @@
                 <location id="YET">
                 	<name>Yetminster</name>
                 </location>
+                <location id="FAB">
+                	<name>Forde Abbey</name>
+                </location>
+                <location id="HOR">
+                	<name>Horn Ash</name>
+                </location>
+                <location id="MWD">
+                	<name>Marshwood</name>
+                </location>
+                <location id="PSM">
+                	<name>Portesham</name>
+                </location>
+                <location id="PIH">
+                	<name>Piddlehinton</name>
+                </location>
+                <location id="PID">
+                	<name>Piddletrenthide</name>
+                </location>
+                <location id="CHE">
+                	<name>Cheselbourne</name>
+                </location>
+                <location id="BUC">
+                	<name>Buckland Newton</name>
+                </location>
+                <location id="BAB">
+                	<name>Bradford Abbas</name>
+                </location>
             </country>
             <country id="DEV">
                 <name>Devon</name>
-                <location id="AXE">
+                <location id="AXM">
                 	<name>Axminster</name>
                 </location>
                 <location id="ULM">
                 	<name>Uplyme</name>
                 </location>
-                <location id="SEA">
+                <location id="STN">
                 	<name>Seaton</name>
+                </location>
+                <location id="TYL">
+                	<name>Tytherleigh</name>
                 </location>
             </country>
             <country id="SOM">
@@ -160,6 +207,18 @@
                 <location id="YEO">
                 	<name>Yeovil</name>
                 </location>
+                <location id="CST">
+                	<name>Cricket St Thomas</name>
+                </location>
+                <location id="MBP">
+                	<name>Milborne Port</name>
+                </location>
+                <location id="ECK">
+                	<name>East Coker</name>
+                </location>
+                <location id="COR">
+                	<name>Corton Denham</name>
+                </location>
             </country>
             <country id="NOR">
                 <name>North Dorset</name>
@@ -171,6 +230,9 @@
                 </location>
                 <location id="MSA">
                 	<name>Milborne St Andrew</name>
+                </location>
+                <location id="LAN">
+                	<name>Lower Ansty</name>
                 </location>
             </country>
             <country id="PUR">
@@ -184,8 +246,535 @@
                 <location id="WLU">
                 	<name>West Lulworth</name>
                 </location>
+                <location id="WNB">
+                	<name>Winfrith Newburgh</name>
+                </location>
             </country>
         </locations>
+        <routes>
+			<route length="2" colour="BLU">
+				<location ref="FAB" />
+				<location ref="TYL" />
+			</route>
+			<route length="3" colour="ORA">
+				<location ref="FAB" />
+				<location ref="CHD" />
+			</route>
+			<route length="3" colour="YEL">
+				<location ref="HOR" />
+				<location ref="FAB" />
+			</route>
+			<route length="3" colour="WHI">
+				<location ref="HOR" />
+				<location ref="CST" />
+			</route>
+			<route length="3" colour="VIO">
+				<location ref="HOR" />
+				<location ref="BRW" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="MWD" />
+				<location ref="HOR" />
+			</route>
+			<route length="3" colour="BLU">
+				<location ref="MWD" />
+				<location ref="BRW" />
+			</route>
+			<route length="4" colour="GRN">
+				<location ref="MWD" />
+				<location ref="MNW" />
+			</route>
+			<route length="6" ferry="2" colour="RED">
+				<location ref="STN" />
+				<location ref="LYM" />
+			</route>
+			<route length="8" ferry="2" colour="GRY">
+				<location ref="WBY" />
+				<location ref="LYM" />
+			</route>
+			<route length="6" ferry="2" colour="YEL">
+				<location ref="WEY" />
+				<location ref="FOR" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="LYM" />
+				<location ref="ULM" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="LYM" />
+				<location ref="CMH" />
+			</route>
+			<route length="2" colour="BLA">
+				<location ref="MNW" />
+				<location ref="ULM" />
+			</route>
+			<route length="2" colour="VIO">
+				<location ref="MNW" />
+				<location ref="AXM" />
+			</route>
+			<route length="2">
+				<location ref="MNW" />
+				<location ref="CMH" />
+				<colour ref="ORA" />
+				<colour ref="GRY" />
+			</route>
+			<route length="4">
+				<location ref="CDK" />
+				<location ref="CMH" />
+				<colour ref="WHI" />
+				<colour ref="BLU" />
+			</route>
+			<route length="2">
+				<location ref="BDP" />
+				<location ref="CDK" />
+				<colour ref="GRY" />
+				<colour ref="RED" />
+			</route>
+			<route length="1">
+				<location ref="BDP" />
+				<location ref="WBY" />
+				<colour ref="BLU" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2">
+				<location ref="BDP" />
+				<location ref="UPL" />
+				<colour ref="WHI" />
+				<colour ref="GRY" />
+			</route>
+			<route length="5">
+				<location ref="UPL" />
+				<location ref="KRL" />
+				<colour ref="GRN" />
+				<colour ref="VIO" />
+			</route>
+			<route length="2">
+				<location ref="KRL" />
+				<location ref="WAB" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2">
+				<location ref="WYN" />
+				<location ref="MAI" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="1">
+				<location ref="WBY" />
+				<location ref="BUR" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="UPL" />
+				<location ref="BUR" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="LIT" />
+				<location ref="BUR" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="LIT" />
+				<location ref="KRL" />
+			</route>
+			<route length="6" colour="ORA">
+				<location ref="ABB" />
+				<location ref="BUR" />
+			</route>
+			<route length="4" colour="YEL">
+				<location ref="ABB" />
+				<location ref="KRL" />
+			</route>
+			<route length="4" colour="GRY">
+				<location ref="ABB" />
+				<location ref="WAB" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="UPL" />
+				<location ref="EGG" />
+			</route>
+			<route length="3" colour="RED">
+				<location ref="EGG" />
+				<location ref="WYN" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="WYN" />
+				<location ref="KRL" />
+			</route>
+			<route length="4" colour="BLA">
+				<location ref="WYN" />
+				<location ref="WAB" />
+			</route>
+			<route length="3" colour="RED">
+				<location ref="GRI" />
+				<location ref="WAB" />
+			</route>
+			<route length="3" colour="WHI">
+				<location ref="POU" />
+				<location ref="WAB" />
+			</route>
+			<route length="1" colour="BLA">
+				<location ref="DOR" />
+				<location ref="CHM" />
+			</route>
+			<route length="2">
+				<location ref="CHM" />
+				<location ref="GRI" />
+				<colour ref="YEL" />
+				<colour ref="GRN" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="GRI" />
+				<location ref="MAI" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="YET" />
+				<location ref="RYM" />
+			</route>
+			<route length="6">
+				<location ref="HOL" />
+				<location ref="GRI" />
+				<colour ref="WHI" />
+				<colour ref="GRY" />
+			</route>
+			<route length="3">
+				<location ref="HOL" />
+				<location ref="MBA" />
+				<colour ref="ORA" />
+				<colour ref="GRY" />
+			</route>
+			<route length="4" colour="RED">
+				<location ref="SHE" />
+				<location ref="YEO" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="CHM" />
+				<location ref="POU" />
+			</route>
+			<route length="1" colour="ORA">
+				<location ref="POU" />
+				<location ref="DFC" />
+			</route>
+			<route length="3" colour="GRN">
+				<location ref="DFC" />
+				<location ref="SFD" />
+			</route>
+			<route length="1" colour="RED">
+				<location ref="POU" />
+				<location ref="DOR" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="DOR" />
+				<location ref="SFD" />
+			</route>
+			<route length="3" colour="ORA">
+				<location ref="SFD" />
+				<location ref="CRO" />
+			</route>
+			<route length="2" colour="RED">
+				<location ref="CRO" />
+				<location ref="BRM" />
+			</route>
+			<route length="3" colour="WHI">
+				<location ref="BRM" />
+				<location ref="OSM" />
+			</route>
+			<route length="3" colour="YEL">
+				<location ref="BRM" />
+				<location ref="DFC" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="DFC" />
+				<location ref="UPW" />
+			</route>
+			<route length="5" colour="BLU">
+				<location ref="UPW" />
+				<location ref="WAB" />
+			</route>
+			<route length="3" colour="VIO">
+				<location ref="UPW" />
+				<location ref="WEY" />
+			</route>
+			<route length="4" colour="GRY">
+				<location ref="WEY" />
+				<location ref="FOR" />
+			</route>
+			<route length="3">
+				<location ref="BDP" />
+				<location ref="MEL" />
+				<colour ref="YEL" />
+				<colour ref="ORA" />
+			</route>
+			<route length="2">
+				<location ref="MEL" />
+				<location ref="BEA" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2" tunnel="true">
+				<location ref="BEA" />
+				<location ref="MOS" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2" tunnel="true">
+				<location ref="CAT" />
+				<location ref="MAI" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="BEA" />
+				<location ref="BRW" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="BRW" />
+				<location ref="MOS" />
+			</route>
+			<route length="2" colour="GRN">
+				<location ref="MOS" />
+				<location ref="CKN" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="CKN" />
+				<location ref="SPE" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="SPE" />
+				<location ref="MOS" />
+			</route>
+			<route length="4" colour="BLU">
+				<location ref="SPE" />
+				<location ref="TDG" />
+			</route>
+			<route length="3" colour="RED">
+				<location ref="BEA" />
+				<location ref="TDG" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="TDG" />
+				<location ref="HOO" />
+			</route>
+			<route length="4" colour="VIO">
+				<location ref="TDG" />
+				<location ref="CAT" />
+			</route>
+			<route length="5" colour="YEL">
+				<location ref="TDG" />
+				<location ref="MAI" />
+			</route>
+			<route length="4" colour="ORA">
+				<location ref="HOO" />
+				<location ref="MAI" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="HOO" />
+				<location ref="POW" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="TDG" />
+				<location ref="EVE" />
+			</route>
+			<route length="3" colour="BLU">
+				<location ref="EVE" />
+				<location ref="CAT" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="EVE" />
+				<location ref="HOL" />
+			</route>
+			<route length="6" colour="BLA">
+				<location ref="BDP" />
+				<location ref="BRW" />
+			</route>
+			<route length="3" colour="VIO">
+				<location ref="PUD" />
+				<location ref="SFD" />
+			</route>
+			<route length="4" colour="WHI">
+				<location ref="WEY" />
+				<location ref="PSM" />
+			</route>
+			<route length="4" colour="BLA">
+				<location ref="UPW" />
+				<location ref="PSM" />
+			</route>
+			<route length="2" colour="YEL">
+				<location ref="PIH" />
+				<location ref="SFD" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="PIH" />
+				<location ref="PUD" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="PIH" />
+				<location ref="PID" />
+			</route>
+			<route length="4" colour="RED">
+				<location ref="OSM" />
+				<location ref="UPW" />
+			</route>
+			<route length="4" colour="GRN">
+				<location ref="MIN" />
+				<location ref="YET" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="MIN" />
+				<location ref="MID" />
+			</route>
+			<route length="3" colour="BLA">
+				<location ref="PUD" />
+				<location ref="MSA" />
+			</route>
+			<route length="2" colour="YEL">
+				<location ref="SHE" />
+				<location ref="MBP" />
+			</route>
+			<route length="6" colour="VIO">
+				<location ref="SHE" />
+				<location ref="MID" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="MEL" />
+				<location ref="POW" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="YET" />
+				<location ref="MBA" />
+			</route>
+			<route length="4" colour="GRN">
+				<location ref="MWD" />
+				<location ref="MNW" />
+			</route>
+			<route length="6" colour="GRN" ferry="2">
+				<location ref="OSM" />
+				<location ref="WLU" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="HOL" />
+				<location ref="MIN" />
+			</route>
+			<route length="3" colour="GRN">
+				<location ref="TDG" />
+				<location ref="HSL" />
+			</route>
+			<route length="2" colour="VIO">
+				<location ref="SPE" />
+				<location ref="HSL" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="HAL" />
+				<location ref="HSL" />
+			</route>
+			<route length="3" colour="GRY">
+				<location ref="EVE" />
+				<location ref="HAL" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="EGG" />
+				<location ref="POW" />
+			</route>
+			<route length="3" colour="BLA">
+				<location ref="ECK" />
+				<location ref="MBA" />
+			</route>
+			<route length="2" colour="WHI">
+				<location ref="ECK" />
+				<location ref="HAL" />
+			</route>
+			<route length="1" colour="WHI">
+				<location ref="DOR" />
+				<location ref="DFC" />
+			</route>
+			<route length="2" colour="BLU">
+				<location ref="CRO" />
+				<location ref="MOR" />
+			</route>
+			<route length="3" colour="BLU">
+				<location ref="COR" />
+				<location ref="SHE" />
+			</route>
+			<route length="3" colour="GRN">
+				<location ref="CHE" />
+				<location ref="PUD" />
+			</route>
+			<route length="3" colour="WHI">
+				<location ref="CHE" />
+				<location ref="PID" />
+			</route>
+			<route length="1" colour="GRY">
+				<location ref="CHE" />
+				<location ref="LAN" />
+			</route>
+			<route length="3" colour="ORA">
+				<location ref="CHM" />
+				<location ref="PIH" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="CER" />
+				<location ref="PID" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="CER" />
+				<location ref="MIN" />
+			</route>
+			<route length="6" colour="BLU">
+				<location ref="CER" />
+				<location ref="CHM" />
+			</route>
+			<route length="3" colour="RED">
+				<location ref="BUC" />
+				<location ref="PID" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="BUC" />
+				<location ref="MID" />
+			</route>
+			<route length="4" colour="YEL">
+				<location ref="BUC" />
+				<location ref="HAZ" />
+			</route>
+			<route length="3" colour="BLA">
+				<location ref="BUC" />
+				<location ref="CER" />
+			</route>
+			<route length="4" colour="VIO">
+				<location ref="BRM" />
+				<location ref="WNB" />
+			</route>
+			<route length="2" colour="RED">
+				<location ref="BAB" />
+				<location ref="YET" />
+			</route>
+			<route length="2" colour="GRY">
+				<location ref="BAB" />
+				<location ref="SHE" />
+			</route>
+			<route length="5" colour="ORA">
+				<location ref="BIS" />
+				<location ref="STU" />
+			</route>
+			<route length="5" colour="BLA">
+				<location ref="BIS" />
+				<location ref="SHE" />
+			</route>
+			<route length="4" colour="WHI">
+				<location ref="BIS" />
+				<location ref="MID" />
+			</route>
+			<route length="5" colour="RED">
+				<location ref="BER" />
+				<location ref="PUD" />
+			</route>
+			<route length="1">
+				<location ref="ABB" />
+				<location ref="PSM" />
+				<colour ref="GRY" />
+				<colour ref="GRY" />
+			</route>
+		</routes>
         <colours>
             <colour id="RED">
                 <name>Red</name>
@@ -216,4 +805,246 @@
             </colour>
         </colours>
     </map>
+    <tickets>
+    	<ticket>
+    		<location ref="LYM" />
+    		<country ref="DEV" points="1" />
+    		<country ref="SOM" points="5" />
+    		<country ref="NOR" points="11" />
+    		<country ref="PUR" points="11" />
+    	</ticket>
+    	<ticket>
+    		<location ref="DOR" />
+    		<country ref="DEV" points="9" />
+    		<country ref="SOM" points="10" />
+    		<country ref="NOR" points="3" />
+    		<country ref="PUR" points="3" />
+    	</ticket>
+    	<ticket>
+    		<location ref="BEA" />
+    		<country ref="DEV" points="4" />
+    		<country ref="SOM" points="2" />
+    		<country ref="NOR" points="7" />
+    		<country ref="PUR" points="8" />
+    	</ticket>
+    	<ticket>
+    		<location ref="WEY" />
+    		<country ref="DEV" points="12" />
+    		<country ref="SOM" points="8" />
+    		<country ref="NOR" points="6" />
+    		<country ref="PUR" points="5" />
+    	</ticket>
+    	<ticket points="7">
+    		<location ref="BEA" />
+    		<location ref="WEY" />
+    	</ticket>
+    	<ticket points="5">
+    		<location ref="BEA" />
+    		<location ref="DOR" />
+    	</ticket>
+    	<ticket points="2">
+    		<location ref="UPL" />
+    		<location ref="MEL" />
+    	</ticket>
+    	<ticket points="5">
+    		<location ref="EVE" />
+    		<location ref="SHE" />
+    	</ticket>
+    	<ticket points="2">
+    		<location ref="WAB" />
+    		<location ref="ABB" />
+    	</ticket>
+    	<ticket points="4">
+    		<location ref="WYN" />
+    		<location ref="DOR" />
+    	</ticket>
+    	<ticket points="3">
+    		<location ref="ABB" />
+    		<location ref="FOR" />
+    	</ticket>
+    	<ticket points="5">
+    		<location ref="WBY" />
+    		<location ref="HSL" />
+     	</ticket>
+     	<ticket points="6">
+     		<location ref="BDP" />
+     		<location ref="ABB" />
+     	</ticket>
+     	<ticket points="6">
+     		<location ref="BUR" />
+     		<location ref="EVE" />
+     	</ticket>
+     	<ticket points="15">
+     		<location ref="LYM" />
+     		<location ref="WEY" />
+     	</ticket>
+     	<ticket>
+     		<country ref="NOR" />
+     		<country ref="DEV" points="11" />
+     		<country ref="SOM" points="6" />
+     		<country ref="PUR" points="4" />
+     	</ticket>
+     	<ticket>
+     		<country ref="NOR" />
+     		<country ref="DEV" points="11" />
+     		<country ref="SOM" points="6" />
+     		<country ref="PUR" points="4" />
+     	</ticket>
+     	<ticket>
+     		<country ref="NOR" points="11" />
+     		<country ref="DEV" />
+     		<country ref="SOM" points="2" />
+     		<country ref="PUR" points="11" />
+     	</ticket>
+     	<ticket>
+     		<country ref="NOR" points="11" />
+     		<country ref="DEV" />
+     		<country ref="SOM" points="2" />
+     		<country ref="PUR" points="11" />
+     	</ticket>
+     	<ticket>
+     		<country ref="NOR" points="6" />
+     		<country ref="DEV" points="2" />
+     		<country ref="SOM" />
+     		<country ref="PUR" points="8" />
+     	</ticket>
+     	<ticket>
+     		<country ref="NOR" points="6" />
+     		<country ref="DEV" points="2" />
+     		<country ref="SOM" />
+     		<country ref="PUR" points="8" />
+     	</ticket>
+     	<ticket>
+     		<country ref="NOR" points="4" />
+     		<country ref="DEV" points="11" />
+     		<country ref="SOM" points="8" />
+     		<country ref="PUR" />
+     	</ticket>
+     	<ticket>
+     		<country ref="NOR" points="4" />
+     		<country ref="DEV" points="11" />
+     		<country ref="SOM" points="8" />
+     		<country ref="PUR" />
+     	</ticket>
+     	<ticket points="8">
+     		<location ref="BUR" />
+     		<location ref="OSM" />
+     	</ticket>
+     	<ticket points="2">
+     		<location ref="BEA" />
+     		<location ref="CAT" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="MAI" />
+     		<location ref="BEA" />
+     	</ticket>
+     	<ticket points="8">
+     		<location ref="SPE" />
+     		<location ref="WAB" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="BDP" />
+     		<location ref="MAI" />
+     	</ticket>
+     	<ticket points="3">
+     		<location ref="HOL" />
+     		<location ref="GRI" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="HOL" />
+     		<location ref="SHE" />
+     	</ticket>
+     	<ticket points="8">
+     		<location ref="ABB" />
+     		<location ref="CER" />
+     	</ticket>
+     	<ticket points="8">
+     		<location ref="OSM" />
+     		<location ref="EGG" />
+     	</ticket>
+     	<ticket points="3">
+     		<location ref="FAB" />
+     		<location ref="MNW" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="UPW" />
+     		<location ref="PIH" />
+     	</ticket>
+     	<ticket points="10">
+     		<location ref="DOR" />
+     		<location ref="SHE" />
+     	</ticket>
+     	<ticket points="5">
+     		<location ref="BIS" />
+     		<location ref="PUD" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="PUD" />
+     		<location ref="OSM" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="MOS" />
+     		<location ref="CDK" />
+     	</ticket>
+     	<ticket points="5">
+     		<location ref="FAB" />
+     		<location ref="HSL" />
+     	</ticket>
+     	<ticket points="5">
+     		<location ref="CMH" />
+     		<location ref="SPE" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="MNW" />
+     		<location ref="MEL" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="CMH" />
+     		<location ref="MOS" />
+     	</ticket>
+     	<ticket points="6">
+     		<location ref="HOR" />
+     		<location ref="CDK" />
+     	</ticket>
+     	<ticket points="3">
+     		<location ref="CDK" />
+     		<location ref="KRL" />
+     	</ticket>
+     	<ticket points="6">
+     		<location ref="HOR" />
+     		<location ref="UPL" />
+     	</ticket>
+     	<ticket points="3">
+     		<location ref="CMH" />
+     		<location ref="WBY" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="MOS" />
+     		<location ref="UPL" />
+     	</ticket>
+     	<ticket points="7">
+     		<location ref="RYM" />
+     		<location ref="WYN" />
+     	</ticket>
+     	<ticket points="3">
+     		<location ref="MIN" />
+     		<location ref="CHE" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="SHE" />
+     		<location ref="MIN" />
+     	</ticket>
+     	<ticket points="5">
+     		<location ref="YET" />
+     		<location ref="PUD" />
+     	</ticket>
+     	<ticket points="4">
+     		<location ref="MBA" />
+     		<location ref="PID" />
+     	</ticket>
+     	<ticket points="7">
+     		<location ref="FAB" />
+     		<location ref="MBA" />
+     	</ticket>
+    </tickets>
 </game>

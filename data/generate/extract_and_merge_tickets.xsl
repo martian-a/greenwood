@@ -12,7 +12,7 @@
          media-type="text/xml"
          method="xml" />
     
-    <xsl:param name="path-to-map" select="'../data/west_dorset.xml'" as="xs:string" />
+    <xsl:param name="path-to-map" select="'../west_dorset.xml'" as="xs:string" />
     <xsl:variable name="map" select="document($path-to-map)" as="document-node()" />
     
     <xsl:template match="/">

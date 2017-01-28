@@ -10,7 +10,8 @@
 <!ELEMENT colour (name?)>
 <!ELEMENT colours (colour*)>
 <!ELEMENT tickets (ticket*)>
-<!ELEMENT ticket (location*, country*)>
+<!ELEMENT ticket (location*, country*, note?)>
+<!ELEMENT note (#PCDATA)>
 
 <!ATTLIST game 
 	id ID #REQUIRED>
@@ -26,7 +27,8 @@
 	length (1|2|3|4|5|6|8) #REQUIRED
 	colour IDREF #IMPLIED
 	tunnel (true|false) "false"
-	ferry  (0|1|2) "0">
+	ferry  (0|1|2) "0"
+	microlight (true|false) "false">
 <!ATTLIST colour 
 	id ID #IMPLIED
 	ref IDREF #IMPLIED>

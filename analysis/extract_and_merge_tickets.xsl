@@ -12,12 +12,12 @@
          media-type="text/xml"
          method="xml" />
     
-    <xsl:param name="path-to-map" select="'../data/west_dorset_auto.xml'" as="xs:string" />
+    <xsl:param name="path-to-map" select="'../data/west_dorset.xml'" as="xs:string" />
     <xsl:variable name="map" select="document($path-to-map)" as="document-node()" />
     
     <xsl:template match="/">
         <xsl:apply-templates select="$map" mode="copy">
-            <xsl:with-param name="tickets" tunnel="yes">
+            <xsl:with-param name="tickets" as="document-node()" tunnel="yes">
                 <xsl:apply-templates select="svg:svg/svg:g[@inkscape:label='Routes']" />
             </xsl:with-param>
         </xsl:apply-templates>
@@ -25,30 +25,36 @@
     
     <xsl:template match="svg:g">
         <xsl:variable name="locations" select="$map/game/map/locations/descendant::*[@id][name]" as="element()*" />
-        <tickets>
-            <xsl:for-each select="svg:g[@inkscape:groupmode='layer'][@inkscape:label/contains(., '-')]">
-                <xsl:sort select="@inkscape:label" data-type="text" order="ascending" />
-                <xsl:variable name="points" select="substring-before(substring-after(@inkscape:label, '('), ')')" as="xs:string" />
-                <ticket points="{$points}">
-                    <xsl:for-each select="tokenize(substring-before(@inkscape:label, '('), '-')">
-                        <xsl:sort select="." data-type="text" order="ascending" />
-                        <xsl:for-each select="$locations[name = normalize-space(current())]">
-                            <location ref="{@id}" />
+        <xsl:document>
+            <tickets>
+                <xsl:for-each select="descendant::svg:g[@inkscape:groupmode='layer'][@inkscape:label/contains(., '-')]">
+                    <xsl:sort select="@inkscape:label" data-type="text" order="ascending" />
+                    <xsl:variable name="points" select="substring-before(substring-after(@inkscape:label, '('), ')')" as="xs:string" />
+                    <ticket points="{$points}">
+                        <xsl:for-each select="tokenize(substring-before(@inkscape:label, '('), '-')">
+                            <xsl:sort select="." data-type="text" order="ascending" />
+                            <xsl:for-each select="$locations[name = normalize-space(current())]">
+                                <location ref="{@id}" />
+                            </xsl:for-each>
                         </xsl:for-each>
-                    </xsl:for-each>
-                    <xsl:for-each select="descendant::svg:g[@inkscape:label='Text']/svg:text">
-                        <note><xsl:value-of select="." /></note>
-                    </xsl:for-each>
-                </ticket>
-            </xsl:for-each>
-        </tickets>
+                        <xsl:for-each select="descendant::svg:g[@inkscape:label='Text']/svg:text">
+                            <note><xsl:value-of select="." /></note>
+                        </xsl:for-each>
+                    </ticket>
+                </xsl:for-each>
+            </tickets>
+        </xsl:document>
      </xsl:template>
     
     <xsl:template match="map" mode="copy" priority="10">
-        <xsl:param name="tickets" tunnel="yes" />
+        <xsl:param name="tickets" as="document-node()" tunnel="yes" />
         <xsl:next-match />
         <xsl:copy-of select="$tickets" />
     </xsl:template>
+    
+    
+    <xsl:template match="tickets | route/@*[name() = ('tunnel', 'microlight')][. = 'false'] | route/@ferry[. = '0']" mode="copy" />
+    
     
     <xsl:template match="*" mode="copy">
         <xsl:copy>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE game SYSTEM "game.dtd">
 <game id="WDR">
    <title>West Dorset</title>
    <map>
@@ -203,8 +202,8 @@
          <route length="1">
             <location ref="ABB"/>
             <location ref="POR"/>
-            <colour ref="BLU" />
-            <colour ref="ORA" />
+            <colour ref="BLU"/>
+            <colour ref="ORA"/>
          </route>
          <route length="4" colour="YEL">
             <location ref="ABB"/>
@@ -233,14 +232,14 @@
          <route length="2">
             <location ref="BEA"/>
             <location ref="MEL2"/>
-            <colour ref="BLA" />
-            <colour ref="RED" />
+            <colour ref="BLA"/>
+            <colour ref="GRY"/>
          </route>
          <route length="2" tunnel="true">
             <location ref="BEA"/>
             <location ref="MOS"/>
-            <colour ref="GRY" />
-            <colour ref="GRY" />
+            <colour ref="GRY"/>
+            <colour ref="RED"/>
          </route>
          <route length="3" colour="BLU">
             <location ref="BEA"/>
@@ -281,26 +280,26 @@
          <route length="2">
             <location ref="BRI"/>
             <location ref="CHI"/>
-            <colour ref="BLU" />
-            <colour ref="YEL" />
+            <colour ref="BLU"/>
+            <colour ref="YEL"/>
          </route>
          <route length="2">
             <location ref="BRI"/>
             <location ref="MEL2"/>
-            <colour ref="GRY" />
-            <colour ref="WHI" />
+            <colour ref="GRY"/>
+            <colour ref="WHI"/>
          </route>
          <route length="2">
             <location ref="BRI"/>
             <location ref="UPL"/>
-            <colour ref="VIO" />
-            <colour ref="GRN" />
+            <colour ref="VIO"/>
+            <colour ref="GRN"/>
          </route>
          <route length="1">
             <location ref="BRI"/>
             <location ref="WES"/>
-            <colour ref="BLA" />
-            <colour ref="ORA" />
+            <colour ref="BLA"/>
+            <colour ref="ORA"/>
          </route>
          <route length="2" colour="RED">
             <location ref="BRO"/>
@@ -333,14 +332,14 @@
          <route length="1">
             <location ref="BUC"/>
             <location ref="MID"/>
-            <colour ref="BLA" />
-            <colour ref="GRY" />
+            <colour ref="BLA"/>
+            <colour ref="GRY"/>
          </route>
          <route length="3">
             <location ref="BUC"/>
             <location ref="PID2"/>
-            <colour ref="ORA" />
-            <colour ref="WHI" />
+            <colour ref="GRY"/>
+            <colour ref="WHI"/>
          </route>
          <route length="2" colour="BLU">
             <location ref="BUR"/>
@@ -353,8 +352,8 @@
          <route length="1">
             <location ref="BUR"/>
             <location ref="WES"/>
-            <colour ref="GRN" />
-            <colour ref="RED" />
+            <colour ref="GRN"/>
+            <colour ref="RED"/>
          </route>
          <route length="2" colour="BLU">
             <location ref="CAT"/>
@@ -367,8 +366,8 @@
          <route length="1">
             <location ref="CAT"/>
             <location ref="MAI"/>
-            <colour ref="BLA" />
-            <colour ref="GRY" />
+            <colour ref="BLA"/>
+            <colour ref="GRY"/>
          </route>
          <route length="4" colour="GRN">
             <location ref="CAT"/>
@@ -393,14 +392,14 @@
          <route length="1">
             <location ref="CHA"/>
             <location ref="DOR"/>
-            <colour ref="GRN" />
-            <colour ref="VIO" />
+            <colour ref="GRN"/>
+            <colour ref="VIO"/>
          </route>
          <route length="2">
             <location ref="CHA"/>
             <location ref="GRI"/>
-            <colour ref="GRN" />
-            <colour ref="GRY" />
+            <colour ref="GRN"/>
+            <colour ref="GRY"/>
          </route>
          <route length="2" colour="YEL">
             <location ref="CHA"/>
@@ -413,20 +412,20 @@
          <route length="4">
             <location ref="CHA2"/>
             <location ref="CHI"/>
-            <colour ref="ORA" />
-            <colour ref="BLA" />
+            <colour ref="ORA"/>
+            <colour ref="BLA"/>
          </route>
          <route length="1">
             <location ref="CHA2"/>
             <location ref="LYM"/>
-            <colour ref="BLU" />
-            <colour ref="GRY" />
+            <colour ref="BLU"/>
+            <colour ref="GRY"/>
          </route>
          <route length="2">
             <location ref="CHA2"/>
             <location ref="MON"/>
-            <colour ref="YEL" />
-            <colour ref="RED" />
+            <colour ref="YEL"/>
+            <colour ref="RED"/>
          </route>
          <route length="3" colour="VIO">
             <location ref="CHE"/>
@@ -467,14 +466,14 @@
          <route length="2">
             <location ref="DOR2"/>
             <location ref="UPW"/>
-            <colour ref="BLA" />
-            <colour ref="VIO" />
+            <colour ref="BLA"/>
+            <colour ref="VIO"/>
          </route>
          <route length="1">
             <location ref="DOR"/>
             <location ref="DOR2"/>
-            <colour ref="WHI" />
-            <colour ref="ORA" />
+            <colour ref="WHI"/>
+            <colour ref="ORA"/>
          </route>
          <route length="1" colour="BLU">
             <location ref="DOR"/>
@@ -507,8 +506,8 @@
          <route length="1">
             <location ref="EVE"/>
             <location ref="HOL"/>
-            <colour ref="GRY" />
-            <colour ref="ORA" />
+            <colour ref="GRY"/>
+            <colour ref="ORA"/>
          </route>
          <route length="3" colour="YEL">
             <location ref="EVE"/>
@@ -522,7 +521,7 @@
             <location ref="FOR"/>
             <location ref="MAR"/>
          </route>
-         <route length="5" colour="WHI">
+         <route length="5" colour="GRY" microlight="true">
             <location ref="FOR"/>
             <location ref="MON"/>
          </route>
@@ -537,8 +536,8 @@
          <route length="6">
             <location ref="GRI"/>
             <location ref="HOL"/>
-            <colour ref="WHI" />
-            <colour ref="BLA" />
+            <colour ref="WHI"/>
+            <colour ref="BLA"/>
          </route>
          <route length="3" colour="VIO">
             <location ref="GRI"/>
@@ -567,8 +566,8 @@
          <route length="2">
             <location ref="HOL"/>
             <location ref="MEL"/>
-            <colour ref="YEL" />
-            <colour ref="GRN" />
+            <colour ref="YEL"/>
+            <colour ref="GRN"/>
          </route>
          <route length="2" colour="VIO">
             <location ref="HOL"/>
@@ -597,14 +596,14 @@
          <route length="5">
             <location ref="KIN"/>
             <location ref="UPL"/>
-            <colour ref="BLA" />
-            <colour ref="WHI" />
+            <colour ref="BLA"/>
+            <colour ref="GRY"/>
          </route>
          <route length="2">
             <location ref="KIN"/>
             <location ref="WIN"/>
-            <colour ref="VIO" />
-            <colour ref="GRY" />
+            <colour ref="VIO"/>
+            <colour ref="GRY"/>
          </route>
          <route length="3" colour="RED">
             <location ref="KIN"/>
@@ -621,8 +620,8 @@
          <route length="1">
             <location ref="MAI"/>
             <location ref="WYN"/>
-            <colour ref="BLU" />
-            <colour ref="YEL" />
+            <colour ref="BLU"/>
+            <colour ref="YEL"/>
          </route>
          <route length="4" colour="VIO">
             <location ref="MAR"/>
@@ -631,8 +630,8 @@
          <route length="1">
             <location ref="MEL"/>
             <location ref="YET"/>
-            <colour ref="RED" />
-            <colour ref="VIO" />
+            <colour ref="RED"/>
+            <colour ref="VIO"/>
          </route>
          <route length="1" colour="WHI">
             <location ref="MID"/>
@@ -641,8 +640,8 @@
          <route length="6">
             <location ref="MID"/>
             <location ref="SHE"/>
-            <colour ref="GRN" />
-            <colour ref="YEL" />
+            <colour ref="GRN"/>
+            <colour ref="YEL"/>
          </route>
          <route length="4" colour="GRY">
             <location ref="MIN"/>
@@ -659,8 +658,8 @@
          <route length="3">
             <location ref="PID"/>
             <location ref="PID2"/>
-            <colour ref="BLA" />
-            <colour ref="RED" />
+            <colour ref="BLA"/>
+            <colour ref="RED"/>
          </route>
          <route length="2" colour="ORA">
             <location ref="PID"/>
@@ -669,8 +668,8 @@
          <route length="2">
             <location ref="PID"/>
             <location ref="STI"/>
-            <colour ref="WHI" />
-            <colour ref="GRN" />
+            <colour ref="WHI"/>
+            <colour ref="GRN"/>
          </route>
          <route length="4" colour="RED">
             <location ref="POR"/>
@@ -687,16 +686,16 @@
          <route length="3">
             <location ref="PUD"/>
             <location ref="STI"/>
-            <colour ref="YEL" />
-            <colour ref="GRY" />
+            <colour ref="YEL"/>
+            <colour ref="GRY"/>
          </route>
          <route length="1">
             <location ref="PUD"/>
             <location ref="TOL2"/>
-            <colour ref="WHI" />
-            <colour ref="VIO" />
+            <colour ref="WHI"/>
+            <colour ref="VIO"/>
          </route>
-         <route length="5" colour="BLA" microlight="true">
+         <route length="5" colour="GRY" microlight="true">
             <location ref="PUR"/>
             <location ref="SHE"/>
          </route>
@@ -715,14 +714,14 @@
          <route length="2">
             <location ref="UPW"/>
             <location ref="WEY"/>
-            <colour ref="BLU" />
-            <colour ref="WHI" />
+            <colour ref="BLU"/>
+            <colour ref="WHI"/>
          </route>
          <route length="5" colour="GRY" microlight="true">
             <location ref="UPW"/>
             <location ref="WIN"/>
          </route>
-         <route length="4" colour="GRY">
+         <route length="4" colour="BLA">
             <location ref="WIN"/>
             <location ref="WYN"/>
          </route>
@@ -757,4 +756,360 @@
          </colour>
       </colours>
    </map>
+   <tickets>
+      <ticket points="8">
+         <location ref="ABB"/>
+         <location ref="BRI"/>
+      </ticket>
+      <ticket points="11">
+         <location ref="ABB"/>
+         <location ref="CER"/>
+         <note>Benedictine Bond</note>
+      </ticket>
+      <ticket points="10">
+         <location ref="ABB"/>
+         <location ref="FOR2"/>
+      </ticket>
+      <ticket points="13">
+         <location ref="ALW"/>
+         <location ref="BEA"/>
+      </ticket>
+      <ticket points="7">
+         <location ref="ALW"/>
+         <location ref="EVE"/>
+         <note>Baker's Half Dozen</note>
+      </ticket>
+      <ticket points="7">
+         <location ref="BEA"/>
+         <location ref="CAT"/>
+      </ticket>
+      <ticket points="15">
+         <location ref="BEA"/>
+         <location ref="DOR"/>
+      </ticket>
+      <ticket points="6">
+         <location ref="BEA"/>
+         <location ref="HAL"/>
+      </ticket>
+      <ticket points="9">
+         <location ref="BEA"/>
+         <location ref="MAI"/>
+      </ticket>
+      <ticket points="18">
+         <location ref="BEA"/>
+         <location ref="WEY"/>
+      </ticket>
+      <ticket points="17">
+         <location ref="BIS"/>
+         <location ref="BRO"/>
+      </ticket>
+      <ticket points="12">
+         <location ref="BIS"/>
+         <location ref="HAL"/>
+      </ticket>
+      <ticket points="12">
+         <location ref="BIS"/>
+         <location ref="PUD"/>
+      </ticket>
+      <ticket points="5">
+         <location ref="BIS"/>
+         <location ref="SHE"/>
+      </ticket>
+      <ticket points="8">
+         <location ref="BRA"/>
+         <location ref="BUC"/>
+      </ticket>
+      <ticket points="10">
+         <location ref="BRA"/>
+         <location ref="PID2"/>
+      </ticket>
+      <ticket points="8">
+         <location ref="BRI"/>
+         <location ref="MAI"/>
+      </ticket>
+      <ticket points="17">
+         <location ref="BRI"/>
+         <location ref="SHE"/>
+      </ticket>
+      <ticket points="9">
+         <location ref="BRO"/>
+         <location ref="POR"/>
+      </ticket>
+      <ticket points="7">
+         <location ref="BRO2"/>
+         <location ref="HOO"/>
+      </ticket>
+      <ticket points="16">
+         <location ref="BUC"/>
+         <location ref="MAR"/>
+      </ticket>
+      <ticket points="9">
+         <location ref="BUC"/>
+         <location ref="TOL2"/>
+         <note>Labourers' Dissent</note>
+      </ticket>
+      <ticket points="10">
+         <location ref="BUR"/>
+         <location ref="CHA"/>
+      </ticket>
+      <ticket points="12">
+         <location ref="BUR"/>
+         <location ref="EVE"/>
+      </ticket>
+      <ticket points="15">
+         <location ref="BUR"/>
+         <location ref="OSM"/>
+      </ticket>
+      <ticket points="6">
+         <location ref="CAT"/>
+         <location ref="CHA"/>
+      </ticket>
+      <ticket points="12">
+         <location ref="CAT"/>
+         <location ref="CHE"/>
+      </ticket>
+      <ticket points="11">
+         <location ref="CER"/>
+         <location ref="EGG"/>
+      </ticket>
+      <ticket points="13">
+         <location ref="CER"/>
+         <location ref="OSM"/>
+         <note>Chalk Figures</note>
+      </ticket>
+      <ticket points="7">
+         <location ref="CER"/>
+         <location ref="PUD"/>
+         <note>Water-meadows</note>
+      </ticket>
+      <ticket points="4">
+         <location ref="CHA"/>
+         <location ref="UPW"/>
+      </ticket>
+      <ticket points="7">
+         <location ref="CHA2"/>
+         <location ref="FOR"/>
+         <note>Founding Fathers</note>
+      </ticket>
+      <ticket points="11">
+         <location ref="CHA2"/>
+         <location ref="MOS"/>
+      </ticket>
+      <ticket points="12">
+         <location ref="CHA2"/>
+         <location ref="SOU"/>
+      </ticket>
+      <ticket points="7">
+         <location ref="CHA2"/>
+         <location ref="WES"/>
+      </ticket>
+      <ticket points="18">
+         <location ref="CHE"/>
+         <location ref="MEL2"/>
+      </ticket>
+      <ticket points="7">
+         <location ref="CHE"/>
+         <location ref="MID"/>
+      </ticket>
+      <ticket points="7">
+         <location ref="CHE"/>
+         <location ref="MIN"/>
+      </ticket>
+      <ticket points="8">
+         <location ref="CHI"/>
+         <location ref="HOR"/>
+      </ticket>
+      <ticket points="8">
+         <location ref="CHI"/>
+         <location ref="KIN"/>
+      </ticket>
+      <ticket points="10">
+         <location ref="CHI"/>
+         <location ref="MOS"/>
+      </ticket>
+      <ticket points="16">
+         <location ref="CRO"/>
+         <location ref="MEL"/>
+         <note>Aviators</note>
+      </ticket>
+      <ticket points="11">
+         <location ref="CRO"/>
+         <location ref="POR"/>
+      </ticket>
+      <ticket points="8">
+         <location ref="CRO"/>
+         <location ref="WIN"/>
+      </ticket>
+      <ticket points="19">
+         <location ref="DOR"/>
+         <location ref="LYM"/>
+         <note>Monmouth Rebellion</note>
+      </ticket>
+      <ticket points="16">
+         <location ref="DOR"/>
+         <location ref="SHE"/>
+      </ticket>
+      <ticket points="16">
+         <location ref="DOR"/>
+         <location ref="SOU"/>
+      </ticket>
+      <ticket points="7">
+         <location ref="DOR"/>
+         <location ref="WYN"/>
+      </ticket>
+      <ticket points="17">
+         <location ref="EGG"/>
+         <location ref="OSM"/>
+      </ticket>
+      <ticket points="7">
+         <location ref="EVE"/>
+         <location ref="SHE"/>
+      </ticket>
+      <ticket points="11">
+         <location ref="FOR"/>
+         <location ref="HAL2"/>
+      </ticket>
+      <ticket points="15">
+         <location ref="FOR"/>
+         <location ref="MEL"/>
+      </ticket>
+      <ticket points="12">
+         <location ref="FOR2"/>
+         <location ref="GRI"/>
+         <note>Stonecraft</note>
+      </ticket>
+      <ticket points="17">
+         <location ref="FOR2"/>
+         <location ref="WES"/>
+         <note>Chesil Beach</note>
+      </ticket>
+      <ticket points="10">
+         <location ref="HAL2"/>
+         <location ref="WES"/>
+      </ticket>
+      <ticket points="4">
+         <location ref="HAL"/>
+         <location ref="YET"/>
+      </ticket>
+      <ticket points="6">
+         <location ref="HOL"/>
+         <location ref="SHE"/>
+      </ticket>
+      <ticket points="13">
+         <location ref="HOL"/>
+         <location ref="UPW"/>
+         <note>Sacred Springs</note>
+      </ticket>
+      <ticket points="9">
+         <location ref="HOO"/>
+         <location ref="YET"/>
+      </ticket>
+      <ticket points="11">
+         <location ref="HOR"/>
+         <location ref="UPL"/>
+      </ticket>
+      <ticket points="4">
+         <location ref="KIN"/>
+         <location ref="POR"/>
+         <note>Master Shipman Hardy</note>
+      </ticket>
+      <ticket points="14">
+         <location ref="KIN"/>
+         <location ref="SHE"/>
+         <note>Constable Russell</note>
+      </ticket>
+      <ticket points="11">
+         <location ref="KIN"/>
+         <location ref="TOL2"/>
+         <note>Martyrs' Pardon</note>
+      </ticket>
+      <ticket points="21">
+         <location ref="LYM"/>
+         <location ref="WEY"/>
+         <note>Regal Resorts</note>
+      </ticket>
+      <ticket points="16">
+         <location ref="MAI"/>
+         <location ref="MON"/>
+      </ticket>
+      <ticket points="9">
+         <location ref="MAI"/>
+         <location ref="WES"/>
+         <note>Branch Line</note>
+      </ticket>
+      <ticket points="8">
+         <location ref="MAR"/>
+         <location ref="TOL"/>
+      </ticket>
+      <ticket points="8">
+         <location ref="MEL"/>
+         <location ref="PID2"/>
+      </ticket>
+      <ticket points="10">
+         <location ref="MEL2"/>
+         <location ref="MON"/>
+      </ticket>
+      <ticket points="4">
+         <location ref="MEL2"/>
+         <location ref="UPL"/>
+      </ticket>
+      <ticket points="5">
+         <location ref="MID"/>
+         <location ref="PUR"/>
+      </ticket>
+      <ticket points="14">
+         <location ref="MIN"/>
+         <location ref="POR"/>
+         <note>Lord Nelson's Admirals</note>
+      </ticket>
+      <ticket points="7">
+         <location ref="MIN"/>
+         <location ref="SHE"/>
+      </ticket>
+      <ticket points="8">
+         <location ref="MOS"/>
+         <location ref="UPL"/>
+      </ticket>
+      <ticket points="8">
+         <location ref="MOS"/>
+         <location ref="YET"/>
+      </ticket>
+      <ticket points="9">
+         <location ref="OSM"/>
+         <location ref="PUD"/>
+      </ticket>
+      <ticket points="11">
+         <location ref="PID"/>
+         <location ref="UPL"/>
+      </ticket>
+      <ticket points="6">
+         <location ref="PID"/>
+         <location ref="UPW"/>
+      </ticket>
+      <ticket points="10">
+         <location ref="PID2"/>
+         <location ref="TOL"/>
+      </ticket>
+      <ticket points="13">
+         <location ref="PUD"/>
+         <location ref="YET"/>
+      </ticket>
+      <ticket points="18">
+         <location ref="PUR"/>
+         <location ref="UPW"/>
+      </ticket>
+      <ticket points="8">
+         <location ref="RYM"/>
+         <location ref="WYN"/>
+      </ticket>
+      <ticket points="15">
+         <location ref="SOU"/>
+         <location ref="WIN"/>
+      </ticket>
+      <ticket points="12">
+         <location ref="TOL"/>
+         <location ref="WIN"/>
+      </ticket>
+   </tickets>
+   
 </game>

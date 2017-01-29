@@ -1,6 +1,6 @@
 <!ELEMENT game (title?, map?, tickets*)>
 <!ELEMENT title (#PCDATA)>
-<!ELEMENT map (locations, routes?, colours)>
+<!ELEMENT map (locations?, routes?, colours)>
 <!ELEMENT locations (location*, country*)>
 <!ELEMENT country (name?, location*)>
 <!ELEMENT location (name?)>

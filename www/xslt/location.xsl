@@ -1,4 +1,4 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
     <xsl:template match="/">
         <html>
             <head>
@@ -25,8 +25,9 @@
         <ul>
             <xsl:for-each select="//location">
             	<xsl:sort select="if (name) then name else ancestor::country[1]/concat(name, ' (', @id, ')')" data-type="text" order="ascending" />
+                <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                 <li>
-                    <a href="location.html?id={@id}">
+                    <a href="location.html?id={$game-id}-{@id}">
                         <xsl:apply-templates select="." mode="location.name"/>
                     </a>
                 </li>
@@ -34,8 +35,9 @@
         </ul>
     </xsl:template>
     <xsl:template match="location" mode="html.body">
+        <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
         <p>
-            <a href="location.html">Locations</a> | <a href="../xml/location.xml?id={@id}">XML</a>
+            <a href="location.html">Locations</a> | <a href="../xml/location.xml?id={$game-id}-{@id}">XML</a>
         </p>
         <h1>
             <xsl:value-of select="name"/>
@@ -63,16 +65,17 @@
                 <th>Length</th>
                 <th>Double</th>
                 <th>Colours</th>
-                <th>Tunnel</th>
-                <th>Ferries</th>
+                <th>Type</th>
+                <th>Locomotives Required (Min)</th>
             </tr>
             <xsl:apply-templates select="location" mode="connections"/>
         </table>
     </xsl:template>
     <xsl:template match="location" mode="connections">
+        <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
         <tr>
             <td>
-                <a href="location.html?id={@id}">
+                <a href="location.html?id={$game-id}-{@id}">
                     <xsl:apply-templates select="." mode="location.name"/>
                 </a>
             </td>
@@ -86,7 +89,12 @@
                 <xsl:value-of select="string-join(colour, ', ')"/>
             </td>
             <td>
-                <xsl:value-of select="@tunnel"/>
+                <xsl:choose>
+                    <xsl:when test="@tunnel = 'true'">Tunnel</xsl:when>
+            <xsl:when test="@microlight = 'true'">Microlight</xsl:when>
+                    <xsl:when test="@ferry &gt; 0">Ferry</xsl:when>
+                    <xsl:otherwise>Normal</xsl:otherwise>
+                </xsl:choose>
             </td>
             <td>
             	<xsl:value-of select="if (@ferry > 0) then @ferry else 0" />

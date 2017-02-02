@@ -12,22 +12,25 @@ declare variable $loc:path-view-xml := "/exist/rest/db/apps/greenwood/view/xml/"
 
 
 declare 
-    %test:args('GEN')
-    %test:assertEquals('<location id="GEN"><name>Geneve</name></location>')
+    %test:args('SWI-GEN')
+    %test:assertEquals('<location id="GEN"><name>Geneve</name><games><game id="SWI"><title>Schweiz</title></game></games></location>')
 function loc:get-location($id as xs:string) as item()? {
     loc:get-location($id, false())
 };
 
 
 declare 
-    %test:args('GEN', 'false')
-    %test:assertEquals('<location id="GEN"><name>Geneve</name></location>')
-    %test:args('GEN', 'true')
-    %test:assertEquals('<location id="GEN"><name>Geneve</name><connections><location id="FRA3" length="1" tunnel="false"><name><name>France (FRA3)</name></name><colour><name>Yellow</name></colour></location><location id="LAU" length="4" tunnel="false"><name><name>Lausanne</name></name><colour><name>Blue</name></colour><colour><name>White</name></colour></location><location id="YVE" length="6" tunnel="false"><name><name>Yverdon</name></name><colour><name>Grey</name></colour></location></connections></location>')
+    %test:args('SWI-GEN', 'false')
+    %test:assertEquals('<location id="GEN"><name>Geneve</name><games><game id="SWI"><title>Schweiz</title></game></games></location>')
+    %test:args('SWI-GEN', 'true')
+    %test:assertEquals('<location id="GEN"><name>Geneve</name><games><game id="SWI"><title>Schweiz</title></game></games><connections><location id="FRA3" length="1" tunnel="false" ferry="0" microlight="false"><name><name>France (FRA3)</name></name><colour><name>Yellow</name></colour></location><location id="LAU" length="4" tunnel="false" ferry="0" microlight="false"><name><name>Lausanne</name></name><colour><name>Blue</name></colour><colour><name>White</name></colour></location><location id="YVE" length="6" tunnel="false" ferry="0" microlight="false"><name><name>Yverdon</name></name><colour><name>Grey</name></colour></location></connections></location>')
 function loc:get-location($id as xs:string, $with-connections as xs:boolean) as item()? {
     
-    let $locations := $loc:db/game/map/locations/country/location
-    for $location in $locations[@id = $id]
+    let $game-id := substring-before($id, '-')
+    let $location-id := substring-after($id, '-')
+    
+    let $locations := $loc:db/game[@id = $game-id]/map/locations/country/location
+    for $location in $locations[@id = $location-id]
     let $games := 
         <games>
             {
@@ -57,19 +60,22 @@ function loc:get-location($id as xs:string, $with-connections as xs:boolean) as 
 };
 
 declare 
-    %test:args('GEN')
-    %test:assertEquals('<connections><location id="FRA3" length="1" tunnel="false"><name><name>France (FRA3)</name></name><colour><name>Yellow</name></colour></location><location id="LAU" length="4" tunnel="false"><name><name>Lausanne</name></name><colour><name>Blue</name></colour><colour><name>White</name></colour></location><location id="YVE" length="6" tunnel="false"><name><name>Yverdon</name></name><colour><name>Grey</name></colour></location></connections>')
+    %test:args('SWI-GEN')
+    %test:assertEquals('<connections><location id="FRA3" length="1" tunnel="false" ferry="0" microlight="false"><name><name>France (FRA3)</name></name><colour><name>Yellow</name></colour></location><location id="LAU" length="4" tunnel="false" ferry="0" microlight="false"><name><name>Lausanne</name></name><colour><name>Blue</name></colour><colour><name>White</name></colour></location><location id="YVE" length="6" tunnel="false" ferry="0" microlight="false"><name><name>Yverdon</name></name><colour><name>Grey</name></colour></location></connections>')
 function loc:get-connections($id as xs:string) as item() {
     
-    let $routes := $loc:db/game/map/routes/route
+    let $game-id := substring-before($id, '-')
+    let $location-id := substring-after($id, '-')
+    
+    let $routes := $loc:db/game[@id = $game-id]/map/routes/route
     return
         <connections>{
-            for $route in $routes[location/@ref = $id]
+            for $route in $routes[location/@ref = $location-id]
             let $colours := $route/ancestor::map[1]/colours
-            let $terminus-id := string($route/location/@ref[. != $id])
+            let $terminus-id := concat($game-id, '-', string($route/location/@ref[. != $location-id]))
             let $location := loc:get-location($terminus-id)
             return
-                <location id="{$location/@id}" length="{$route/@length}" tunnel="{boolean($route/@tunnel)}" ferry="{if ($route/@ferry > 0) then ($route/@ferry) else 0}">
+                <location id="{$location/@id}" length="{$route/@length}" tunnel="{boolean($route/@tunnel)}" ferry="{if ($route/@ferry > 0) then ($route/@ferry) else 0}" microlight="{boolean($route/@microlight)}">
                     <name>{$location/name}</name>
                     {
                         for $colour-id in $route/(@colour | colour/@ref)

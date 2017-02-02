@@ -117,13 +117,19 @@
         </h1>
         <xsl:apply-templates select="map/routes">
             <xsl:with-param name="colour" select="map/colours/colour" as="element()*" tunnel="yes"/>
+        <xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes"/>
         </xsl:apply-templates>
-        <xsl:apply-templates select="map/locations"/>
-        <xsl:apply-templates select="tickets"/>
+        <xsl:apply-templates select="map/locations">
+            <xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="tickets">
+            <xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes"/>
+        </xsl:apply-templates>
     </xsl:template>
     
     
     <xsl:template match="locations">
+        <xsl:param name="game-id" as="xs:string" tunnel="yes"/>
         <div class="locations">
             <h2>Locations</h2>
             <p>Total: <xsl:value-of select="count(descendant::location)"/>
@@ -132,7 +138,7 @@
                 <xsl:for-each select="descendant::location">
                 	<xsl:sort select="if (name) then name else ancestor::country[1]/concat(name, ' (', @id, ')')" data-type="text" order="ascending" />
                     <li>
-                        <a href="location.html?id={@id}">
+                        <a href="location.html?id={$game-id}-{@id}">
                             <xsl:apply-templates select="." mode="location.name"/>
                         </a>
                     </li>
@@ -158,7 +164,9 @@
                         <xsl:value-of select="@id"/>
                         <xsl:text>', 
                     label: '</xsl:text>
-                        <xsl:apply-templates select="." mode="location.name"/>
+                        <xsl:apply-templates select="." mode="location.name">
+                    <xsl:with-param name="for-js" select="true()" as="xs:boolean" tunnel="yes"/>
+                </xsl:apply-templates>
                         <xsl:text>',
                     size: </xsl:text>
                         <xsl:value-of select="sum(10 * sum(1 + $total-tickets))" />
@@ -223,7 +231,10 @@
                     maxVelocity: 50,
                     minVelocity: 0.1,
                     solver: 'barnesHut',
-                    timestep: 0.5
+                    timestep: 0.5,
+                    stabilization: {
+                        enabled: true
+                    }
                 }
             };
             </xsl:text>
@@ -382,6 +393,47 @@
             </tr>
         </table>
         
+        <h3>Microlights</h3>
+        <table>
+            <tr>
+                <th>Length</th>
+                <xsl:for-each select="$colour">
+                    <th>
+                        <xsl:value-of select="name"/>
+                    </th>
+                </xsl:for-each>
+                <th>Total</th>
+            </tr>
+            <xsl:for-each-group select="route" group-by="@length">
+                <xsl:sort select="current-grouping-key()" order="descending" data-type="number"/>
+                <tr>
+                    <td>
+                        <xsl:value-of select="current-grouping-key()"/>
+                    </td>
+                    <xsl:for-each select="$colour">
+                        <xsl:variable name="colour-id" select="@id"/>
+                        <td>
+                            <xsl:value-of select="count(current-group()[@microlight = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
+                        </td>
+                    </xsl:for-each>
+                    <td>
+                        <xsl:value-of select="count(current-group()[@microlight = 'true']/(@colour | colour/@ref))"/>
+                    </td>
+                </tr>
+            </xsl:for-each-group>
+            <tr>
+                <td>Total</td>
+                <xsl:for-each select="$colour">
+                    <xsl:variable name="colour-id" select="@id"/>
+                    <td>
+                        <xsl:value-of select="count($routes/route[@microlight = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
+                    </td>
+                </xsl:for-each>
+                <td>
+                    <xsl:value-of select="count($routes/route[@microlight = 'true']/(@colour | colour/@ref))"/>
+                </td>
+            </tr>
+        </table>
         <h3>Ferries</h3>
         <table>
             <tr>
@@ -428,6 +480,7 @@
     
     
     <xsl:template match="tickets">
+        <xsl:param name="game-id" as="xs:string" tunnel="yes"/>
         <xsl:variable name="tickets" select="ticket" as="element()*" />
     	<xsl:variable name="destinations" as="element()*">
     		<xsl:for-each-group select="descendant::ticket/location" group-by="@ref">
@@ -524,7 +577,7 @@
             			<td>
 							<xsl:choose>
 								<xsl:when test="$destinations[@id = current-grouping-key()]">
-									<a href="location.xml?id={current-grouping-key()}"><xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" /></a>
+									<a href="location.html?id={$game-id}-{current-grouping-key()}"><xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" /></a>
 								</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="current-grouping-key()" />
@@ -539,7 +592,7 @@
             	<xsl:for-each select="ancestor::game[1]/map/locations/descendant::location[not(@id = $destinations/@id)][not(ancestor::country[1]/@id = $destinations/@id)]">
             		<tr>
             			<td>
-							<a href="location.xml?id={@id}"><xsl:apply-templates select="." mode="location.name" /></a>
+							<a href="location.html?id={$game-id}-{@id}"><xsl:apply-templates select="." mode="location.name" /></a>
             			</td>
             			<td>0</td>
             			<td>0</td>
@@ -565,7 +618,7 @@
             			<td>
 							<xsl:choose>
 								<xsl:when test="$destinations[@id = current-grouping-key()]">
-									<a href="location.xml?id={current-grouping-key()}"><xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" /></a>
+									<a href="location.html?id={$game-id}-{current-grouping-key()}"><xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" /></a>
 								</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="current-grouping-key()" />
@@ -597,7 +650,7 @@
             			<td>
 							<xsl:choose>
 								<xsl:when test="$destinations[@id = current-grouping-key()]">
-									<a href="location.xml?id={current-grouping-key()}"><xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" /></a>
+									<a href="location.html?id={$game-id}{current-grouping-key()}"><xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" /></a>
 								</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="current-grouping-key()" />
@@ -674,7 +727,7 @@
     
     
     <xsl:template match="location[@id][name]" mode="location.name">
-        <xsl:value-of select="name"/>
+        <xsl:apply-templates select="name" mode="#current"/>
     </xsl:template>
     
     
@@ -684,10 +737,26 @@
     
     
     <xsl:template match="country[@id]" mode="location.name">
-        <xsl:value-of select="name"/>
+        <xsl:apply-templates select="name" mode="#current"/>
     </xsl:template>
     
     
+    <xsl:template match="name" mode="location.name">
+        <xsl:param name="for-js" select="false()" tunnel="yes" as="xs:boolean"/>
+	   
+	   <!-- create an $apos variable to make it easier to refer to -->
+        <xsl:variable name="apos" select="codepoints-to-string(39)"/>
+        <xsl:choose>
+	      <!-- if the string contains an apostrophe... -->
+            <xsl:when test="$for-js = true() and contains(., $apos)">
+                <xsl:value-of select="replace(., $apos, '\\''')"/>
+            </xsl:when>
+	      <!-- otherwise... -->
+            <xsl:otherwise>
+                <xsl:value-of select="."/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
     <xsl:template match="ticket[count(*) = 2]" mode="ticket.name">
     	<xsl:apply-templates select="*[1]" mode="location.name"/>
     	<xsl:text> to </xsl:text>

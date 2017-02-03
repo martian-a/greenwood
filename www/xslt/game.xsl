@@ -39,30 +39,30 @@
                 column-gap: 5em;
             }
             
-            div.tickets table {
+            table.cross-reference {
                 border-collapse: collapse;
             }
-            div.tickets table th,
-            div.tickets table td {
+            table.cross-reference th,
+            table.cross-reference td {
                 border: 1px solid black;
                 padding: .25em;
             }
-            div.tickets table th {
+            table.cross-reference th {
                 text-align: left;
                 white-space: wrap;
             }
-            div.tickets table td {
+            table.cross-reference td {
                 text-align: center;
             }
-            div.tickets table td.empty {
+            table.cross-reference td.empty {
                 background-color: #c0c0c0;
             }
-            div.tickets table th.destination {
+            table.cross-reference th.destination {
                 height: 12em;
                 white-space: nowrap;
                 width: 2em;
             }
-            div.tickets table th.destination span {
+            table.cross-reference th.destination span {
                 display: block;
                 position: relative;
                 width: 1.5em;
@@ -71,16 +71,25 @@
                 transform: rotate(-90deg);
                 transform-origin: 3.25em 3.25em 0;
             }
-            div.tickets table th.total {
+            table.cross-reference th.total {
                 whitespace: wrap;
                 width: 3em;
                 vertical-align: bottom;
             }
-            div.tickets table td.destination {
+            table.cross-reference td.destination {
                 text-align: left;
                 font-weight: bold;
             }
-
+            
+            span.ticket {
+                display: inline-block;
+                font-size: 1.25em;
+                margin: 0;
+                vertical-align: middle;
+                padding-left: .25em;
+                transform: rotate(-10deg);
+            }
+            
             #mynetwork {
                 width: 1200px;
                 height: 800px;
@@ -122,7 +131,10 @@
         <xsl:apply-templates select="map/locations">
             <xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes"/>
         </xsl:apply-templates>
-        <xsl:apply-templates select="tickets">
+        <xsl:apply-templates select="map/shortest-paths">
+            <xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes"/>
+        </xsl:apply-templates>
+    <xsl:apply-templates select="tickets">
             <xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes"/>
         </xsl:apply-templates>
     </xsl:template>
@@ -479,6 +491,79 @@
     
     
     
+    <xsl:template match="shortest-paths">
+        <xsl:param name="game-id" as="xs:string" tunnel="yes"/>
+        <xsl:variable name="paths" select="path" as="element()*"/>
+        <xsl:variable name="destinations" as="element()*">
+            <xsl:for-each-group select="descendant::path/location" group-by="@ref">
+                <xsl:copy-of select="ancestor::game[1]/map/locations/descendant::*[name() = ('location', 'country')][@id = current-grouping-key()]"/>
+            </xsl:for-each-group>
+        </xsl:variable>
+        <div class="shortest-paths">
+            <h2>Shortest Paths</h2>
+            <table class="cross-reference">
+                <tr>
+                    <th> </th>
+                    <xsl:for-each select="$destinations">
+                        <xsl:sort select="name" data-type="text" order="ascending"/>
+                        <th class="destination">
+                            <span>
+                                <xsl:apply-templates select="." mode="location.name"/>
+                            </span>
+                        </th>
+                    </xsl:for-each>
+                </tr>
+                <xsl:for-each select="$destinations">
+                    <xsl:sort select="name" data-type="text" order="ascending"/>
+                    <xsl:variable name="from" select="." as="element()"/>
+                    <xsl:variable name="paths-from" select="$paths[*/@ref = $from/@id]" as="element()*"/>
+                    <tr>
+                        <td class="destination">
+                            <xsl:apply-templates select="$from" mode="location.name"/>
+                        </td>
+                        <xsl:for-each select="$destinations">
+                            <xsl:sort select="name" data-type="text" order="ascending"/>
+                            <xsl:variable name="to" select="." as="element()"/>
+                            <td>
+                                <xsl:choose>
+                                    <xsl:when test="$from/@id = $to/@id">
+                                        <xsl:attribute name="class">self</xsl:attribute>
+                                        <xsl:text>-</xsl:text>
+                                    </xsl:when>
+                                    <xsl:when test="not($paths-from[*/@ref = $to/@id])">
+                                        <xsl:attribute name="class">empty</xsl:attribute>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="$paths-from[*/@ref = $to/@id]/@distance"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </td>
+                        </xsl:for-each>
+                    </tr>
+                </xsl:for-each>
+            </table>
+            <h2>By Distance</h2>
+            <ul>
+                <xsl:for-each-group select="path" group-by="@distance">
+                    <xsl:sort select="current-grouping-key()" data-type="number" order="ascending"/>
+                    <li>
+                        <h3>
+                            <xsl:value-of select="current-grouping-key()"/> Carriage<xsl:if test="current-grouping-key() != 1">s</xsl:if> (<xsl:value-of select="count(current-group())"/> paths)</h3>
+                        <ul>
+                            <xsl:for-each select="current-group()">
+                                <li>
+                                    <xsl:apply-templates select="." mode="path.name"/>
+                                    <xsl:for-each select="ancestor::game[1]/tickets/ticket[location/@ref = current()/location[1]/@ref][location/@ref = current()/location[2]/@ref]">
+                                        <span class="ticket">🎫</span>
+                                    </xsl:for-each>
+                                </li>
+                            </xsl:for-each>
+                        </ul>
+                    </li>
+                </xsl:for-each-group>
+            </ul>
+        </div>
+    </xsl:template>
     <xsl:template match="tickets">
         <xsl:param name="game-id" as="xs:string" tunnel="yes"/>
         <xsl:variable name="tickets" select="ticket" as="element()*" />
@@ -494,12 +579,16 @@
         <div class="tickets">
             <h2>Tickets</h2>
             <p>Total: <xsl:value-of select="count(descendant::ticket)"/></p>
-            <table>
+            <table class="cross-reference">
             	<tr>
             		<th> </th>
             		<xsl:for-each select="$destinations">
             			<xsl:sort select="name" data-type="text" order="ascending" />
-            			<th class="destination"><span><xsl:apply-templates select="." mode="location.name"/></span></th>
+            			<th class="destination">
+                            <span>
+                                <xsl:apply-templates select="." mode="location.name"/>
+                            </span>
+                        </th>
             		</xsl:for-each>
             		<th class="total">Total Tickets</th>
             		<th class="total">Max Points</th>
@@ -509,7 +598,9 @@
             		<xsl:variable name="from" select="." as="element()" /> 
             		<xsl:variable name="tickets-from" select="$tickets[*/@ref = $from/@id]" as="element()*" />
             		<tr>
-            			<td class="destination"><xsl:apply-templates select="$from" mode="location.name"/></td>
+            			<td class="destination">
+                            <xsl:apply-templates select="$from" mode="location.name"/>
+                        </td>
             			<xsl:for-each select="$destinations">
 	            			<xsl:sort select="name" data-type="text" order="ascending" />
             				<xsl:variable name="to" select="." as="element()" />
@@ -779,6 +870,11 @@
     </xsl:template>
     
     
+    <xsl:template match="path" mode="path.name">
+        <xsl:apply-templates select="*[1]" mode="location.name"/>
+        <xsl:text> to </xsl:text>
+        <xsl:apply-templates select="*[2]" mode="location.name"/>
+    </xsl:template>
     <xsl:function name="gw:getColourHex" as="xs:string">
         <xsl:param name="colour-id" as="xs:string"/>
         <xsl:choose>

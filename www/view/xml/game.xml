@@ -11,7 +11,7 @@ let $request-id := string(request:get-parameter("id", ""))
 return
     if ($request-id != "")
     then
-        let $game := $data/game[@id = $request-id]
+        let $game := loc:get-game($request-id)
         return $game
     else 
         <games>

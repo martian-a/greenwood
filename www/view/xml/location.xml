@@ -10,7 +10,7 @@ let $request-id := string(request:get-parameter("id", ""))
 return
     if ($request-id != "")
     then
-        let $location := loc:get-location($request-id, true())
+        let $location := loc:get-location($request-id, true(), true())
         return $location
                 
     else 

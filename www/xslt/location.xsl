@@ -44,6 +44,7 @@
         </h1>
         <xsl:apply-templates select="games"/>
         <xsl:apply-templates select="connections"/>
+    <xsl:apply-templates select="shortest-paths"/>
     </xsl:template>
     <xsl:template match="games">
         <h2>Games</h2>
@@ -98,6 +99,29 @@
             </td>
             <td>
             	<xsl:value-of select="if (@ferry > 0) then @ferry else 0" />
+            </td>
+        </tr>
+    </xsl:template>
+    <xsl:template match="shortest-paths">
+        <h2>Shortest Path</h2>
+        <table>
+            <tr>
+                <th>Location</th>
+                <th>Distance</th>
+            </tr>
+            <xsl:apply-templates select="location" mode="shortest-path"/>
+        </table>
+    </xsl:template>
+    <xsl:template match="location" mode="shortest-path">
+        <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
+        <tr>
+            <td>
+                <a href="location.html?id={$game-id}-{@id}">
+                    <xsl:apply-templates select="." mode="location.name"/>
+                </a>
+            </td>
+            <td>
+                <xsl:value-of select="@distance"/>
             </td>
         </tr>
     </xsl:template>

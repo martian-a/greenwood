@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description 
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"	
+	stylesheet="../../data/generate/shortest_paths.xsl">
+	
+	<x:scenario label="No data to work with.">
+			
+		<x:scenario label="No map.">
+			
+			<x:context>
+				<game />
+			</x:context>
+			
+			<x:expect label="No result document." />
+			
+		</x:scenario>
+		
+		<x:scenario label="No network.">
+			
+			<x:context>
+				<game>
+					<map />
+				</game>
+			</x:context>
+			
+			<x:expect label="No result document." />
+			
+		</x:scenario>
+		
+		<x:scenario label="No nodes or edges.">
+			
+			<x:context>
+				<game>
+					<map>
+						<network />					
+					</map>
+				</game>
+			</x:context>
+			
+			<x:expect label="No result document." />
+			
+		</x:scenario>
+		
+	</x:scenario>
+	
+	
+	<x:scenario label="Result structure">
+		
+		<x:scenario label="Single edge.">
+			
+			<x:context>
+				<game id="TST">
+					<map>
+						<network>
+							<nodes>
+								<node id="ALL">
+									<name>Allosimanius Syneca</name>
+								</node>
+								<node id="ARG">
+									<name>Argabuthon</name>
+								</node>
+							</nodes>
+							<edges>
+								<edge id="ALL-ARG" length="1">
+									<node ref="ALL" />
+									<node ref="ARG" />
+								</edge>
+							</edges>
+						</network>
+					</map>
+				</game>
+			</x:context>
+			
+			<x:expect label="Single path result.">
+				<game id="TST">
+					<map>
+						<shortest-paths>
+							<path distance="1">
+								<location ref="ALL" />
+								<location ref="ARG" />
+							</path>
+						</shortest-paths>
+					</map>
+				</game>
+			</x:expect>
+			
+		</x:scenario>
+		
+		<x:scenario label="Two edges.">
+			
+			<x:context>
+				<game id="TST">
+					<map>
+						<network>
+							<nodes>
+								<node id="ALL">
+									<name>Allosimanius Syneca</name>
+								</node>
+								<node id="ARG">
+									<name>Argabuthon</name>
+								</node>
+								<node id="ARK">
+									<name>Arkintoofle Minor</name>
+								</node>
+							</nodes>
+							<edges>
+								<edge id="ALL-ARG" length="1">
+									<node ref="ALL" />
+									<node ref="ARG" />
+								</edge>
+								<edge id="ALL-ARK" length="1">
+									<node ref="ALL" />
+									<node ref="ARK" />
+								</edge>
+							</edges>
+						</network>
+					</map>
+				</game>
+			</x:context>
+			
+			<x:expect label="Three path result.">
+				<game id="TST">
+					<map>
+						<shortest-paths>
+							<path distance="1">
+								<location ref="ALL" />
+								<location ref="ARG" />
+							</path>
+							<path distance="1">
+								<location ref="ALL" />
+								<location ref="ARK" />
+							</path>
+							<path distance="2">
+								<location ref="ARG" />
+								<location ref="ARK" />
+							</path>
+						</shortest-paths>
+					</map>
+				</game>
+			</x:expect>
+			
+		</x:scenario>
+		
+		
+		<x:scenario label="Three edges.">
+			
+			<x:context>
+				<game id="TST">
+					<map>
+						<network>
+							<nodes>
+								<node id="ALL">
+									<name>Allosimanius Syneca</name>
+								</node>
+								<node id="ARG">
+									<name>Argabuthon</name>
+								</node>
+								<node id="ARK">
+									<name>Arkintoofle Minor</name>
+								</node>
+							</nodes>
+							<edges>
+								<edge id="ALL-ARG" length="1">
+									<node ref="ALL" />
+									<node ref="ARG" />
+								</edge>
+								<edge id="ALL-ARK" length="1">
+									<node ref="ALL" />
+									<node ref="ARK" />
+								</edge>
+								<edge id="ARG-ARK" length="1">
+									<node ref="ARG" />
+									<node ref="ARK" />
+								</edge>
+							</edges>
+						</network>
+					</map>
+				</game>
+			</x:context>
+			
+			<x:expect label="Three path result.">
+				<game id="TST">
+					<map>
+						<shortest-paths>
+							<path distance="1">
+								<location ref="ALL" />
+								<location ref="ARG" />
+							</path>
+							<path distance="1">
+								<location ref="ALL" />
+								<location ref="ARK" />
+							</path>
+							<path distance="1">
+								<location ref="ARG" />
+								<location ref="ARK" />
+							</path>
+						</shortest-paths>
+					</map>
+				</game>
+			</x:expect>
+			
+		</x:scenario>
+		
+	</x:scenario>
+	
+	
+	<x:scenario label="Distance check">
+		
+		<x:scenario label="Single step">
+			
+			<x:scenario label="Two equal edges between two nodes.">
+				
+				<x:context>
+					<game id="TST">
+						<map>
+							<network>
+								<nodes>
+									<node id="ALL">
+										<name>Allosimanius Syneca</name>
+									</node>
+									<node id="ARG">
+										<name>Argabuthon</name>
+									</node>
+								</nodes>
+								<edges>
+									<edge id="ALL-ARG" length="1">
+										<node ref="ALL" />
+										<node ref="ARG" />
+									</edge>
+									<edge id="ALL-ARG" length="1">
+										<node ref="ALL" />
+										<node ref="ARG" />
+									</edge>
+								</edges>
+							</network>
+						</map>
+					</game>
+				</x:context>
+				
+				<x:expect label="Single path.">
+					<game id="TST">
+						<map>
+							<shortest-paths>
+								<path distance="1">
+									<location ref="ALL" />
+									<location ref="ARG" />
+								</path>
+							</shortest-paths>
+						</map>
+					</game>
+				</x:expect>
+				
+			</x:scenario>
+			
+			<x:scenario label="Two unequal edges between two nodes.">
+				
+				<x:context>
+					<game id="TST">
+						<map>
+							<network>
+								<nodes>
+									<node id="ALL">
+										<name>Allosimanius Syneca</name>
+									</node>
+									<node id="ARG">
+										<name>Argabuthon</name>
+									</node>
+								</nodes>
+								<edges>
+									<edge id="ALL-ARG" length="1">
+										<node ref="ALL" />
+										<node ref="ARG" />
+									</edge>
+									<edge id="ALL-ARK" length="2">
+										<node ref="ALL" />
+										<node ref="ARG" />
+									</edge>
+								</edges>
+							</network>
+						</map>
+					</game>
+				</x:context>
+				
+				<x:expect label="Single path matching shortest edge length.">
+					<game id="TST">
+						<map>
+							<shortest-paths>
+								<path distance="1">
+									<location ref="ALL" />
+									<location ref="ARG" />
+								</path>
+							</shortest-paths>
+						</map>
+					</game>
+				</x:expect>
+				
+			</x:scenario>
+			
+		</x:scenario>
+
+		<x:scenario label="Two steps">
+			
+			<x:scenario label="Two equal paths between Allosimanius Syneca and Asbleg.">
+				
+				<x:context>
+					<game id="TST">
+						<map>
+							<network>
+								<nodes>
+									<node id="ALL">
+										<name>Allosimanius Syneca</name>
+									</node>
+									<node id="ARG">
+										<name>Argabuthon</name>
+									</node>
+									<node id="ARK">
+										<name>Arkintoofle Minor</name>
+									</node>
+									<node id="ASB">
+										<name>Asbleg</name>
+									</node>
+								</nodes>
+								<edges>
+									<edge id="ALL-ARG" length="1">
+										<node ref="ALL" />
+										<node ref="ARG" />
+									</edge>
+									<edge id="ALL-ARK" length="1">
+										<node ref="ALL" />
+										<node ref="ARK" />
+									</edge>
+									<edge id="ARG-ASB" length="1">
+										<node ref="ARG" />
+										<node ref="ASB" />
+									</edge>
+									<edge id="ARK-ASB" length="1">
+										<node ref="ARK" />
+										<node ref="ASB" />
+									</edge>
+								</edges>
+							</network>
+						</map>
+					</game>
+				</x:context>
+				
+				<x:expect label="The distance between Allosimanius Syneca and Asbleg is 2.">
+					<game id="TST">
+						<map>
+							<shortest-paths>
+								<path distance="1">
+									<location ref="ALL" />
+									<location ref="ARG" />
+								</path>
+								<path distance="1">
+									<location ref="ALL" />
+									<location ref="ARK" />
+								</path>
+								<path distance="2">
+									<location ref="ALL" />
+									<location ref="ASB" />
+								</path>
+								<path distance="2">
+									<location ref="ARG" />
+									<location ref="ARK" />
+								</path>
+								<path distance="1">
+									<location ref="ARG" />
+									<location ref="ASB" />
+								</path>
+								<path distance="1">
+									<location ref="ARK" />
+									<location ref="ASB" />
+								</path>
+							</shortest-paths>
+						</map>
+					</game>
+				</x:expect>
+				
+			</x:scenario>
+			
+			<x:scenario label="Two unequal paths between Allosimanius Syneca and Asbleg.">
+				
+				<x:context>
+					<game id="TST">
+						<map>
+							<network>
+								<nodes>
+									<node id="ALL">
+										<name>Allosimanius Syneca</name>
+									</node>
+									<node id="ARG">
+										<name>Argabuthon</name>
+									</node>
+									<node id="ARK">
+										<name>Arkintoofle Minor</name>
+									</node>
+									<node id="ASB">
+										<name>Asbleg</name>
+									</node>
+								</nodes>
+								<edges>
+									<edge id="ALL-ARG" length="2">
+										<node ref="ALL" />
+										<node ref="ARG" />
+									</edge>
+									<edge id="ALL-ARK" length="1">
+										<node ref="ALL" />
+										<node ref="ARK" />
+									</edge>
+									<edge id="ARG-ASB" length="1">
+										<node ref="ARG" />
+										<node ref="ASB" />
+									</edge>
+									<edge id="ARK-ASB" length="1">
+										<node ref="ARK" />
+										<node ref="ASB" />
+									</edge>
+								</edges>
+							</network>
+						</map>
+					</game>
+				</x:context>
+				
+				<x:expect label="The distance between Allosimanius Syneca and Asbleg is 2 (not 3).">
+					<game id="TST">
+						<map>
+							<shortest-paths>
+								<path distance="2">
+									<location ref="ALL" />
+									<location ref="ARG" />
+								</path>
+								<path distance="1">
+									<location ref="ALL" />
+									<location ref="ARK" />
+								</path>
+								<path distance="2">
+									<location ref="ALL" />
+									<location ref="ASB" />
+								</path>
+								<path distance="2">
+									<location ref="ARG" />
+									<location ref="ARK" />
+								</path>
+								<path distance="1">
+									<location ref="ARG" />
+									<location ref="ASB" />
+								</path>
+								<path distance="1">
+									<location ref="ARK" />
+									<location ref="ASB" />
+								</path>
+							</shortest-paths>
+						</map>
+					</game>
+				</x:expect>
+				
+			</x:scenario>
+			
+		</x:scenario>
+		
+		<x:scenario label="Three steps">
+			
+			<x:scenario label="Two equal paths between Allosimanius Syneca and Bartrax.">
+				
+				<x:context>
+					<game id="TST">
+						<map>
+							<network>
+								<nodes>
+									<node id="ALL">
+										<name>Allosimanius Syneca</name>
+									</node>
+									<node id="ARG">
+										<name>Argabuthon</name>
+									</node>
+									<node id="ARK">
+										<name>Arkintoofle Minor</name>
+									</node>
+									<node id="ASB">
+										<name>Asbleg</name>
+									</node>
+									<node id="BAR">
+										<name>Bartledan</name>
+									</node>
+									<node id="BAR2">
+										<name>Baratrax</name>
+									</node>
+								</nodes>
+								<edges>
+									<edge id="ALL-ARG" length="1">
+										<node ref="ALL" />
+										<node ref="ARG" />
+									</edge>
+									<edge id="ALL-ARK" length="1">
+										<node ref="ALL" />
+										<node ref="ARK" />
+									</edge>
+									<edge id="ARG-ASB" length="1">
+										<node ref="ARG" />
+										<node ref="ASB" />
+									</edge>
+									<edge id="ARG-BAR" length="1">
+										<node ref="ARG" />
+										<node ref="BAR" />
+									</edge>
+									<edge id="ARK-ASB" length="1">
+										<node ref="ARK" />
+										<node ref="ASB" />
+									</edge>
+									<edge id="ASB-BAR" length="1">
+										<node ref="ASB" />
+										<node ref="BAR" />
+									</edge>
+									<edge id="ASB-BAR2" length="1">
+										<node ref="ASB" />
+										<node ref="BAR2" />
+									</edge>
+									<edge id="BAR-BAR2" length="1">
+										<node ref="BAR" />
+										<node ref="BAR2" />
+									</edge>
+								</edges>
+							</network>
+						</map>
+					</game>
+				</x:context>
+				
+				<x:expect label="The distance between Allosimanius Syneca and Asbleg is 3.">
+					<game id="TST">
+						<map>
+							<shortest-paths>
+								<path distance="1">
+									<location ref="ALL" />
+									<location ref="ARG" />
+								</path>
+								<path distance="1">
+									<location ref="ALL" />
+									<location ref="ARK" />
+								</path>
+								<path distance="2">
+									<location ref="ALL" />
+									<location ref="ASB" />
+								</path>
+								<path distance="2">
+									<location ref="ALL" />
+									<location ref="BAR" />
+								</path>
+								<path distance="3">
+									<location ref="ALL" />
+									<location ref="BAR2" />
+								</path>
+								<path distance="2">
+									<location ref="ARG" />
+									<location ref="ARK" />
+								</path>
+								<path distance="1">
+									<location ref="ARG" />
+									<location ref="ASB" />
+								</path>
+								<path distance="1">
+									<location ref="ARG" />
+									<location ref="BAR" />
+								</path>
+								<path distance="2">
+									<location ref="ARG" />
+									<location ref="BAR2" />
+								</path>
+								<path distance="1">
+									<location ref="ARK" />
+									<location ref="ASB" />
+								</path>
+								<path distance="2">
+									<location ref="ARK" />
+									<location ref="BAR" />
+								</path>
+								<path distance="2">
+									<location ref="ARK" />
+									<location ref="BAR2" />
+								</path>
+								<path distance="1">
+									<location ref="ASB" />
+									<location ref="BAR" />
+								</path>
+								<path distance="1">
+									<location ref="ASB" />
+									<location ref="BAR2" />
+								</path>
+								<path distance="1">
+									<location ref="BAR" />
+									<location ref="BAR2" />
+								</path>
+							</shortest-paths>
+						</map>
+					</game>
+				</x:expect>
+				
+			</x:scenario>
+			
+			<x:scenario label="Two unequal paths between Allosimanius Syneca and Bartrax.">
+				
+				<x:scenario label="Longer path found first.">
+					
+					<x:context>
+						<game id="TST">
+							<map>
+								<network>
+									<nodes>
+										<node id="ALL">
+											<name>Allosimanius Syneca</name>
+										</node>
+										<node id="ARG">
+											<name>Argabuthon</name>
+										</node>
+										<node id="ARK">
+											<name>Arkintoofle Minor</name>
+										</node>
+										<node id="ASB">
+											<name>Asbleg</name>
+										</node>
+										<node id="BAR">
+											<name>Bartledan</name>
+										</node>
+										<node id="BAR2">
+											<name>Baratrax</name>
+										</node>
+									</nodes>
+									<edges>
+										<edge id="ALL-ARG" length="2">
+											<node ref="ALL" />
+											<node ref="ARG" />
+										</edge>
+										<edge id="ALL-ARK" length="1">
+											<node ref="ALL" />
+											<node ref="ARK" />
+										</edge>
+										<edge id="ARG-ASB" length="1">
+											<node ref="ARG" />
+											<node ref="ASB" />
+										</edge>
+										<edge id="ARG-BAR" length="1">
+											<node ref="ARG" />
+											<node ref="BAR" />
+										</edge>
+										<edge id="ARK-ASB" length="1">
+											<node ref="ARK" />
+											<node ref="ASB" />
+										</edge>
+										<edge id="ASB-BAR" length="1">
+											<node ref="ASB" />
+											<node ref="BAR" />
+										</edge>
+										<edge id="ASB-BAR2" length="1">
+											<node ref="ASB" />
+											<node ref="BAR2" />
+										</edge>
+										<edge id="BAR-BAR2" length="1">
+											<node ref="BAR" />
+											<node ref="BAR2" />
+										</edge>
+									</edges>
+								</network>
+							</map>
+						</game>
+					</x:context>
+					
+					<x:expect label="The distance between Allosimanius Syneca and Asbleg is 3.">
+						<game id="TST">
+							<map>
+								<shortest-paths>
+									<path distance="2">
+										<location ref="ALL" />
+										<location ref="ARG" />
+									</path>
+									<path distance="1">
+										<location ref="ALL" />
+										<location ref="ARK" />
+									</path>
+									<path distance="2">
+										<location ref="ALL" />
+										<location ref="ASB" />
+									</path>
+									<path distance="3">
+										<location ref="ALL" />
+										<location ref="BAR" />
+									</path>
+									<path distance="3">
+										<location ref="ALL" />
+										<location ref="BAR2" />
+									</path>
+									<path distance="2">
+										<location ref="ARG" />
+										<location ref="ARK" />
+									</path>
+									<path distance="1">
+										<location ref="ARG" />
+										<location ref="ASB" />
+									</path>
+									<path distance="1">
+										<location ref="ARG" />
+										<location ref="BAR" />
+									</path>
+									<path distance="2">
+										<location ref="ARG" />
+										<location ref="BAR2" />
+									</path>
+									<path distance="1">
+										<location ref="ARK" />
+										<location ref="ASB" />
+									</path>
+									<path distance="2">
+										<location ref="ARK" />
+										<location ref="BAR" />
+									</path>
+									<path distance="2">
+										<location ref="ARK" />
+										<location ref="BAR2" />
+									</path>
+									<path distance="1">
+										<location ref="ASB" />
+										<location ref="BAR" />
+									</path>
+									<path distance="1">
+										<location ref="ASB" />
+										<location ref="BAR2" />
+									</path>
+									<path distance="1">
+										<location ref="BAR" />
+										<location ref="BAR2" />
+									</path>
+								</shortest-paths>
+							</map>
+						</game>
+					</x:expect>
+					
+				</x:scenario>
+	
+				<x:scenario label="Longer path found last.">
+					
+					<x:context>
+						<game id="TST">
+							<map>
+								<network>
+									<nodes>
+										<node id="ALL">
+											<name>Allosimanius Syneca</name>
+										</node>
+										<node id="ARG">
+											<name>Argabuthon</name>
+										</node>
+										<node id="ARK">
+											<name>Arkintoofle Minor</name>
+										</node>
+										<node id="ASB">
+											<name>Asbleg</name>
+										</node>
+										<node id="BAR">
+											<name>Bartledan</name>
+										</node>
+										<node id="BAR2">
+											<name>Baratrax</name>
+										</node>
+									</nodes>
+									<edges>
+										<edge id="ALL-ARG" length="1">
+											<node ref="ALL" />
+											<node ref="ARG" />
+										</edge>
+										<edge id="ALL-ARK" length="1">
+											<node ref="ALL" />
+											<node ref="ARK" />
+										</edge>
+										<edge id="ARG-ASB" length="1">
+											<node ref="ARG" />
+											<node ref="ASB" />
+										</edge>
+										<edge id="ARG-BAR" length="1">
+											<node ref="ARG" />
+											<node ref="BAR" />
+										</edge>
+										<edge id="ARK-ASB" length="1">
+											<node ref="ARK" />
+											<node ref="ASB" />
+										</edge>
+										<edge id="ASB-BAR" length="1">
+											<node ref="ASB" />
+											<node ref="BAR" />
+										</edge>
+										<edge id="ASB-BAR2" length="2">
+											<node ref="ASB" />
+											<node ref="BAR2" />
+										</edge>
+										<edge id="BAR-BAR2" length="1">
+											<node ref="BAR" />
+											<node ref="BAR2" />
+										</edge>
+									</edges>
+								</network>
+							</map>
+						</game>
+					</x:context>
+					
+					<x:expect label="The distance between Allosimanius Syneca and Asbleg is 3.">
+						<game id="TST">
+							<map>
+								<shortest-paths>
+									<path distance="1">
+										<location ref="ALL" />
+										<location ref="ARG" />
+									</path>
+									<path distance="1">
+										<location ref="ALL" />
+										<location ref="ARK" />
+									</path>
+									<path distance="2">
+										<location ref="ALL" />
+										<location ref="ASB" />
+									</path>
+									<path distance="2">
+										<location ref="ALL" />
+										<location ref="BAR" />
+									</path>
+									<path distance="3">
+										<location ref="ALL" />
+										<location ref="BAR2" />
+									</path>
+									<path distance="2">
+										<location ref="ARG" />
+										<location ref="ARK" />
+									</path>
+									<path distance="1">
+										<location ref="ARG" />
+										<location ref="ASB" />
+									</path>
+									<path distance="1">
+										<location ref="ARG" />
+										<location ref="BAR" />
+									</path>
+									<path distance="2">
+										<location ref="ARG" />
+										<location ref="BAR2" />
+									</path>
+									<path distance="1">
+										<location ref="ARK" />
+										<location ref="ASB" />
+									</path>
+									<path distance="2">
+										<location ref="ARK" />
+										<location ref="BAR" />
+									</path>
+									<path distance="2">
+										<location ref="ARK" />
+										<location ref="BAR2" />
+									</path>
+									<path distance="1">
+										<location ref="ASB" />
+										<location ref="BAR" />
+									</path>
+									<path distance="2">
+										<location ref="ASB" />
+										<location ref="BAR2" />
+									</path>
+									<path distance="1">
+										<location ref="BAR" />
+										<location ref="BAR2" />
+									</path>
+								</shortest-paths>
+							</map>
+						</game>
+					</x:expect>
+					
+				</x:scenario>
+				
+			</x:scenario>
+			
+		</x:scenario>
+		
+	</x:scenario>
+	
+	
+</x:description>

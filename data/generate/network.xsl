@@ -9,16 +9,14 @@
 	<xsl:param name="filename" select="tokenize(translate(document-uri(/), '\', '/'), '/')[last()]" as="xs:string" />
 	
     <xsl:template match="/">
-    	<xsl:result-document href="networks/{$filename}">
-	        <game id="{game/@id}">
-	        	<map>
-	        		<network>
-			            <xsl:apply-templates select="game/map/locations" />
-			            <xsl:apply-templates select="game/map/routes" />
-	        		</network>
-	        	</map>
-	        </game>
-    	</xsl:result-document>
+        <game id="{game/@id}">
+        	<map>
+        		<network>
+		            <xsl:apply-templates select="game/map/locations" />
+		            <xsl:apply-templates select="game/map/routes" />
+        		</network>
+        	</map>
+        </game>
     </xsl:template>
     
     <xsl:template match="locations">
@@ -44,7 +42,10 @@
     </xsl:template>
     
     <xsl:template match="route">
-        <edge id="{position()}" length="{@length}">
+    	<xsl:variable name="total-prior-alternative-routes" select="count(preceding-sibling::route[location/@ref = current()/location[1]/@ref][location/@ref = current()/location[2]/@ref])" as="xs:integer" />
+    	<xsl:variable name="id" select="concat(location[1]/@ref, '-', location[2]/@ref, if ($total-prior-alternative-routes &gt; 0) then concat('-', sum($total-prior-alternative-routes + 1)) else '')" as="xs:string" />
+    	
+        <edge id="{$id}" length="{@length}">
             <xsl:apply-templates select="location" />
         </edge>
     </xsl:template>

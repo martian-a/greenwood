@@ -10,44 +10,42 @@
     
     <xsl:template match="/">
     	<xsl:variable name="network" select="/game/map/network" as="element()?" />
-      	
-      	<xsl:result-document href="../paths/{$filename}">
-	    	<game id="{/game/@id}">
-	    		<map>
-		    		<shortest-paths>
-			    		<xsl:for-each select="$network/nodes/node">
-							<xsl:variable name="initial" select="self::node" as="element()" />
-							
-							<xsl:variable name="all" as="element()*">
-								<xsl:for-each select="$network/nodes/node">
-									<xsl:copy>
-										<xsl:copy-of select="@id" />
-										<xsl:attribute name="distance">
-											<xsl:choose>
-												<xsl:when test="current()[@id = $initial/@id]">0</xsl:when>
-												<xsl:otherwise>∞</xsl:otherwise>
-											</xsl:choose>
-										</xsl:attribute>
-										<xsl:attribute name="visited" select="false()" />
-									</xsl:copy>
-								</xsl:for-each>
-							</xsl:variable>
-			    			
-							<xsl:for-each select="$initial/following-sibling::node">
-								<xsl:call-template name="distance-check">
-									<xsl:with-param name="initial" select="$initial" as="element()" tunnel="yes" />
-									<xsl:with-param name="current" select="$initial" as="element()" />
-									<xsl:with-param name="target" select="current()" as="element()" />
-									<xsl:with-param name="all" select="$all" as="element()*" />
-									<xsl:with-param name="network" select="$network" as="element()" tunnel="yes" />
-								</xsl:call-template>
+
+    	<game id="{/game/@id}">
+    		<map>
+	    		<shortest-paths>
+		    		<xsl:for-each select="$network/nodes/node">
+						<xsl:variable name="initial" select="self::node" as="element()" />
+						
+						<xsl:variable name="all" as="element()*">
+							<xsl:for-each select="$network/nodes/node">
+								<xsl:copy>
+									<xsl:copy-of select="@id" />
+									<xsl:attribute name="distance">
+										<xsl:choose>
+											<xsl:when test="current()[@id = $initial/@id]">0</xsl:when>
+											<xsl:otherwise>∞</xsl:otherwise>
+										</xsl:choose>
+									</xsl:attribute>
+									<xsl:attribute name="visited" select="false()" />
+								</xsl:copy>
 							</xsl:for-each>
-			    			
+						</xsl:variable>
+		    			
+						<xsl:for-each select="$initial/following-sibling::node">
+							<xsl:call-template name="distance-check">
+								<xsl:with-param name="initial" select="$initial" as="element()" tunnel="yes" />
+								<xsl:with-param name="current" select="$initial" as="element()" />
+								<xsl:with-param name="target" select="current()" as="element()" />
+								<xsl:with-param name="all" select="$all" as="element()*" />
+								<xsl:with-param name="network" select="$network" as="element()" tunnel="yes" />
+							</xsl:call-template>
 						</xsl:for-each>
-		    		</shortest-paths>
-	    		</map>
-	    	</game>
-      	</xsl:result-document>
+		    			
+					</xsl:for-each>
+	    		</shortest-paths>
+    		</map>
+    	</game>
     	
     </xsl:template>
 	

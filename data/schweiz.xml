@@ -1,5 +1,6 @@
-<?xml version="1.0"?>
-<!DOCTYPE game SYSTEM "game.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE game
+  SYSTEM "game.dtd">
 <game id="SWI">
     <title>Schweiz</title>
     <map>
@@ -140,335 +141,592 @@
             </country>
         </locations>
         <routes>
-            <route length="1" colour="YEL">
+            <route length="1"
+                colour="YEL"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="GEN"/>
                 <location ref="FRA3"/>
             </route>
-            <route length="4">
+            <route length="4" tunnel="false" ferry="0" microlight="false">
                 <location ref="GEN"/>
                 <location ref="LAU"/>
                 <colour ref="BLU"/>
                 <colour ref="WHI"/>
             </route>
-            <route length="4" colour="ORA" tunnel="true">
+            <route length="4"
+                colour="ORA"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="MAR"/>
                 <location ref="LAU"/>
             </route>
-            <route length="2" colour="GRY" tunnel="true">
+            <route length="2"
+                colour="GRY"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="MAR"/>
                 <location ref="FRA4"/>
             </route>
-            <route length="2" colour="GRN" tunnel="true">
+            <route length="2"
+                colour="GRN"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="MAR"/>
                 <location ref="SIO"/>
             </route>
-            <route length="3" colour="BLA" tunnel="true">
+            <route length="3"
+                colour="BLA"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="SIO"/>
                 <location ref="BRI"/>
             </route>
-            <route length="3" colour="GRN" tunnel="true">
+            <route length="3"
+                colour="GRN"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="ITA1"/>
                 <location ref="BRI"/>
             </route>
-            <route length="6" colour="GRY" tunnel="true">
+            <route length="6"
+                colour="GRY"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="LOC"/>
                 <location ref="BRI"/>
             </route>
-            <route length="2" colour="ORA" tunnel="true">
+            <route length="2"
+                colour="ORA"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="LOC"/>
                 <location ref="ITA2"/>
             </route>
-            <route length="4" colour="RED" tunnel="true">
+            <route length="4"
+                colour="RED"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="BRI"/>
                 <location ref="WAS"/>
             </route>
-            <route length="2" colour="WHI" tunnel="true">
+            <route length="2"
+                colour="WHI"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="BRI"/>
                 <location ref="INT"/>
             </route>
-            <route length="3">
+            <route length="3" tunnel="false" ferry="0" microlight="false">
                 <location ref="LAU"/>
                 <location ref="FRI"/>
                 <colour ref="RED"/>
                 <colour ref="VIO"/>
             </route>
-            <route length="6" colour="GRY">
+            <route length="6"
+                colour="GRY"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="GEN"/>
                 <location ref="YVE"/>
             </route>
-            <route length="1" colour="VIO" tunnel="true">
+            <route length="1"
+                colour="VIO"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="LOC"/>
                 <location ref="LUG"/>
             </route>
-            <route length="1" colour="BLA" tunnel="true">
+            <route length="1"
+                colour="BLA"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="LOC"/>
                 <location ref="BEL"/>
             </route>
-            <route length="1" tunnel="true">
+            <route length="1" tunnel="true" ferry="0" microlight="false">
                 <location ref="BEL"/>
                 <location ref="LUG"/>
                 <colour ref="RED"/>
                 <colour ref="YEL"/>
             </route>
-            <route length="4" tunnel="true">
+            <route length="4" tunnel="true" ferry="0" microlight="false">
                 <location ref="WAS"/>
                 <location ref="BEL"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="2" tunnel="true">
+            <route length="2" tunnel="true" ferry="0" microlight="false">
                 <location ref="WAS"/>
                 <location ref="SWZ"/>
                 <colour ref="GRN"/>
                 <colour ref="YEL"/>
             </route>
-            <route length="1" colour="VIO">
+            <route length="1"
+                colour="VIO"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="SWZ"/>
                 <location ref="PFA"/>
             </route>
-            <route length="1">
+            <route length="1" tunnel="false" ferry="0" microlight="false">
                 <location ref="SWZ"/>
                 <location ref="ZUG"/>
                 <colour ref="WHI"/>
                 <colour ref="BLA"/>
             </route>
-            <route length="1" colour="BLU">
+            <route length="1"
+                colour="BLU"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="SWZ"/>
                 <location ref="LUZ"/>
             </route>
-            <route length="2" colour="BLU">
+            <route length="2"
+                colour="BLU"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="PFA"/>
                 <location ref="ZUR"/>
             </route>
-            <route length="1">
+            <route length="1" tunnel="false" ferry="0" microlight="false">
                 <location ref="ZUR"/>
                 <location ref="ZUG"/>
                 <colour ref="RED"/>
                 <colour ref="GRN"/>
             </route>
-            <route length="1">
+            <route length="1" tunnel="false" ferry="0" microlight="false">
                 <location ref="LUZ"/>
                 <location ref="ZUG"/>
                 <colour ref="ORA"/>
                 <colour ref="YEL"/>
             </route>
-            <route length="4">
+            <route length="4" tunnel="false" ferry="0" microlight="false">
                 <location ref="LUZ"/>
                 <location ref="BER"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="1">
+            <route length="1" tunnel="false" ferry="0" microlight="false">
                 <location ref="BER"/>
                 <location ref="FRI"/>
                 <colour ref="ORA"/>
                 <colour ref="YEL"/>
             </route>
-            <route length="1">
+            <route length="1" tunnel="false" ferry="0" microlight="false">
                 <location ref="ZUR"/>
                 <location ref="WIN"/>
                 <colour ref="BLU"/>
                 <colour ref="VIO"/>
             </route>
-            <route length="1">
+            <route length="1" tunnel="false" ferry="0" microlight="false">
                 <location ref="WIN"/>
                 <location ref="SFH"/>
                 <colour ref="BLA"/>
                 <colour ref="WHI"/>
             </route>
-            <route length="1" colour="YEL">
+            <route length="1"
+                colour="YEL"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="SFH"/>
                 <location ref="GER2"/>
             </route>
-            <route length="3" colour="ORA">
+            <route length="3"
+                colour="ORA"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="SFH"/>
                 <location ref="ZUR"/>
             </route>
-            <route length="1" colour="YEL">
+            <route length="1"
+                colour="YEL"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="ZUR"/>
                 <location ref="BAD"/>
             </route>
-            <route length="3" colour="WHI">
+            <route length="3"
+                colour="WHI"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="ZUR"/>
                 <location ref="OLT"/>
             </route>
-            <route length="3" colour="GRN">
+            <route length="3"
+                colour="GRN"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="OLT"/>
                 <location ref="LUZ"/>
             </route>
-            <route length="2" colour="VIO">
+            <route length="2"
+                colour="VIO"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="OLT"/>
                 <location ref="BAD"/>
             </route>
-            <route length="3" colour="RED" tunnel="true">
+            <route length="3"
+                colour="RED"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="BAD"/>
                 <location ref="BAS"/>
             </route>
-            <route length="1" colour="BLU" tunnel="true">
+            <route length="1"
+                colour="BLU"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="BAS"/>
                 <location ref="GER1"/>
             </route>
-            <route length="2" colour="ORA" tunnel="true">
+            <route length="2"
+                colour="ORA"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="BAS"/>
                 <location ref="OLT"/>
             </route>
-            <route length="1" colour="BLU">
+            <route length="1"
+                colour="BLU"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="OLT"/>
                 <location ref="SOL"/>
             </route>
-            <route length="2" colour="YEL" tunnel="true">
+            <route length="2"
+                colour="YEL"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="BAS"/>
                 <location ref="DEL"/>
             </route>
-            <route length="2" colour="BLA" tunnel="true">
+            <route length="2"
+                colour="BLA"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="DEL"/>
                 <location ref="FRA1"/>
             </route>
-            <route length="1" colour="VIO" tunnel="true">
+            <route length="1"
+                colour="VIO"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="DEL"/>
                 <location ref="SOL"/>
             </route>
-            <route length="2" colour="BLA">
+            <route length="2"
+                colour="BLA"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="SOL"/>
                 <location ref="BER"/>
             </route>
-            <route length="2" colour="RED">
+            <route length="2"
+                colour="RED"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="BER"/>
                 <location ref="NEU"/>
             </route>
-            <route length="4" colour="GRY">
+            <route length="4"
+                colour="GRY"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="LAU"/>
                 <location ref="NEU"/>
             </route>
-            <route length="5" colour="GRY" tunnel="true">
+            <route length="5"
+                colour="GRY"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="WAS"/>
                 <location ref="CHU"/>
             </route>
-            <route length="3" colour="BLU">
+            <route length="3"
+                colour="BLU"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="BER"/>
                 <location ref="INT"/>
             </route>
-            <route length="4" colour="VIO">
+            <route length="4"
+                colour="VIO"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="LUZ"/>
                 <location ref="INT"/>
             </route>
-            <route length="3" colour="WHI" tunnel="true">
+            <route length="3"
+                colour="WHI"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="DEL"/>
                 <location ref="CDF"/>
             </route>
-            <route length="2" colour="GRN" tunnel="true">
+            <route length="2"
+                colour="GRN"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="FRA2"/>
                 <location ref="CDF"/>
             </route>
-            <route length="3" colour="YEL" tunnel="true">
+            <route length="3"
+                colour="YEL"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="YVE"/>
                 <location ref="CDF"/>
             </route>
-            <route length="1" colour="ORA" tunnel="true">
+            <route length="1"
+                colour="ORA"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="NEU"/>
                 <location ref="CDF"/>
             </route>
-            <route length="2" colour="WHI" tunnel="true">
+            <route length="2"
+                colour="WHI"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="LUG"/>
                 <location ref="ITA3"/>
             </route>
-            <route length="2" colour="BLA">
+            <route length="2"
+                colour="BLA"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="YVE"/>
                 <location ref="NEU"/>
             </route>
-            <route length="4" colour="GRN">
+            <route length="4"
+                colour="GRN"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="NEU"/>
                 <location ref="SOL"/>
             </route>
-            <route length="2" colour="GRN" tunnel="true">
+            <route length="2"
+                colour="GRN"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="BRU"/>
                 <location ref="ITA4"/>
             </route>
-            <route length="4" colour="BLU" tunnel="true">
+            <route length="4"
+                colour="BLU"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="BRU"/>
                 <location ref="DAV"/>
             </route>
-            <route length="5" colour="GRY" tunnel="true">
+            <route length="5"
+                colour="GRY"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="BRU"/>
                 <location ref="CHU"/>
             </route>
-            <route length="2" colour="VIO" tunnel="true">
+            <route length="2"
+                colour="VIO"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="CHU"/>
                 <location ref="DAV"/>
             </route>
-            <route length="1" colour="WHI" tunnel="true">
+            <route length="1"
+                colour="WHI"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="CHU"/>
                 <location ref="SAR"/>
             </route>
-            <route length="3" colour="GRY" tunnel="true">
+            <route length="3"
+                colour="GRY"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="DAV"/>
                 <location ref="ITA5"/>
             </route>
-            <route length="3" colour="GRY" tunnel="true">
+            <route length="3"
+                colour="GRY"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="DAV"/>
                 <location ref="AUS3"/>
             </route>
-            <route length="3" colour="BLA" tunnel="true">
+            <route length="3"
+                colour="BLA"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="DAV"/>
                 <location ref="SAR"/>
             </route>
-            <route length="1" colour="ORA">
+            <route length="1"
+                colour="ORA"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="KRE"/>
                 <location ref="GER3"/>
             </route>
-            <route length="1" colour="WHI">
+            <route length="1"
+                colour="WHI"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="KRE"/>
                 <location ref="GER4"/>
             </route>
-            <route length="1" colour="GRN">
+            <route length="1"
+                colour="GRN"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="KRE"/>
                 <location ref="STG"/>
             </route>
-            <route length="2" colour="YEL">
+            <route length="2"
+                colour="YEL"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="KRE"/>
                 <location ref="WIN"/>
             </route>
-            <route length="3" colour="VIO">
+            <route length="3"
+                colour="VIO"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="KRE"/>
                 <location ref="SFH"/>
             </route>
-            <route length="3" colour="ORA">
+            <route length="3"
+                colour="ORA"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="PFA"/>
                 <location ref="STG"/>
             </route>
-            <route length="3" colour="YEL" tunnel="true">
+            <route length="3"
+                colour="YEL"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="PFA"/>
                 <location ref="SAR"/>
             </route>
-            <route length="1" colour="ORA">
+            <route length="1"
+                colour="ORA"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="SAR"/>
                 <location ref="VAD"/>
             </route>
-            <route length="3" colour="RED">
+            <route length="3"
+                colour="RED"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="STG"/>
                 <location ref="WIN"/>
             </route>
-            <route length="4" colour="BLA">
+            <route length="4"
+                colour="BLA"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="STG"/>
                 <location ref="ZUR"/>
             </route>
-            <route length="2" colour="BLU" tunnel="true">
+            <route length="2"
+                colour="BLU"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="STG"/>
                 <location ref="VAD"/>
             </route>
-            <route length="4" colour="GRY" tunnel="true">
+            <route length="4"
+                colour="GRY"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="STG"/>
                 <location ref="AUS1"/>
             </route>
-            <route length="2" colour="GRY">
+            <route length="2"
+                colour="GRY"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
                 <location ref="STG"/>
                 <location ref="GER5"/>
             </route>
-            <route length="1" colour="RED" tunnel="true">
+            <route length="1"
+                colour="RED"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
                 <location ref="VAD"/>
                 <location ref="AUS2"/>
             </route>
         </routes>
+      
         <colours>
             <colour id="RED">
                 <name>Red</name>
@@ -498,7 +756,5110 @@
                 <name>Grey</name>
             </colour>
         </colours>
-    </map>
+      
+      <shortest-paths>
+         <path distance="4">
+            <location ref="GEN"/>
+            <location ref="LAU"/>
+         </path>
+         <path distance="8">
+            <location ref="GEN"/>
+            <location ref="MAR"/>
+         </path>
+         <path distance="10">
+            <location ref="GEN"/>
+            <location ref="SIO"/>
+         </path>
+         <path distance="13">
+            <location ref="GEN"/>
+            <location ref="BRI"/>
+         </path>
+         <path distance="19">
+            <location ref="GEN"/>
+            <location ref="LOC"/>
+         </path>
+         <path distance="17">
+            <location ref="GEN"/>
+            <location ref="WAS"/>
+         </path>
+         <path distance="13">
+            <location ref="GEN"/>
+            <location ref="INT"/>
+         </path>
+         <path distance="7">
+            <location ref="GEN"/>
+            <location ref="FRI"/>
+         </path>
+         <path distance="6">
+            <location ref="GEN"/>
+            <location ref="YVE"/>
+         </path>
+         <path distance="20">
+            <location ref="GEN"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="20">
+            <location ref="GEN"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="9">
+            <location ref="GEN"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="8">
+            <location ref="GEN"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="10">
+            <location ref="GEN"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="12">
+            <location ref="GEN"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="14">
+            <location ref="GEN"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="12">
+            <location ref="GEN"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="15">
+            <location ref="GEN"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="13">
+            <location ref="GEN"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="14">
+            <location ref="GEN"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="15">
+            <location ref="GEN"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="15">
+            <location ref="GEN"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="16">
+            <location ref="GEN"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="16">
+            <location ref="GEN"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="18">
+            <location ref="GEN"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="17">
+            <location ref="GEN"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="19">
+            <location ref="GEN"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="20">
+            <location ref="GEN"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="19">
+            <location ref="GEN"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="19">
+            <location ref="GEN"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="20">
+            <location ref="GEN"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="22">
+            <location ref="GEN"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="25">
+            <location ref="GEN"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="14">
+            <location ref="GEN"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="11">
+            <location ref="GEN"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="1">
+            <location ref="GEN"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="10">
+            <location ref="GEN"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="16">
+            <location ref="GEN"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="21">
+            <location ref="GEN"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="22">
+            <location ref="GEN"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="27">
+            <location ref="GEN"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="25">
+            <location ref="GEN"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="15">
+            <location ref="GEN"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="19">
+            <location ref="GEN"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="20">
+            <location ref="GEN"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="20">
+            <location ref="GEN"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="21">
+            <location ref="GEN"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="23">
+            <location ref="GEN"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="21">
+            <location ref="GEN"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="25">
+            <location ref="GEN"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="4">
+            <location ref="LAU"/>
+            <location ref="MAR"/>
+         </path>
+         <path distance="6">
+            <location ref="LAU"/>
+            <location ref="SIO"/>
+         </path>
+         <path distance="9">
+            <location ref="LAU"/>
+            <location ref="BRI"/>
+         </path>
+         <path distance="15">
+            <location ref="LAU"/>
+            <location ref="LOC"/>
+         </path>
+         <path distance="13">
+            <location ref="LAU"/>
+            <location ref="WAS"/>
+         </path>
+         <path distance="7">
+            <location ref="LAU"/>
+            <location ref="INT"/>
+         </path>
+         <path distance="3">
+            <location ref="LAU"/>
+            <location ref="FRI"/>
+         </path>
+         <path distance="10">
+            <location ref="LAU"/>
+            <location ref="YVE"/>
+         </path>
+         <path distance="16">
+            <location ref="LAU"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="16">
+            <location ref="LAU"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="5">
+            <location ref="LAU"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="4">
+            <location ref="LAU"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="4">
+            <location ref="LAU"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="7">
+            <location ref="LAU"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="9">
+            <location ref="LAU"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="6">
+            <location ref="LAU"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="11">
+            <location ref="LAU"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="7">
+            <location ref="LAU"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="10">
+            <location ref="LAU"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="11">
+            <location ref="LAU"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="11">
+            <location ref="LAU"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="12">
+            <location ref="LAU"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="10">
+            <location ref="LAU"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="12">
+            <location ref="LAU"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="11">
+            <location ref="LAU"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="14">
+            <location ref="LAU"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="16">
+            <location ref="LAU"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="13">
+            <location ref="LAU"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="15">
+            <location ref="LAU"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="16">
+            <location ref="LAU"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="18">
+            <location ref="LAU"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="21">
+            <location ref="LAU"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="9">
+            <location ref="LAU"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="7">
+            <location ref="LAU"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="5">
+            <location ref="LAU"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="6">
+            <location ref="LAU"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="12">
+            <location ref="LAU"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="17">
+            <location ref="LAU"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="18">
+            <location ref="LAU"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="23">
+            <location ref="LAU"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="21">
+            <location ref="LAU"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="10">
+            <location ref="LAU"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="13">
+            <location ref="LAU"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="14">
+            <location ref="LAU"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="14">
+            <location ref="LAU"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="16">
+            <location ref="LAU"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="18">
+            <location ref="LAU"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="17">
+            <location ref="LAU"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="21">
+            <location ref="LAU"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="2">
+            <location ref="MAR"/>
+            <location ref="SIO"/>
+         </path>
+         <path distance="5">
+            <location ref="MAR"/>
+            <location ref="BRI"/>
+         </path>
+         <path distance="11">
+            <location ref="MAR"/>
+            <location ref="LOC"/>
+         </path>
+         <path distance="9">
+            <location ref="MAR"/>
+            <location ref="WAS"/>
+         </path>
+         <path distance="7">
+            <location ref="MAR"/>
+            <location ref="INT"/>
+         </path>
+         <path distance="7">
+            <location ref="MAR"/>
+            <location ref="FRI"/>
+         </path>
+         <path distance="10">
+            <location ref="MAR"/>
+            <location ref="YVE"/>
+         </path>
+         <path distance="12">
+            <location ref="MAR"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="12">
+            <location ref="MAR"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="9">
+            <location ref="MAR"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="8">
+            <location ref="MAR"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="10">
+            <location ref="MAR"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="12">
+            <location ref="MAR"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="14">
+            <location ref="MAR"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="12">
+            <location ref="MAR"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="14">
+            <location ref="MAR"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="13">
+            <location ref="MAR"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="11">
+            <location ref="MAR"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="12">
+            <location ref="MAR"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="11">
+            <location ref="MAR"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="12">
+            <location ref="MAR"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="13">
+            <location ref="MAR"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="15">
+            <location ref="MAR"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="14">
+            <location ref="MAR"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="15">
+            <location ref="MAR"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="16">
+            <location ref="MAR"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="16">
+            <location ref="MAR"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="15">
+            <location ref="MAR"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="14">
+            <location ref="MAR"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="16">
+            <location ref="MAR"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="19">
+            <location ref="MAR"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="14">
+            <location ref="MAR"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="11">
+            <location ref="MAR"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="9">
+            <location ref="MAR"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="2">
+            <location ref="MAR"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="8">
+            <location ref="MAR"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="13">
+            <location ref="MAR"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="14">
+            <location ref="MAR"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="21">
+            <location ref="MAR"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="19">
+            <location ref="MAR"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="15">
+            <location ref="MAR"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="16">
+            <location ref="MAR"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="17">
+            <location ref="MAR"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="17">
+            <location ref="MAR"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="17">
+            <location ref="MAR"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="19">
+            <location ref="MAR"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="17">
+            <location ref="MAR"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="19">
+            <location ref="MAR"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="3">
+            <location ref="SIO"/>
+            <location ref="BRI"/>
+         </path>
+         <path distance="9">
+            <location ref="SIO"/>
+            <location ref="LOC"/>
+         </path>
+         <path distance="7">
+            <location ref="SIO"/>
+            <location ref="WAS"/>
+         </path>
+         <path distance="5">
+            <location ref="SIO"/>
+            <location ref="INT"/>
+         </path>
+         <path distance="9">
+            <location ref="SIO"/>
+            <location ref="FRI"/>
+         </path>
+         <path distance="12">
+            <location ref="SIO"/>
+            <location ref="YVE"/>
+         </path>
+         <path distance="10">
+            <location ref="SIO"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="10">
+            <location ref="SIO"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="11">
+            <location ref="SIO"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="10">
+            <location ref="SIO"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="8">
+            <location ref="SIO"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="11">
+            <location ref="SIO"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="13">
+            <location ref="SIO"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="10">
+            <location ref="SIO"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="12">
+            <location ref="SIO"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="11">
+            <location ref="SIO"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="10">
+            <location ref="SIO"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="10">
+            <location ref="SIO"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="9">
+            <location ref="SIO"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="10">
+            <location ref="SIO"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="11">
+            <location ref="SIO"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="13">
+            <location ref="SIO"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="12">
+            <location ref="SIO"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="13">
+            <location ref="SIO"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="14">
+            <location ref="SIO"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="14">
+            <location ref="SIO"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="13">
+            <location ref="SIO"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="12">
+            <location ref="SIO"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="14">
+            <location ref="SIO"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="17">
+            <location ref="SIO"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="13">
+            <location ref="SIO"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="13">
+            <location ref="SIO"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="11">
+            <location ref="SIO"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="4">
+            <location ref="SIO"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="6">
+            <location ref="SIO"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="11">
+            <location ref="SIO"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="12">
+            <location ref="SIO"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="19">
+            <location ref="SIO"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="17">
+            <location ref="SIO"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="14">
+            <location ref="SIO"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="14">
+            <location ref="SIO"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="15">
+            <location ref="SIO"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="15">
+            <location ref="SIO"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="15">
+            <location ref="SIO"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="17">
+            <location ref="SIO"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="15">
+            <location ref="SIO"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="17">
+            <location ref="SIO"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="6">
+            <location ref="BRI"/>
+            <location ref="LOC"/>
+         </path>
+         <path distance="4">
+            <location ref="BRI"/>
+            <location ref="WAS"/>
+         </path>
+         <path distance="2">
+            <location ref="BRI"/>
+            <location ref="INT"/>
+         </path>
+         <path distance="6">
+            <location ref="BRI"/>
+            <location ref="FRI"/>
+         </path>
+         <path distance="11">
+            <location ref="BRI"/>
+            <location ref="YVE"/>
+         </path>
+         <path distance="7">
+            <location ref="BRI"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="7">
+            <location ref="BRI"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="8">
+            <location ref="BRI"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="7">
+            <location ref="BRI"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="5">
+            <location ref="BRI"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="11">
+            <location ref="BRI"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="12">
+            <location ref="BRI"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="11">
+            <location ref="BRI"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="9">
+            <location ref="BRI"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="11">
+            <location ref="BRI"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="6">
+            <location ref="BRI"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="7">
+            <location ref="BRI"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="6">
+            <location ref="BRI"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="7">
+            <location ref="BRI"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="8">
+            <location ref="BRI"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="10">
+            <location ref="BRI"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="9">
+            <location ref="BRI"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="10">
+            <location ref="BRI"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="11">
+            <location ref="BRI"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="11">
+            <location ref="BRI"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="10">
+            <location ref="BRI"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="9">
+            <location ref="BRI"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="11">
+            <location ref="BRI"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="14">
+            <location ref="BRI"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="13">
+            <location ref="BRI"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="10">
+            <location ref="BRI"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="16">
+            <location ref="BRI"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="7">
+            <location ref="BRI"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="3">
+            <location ref="BRI"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="8">
+            <location ref="BRI"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="9">
+            <location ref="BRI"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="16">
+            <location ref="BRI"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="14">
+            <location ref="BRI"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="13">
+            <location ref="BRI"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="11">
+            <location ref="BRI"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="12">
+            <location ref="BRI"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="12">
+            <location ref="BRI"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="12">
+            <location ref="BRI"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="14">
+            <location ref="BRI"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="12">
+            <location ref="BRI"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="14">
+            <location ref="BRI"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="5">
+            <location ref="LOC"/>
+            <location ref="WAS"/>
+         </path>
+         <path distance="8">
+            <location ref="LOC"/>
+            <location ref="INT"/>
+         </path>
+         <path distance="12">
+            <location ref="LOC"/>
+            <location ref="FRI"/>
+         </path>
+         <path distance="15">
+            <location ref="LOC"/>
+            <location ref="YVE"/>
+         </path>
+         <path distance="1">
+            <location ref="LOC"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="1">
+            <location ref="LOC"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="14">
+            <location ref="LOC"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="13">
+            <location ref="LOC"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="11">
+            <location ref="LOC"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="14">
+            <location ref="LOC"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="14">
+            <location ref="LOC"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="13">
+            <location ref="LOC"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="11">
+            <location ref="LOC"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="13">
+            <location ref="LOC"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="12">
+            <location ref="LOC"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="8">
+            <location ref="LOC"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="7">
+            <location ref="LOC"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="8">
+            <location ref="LOC"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="10">
+            <location ref="LOC"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="12">
+            <location ref="LOC"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="11">
+            <location ref="LOC"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="11">
+            <location ref="LOC"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="12">
+            <location ref="LOC"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="12">
+            <location ref="LOC"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="11">
+            <location ref="LOC"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="10">
+            <location ref="LOC"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="12">
+            <location ref="LOC"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="15">
+            <location ref="LOC"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="16">
+            <location ref="LOC"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="16">
+            <location ref="LOC"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="20">
+            <location ref="LOC"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="13">
+            <location ref="LOC"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="9">
+            <location ref="LOC"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="2">
+            <location ref="LOC"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="3">
+            <location ref="LOC"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="17">
+            <location ref="LOC"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="15">
+            <location ref="LOC"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="15">
+            <location ref="LOC"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="13">
+            <location ref="LOC"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="13">
+            <location ref="LOC"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="13">
+            <location ref="LOC"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="13">
+            <location ref="LOC"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="15">
+            <location ref="LOC"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="13">
+            <location ref="LOC"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="15">
+            <location ref="LOC"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="6">
+            <location ref="WAS"/>
+            <location ref="INT"/>
+         </path>
+         <path distance="8">
+            <location ref="WAS"/>
+            <location ref="FRI"/>
+         </path>
+         <path distance="13">
+            <location ref="WAS"/>
+            <location ref="YVE"/>
+         </path>
+         <path distance="5">
+            <location ref="WAS"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="4">
+            <location ref="WAS"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="11">
+            <location ref="WAS"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="11">
+            <location ref="WAS"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="7">
+            <location ref="WAS"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="8">
+            <location ref="WAS"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="10">
+            <location ref="WAS"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="7">
+            <location ref="WAS"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="5">
+            <location ref="WAS"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="6">
+            <location ref="WAS"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="3">
+            <location ref="WAS"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="3">
+            <location ref="WAS"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="2">
+            <location ref="WAS"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="3">
+            <location ref="WAS"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="4">
+            <location ref="WAS"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="6">
+            <location ref="WAS"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="5">
+            <location ref="WAS"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="6">
+            <location ref="WAS"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="7">
+            <location ref="WAS"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="7">
+            <location ref="WAS"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="6">
+            <location ref="WAS"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="5">
+            <location ref="WAS"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="7">
+            <location ref="WAS"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="10">
+            <location ref="WAS"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="10">
+            <location ref="WAS"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="13">
+            <location ref="WAS"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="16">
+            <location ref="WAS"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="11">
+            <location ref="WAS"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="7">
+            <location ref="WAS"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="12">
+            <location ref="WAS"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="7">
+            <location ref="WAS"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="12">
+            <location ref="WAS"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="10">
+            <location ref="WAS"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="11">
+            <location ref="WAS"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="7">
+            <location ref="WAS"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="8">
+            <location ref="WAS"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="8">
+            <location ref="WAS"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="8">
+            <location ref="WAS"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="10">
+            <location ref="WAS"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="8">
+            <location ref="WAS"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="10">
+            <location ref="WAS"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="4">
+            <location ref="INT"/>
+            <location ref="FRI"/>
+         </path>
+         <path distance="7">
+            <location ref="INT"/>
+            <location ref="YVE"/>
+         </path>
+         <path distance="9">
+            <location ref="INT"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="10">
+            <location ref="INT"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="6">
+            <location ref="INT"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="5">
+            <location ref="INT"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="3">
+            <location ref="INT"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="6">
+            <location ref="INT"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="10">
+            <location ref="INT"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="5">
+            <location ref="INT"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="7">
+            <location ref="INT"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="6">
+            <location ref="INT"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="4">
+            <location ref="INT"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="5">
+            <location ref="INT"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="5">
+            <location ref="INT"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="6">
+            <location ref="INT"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="6">
+            <location ref="INT"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="8">
+            <location ref="INT"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="7">
+            <location ref="INT"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="10">
+            <location ref="INT"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="10">
+            <location ref="INT"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="11">
+            <location ref="INT"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="9">
+            <location ref="INT"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="10">
+            <location ref="INT"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="12">
+            <location ref="INT"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="15">
+            <location ref="INT"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="8">
+            <location ref="INT"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="8">
+            <location ref="INT"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="12">
+            <location ref="INT"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="13">
+            <location ref="INT"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="5">
+            <location ref="INT"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="10">
+            <location ref="INT"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="11">
+            <location ref="INT"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="17">
+            <location ref="INT"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="15">
+            <location ref="INT"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="11">
+            <location ref="INT"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="9">
+            <location ref="INT"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="12">
+            <location ref="INT"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="12">
+            <location ref="INT"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="12">
+            <location ref="INT"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="14">
+            <location ref="INT"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="11">
+            <location ref="INT"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="15">
+            <location ref="INT"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="5">
+            <location ref="FRI"/>
+            <location ref="YVE"/>
+         </path>
+         <path distance="13">
+            <location ref="FRI"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="13">
+            <location ref="FRI"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="4">
+            <location ref="FRI"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="3">
+            <location ref="FRI"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="1">
+            <location ref="FRI"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="4">
+            <location ref="FRI"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="6">
+            <location ref="FRI"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="3">
+            <location ref="FRI"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="6">
+            <location ref="FRI"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="4">
+            <location ref="FRI"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="5">
+            <location ref="FRI"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="6">
+            <location ref="FRI"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="6">
+            <location ref="FRI"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="7">
+            <location ref="FRI"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="7">
+            <location ref="FRI"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="10">
+            <location ref="FRI"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="8">
+            <location ref="FRI"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="10">
+            <location ref="FRI"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="11">
+            <location ref="FRI"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="10">
+            <location ref="FRI"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="10">
+            <location ref="FRI"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="11">
+            <location ref="FRI"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="13">
+            <location ref="FRI"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="16">
+            <location ref="FRI"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="6">
+            <location ref="FRI"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="6">
+            <location ref="FRI"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="12">
+            <location ref="FRI"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="9">
+            <location ref="FRI"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="9">
+            <location ref="FRI"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="14">
+            <location ref="FRI"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="15">
+            <location ref="FRI"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="18">
+            <location ref="FRI"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="16">
+            <location ref="FRI"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="7">
+            <location ref="FRI"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="11">
+            <location ref="FRI"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="11">
+            <location ref="FRI"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="11">
+            <location ref="FRI"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="12">
+            <location ref="FRI"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="14">
+            <location ref="FRI"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="12">
+            <location ref="FRI"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="16">
+            <location ref="FRI"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="16">
+            <location ref="YVE"/>
+            <location ref="LUG"/>
+         </path>
+         <path distance="16">
+            <location ref="YVE"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="3">
+            <location ref="YVE"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="2">
+            <location ref="YVE"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="4">
+            <location ref="YVE"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="6">
+            <location ref="YVE"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="8">
+            <location ref="YVE"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="6">
+            <location ref="YVE"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="11">
+            <location ref="YVE"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="7">
+            <location ref="YVE"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="10">
+            <location ref="YVE"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="11">
+            <location ref="YVE"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="11">
+            <location ref="YVE"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="12">
+            <location ref="YVE"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="10">
+            <location ref="YVE"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="12">
+            <location ref="YVE"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="11">
+            <location ref="YVE"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="14">
+            <location ref="YVE"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="16">
+            <location ref="YVE"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="13">
+            <location ref="YVE"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="15">
+            <location ref="YVE"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="16">
+            <location ref="YVE"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="18">
+            <location ref="YVE"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="21">
+            <location ref="YVE"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="8">
+            <location ref="YVE"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="5">
+            <location ref="YVE"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="7">
+            <location ref="YVE"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="16">
+            <location ref="YVE"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="12">
+            <location ref="YVE"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="17">
+            <location ref="YVE"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="18">
+            <location ref="YVE"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="23">
+            <location ref="YVE"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="21">
+            <location ref="YVE"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="9">
+            <location ref="YVE"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="13">
+            <location ref="YVE"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="14">
+            <location ref="YVE"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="14">
+            <location ref="YVE"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="16">
+            <location ref="YVE"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="18">
+            <location ref="YVE"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="17">
+            <location ref="YVE"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="21">
+            <location ref="YVE"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="1">
+            <location ref="LUG"/>
+            <location ref="BEL"/>
+         </path>
+         <path distance="15">
+            <location ref="LUG"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="14">
+            <location ref="LUG"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="12">
+            <location ref="LUG"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="13">
+            <location ref="LUG"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="13">
+            <location ref="LUG"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="12">
+            <location ref="LUG"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="11">
+            <location ref="LUG"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="11">
+            <location ref="LUG"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="8">
+            <location ref="LUG"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="8">
+            <location ref="LUG"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="7">
+            <location ref="LUG"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="8">
+            <location ref="LUG"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="10">
+            <location ref="LUG"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="12">
+            <location ref="LUG"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="11">
+            <location ref="LUG"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="11">
+            <location ref="LUG"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="12">
+            <location ref="LUG"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="12">
+            <location ref="LUG"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="11">
+            <location ref="LUG"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="10">
+            <location ref="LUG"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="12">
+            <location ref="LUG"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="15">
+            <location ref="LUG"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="15">
+            <location ref="LUG"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="17">
+            <location ref="LUG"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="21">
+            <location ref="LUG"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="14">
+            <location ref="LUG"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="10">
+            <location ref="LUG"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="3">
+            <location ref="LUG"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="2">
+            <location ref="LUG"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="17">
+            <location ref="LUG"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="15">
+            <location ref="LUG"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="14">
+            <location ref="LUG"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="13">
+            <location ref="LUG"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="13">
+            <location ref="LUG"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="13">
+            <location ref="LUG"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="13">
+            <location ref="LUG"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="15">
+            <location ref="LUG"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="13">
+            <location ref="LUG"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="15">
+            <location ref="LUG"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="14">
+            <location ref="BEL"/>
+            <location ref="CDF"/>
+         </path>
+         <path distance="13">
+            <location ref="BEL"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="11">
+            <location ref="BEL"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="12">
+            <location ref="BEL"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="12">
+            <location ref="BEL"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="11">
+            <location ref="BEL"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="9">
+            <location ref="BEL"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="10">
+            <location ref="BEL"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="7">
+            <location ref="BEL"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="7">
+            <location ref="BEL"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="6">
+            <location ref="BEL"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="7">
+            <location ref="BEL"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="8">
+            <location ref="BEL"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="10">
+            <location ref="BEL"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="9">
+            <location ref="BEL"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="10">
+            <location ref="BEL"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="11">
+            <location ref="BEL"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="11">
+            <location ref="BEL"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="10">
+            <location ref="BEL"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="9">
+            <location ref="BEL"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="11">
+            <location ref="BEL"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="14">
+            <location ref="BEL"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="14">
+            <location ref="BEL"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="16">
+            <location ref="BEL"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="20">
+            <location ref="BEL"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="14">
+            <location ref="BEL"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="10">
+            <location ref="BEL"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="3">
+            <location ref="BEL"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="3">
+            <location ref="BEL"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="16">
+            <location ref="BEL"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="14">
+            <location ref="BEL"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="13">
+            <location ref="BEL"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="11">
+            <location ref="BEL"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="12">
+            <location ref="BEL"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="12">
+            <location ref="BEL"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="12">
+            <location ref="BEL"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="14">
+            <location ref="BEL"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="12">
+            <location ref="BEL"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="14">
+            <location ref="BEL"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="1">
+            <location ref="CDF"/>
+            <location ref="NEU"/>
+         </path>
+         <path distance="3">
+            <location ref="CDF"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="3">
+            <location ref="CDF"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="5">
+            <location ref="CDF"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="4">
+            <location ref="CDF"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="7">
+            <location ref="CDF"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="5">
+            <location ref="CDF"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="10">
+            <location ref="CDF"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="9">
+            <location ref="CDF"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="10">
+            <location ref="CDF"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="10">
+            <location ref="CDF"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="8">
+            <location ref="CDF"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="10">
+            <location ref="CDF"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="9">
+            <location ref="CDF"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="12">
+            <location ref="CDF"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="14">
+            <location ref="CDF"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="11">
+            <location ref="CDF"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="13">
+            <location ref="CDF"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="14">
+            <location ref="CDF"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="16">
+            <location ref="CDF"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="19">
+            <location ref="CDF"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="5">
+            <location ref="CDF"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="2">
+            <location ref="CDF"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="10">
+            <location ref="CDF"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="11">
+            <location ref="CDF"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="11">
+            <location ref="CDF"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="16">
+            <location ref="CDF"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="17">
+            <location ref="CDF"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="21">
+            <location ref="CDF"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="19">
+            <location ref="CDF"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="6">
+            <location ref="CDF"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="11">
+            <location ref="CDF"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="12">
+            <location ref="CDF"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="12">
+            <location ref="CDF"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="14">
+            <location ref="CDF"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="16">
+            <location ref="CDF"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="15">
+            <location ref="CDF"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="19">
+            <location ref="CDF"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="2">
+            <location ref="NEU"/>
+            <location ref="BER"/>
+         </path>
+         <path distance="4">
+            <location ref="NEU"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="6">
+            <location ref="NEU"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="4">
+            <location ref="NEU"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="7">
+            <location ref="NEU"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="5">
+            <location ref="NEU"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="6">
+            <location ref="NEU"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="7">
+            <location ref="NEU"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="7">
+            <location ref="NEU"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="8">
+            <location ref="NEU"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="10">
+            <location ref="NEU"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="12">
+            <location ref="NEU"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="11">
+            <location ref="NEU"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="11">
+            <location ref="NEU"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="12">
+            <location ref="NEU"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="12">
+            <location ref="NEU"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="11">
+            <location ref="NEU"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="12">
+            <location ref="NEU"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="14">
+            <location ref="NEU"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="17">
+            <location ref="NEU"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="6">
+            <location ref="NEU"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="3">
+            <location ref="NEU"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="9">
+            <location ref="NEU"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="10">
+            <location ref="NEU"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="10">
+            <location ref="NEU"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="15">
+            <location ref="NEU"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="16">
+            <location ref="NEU"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="19">
+            <location ref="NEU"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="17">
+            <location ref="NEU"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="7">
+            <location ref="NEU"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="13">
+            <location ref="NEU"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="13">
+            <location ref="NEU"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="13">
+            <location ref="NEU"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="13">
+            <location ref="NEU"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="15">
+            <location ref="NEU"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="13">
+            <location ref="NEU"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="17">
+            <location ref="NEU"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="3">
+            <location ref="BER"/>
+            <location ref="DEL"/>
+         </path>
+         <path distance="5">
+            <location ref="BER"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="2">
+            <location ref="BER"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="5">
+            <location ref="BER"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="3">
+            <location ref="BER"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="4">
+            <location ref="BER"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="5">
+            <location ref="BER"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="5">
+            <location ref="BER"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="6">
+            <location ref="BER"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="6">
+            <location ref="BER"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="8">
+            <location ref="BER"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="7">
+            <location ref="BER"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="10">
+            <location ref="BER"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="10">
+            <location ref="BER"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="11">
+            <location ref="BER"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="9">
+            <location ref="BER"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="10">
+            <location ref="BER"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="12">
+            <location ref="BER"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="15">
+            <location ref="BER"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="5">
+            <location ref="BER"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="5">
+            <location ref="BER"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="11">
+            <location ref="BER"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="10">
+            <location ref="BER"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="8">
+            <location ref="BER"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="13">
+            <location ref="BER"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="14">
+            <location ref="BER"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="17">
+            <location ref="BER"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="15">
+            <location ref="BER"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="6">
+            <location ref="BER"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="9">
+            <location ref="BER"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="12">
+            <location ref="BER"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="12">
+            <location ref="BER"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="12">
+            <location ref="BER"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="14">
+            <location ref="BER"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="11">
+            <location ref="BER"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="15">
+            <location ref="BER"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="2">
+            <location ref="DEL"/>
+            <location ref="BAS"/>
+         </path>
+         <path distance="1">
+            <location ref="DEL"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="4">
+            <location ref="DEL"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="2">
+            <location ref="DEL"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="5">
+            <location ref="DEL"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="6">
+            <location ref="DEL"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="6">
+            <location ref="DEL"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="7">
+            <location ref="DEL"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="5">
+            <location ref="DEL"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="7">
+            <location ref="DEL"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="6">
+            <location ref="DEL"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="10">
+            <location ref="DEL"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="11">
+            <location ref="DEL"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="10">
+            <location ref="DEL"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="10">
+            <location ref="DEL"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="11">
+            <location ref="DEL"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="13">
+            <location ref="DEL"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="16">
+            <location ref="DEL"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="2">
+            <location ref="DEL"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="5">
+            <location ref="DEL"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="12">
+            <location ref="DEL"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="13">
+            <location ref="DEL"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="11">
+            <location ref="DEL"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="16">
+            <location ref="DEL"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="17">
+            <location ref="DEL"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="18">
+            <location ref="DEL"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="16">
+            <location ref="DEL"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="3">
+            <location ref="DEL"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="8">
+            <location ref="DEL"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="11">
+            <location ref="DEL"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="11">
+            <location ref="DEL"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="12">
+            <location ref="DEL"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="14">
+            <location ref="DEL"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="12">
+            <location ref="DEL"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="16">
+            <location ref="DEL"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="3">
+            <location ref="BAS"/>
+            <location ref="SOL"/>
+         </path>
+         <path distance="3">
+            <location ref="BAS"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="2">
+            <location ref="BAS"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="5">
+            <location ref="BAS"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="5">
+            <location ref="BAS"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="6">
+            <location ref="BAS"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="6">
+            <location ref="BAS"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="4">
+            <location ref="BAS"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="6">
+            <location ref="BAS"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="5">
+            <location ref="BAS"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="8">
+            <location ref="BAS"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="10">
+            <location ref="BAS"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="7">
+            <location ref="BAS"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="9">
+            <location ref="BAS"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="10">
+            <location ref="BAS"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="12">
+            <location ref="BAS"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="15">
+            <location ref="BAS"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="4">
+            <location ref="BAS"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="7">
+            <location ref="BAS"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="15">
+            <location ref="BAS"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="16">
+            <location ref="BAS"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="13">
+            <location ref="BAS"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="15">
+            <location ref="BAS"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="15">
+            <location ref="BAS"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="17">
+            <location ref="BAS"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="15">
+            <location ref="BAS"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="1">
+            <location ref="BAS"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="7">
+            <location ref="BAS"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="8">
+            <location ref="BAS"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="8">
+            <location ref="BAS"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="10">
+            <location ref="BAS"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="12">
+            <location ref="BAS"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="11">
+            <location ref="BAS"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="15">
+            <location ref="BAS"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="3">
+            <location ref="SOL"/>
+            <location ref="BAD"/>
+         </path>
+         <path distance="1">
+            <location ref="SOL"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="4">
+            <location ref="SOL"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="5">
+            <location ref="SOL"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="5">
+            <location ref="SOL"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="6">
+            <location ref="SOL"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="4">
+            <location ref="SOL"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="6">
+            <location ref="SOL"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="5">
+            <location ref="SOL"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="8">
+            <location ref="SOL"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="10">
+            <location ref="SOL"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="7">
+            <location ref="SOL"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="9">
+            <location ref="SOL"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="10">
+            <location ref="SOL"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="12">
+            <location ref="SOL"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="15">
+            <location ref="SOL"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="3">
+            <location ref="SOL"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="6">
+            <location ref="SOL"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="11">
+            <location ref="SOL"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="12">
+            <location ref="SOL"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="10">
+            <location ref="SOL"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="15">
+            <location ref="SOL"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="16">
+            <location ref="SOL"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="17">
+            <location ref="SOL"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="15">
+            <location ref="SOL"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="4">
+            <location ref="SOL"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="7">
+            <location ref="SOL"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="8">
+            <location ref="SOL"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="8">
+            <location ref="SOL"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="10">
+            <location ref="SOL"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="12">
+            <location ref="SOL"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="11">
+            <location ref="SOL"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="15">
+            <location ref="SOL"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="2">
+            <location ref="BAD"/>
+            <location ref="OLT"/>
+         </path>
+         <path distance="3">
+            <location ref="BAD"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="2">
+            <location ref="BAD"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="3">
+            <location ref="BAD"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="3">
+            <location ref="BAD"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="1">
+            <location ref="BAD"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="3">
+            <location ref="BAD"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="2">
+            <location ref="BAD"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="5">
+            <location ref="BAD"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="7">
+            <location ref="BAD"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="4">
+            <location ref="BAD"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="6">
+            <location ref="BAD"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="10">
+            <location ref="BAD"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="9">
+            <location ref="BAD"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="13">
+            <location ref="BAD"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="6">
+            <location ref="BAD"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="9">
+            <location ref="BAD"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="16">
+            <location ref="BAD"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="16">
+            <location ref="BAD"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="12">
+            <location ref="BAD"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="12">
+            <location ref="BAD"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="12">
+            <location ref="BAD"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="15">
+            <location ref="BAD"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="12">
+            <location ref="BAD"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="4">
+            <location ref="BAD"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="4">
+            <location ref="BAD"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="5">
+            <location ref="BAD"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="5">
+            <location ref="BAD"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="7">
+            <location ref="BAD"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="9">
+            <location ref="BAD"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="8">
+            <location ref="BAD"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="12">
+            <location ref="BAD"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="3">
+            <location ref="OLT"/>
+            <location ref="LUZ"/>
+         </path>
+         <path distance="4">
+            <location ref="OLT"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="4">
+            <location ref="OLT"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="5">
+            <location ref="OLT"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="3">
+            <location ref="OLT"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="5">
+            <location ref="OLT"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="4">
+            <location ref="OLT"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="7">
+            <location ref="OLT"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="9">
+            <location ref="OLT"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="6">
+            <location ref="OLT"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="8">
+            <location ref="OLT"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="11">
+            <location ref="OLT"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="11">
+            <location ref="OLT"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="15">
+            <location ref="OLT"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="4">
+            <location ref="OLT"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="7">
+            <location ref="OLT"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="12">
+            <location ref="OLT"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="13">
+            <location ref="OLT"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="13">
+            <location ref="OLT"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="13">
+            <location ref="OLT"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="13">
+            <location ref="OLT"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="17">
+            <location ref="OLT"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="14">
+            <location ref="OLT"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="3">
+            <location ref="OLT"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="6">
+            <location ref="OLT"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="7">
+            <location ref="OLT"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="7">
+            <location ref="OLT"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="9">
+            <location ref="OLT"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="11">
+            <location ref="OLT"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="10">
+            <location ref="OLT"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="14">
+            <location ref="OLT"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="1">
+            <location ref="LUZ"/>
+            <location ref="ZUG"/>
+         </path>
+         <path distance="1">
+            <location ref="LUZ"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="2">
+            <location ref="LUZ"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="2">
+            <location ref="LUZ"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="4">
+            <location ref="LUZ"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="3">
+            <location ref="LUZ"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="5">
+            <location ref="LUZ"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="6">
+            <location ref="LUZ"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="5">
+            <location ref="LUZ"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="5">
+            <location ref="LUZ"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="6">
+            <location ref="LUZ"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="8">
+            <location ref="LUZ"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="11">
+            <location ref="LUZ"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="7">
+            <location ref="LUZ"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="9">
+            <location ref="LUZ"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="15">
+            <location ref="LUZ"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="13">
+            <location ref="LUZ"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="9">
+            <location ref="LUZ"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="14">
+            <location ref="LUZ"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="10">
+            <location ref="LUZ"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="13">
+            <location ref="LUZ"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="11">
+            <location ref="LUZ"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="6">
+            <location ref="LUZ"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="5">
+            <location ref="LUZ"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="6">
+            <location ref="LUZ"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="6">
+            <location ref="LUZ"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="7">
+            <location ref="LUZ"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="9">
+            <location ref="LUZ"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="7">
+            <location ref="LUZ"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="11">
+            <location ref="LUZ"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="1">
+            <location ref="ZUG"/>
+            <location ref="SWZ"/>
+         </path>
+         <path distance="2">
+            <location ref="ZUG"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="1">
+            <location ref="ZUG"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="3">
+            <location ref="ZUG"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="2">
+            <location ref="ZUG"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="5">
+            <location ref="ZUG"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="6">
+            <location ref="ZUG"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="4">
+            <location ref="ZUG"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="5">
+            <location ref="ZUG"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="6">
+            <location ref="ZUG"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="8">
+            <location ref="ZUG"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="11">
+            <location ref="ZUG"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="8">
+            <location ref="ZUG"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="10">
+            <location ref="ZUG"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="16">
+            <location ref="ZUG"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="14">
+            <location ref="ZUG"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="10">
+            <location ref="ZUG"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="15">
+            <location ref="ZUG"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="10">
+            <location ref="ZUG"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="13">
+            <location ref="ZUG"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="11">
+            <location ref="ZUG"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="6">
+            <location ref="ZUG"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="4">
+            <location ref="ZUG"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="5">
+            <location ref="ZUG"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="5">
+            <location ref="ZUG"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="7">
+            <location ref="ZUG"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="9">
+            <location ref="ZUG"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="7">
+            <location ref="ZUG"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="11">
+            <location ref="ZUG"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="1">
+            <location ref="SWZ"/>
+            <location ref="PFA"/>
+         </path>
+         <path distance="2">
+            <location ref="SWZ"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="4">
+            <location ref="SWZ"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="3">
+            <location ref="SWZ"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="4">
+            <location ref="SWZ"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="5">
+            <location ref="SWZ"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="5">
+            <location ref="SWZ"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="4">
+            <location ref="SWZ"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="5">
+            <location ref="SWZ"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="7">
+            <location ref="SWZ"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="10">
+            <location ref="SWZ"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="8">
+            <location ref="SWZ"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="10">
+            <location ref="SWZ"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="16">
+            <location ref="SWZ"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="13">
+            <location ref="SWZ"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="9">
+            <location ref="SWZ"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="14">
+            <location ref="SWZ"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="9">
+            <location ref="SWZ"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="12">
+            <location ref="SWZ"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="10">
+            <location ref="SWZ"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="7">
+            <location ref="SWZ"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="5">
+            <location ref="SWZ"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="6">
+            <location ref="SWZ"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="6">
+            <location ref="SWZ"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="6">
+            <location ref="SWZ"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="8">
+            <location ref="SWZ"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="6">
+            <location ref="SWZ"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="10">
+            <location ref="SWZ"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="2">
+            <location ref="PFA"/>
+            <location ref="ZUR"/>
+         </path>
+         <path distance="4">
+            <location ref="PFA"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="3">
+            <location ref="PFA"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="3">
+            <location ref="PFA"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="4">
+            <location ref="PFA"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="4">
+            <location ref="PFA"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="3">
+            <location ref="PFA"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="4">
+            <location ref="PFA"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="6">
+            <location ref="PFA"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="10">
+            <location ref="PFA"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="9">
+            <location ref="PFA"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="12">
+            <location ref="PFA"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="15">
+            <location ref="PFA"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="14">
+            <location ref="PFA"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="10">
+            <location ref="PFA"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="15">
+            <location ref="PFA"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="10">
+            <location ref="PFA"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="12">
+            <location ref="PFA"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="9">
+            <location ref="PFA"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="7">
+            <location ref="PFA"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="5">
+            <location ref="PFA"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="5">
+            <location ref="PFA"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="5">
+            <location ref="PFA"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="5">
+            <location ref="PFA"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="7">
+            <location ref="PFA"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="5">
+            <location ref="PFA"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="9">
+            <location ref="PFA"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="2">
+            <location ref="ZUR"/>
+            <location ref="SFH"/>
+         </path>
+         <path distance="1">
+            <location ref="ZUR"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="4">
+            <location ref="ZUR"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="6">
+            <location ref="ZUR"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="3">
+            <location ref="ZUR"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="5">
+            <location ref="ZUR"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="6">
+            <location ref="ZUR"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="8">
+            <location ref="ZUR"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="11">
+            <location ref="ZUR"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="7">
+            <location ref="ZUR"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="10">
+            <location ref="ZUR"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="15">
+            <location ref="ZUR"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="15">
+            <location ref="ZUR"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="11">
+            <location ref="ZUR"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="12">
+            <location ref="ZUR"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="11">
+            <location ref="ZUR"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="13">
+            <location ref="ZUR"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="11">
+            <location ref="ZUR"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="5">
+            <location ref="ZUR"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="3">
+            <location ref="ZUR"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="4">
+            <location ref="ZUR"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="4">
+            <location ref="ZUR"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="6">
+            <location ref="ZUR"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="8">
+            <location ref="ZUR"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="7">
+            <location ref="ZUR"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="11">
+            <location ref="ZUR"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="1">
+            <location ref="SFH"/>
+            <location ref="WIN"/>
+         </path>
+         <path distance="4">
+            <location ref="SFH"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="6">
+            <location ref="SFH"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="3">
+            <location ref="SFH"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="7">
+            <location ref="SFH"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="11">
+            <location ref="SFH"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="10">
+            <location ref="SFH"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="14">
+            <location ref="SFH"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="9">
+            <location ref="SFH"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="12">
+            <location ref="SFH"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="19">
+            <location ref="SFH"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="17">
+            <location ref="SFH"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="13">
+            <location ref="SFH"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="13">
+            <location ref="SFH"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="13">
+            <location ref="SFH"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="16">
+            <location ref="SFH"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="13">
+            <location ref="SFH"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="7">
+            <location ref="SFH"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="1">
+            <location ref="SFH"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="4">
+            <location ref="SFH"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="4">
+            <location ref="SFH"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="6">
+            <location ref="SFH"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="8">
+            <location ref="SFH"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="7">
+            <location ref="SFH"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="13">
+            <location ref="SFH"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="3">
+            <location ref="WIN"/>
+            <location ref="STG"/>
+         </path>
+         <path distance="5">
+            <location ref="WIN"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="2">
+            <location ref="WIN"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="6">
+            <location ref="WIN"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="10">
+            <location ref="WIN"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="9">
+            <location ref="WIN"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="13">
+            <location ref="WIN"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="8">
+            <location ref="WIN"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="11">
+            <location ref="WIN"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="19">
+            <location ref="WIN"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="16">
+            <location ref="WIN"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="12">
+            <location ref="WIN"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="12">
+            <location ref="WIN"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="12">
+            <location ref="WIN"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="15">
+            <location ref="WIN"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="12">
+            <location ref="WIN"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="6">
+            <location ref="WIN"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="2">
+            <location ref="WIN"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="3">
+            <location ref="WIN"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="3">
+            <location ref="WIN"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="5">
+            <location ref="WIN"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="7">
+            <location ref="WIN"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="6">
+            <location ref="WIN"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="12">
+            <location ref="WIN"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="2">
+            <location ref="STG"/>
+            <location ref="VAD"/>
+         </path>
+         <path distance="1">
+            <location ref="STG"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="3">
+            <location ref="STG"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="4">
+            <location ref="STG"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="6">
+            <location ref="STG"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="10">
+            <location ref="STG"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="12">
+            <location ref="STG"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="15">
+            <location ref="STG"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="19">
+            <location ref="STG"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="17">
+            <location ref="STG"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="13">
+            <location ref="STG"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="13">
+            <location ref="STG"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="13">
+            <location ref="STG"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="12">
+            <location ref="STG"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="9">
+            <location ref="STG"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="9">
+            <location ref="STG"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="5">
+            <location ref="STG"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="2">
+            <location ref="STG"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="2">
+            <location ref="STG"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="2">
+            <location ref="STG"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="4">
+            <location ref="STG"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="3">
+            <location ref="STG"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="9">
+            <location ref="STG"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="3">
+            <location ref="VAD"/>
+            <location ref="KRE"/>
+         </path>
+         <path distance="1">
+            <location ref="VAD"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="2">
+            <location ref="VAD"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="4">
+            <location ref="VAD"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="7">
+            <location ref="VAD"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="13">
+            <location ref="VAD"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="15">
+            <location ref="VAD"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="19">
+            <location ref="VAD"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="18">
+            <location ref="VAD"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="14">
+            <location ref="VAD"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="14">
+            <location ref="VAD"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="14">
+            <location ref="VAD"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="9">
+            <location ref="VAD"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="7">
+            <location ref="VAD"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="11">
+            <location ref="VAD"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="7">
+            <location ref="VAD"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="4">
+            <location ref="VAD"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="4">
+            <location ref="VAD"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="4">
+            <location ref="VAD"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="6">
+            <location ref="VAD"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="1">
+            <location ref="VAD"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="7">
+            <location ref="VAD"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="4">
+            <location ref="KRE"/>
+            <location ref="SAR"/>
+         </path>
+         <path distance="5">
+            <location ref="KRE"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="7">
+            <location ref="KRE"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="10">
+            <location ref="KRE"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="10">
+            <location ref="KRE"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="13">
+            <location ref="KRE"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="20">
+            <location ref="KRE"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="18">
+            <location ref="KRE"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="14">
+            <location ref="KRE"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="17">
+            <location ref="KRE"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="17">
+            <location ref="KRE"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="12">
+            <location ref="KRE"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="10">
+            <location ref="KRE"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="8">
+            <location ref="KRE"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="4">
+            <location ref="KRE"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="1">
+            <location ref="KRE"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="1">
+            <location ref="KRE"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="3">
+            <location ref="KRE"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="5">
+            <location ref="KRE"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="4">
+            <location ref="KRE"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="10">
+            <location ref="KRE"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="1">
+            <location ref="SAR"/>
+            <location ref="CHU"/>
+         </path>
+         <path distance="3">
+            <location ref="SAR"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="6">
+            <location ref="SAR"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="12">
+            <location ref="SAR"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="15">
+            <location ref="SAR"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="20">
+            <location ref="SAR"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="17">
+            <location ref="SAR"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="13">
+            <location ref="SAR"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="13">
+            <location ref="SAR"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="13">
+            <location ref="SAR"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="8">
+            <location ref="SAR"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="6">
+            <location ref="SAR"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="11">
+            <location ref="SAR"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="8">
+            <location ref="SAR"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="5">
+            <location ref="SAR"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="5">
+            <location ref="SAR"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="5">
+            <location ref="SAR"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="7">
+            <location ref="SAR"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="2">
+            <location ref="SAR"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="6">
+            <location ref="SAR"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="2">
+            <location ref="CHU"/>
+            <location ref="DAV"/>
+         </path>
+         <path distance="5">
+            <location ref="CHU"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="13">
+            <location ref="CHU"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="15">
+            <location ref="CHU"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="19">
+            <location ref="CHU"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="16">
+            <location ref="CHU"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="12">
+            <location ref="CHU"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="12">
+            <location ref="CHU"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="12">
+            <location ref="CHU"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="7">
+            <location ref="CHU"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="5">
+            <location ref="CHU"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="11">
+            <location ref="CHU"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="9">
+            <location ref="CHU"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="6">
+            <location ref="CHU"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="6">
+            <location ref="CHU"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="6">
+            <location ref="CHU"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="8">
+            <location ref="CHU"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="3">
+            <location ref="CHU"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="5">
+            <location ref="CHU"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="4">
+            <location ref="DAV"/>
+            <location ref="BRU"/>
+         </path>
+         <path distance="15">
+            <location ref="DAV"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="17">
+            <location ref="DAV"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="21">
+            <location ref="DAV"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="18">
+            <location ref="DAV"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="14">
+            <location ref="DAV"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="14">
+            <location ref="DAV"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="14">
+            <location ref="DAV"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="6">
+            <location ref="DAV"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="3">
+            <location ref="DAV"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="14">
+            <location ref="DAV"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="11">
+            <location ref="DAV"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="8">
+            <location ref="DAV"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="8">
+            <location ref="DAV"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="8">
+            <location ref="DAV"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="10">
+            <location ref="DAV"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="5">
+            <location ref="DAV"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="3">
+            <location ref="DAV"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="18">
+            <location ref="BRU"/>
+            <location ref="FRA1"/>
+         </path>
+         <path distance="20">
+            <location ref="BRU"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="24">
+            <location ref="BRU"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="21">
+            <location ref="BRU"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="17">
+            <location ref="BRU"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="17">
+            <location ref="BRU"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="17">
+            <location ref="BRU"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="2">
+            <location ref="BRU"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="7">
+            <location ref="BRU"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="16">
+            <location ref="BRU"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="14">
+            <location ref="BRU"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="14">
+            <location ref="BRU"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="14">
+            <location ref="BRU"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="14">
+            <location ref="BRU"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="16">
+            <location ref="BRU"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="8">
+            <location ref="BRU"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="7">
+            <location ref="BRU"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="7">
+            <location ref="FRA1"/>
+            <location ref="FRA2"/>
+         </path>
+         <path distance="15">
+            <location ref="FRA1"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="16">
+            <location ref="FRA1"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="16">
+            <location ref="FRA1"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="17">
+            <location ref="FRA1"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="17">
+            <location ref="FRA1"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="20">
+            <location ref="FRA1"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="18">
+            <location ref="FRA1"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="5">
+            <location ref="FRA1"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="11">
+            <location ref="FRA1"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="11">
+            <location ref="FRA1"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="11">
+            <location ref="FRA1"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="13">
+            <location ref="FRA1"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="15">
+            <location ref="FRA1"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="14">
+            <location ref="FRA1"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="18">
+            <location ref="FRA1"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="12">
+            <location ref="FRA2"/>
+            <location ref="FRA3"/>
+         </path>
+         <path distance="13">
+            <location ref="FRA2"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="13">
+            <location ref="FRA2"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="18">
+            <location ref="FRA2"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="19">
+            <location ref="FRA2"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="23">
+            <location ref="FRA2"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="21">
+            <location ref="FRA2"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="8">
+            <location ref="FRA2"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="13">
+            <location ref="FRA2"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="14">
+            <location ref="FRA2"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="14">
+            <location ref="FRA2"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="16">
+            <location ref="FRA2"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="18">
+            <location ref="FRA2"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="17">
+            <location ref="FRA2"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="21">
+            <location ref="FRA2"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="11">
+            <location ref="FRA3"/>
+            <location ref="FRA4"/>
+         </path>
+         <path distance="17">
+            <location ref="FRA3"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="22">
+            <location ref="FRA3"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="23">
+            <location ref="FRA3"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="28">
+            <location ref="FRA3"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="26">
+            <location ref="FRA3"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="16">
+            <location ref="FRA3"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="20">
+            <location ref="FRA3"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="21">
+            <location ref="FRA3"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="21">
+            <location ref="FRA3"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="22">
+            <location ref="FRA3"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="24">
+            <location ref="FRA3"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="22">
+            <location ref="FRA3"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="26">
+            <location ref="FRA3"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="10">
+            <location ref="FRA4"/>
+            <location ref="ITA1"/>
+         </path>
+         <path distance="15">
+            <location ref="FRA4"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="16">
+            <location ref="FRA4"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="23">
+            <location ref="FRA4"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="21">
+            <location ref="FRA4"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="16">
+            <location ref="FRA4"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="18">
+            <location ref="FRA4"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="19">
+            <location ref="FRA4"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="19">
+            <location ref="FRA4"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="19">
+            <location ref="FRA4"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="21">
+            <location ref="FRA4"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="19">
+            <location ref="FRA4"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="21">
+            <location ref="FRA4"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="11">
+            <location ref="ITA1"/>
+            <location ref="ITA2"/>
+         </path>
+         <path distance="12">
+            <location ref="ITA1"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="19">
+            <location ref="ITA1"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="17">
+            <location ref="ITA1"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="14">
+            <location ref="ITA1"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="14">
+            <location ref="ITA1"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA1"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA1"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA1"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="17">
+            <location ref="ITA1"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA1"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="17">
+            <location ref="ITA1"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="5">
+            <location ref="ITA2"/>
+            <location ref="ITA3"/>
+         </path>
+         <path distance="19">
+            <location ref="ITA2"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="17">
+            <location ref="ITA2"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="16">
+            <location ref="ITA2"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="14">
+            <location ref="ITA2"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA2"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA2"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA2"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="17">
+            <location ref="ITA2"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA2"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="17">
+            <location ref="ITA2"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="19">
+            <location ref="ITA3"/>
+            <location ref="ITA4"/>
+         </path>
+         <path distance="17">
+            <location ref="ITA3"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="16">
+            <location ref="ITA3"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="14">
+            <location ref="ITA3"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA3"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA3"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA3"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="17">
+            <location ref="ITA3"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA3"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="17">
+            <location ref="ITA3"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="9">
+            <location ref="ITA4"/>
+            <location ref="ITA5"/>
+         </path>
+         <path distance="18">
+            <location ref="ITA4"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="16">
+            <location ref="ITA4"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="13">
+            <location ref="ITA4"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="13">
+            <location ref="ITA4"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="13">
+            <location ref="ITA4"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="15">
+            <location ref="ITA4"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="10">
+            <location ref="ITA4"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="9">
+            <location ref="ITA4"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="16">
+            <location ref="ITA5"/>
+            <location ref="GER1"/>
+         </path>
+         <path distance="14">
+            <location ref="ITA5"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="14">
+            <location ref="ITA5"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="14">
+            <location ref="ITA5"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="14">
+            <location ref="ITA5"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="16">
+            <location ref="ITA5"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="8">
+            <location ref="ITA5"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="6">
+            <location ref="ITA5"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="8">
+            <location ref="GER1"/>
+            <location ref="GER2"/>
+         </path>
+         <path distance="11">
+            <location ref="GER1"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="11">
+            <location ref="GER1"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="12">
+            <location ref="GER1"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="14">
+            <location ref="GER1"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="12">
+            <location ref="GER1"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="16">
+            <location ref="GER1"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="5">
+            <location ref="GER2"/>
+            <location ref="GER3"/>
+         </path>
+         <path distance="5">
+            <location ref="GER2"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="7">
+            <location ref="GER2"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="9">
+            <location ref="GER2"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="8">
+            <location ref="GER2"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="14">
+            <location ref="GER2"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="2">
+            <location ref="GER3"/>
+            <location ref="GER4"/>
+         </path>
+         <path distance="4">
+            <location ref="GER3"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="6">
+            <location ref="GER3"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="5">
+            <location ref="GER3"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="11">
+            <location ref="GER3"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="4">
+            <location ref="GER4"/>
+            <location ref="GER5"/>
+         </path>
+         <path distance="6">
+            <location ref="GER4"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="5">
+            <location ref="GER4"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="11">
+            <location ref="GER4"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="6">
+            <location ref="GER5"/>
+            <location ref="AUS1"/>
+         </path>
+         <path distance="5">
+            <location ref="GER5"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="11">
+            <location ref="GER5"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="7">
+            <location ref="AUS1"/>
+            <location ref="AUS2"/>
+         </path>
+         <path distance="16">
+            <location ref="AUS1"/>
+            <location ref="AUS3"/>
+         </path>
+         <path distance="8">
+            <location ref="AUS2"/>
+            <location ref="AUS3"/>
+         </path>
+      </shortest-paths>
+   </map>
     <tickets>
         <ticket points="6">
 			<!-- City-to-city -->

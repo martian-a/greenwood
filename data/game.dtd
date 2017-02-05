@@ -1,6 +1,6 @@
 <!ELEMENT game (title?, map?, tickets*)>
 <!ELEMENT title (#PCDATA)>
-<!ELEMENT map (locations?, routes?, colours)>
+<!ELEMENT map (((locations?, routes?, colours)|network?), shortest-paths?)>
 <!ELEMENT locations (location*, country*)>
 <!ELEMENT country (name?, location*)>
 <!ELEMENT location (name?)>
@@ -12,6 +12,13 @@
 <!ELEMENT tickets (ticket*)>
 <!ELEMENT ticket (location*, country*, note?)>
 <!ELEMENT note (#PCDATA)>
+<!ELEMENT network (nodes, edges)>
+<!ELEMENT nodes (node+)> 
+<!ELEMENT edges (edge+)>
+<!ELEMENT node (name?)>
+<!ELEMENT edge (node, node)>
+<!ELEMENT shortest-paths (path+)>
+<!ELEMENT path (location, location)>
 
 <!ATTLIST game 
 	id ID #REQUIRED>
@@ -34,3 +41,11 @@
 	ref IDREF #IMPLIED>
 <!ATTLIST ticket 
 	points CDATA #IMPLIED>
+<!ATTLIST node
+	id ID #IMPLIED
+	ref IDREF #IMPLIED>
+<!ATTLIST edge
+	id ID #IMPLIED
+	length CDATA #IMPLIED>
+<!ATTLIST path
+	distance CDATA #IMPLIED>

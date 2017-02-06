@@ -558,7 +558,8 @@
                                 <li>
                                     <xsl:apply-templates select="." mode="path.name"/>
                                     <xsl:for-each select="ancestor::game[1]/tickets/ticket[location/@ref = current()/location[1]/@ref][location/@ref = current()/location[2]/@ref]">
-                                        <span class="ticket">🎫</span>
+                                         <span class="ticket">🎫</span>
+                                  	<span class="ticket-value">[<xsl:value-of select="@points"/>]</span>
                                     </xsl:for-each>
                                 </li>
                             </xsl:for-each>

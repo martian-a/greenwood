@@ -847,7 +847,7 @@
 										<location ref="ARK" />
 										<location ref="BAR" />
 									</path>
-									<path distance="2">
+									<path distance="3">
 										<location ref="ARK" />
 										<location ref="BAR2" />
 									</path>

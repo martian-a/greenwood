@@ -731,24 +731,26 @@
             </colour>
         </colours>
 	     
+      
+      
       <shortest-paths>
          <path distance="3">
             <location ref="VAN"/>
             <location ref="CGY"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="VAN"/>
             <location ref="WIN"/>
          </path>
-         <path distance="18">
+         <path distance="17">
             <location ref="VAN"/>
             <location ref="TOR"/>
          </path>
-         <path distance="21">
+         <path distance="20">
             <location ref="VAN"/>
             <location ref="MON"/>
          </path>
-         <path distance="16">
+         <path distance="15">
             <location ref="VAN"/>
             <location ref="SAU"/>
          </path>
@@ -776,11 +778,11 @@
             <location ref="VAN"/>
             <location ref="PHO"/>
          </path>
-         <path distance="12">
+         <path distance="11">
             <location ref="VAN"/>
             <location ref="LAS"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="VAN"/>
             <location ref="SLC"/>
          </path>
@@ -840,7 +842,7 @@
             <location ref="VAN"/>
             <location ref="PIT"/>
          </path>
-         <path distance="23">
+         <path distance="22">
             <location ref="VAN"/>
             <location ref="BOS"/>
          </path>
@@ -892,7 +894,7 @@
             <location ref="CGY"/>
             <location ref="SEA"/>
          </path>
-         <path distance="10">
+         <path distance="4">
             <location ref="CGY"/>
             <location ref="HEL"/>
          </path>
@@ -904,35 +906,35 @@
             <location ref="CGY"/>
             <location ref="SFR"/>
          </path>
-         <path distance="13">
+         <path distance="12">
             <location ref="CGY"/>
             <location ref="LOS"/>
          </path>
-         <path distance="16">
+         <path distance="13">
             <location ref="CGY"/>
             <location ref="PHO"/>
          </path>
-         <path distance="14">
+         <path distance="10">
             <location ref="CGY"/>
             <location ref="LAS"/>
          </path>
-         <path distance="11">
+         <path distance="7">
             <location ref="CGY"/>
             <location ref="SLC"/>
          </path>
-         <path distance="16">
+         <path distance="10">
             <location ref="CGY"/>
             <location ref="SFE"/>
          </path>
-         <path distance="18">
+         <path distance="12">
             <location ref="CGY"/>
             <location ref="ELP"/>
          </path>
-         <path distance="14">
+         <path distance="8">
             <location ref="CGY"/>
             <location ref="DEN"/>
          </path>
-         <path distance="16">
+         <path distance="12">
             <location ref="CGY"/>
             <location ref="OKL"/>
          </path>
@@ -940,31 +942,31 @@
             <location ref="CGY"/>
             <location ref="DUL"/>
          </path>
-         <path distance="12">
+         <path distance="9">
             <location ref="CGY"/>
             <location ref="OMA"/>
          </path>
-         <path distance="14">
+         <path distance="11">
             <location ref="CGY"/>
             <location ref="KAN"/>
          </path>
-         <path distance="18">
+         <path distance="14">
             <location ref="CGY"/>
             <location ref="DAL"/>
          </path>
-         <path distance="19">
+         <path distance="15">
             <location ref="CGY"/>
             <location ref="HOU"/>
          </path>
-         <path distance="20">
+         <path distance="17">
             <location ref="CGY"/>
             <location ref="NOL"/>
          </path>
-         <path distance="17">
+         <path distance="14">
             <location ref="CGY"/>
             <location ref="LRK"/>
          </path>
-         <path distance="15">
+         <path distance="13">
             <location ref="CGY"/>
             <location ref="STL"/>
          </path>
@@ -992,19 +994,19 @@
             <location ref="CGY"/>
             <location ref="RAL"/>
          </path>
-         <path distance="17">
+         <path distance="15">
             <location ref="CGY"/>
             <location ref="NAS"/>
          </path>
-         <path distance="18">
+         <path distance="16">
             <location ref="CGY"/>
             <location ref="ATL"/>
          </path>
-         <path distance="20">
+         <path distance="18">
             <location ref="CGY"/>
             <location ref="CHA"/>
          </path>
-         <path distance="23">
+         <path distance="21">
             <location ref="CGY"/>
             <location ref="MIA"/>
          </path>
@@ -1040,7 +1042,7 @@
             <location ref="WIN"/>
             <location ref="LOS"/>
          </path>
-         <path distance="15">
+         <path distance="13">
             <location ref="WIN"/>
             <location ref="PHO"/>
          </path>
@@ -1052,55 +1054,55 @@
             <location ref="WIN"/>
             <location ref="SLC"/>
          </path>
-         <path distance="12">
+         <path distance="10">
             <location ref="WIN"/>
             <location ref="SFE"/>
          </path>
-         <path distance="14">
+         <path distance="12">
             <location ref="WIN"/>
             <location ref="ELP"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="WIN"/>
             <location ref="DEN"/>
          </path>
-         <path distance="13">
+         <path distance="10">
             <location ref="WIN"/>
             <location ref="OKL"/>
          </path>
-         <path distance="10">
+         <path distance="4">
             <location ref="WIN"/>
             <location ref="DUL"/>
          </path>
-         <path distance="9">
+         <path distance="6">
             <location ref="WIN"/>
             <location ref="OMA"/>
          </path>
-         <path distance="11">
+         <path distance="8">
             <location ref="WIN"/>
             <location ref="KAN"/>
          </path>
-         <path distance="15">
+         <path distance="12">
             <location ref="WIN"/>
             <location ref="DAL"/>
          </path>
-         <path distance="16">
+         <path distance="13">
             <location ref="WIN"/>
             <location ref="HOU"/>
          </path>
-         <path distance="18">
+         <path distance="14">
             <location ref="WIN"/>
             <location ref="NOL"/>
          </path>
-         <path distance="15">
+         <path distance="11">
             <location ref="WIN"/>
             <location ref="LRK"/>
          </path>
-         <path distance="13">
+         <path distance="9">
             <location ref="WIN"/>
             <location ref="STL"/>
          </path>
-         <path distance="12">
+         <path distance="7">
             <location ref="WIN"/>
             <location ref="CCG"/>
          </path>
@@ -1124,11 +1126,11 @@
             <location ref="WIN"/>
             <location ref="RAL"/>
          </path>
-         <path distance="14">
+         <path distance="11">
             <location ref="WIN"/>
             <location ref="NAS"/>
          </path>
-         <path distance="14">
+         <path distance="12">
             <location ref="WIN"/>
             <location ref="ATL"/>
          </path>
@@ -1136,7 +1138,7 @@
             <location ref="WIN"/>
             <location ref="CHA"/>
          </path>
-         <path distance="18">
+         <path distance="17">
             <location ref="WIN"/>
             <location ref="MIA"/>
          </path>
@@ -1272,71 +1274,71 @@
             <location ref="MON"/>
             <location ref="SAU"/>
          </path>
-         <path distance="21">
+         <path distance="20">
             <location ref="MON"/>
             <location ref="SEA"/>
          </path>
-         <path distance="15">
+         <path distance="14">
             <location ref="MON"/>
             <location ref="HEL"/>
+         </path>
+         <path distance="21">
+            <location ref="MON"/>
+            <location ref="POR"/>
          </path>
          <path distance="22">
             <location ref="MON"/>
-            <location ref="POR"/>
-         </path>
-         <path distance="23">
-            <location ref="MON"/>
             <location ref="SFR"/>
          </path>
-         <path distance="23">
+         <path distance="22">
             <location ref="MON"/>
             <location ref="LOS"/>
          </path>
-         <path distance="20">
+         <path distance="19">
             <location ref="MON"/>
             <location ref="PHO"/>
          </path>
-         <path distance="21">
+         <path distance="20">
             <location ref="MON"/>
             <location ref="LAS"/>
          </path>
-         <path distance="18">
+         <path distance="17">
             <location ref="MON"/>
             <location ref="SLC"/>
          </path>
-         <path distance="17">
+         <path distance="16">
             <location ref="MON"/>
             <location ref="SFE"/>
          </path>
-         <path distance="18">
+         <path distance="17">
             <location ref="MON"/>
             <location ref="ELP"/>
          </path>
-         <path distance="15">
+         <path distance="14">
             <location ref="MON"/>
             <location ref="DEN"/>
          </path>
-         <path distance="14">
+         <path distance="13">
             <location ref="MON"/>
             <location ref="OKL"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="MON"/>
             <location ref="DUL"/>
          </path>
-         <path distance="11">
+         <path distance="10">
             <location ref="MON"/>
             <location ref="OMA"/>
          </path>
-         <path distance="12">
+         <path distance="11">
             <location ref="MON"/>
             <location ref="KAN"/>
          </path>
-         <path distance="14">
+         <path distance="13">
             <location ref="MON"/>
             <location ref="DAL"/>
          </path>
-         <path distance="15">
+         <path distance="14">
             <location ref="MON"/>
             <location ref="HOU"/>
          </path>
@@ -1344,11 +1346,11 @@
             <location ref="MON"/>
             <location ref="NOL"/>
          </path>
-         <path distance="12">
+         <path distance="11">
             <location ref="MON"/>
             <location ref="LRK"/>
          </path>
-         <path distance="10">
+         <path distance="9">
             <location ref="MON"/>
             <location ref="STL"/>
          </path>
@@ -1376,7 +1378,7 @@
             <location ref="MON"/>
             <location ref="RAL"/>
          </path>
-         <path distance="10">
+         <path distance="9">
             <location ref="MON"/>
             <location ref="NAS"/>
          </path>
@@ -1384,55 +1386,55 @@
             <location ref="MON"/>
             <location ref="ATL"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="MON"/>
             <location ref="CHA"/>
          </path>
-         <path distance="14">
+         <path distance="13">
             <location ref="MON"/>
             <location ref="MIA"/>
          </path>
-         <path distance="16">
+         <path distance="15">
             <location ref="SAU"/>
             <location ref="SEA"/>
          </path>
-         <path distance="10">
+         <path distance="9">
             <location ref="SAU"/>
             <location ref="HEL"/>
          </path>
-         <path distance="17">
+         <path distance="16">
             <location ref="SAU"/>
             <location ref="POR"/>
          </path>
-         <path distance="18">
+         <path distance="17">
             <location ref="SAU"/>
             <location ref="SFR"/>
          </path>
-         <path distance="18">
+         <path distance="17">
             <location ref="SAU"/>
             <location ref="LOS"/>
          </path>
-         <path distance="15">
+         <path distance="14">
             <location ref="SAU"/>
             <location ref="PHO"/>
          </path>
-         <path distance="16">
+         <path distance="15">
             <location ref="SAU"/>
             <location ref="LAS"/>
          </path>
-         <path distance="13">
+         <path distance="12">
             <location ref="SAU"/>
             <location ref="SLC"/>
          </path>
-         <path distance="12">
+         <path distance="11">
             <location ref="SAU"/>
             <location ref="SFE"/>
          </path>
-         <path distance="14">
+         <path distance="13">
             <location ref="SAU"/>
             <location ref="ELP"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="SAU"/>
             <location ref="DEN"/>
          </path>
@@ -1496,7 +1498,7 @@
             <location ref="SAU"/>
             <location ref="RAL"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="SAU"/>
             <location ref="NAS"/>
          </path>
@@ -1504,11 +1506,11 @@
             <location ref="SAU"/>
             <location ref="ATL"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="SAU"/>
             <location ref="CHA"/>
          </path>
-         <path distance="13">
+         <path distance="12">
             <location ref="SAU"/>
             <location ref="MIA"/>
          </path>
@@ -1532,11 +1534,11 @@
             <location ref="SEA"/>
             <location ref="PHO"/>
          </path>
-         <path distance="11">
+         <path distance="10">
             <location ref="SEA"/>
             <location ref="LAS"/>
          </path>
-         <path distance="11">
+         <path distance="7">
             <location ref="SEA"/>
             <location ref="SLC"/>
          </path>
@@ -1632,7 +1634,7 @@
             <location ref="HEL"/>
             <location ref="POR"/>
          </path>
-         <path distance="11">
+         <path distance="8">
             <location ref="HEL"/>
             <location ref="SFR"/>
          </path>
@@ -1640,7 +1642,7 @@
             <location ref="HEL"/>
             <location ref="LOS"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="HEL"/>
             <location ref="PHO"/>
          </path>
@@ -1656,7 +1658,7 @@
             <location ref="HEL"/>
             <location ref="SFE"/>
          </path>
-         <path distance="13">
+         <path distance="8">
             <location ref="HEL"/>
             <location ref="ELP"/>
          </path>
@@ -1700,11 +1702,11 @@
             <location ref="HEL"/>
             <location ref="STL"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="HEL"/>
             <location ref="CCG"/>
          </path>
-         <path distance="13">
+         <path distance="12">
             <location ref="HEL"/>
             <location ref="PIT"/>
          </path>
@@ -1712,11 +1714,11 @@
             <location ref="HEL"/>
             <location ref="BOS"/>
          </path>
-         <path distance="15">
+         <path distance="14">
             <location ref="HEL"/>
             <location ref="NYC"/>
          </path>
-         <path distance="15">
+         <path distance="14">
             <location ref="HEL"/>
             <location ref="WAS"/>
          </path>
@@ -1752,27 +1754,27 @@
             <location ref="POR"/>
             <location ref="PHO"/>
          </path>
-         <path distance="10">
+         <path distance="9">
             <location ref="POR"/>
             <location ref="LAS"/>
          </path>
-         <path distance="10">
+         <path distance="6">
             <location ref="POR"/>
             <location ref="SLC"/>
          </path>
-         <path distance="13">
+         <path distance="11">
             <location ref="POR"/>
             <location ref="SFE"/>
          </path>
-         <path distance="14">
+         <path distance="13">
             <location ref="POR"/>
             <location ref="ELP"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="POR"/>
             <location ref="DEN"/>
          </path>
-         <path distance="15">
+         <path distance="13">
             <location ref="POR"/>
             <location ref="OKL"/>
          </path>
@@ -1784,27 +1786,27 @@
             <location ref="POR"/>
             <location ref="OMA"/>
          </path>
-         <path distance="14">
+         <path distance="13">
             <location ref="POR"/>
             <location ref="KAN"/>
          </path>
-         <path distance="17">
+         <path distance="15">
             <location ref="POR"/>
             <location ref="DAL"/>
          </path>
-         <path distance="18">
+         <path distance="16">
             <location ref="POR"/>
             <location ref="HOU"/>
          </path>
-         <path distance="20">
+         <path distance="18">
             <location ref="POR"/>
             <location ref="NOL"/>
          </path>
-         <path distance="17">
+         <path distance="15">
             <location ref="POR"/>
             <location ref="LRK"/>
          </path>
-         <path distance="16">
+         <path distance="15">
             <location ref="POR"/>
             <location ref="STL"/>
          </path>
@@ -1828,23 +1830,23 @@
             <location ref="POR"/>
             <location ref="WAS"/>
          </path>
-         <path distance="21">
+         <path distance="20">
             <location ref="POR"/>
             <location ref="RAL"/>
          </path>
-         <path distance="18">
+         <path distance="17">
             <location ref="POR"/>
             <location ref="NAS"/>
          </path>
-         <path distance="19">
+         <path distance="18">
             <location ref="POR"/>
             <location ref="ATL"/>
          </path>
-         <path distance="21">
+         <path distance="20">
             <location ref="POR"/>
             <location ref="CHA"/>
          </path>
-         <path distance="24">
+         <path distance="23">
             <location ref="POR"/>
             <location ref="MIA"/>
          </path>
@@ -1860,7 +1862,7 @@
             <location ref="SFR"/>
             <location ref="LAS"/>
          </path>
-         <path distance="11">
+         <path distance="5">
             <location ref="SFR"/>
             <location ref="SLC"/>
          </path>
@@ -1868,11 +1870,11 @@
             <location ref="SFR"/>
             <location ref="SFE"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="SFR"/>
             <location ref="ELP"/>
          </path>
-         <path distance="11">
+         <path distance="8">
             <location ref="SFR"/>
             <location ref="DEN"/>
          </path>
@@ -1880,27 +1882,27 @@
             <location ref="SFR"/>
             <location ref="OKL"/>
          </path>
-         <path distance="17">
+         <path distance="14">
             <location ref="SFR"/>
             <location ref="DUL"/>
          </path>
-         <path distance="15">
+         <path distance="12">
             <location ref="SFR"/>
             <location ref="OMA"/>
          </path>
-         <path distance="14">
+         <path distance="12">
             <location ref="SFR"/>
             <location ref="KAN"/>
          </path>
-         <path distance="14">
+         <path distance="13">
             <location ref="SFR"/>
             <location ref="DAL"/>
          </path>
-         <path distance="15">
+         <path distance="14">
             <location ref="SFR"/>
             <location ref="HOU"/>
          </path>
-         <path distance="17">
+         <path distance="16">
             <location ref="SFR"/>
             <location ref="NOL"/>
          </path>
@@ -1908,48 +1910,48 @@
             <location ref="SFR"/>
             <location ref="LRK"/>
          </path>
-         <path distance="16">
+         <path distance="14">
             <location ref="SFR"/>
             <location ref="STL"/>
          </path>
-         <path distance="18">
+         <path distance="16">
             <location ref="SFR"/>
             <location ref="CCG"/>
          </path>
-         <path distance="21">
+         <path distance="19">
             <location ref="SFR"/>
             <location ref="PIT"/>
          </path>
-         <path distance="25">
+         <path distance="23">
             <location ref="SFR"/>
             <location ref="BOS"/>
          </path>
-         <path distance="23">
+         <path distance="21">
             <location ref="SFR"/>
             <location ref="NYC"/>
+         </path>
+         <path distance="21">
+            <location ref="SFR"/>
+            <location ref="WAS"/>
+         </path>
+         <path distance="19">
+            <location ref="SFR"/>
+            <location ref="RAL"/>
+         </path>
+         <path distance="16">
+            <location ref="SFR"/>
+            <location ref="NAS"/>
+         </path>
+         <path distance="17">
+            <location ref="SFR"/>
+            <location ref="ATL"/>
+         </path>
+         <path distance="19">
+            <location ref="SFR"/>
+            <location ref="CHA"/>
          </path>
          <path distance="22">
             <location ref="SFR"/>
-            <location ref="WAS"/>
-         </path>
-         <path distance="20">
-            <location ref="SFR"/>
-            <location ref="RAL"/>
-         </path>
-         <path distance="17">
-            <location ref="SFR"/>
-            <location ref="NAS"/>
-         </path>
-         <path distance="18">
-            <location ref="SFR"/>
-            <location ref="ATL"/>
-         </path>
-         <path distance="20">
-            <location ref="SFR"/>
-            <location ref="CHA"/>
-         </path>
-         <path distance="23">
-            <location ref="SFR"/>
             <location ref="MIA"/>
          </path>
          <path distance="3">
@@ -1972,11 +1974,11 @@
             <location ref="LOS"/>
             <location ref="ELP"/>
          </path>
-         <path distance="12">
+         <path distance="8">
             <location ref="LOS"/>
             <location ref="DEN"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="LOS"/>
             <location ref="OKL"/>
          </path>
@@ -1984,11 +1986,11 @@
             <location ref="LOS"/>
             <location ref="DUL"/>
          </path>
-         <path distance="13">
+         <path distance="12">
             <location ref="LOS"/>
             <location ref="OMA"/>
          </path>
-         <path distance="13">
+         <path distance="11">
             <location ref="LOS"/>
             <location ref="KAN"/>
          </path>
@@ -2004,247 +2006,247 @@
             <location ref="LOS"/>
             <location ref="NOL"/>
          </path>
-         <path distance="12">
+         <path distance="11">
             <location ref="LOS"/>
             <location ref="LRK"/>
          </path>
-         <path distance="14">
+         <path distance="13">
             <location ref="LOS"/>
             <location ref="STL"/>
          </path>
-         <path distance="16">
+         <path distance="15">
             <location ref="LOS"/>
             <location ref="CCG"/>
          </path>
-         <path distance="19">
+         <path distance="18">
             <location ref="LOS"/>
             <location ref="PIT"/>
          </path>
-         <path distance="23">
+         <path distance="22">
             <location ref="LOS"/>
             <location ref="BOS"/>
+         </path>
+         <path distance="20">
+            <location ref="LOS"/>
+            <location ref="NYC"/>
+         </path>
+         <path distance="19">
+            <location ref="LOS"/>
+            <location ref="WAS"/>
+         </path>
+         <path distance="17">
+            <location ref="LOS"/>
+            <location ref="RAL"/>
+         </path>
+         <path distance="14">
+            <location ref="LOS"/>
+            <location ref="NAS"/>
+         </path>
+         <path distance="15">
+            <location ref="LOS"/>
+            <location ref="ATL"/>
+         </path>
+         <path distance="17">
+            <location ref="LOS"/>
+            <location ref="CHA"/>
+         </path>
+         <path distance="19">
+            <location ref="LOS"/>
+            <location ref="MIA"/>
+         </path>
+         <path distance="5">
+            <location ref="PHO"/>
+            <location ref="LAS"/>
+         </path>
+         <path distance="8">
+            <location ref="PHO"/>
+            <location ref="SLC"/>
+         </path>
+         <path distance="3">
+            <location ref="PHO"/>
+            <location ref="SFE"/>
+         </path>
+         <path distance="3">
+            <location ref="PHO"/>
+            <location ref="ELP"/>
+         </path>
+         <path distance="5">
+            <location ref="PHO"/>
+            <location ref="DEN"/>
+         </path>
+         <path distance="6">
+            <location ref="PHO"/>
+            <location ref="OKL"/>
+         </path>
+         <path distance="11">
+            <location ref="PHO"/>
+            <location ref="DUL"/>
+         </path>
+         <path distance="9">
+            <location ref="PHO"/>
+            <location ref="OMA"/>
+         </path>
+         <path distance="8">
+            <location ref="PHO"/>
+            <location ref="KAN"/>
+         </path>
+         <path distance="7">
+            <location ref="PHO"/>
+            <location ref="DAL"/>
+         </path>
+         <path distance="8">
+            <location ref="PHO"/>
+            <location ref="HOU"/>
+         </path>
+         <path distance="10">
+            <location ref="PHO"/>
+            <location ref="NOL"/>
+         </path>
+         <path distance="8">
+            <location ref="PHO"/>
+            <location ref="LRK"/>
+         </path>
+         <path distance="10">
+            <location ref="PHO"/>
+            <location ref="STL"/>
+         </path>
+         <path distance="12">
+            <location ref="PHO"/>
+            <location ref="CCG"/>
+         </path>
+         <path distance="15">
+            <location ref="PHO"/>
+            <location ref="PIT"/>
+         </path>
+         <path distance="19">
+            <location ref="PHO"/>
+            <location ref="BOS"/>
+         </path>
+         <path distance="17">
+            <location ref="PHO"/>
+            <location ref="NYC"/>
+         </path>
+         <path distance="16">
+            <location ref="PHO"/>
+            <location ref="WAS"/>
+         </path>
+         <path distance="14">
+            <location ref="PHO"/>
+            <location ref="RAL"/>
+         </path>
+         <path distance="11">
+            <location ref="PHO"/>
+            <location ref="NAS"/>
+         </path>
+         <path distance="12">
+            <location ref="PHO"/>
+            <location ref="ATL"/>
+         </path>
+         <path distance="14">
+            <location ref="PHO"/>
+            <location ref="CHA"/>
+         </path>
+         <path distance="16">
+            <location ref="PHO"/>
+            <location ref="MIA"/>
+         </path>
+         <path distance="3">
+            <location ref="LAS"/>
+            <location ref="SLC"/>
+         </path>
+         <path distance="8">
+            <location ref="LAS"/>
+            <location ref="SFE"/>
+         </path>
+         <path distance="8">
+            <location ref="LAS"/>
+            <location ref="ELP"/>
+         </path>
+         <path distance="6">
+            <location ref="LAS"/>
+            <location ref="DEN"/>
+         </path>
+         <path distance="10">
+            <location ref="LAS"/>
+            <location ref="OKL"/>
+         </path>
+         <path distance="12">
+            <location ref="LAS"/>
+            <location ref="DUL"/>
+         </path>
+         <path distance="10">
+            <location ref="LAS"/>
+            <location ref="OMA"/>
+         </path>
+         <path distance="10">
+            <location ref="LAS"/>
+            <location ref="KAN"/>
+         </path>
+         <path distance="12">
+            <location ref="LAS"/>
+            <location ref="DAL"/>
+         </path>
+         <path distance="13">
+            <location ref="LAS"/>
+            <location ref="HOU"/>
+         </path>
+         <path distance="15">
+            <location ref="LAS"/>
+            <location ref="NOL"/>
+         </path>
+         <path distance="12">
+            <location ref="LAS"/>
+            <location ref="LRK"/>
+         </path>
+         <path distance="12">
+            <location ref="LAS"/>
+            <location ref="STL"/>
+         </path>
+         <path distance="14">
+            <location ref="LAS"/>
+            <location ref="CCG"/>
+         </path>
+         <path distance="17">
+            <location ref="LAS"/>
+            <location ref="PIT"/>
          </path>
          <path distance="21">
-            <location ref="LOS"/>
+            <location ref="LAS"/>
+            <location ref="BOS"/>
+         </path>
+         <path distance="19">
+            <location ref="LAS"/>
             <location ref="NYC"/>
          </path>
-         <path distance="20">
-            <location ref="LOS"/>
-            <location ref="WAS"/>
-         </path>
-         <path distance="18">
-            <location ref="LOS"/>
-            <location ref="RAL"/>
-         </path>
-         <path distance="15">
-            <location ref="LOS"/>
-            <location ref="NAS"/>
-         </path>
-         <path distance="16">
-            <location ref="LOS"/>
-            <location ref="ATL"/>
-         </path>
-         <path distance="18">
-            <location ref="LOS"/>
-            <location ref="CHA"/>
-         </path>
          <path distance="19">
-            <location ref="LOS"/>
-            <location ref="MIA"/>
-         </path>
-         <path distance="5">
-            <location ref="PHO"/>
             <location ref="LAS"/>
-         </path>
-         <path distance="11">
-            <location ref="PHO"/>
-            <location ref="SLC"/>
-         </path>
-         <path distance="3">
-            <location ref="PHO"/>
-            <location ref="SFE"/>
-         </path>
-         <path distance="3">
-            <location ref="PHO"/>
-            <location ref="ELP"/>
-         </path>
-         <path distance="5">
-            <location ref="PHO"/>
-            <location ref="DEN"/>
-         </path>
-         <path distance="6">
-            <location ref="PHO"/>
-            <location ref="OKL"/>
-         </path>
-         <path distance="12">
-            <location ref="PHO"/>
-            <location ref="DUL"/>
-         </path>
-         <path distance="10">
-            <location ref="PHO"/>
-            <location ref="OMA"/>
-         </path>
-         <path distance="8">
-            <location ref="PHO"/>
-            <location ref="KAN"/>
-         </path>
-         <path distance="7">
-            <location ref="PHO"/>
-            <location ref="DAL"/>
-         </path>
-         <path distance="8">
-            <location ref="PHO"/>
-            <location ref="HOU"/>
-         </path>
-         <path distance="10">
-            <location ref="PHO"/>
-            <location ref="NOL"/>
-         </path>
-         <path distance="8">
-            <location ref="PHO"/>
-            <location ref="LRK"/>
-         </path>
-         <path distance="10">
-            <location ref="PHO"/>
-            <location ref="STL"/>
-         </path>
-         <path distance="12">
-            <location ref="PHO"/>
-            <location ref="CCG"/>
-         </path>
-         <path distance="15">
-            <location ref="PHO"/>
-            <location ref="PIT"/>
-         </path>
-         <path distance="19">
-            <location ref="PHO"/>
-            <location ref="BOS"/>
+            <location ref="WAS"/>
          </path>
          <path distance="17">
-            <location ref="PHO"/>
-            <location ref="NYC"/>
-         </path>
-         <path distance="16">
-            <location ref="PHO"/>
-            <location ref="WAS"/>
-         </path>
-         <path distance="14">
-            <location ref="PHO"/>
+            <location ref="LAS"/>
             <location ref="RAL"/>
          </path>
-         <path distance="11">
-            <location ref="PHO"/>
+         <path distance="14">
+            <location ref="LAS"/>
             <location ref="NAS"/>
          </path>
-         <path distance="12">
-            <location ref="PHO"/>
+         <path distance="15">
+            <location ref="LAS"/>
             <location ref="ATL"/>
          </path>
-         <path distance="14">
-            <location ref="PHO"/>
+         <path distance="17">
+            <location ref="LAS"/>
             <location ref="CHA"/>
-         </path>
-         <path distance="16">
-            <location ref="PHO"/>
-            <location ref="MIA"/>
-         </path>
-         <path distance="3">
-            <location ref="LAS"/>
-            <location ref="SLC"/>
-         </path>
-         <path distance="8">
-            <location ref="LAS"/>
-            <location ref="SFE"/>
-         </path>
-         <path distance="10">
-            <location ref="LAS"/>
-            <location ref="ELP"/>
-         </path>
-         <path distance="10">
-            <location ref="LAS"/>
-            <location ref="DEN"/>
-         </path>
-         <path distance="11">
-            <location ref="LAS"/>
-            <location ref="OKL"/>
-         </path>
-         <path distance="12">
-            <location ref="LAS"/>
-            <location ref="DUL"/>
-         </path>
-         <path distance="11">
-            <location ref="LAS"/>
-            <location ref="OMA"/>
-         </path>
-         <path distance="13">
-            <location ref="LAS"/>
-            <location ref="KAN"/>
-         </path>
-         <path distance="13">
-            <location ref="LAS"/>
-            <location ref="DAL"/>
-         </path>
-         <path distance="14">
-            <location ref="LAS"/>
-            <location ref="HOU"/>
-         </path>
-         <path distance="16">
-            <location ref="LAS"/>
-            <location ref="NOL"/>
-         </path>
-         <path distance="13">
-            <location ref="LAS"/>
-            <location ref="LRK"/>
-         </path>
-         <path distance="15">
-            <location ref="LAS"/>
-            <location ref="STL"/>
-         </path>
-         <path distance="15">
-            <location ref="LAS"/>
-            <location ref="CCG"/>
-         </path>
-         <path distance="18">
-            <location ref="LAS"/>
-            <location ref="PIT"/>
-         </path>
-         <path distance="22">
-            <location ref="LAS"/>
-            <location ref="BOS"/>
          </path>
          <path distance="20">
             <location ref="LAS"/>
-            <location ref="NYC"/>
-         </path>
-         <path distance="20">
-            <location ref="LAS"/>
-            <location ref="WAS"/>
-         </path>
-         <path distance="19">
-            <location ref="LAS"/>
-            <location ref="RAL"/>
-         </path>
-         <path distance="16">
-            <location ref="LAS"/>
-            <location ref="NAS"/>
-         </path>
-         <path distance="17">
-            <location ref="LAS"/>
-            <location ref="ATL"/>
-         </path>
-         <path distance="19">
-            <location ref="LAS"/>
-            <location ref="CHA"/>
-         </path>
-         <path distance="22">
-            <location ref="LAS"/>
             <location ref="MIA"/>
          </path>
          <path distance="5">
             <location ref="SLC"/>
             <location ref="SFE"/>
          </path>
-         <path distance="11">
+         <path distance="7">
             <location ref="SLC"/>
             <location ref="ELP"/>
          </path>
@@ -2280,7 +2282,7 @@
             <location ref="SLC"/>
             <location ref="NOL"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="SLC"/>
             <location ref="LRK"/>
          </path>
@@ -2340,11 +2342,11 @@
             <location ref="SFE"/>
             <location ref="OKL"/>
          </path>
-         <path distance="12">
+         <path distance="8">
             <location ref="SFE"/>
             <location ref="DUL"/>
          </path>
-         <path distance="11">
+         <path distance="6">
             <location ref="SFE"/>
             <location ref="OMA"/>
          </path>
@@ -2400,11 +2402,11 @@
             <location ref="SFE"/>
             <location ref="NAS"/>
          </path>
-         <path distance="12">
+         <path distance="9">
             <location ref="SFE"/>
             <location ref="ATL"/>
          </path>
-         <path distance="13">
+         <path distance="11">
             <location ref="SFE"/>
             <location ref="CHA"/>
          </path>
@@ -2468,23 +2470,23 @@
             <location ref="ELP"/>
             <location ref="NYC"/>
          </path>
-         <path distance="15">
+         <path distance="14">
             <location ref="ELP"/>
             <location ref="WAS"/>
          </path>
-         <path distance="13">
+         <path distance="12">
             <location ref="ELP"/>
             <location ref="RAL"/>
          </path>
-         <path distance="10">
+         <path distance="9">
             <location ref="ELP"/>
             <location ref="NAS"/>
          </path>
-         <path distance="11">
+         <path distance="10">
             <location ref="ELP"/>
             <location ref="ATL"/>
          </path>
-         <path distance="13">
+         <path distance="12">
             <location ref="ELP"/>
             <location ref="CHA"/>
          </path>
@@ -2496,7 +2498,7 @@
             <location ref="DEN"/>
             <location ref="OKL"/>
          </path>
-         <path distance="10">
+         <path distance="6">
             <location ref="DEN"/>
             <location ref="DUL"/>
          </path>
@@ -2512,7 +2514,7 @@
             <location ref="DEN"/>
             <location ref="DAL"/>
          </path>
-         <path distance="10">
+         <path distance="7">
             <location ref="DEN"/>
             <location ref="HOU"/>
          </path>
@@ -2556,63 +2558,63 @@
             <location ref="DEN"/>
             <location ref="NAS"/>
          </path>
-         <path distance="13">
+         <path distance="9">
             <location ref="DEN"/>
             <location ref="ATL"/>
          </path>
-         <path distance="13">
+         <path distance="11">
             <location ref="DEN"/>
             <location ref="CHA"/>
-         </path>
-         <path distance="15">
-            <location ref="DEN"/>
-            <location ref="MIA"/>
-         </path>
-         <path distance="6">
-            <location ref="OKL"/>
-            <location ref="DUL"/>
-         </path>
-         <path distance="4">
-            <location ref="OKL"/>
-            <location ref="OMA"/>
-         </path>
-         <path distance="2">
-            <location ref="OKL"/>
-            <location ref="KAN"/>
-         </path>
-         <path distance="2">
-            <location ref="OKL"/>
-            <location ref="DAL"/>
-         </path>
-         <path distance="3">
-            <location ref="OKL"/>
-            <location ref="HOU"/>
-         </path>
-         <path distance="5">
-            <location ref="OKL"/>
-            <location ref="NOL"/>
-         </path>
-         <path distance="2">
-            <location ref="OKL"/>
-            <location ref="LRK"/>
-         </path>
-         <path distance="4">
-            <location ref="OKL"/>
-            <location ref="STL"/>
-         </path>
-         <path distance="6">
-            <location ref="OKL"/>
-            <location ref="CCG"/>
-         </path>
-         <path distance="10">
-            <location ref="OKL"/>
-            <location ref="PIT"/>
          </path>
          <path distance="14">
+            <location ref="DEN"/>
+            <location ref="MIA"/>
+         </path>
+         <path distance="6">
+            <location ref="OKL"/>
+            <location ref="DUL"/>
+         </path>
+         <path distance="4">
+            <location ref="OKL"/>
+            <location ref="OMA"/>
+         </path>
+         <path distance="2">
+            <location ref="OKL"/>
+            <location ref="KAN"/>
+         </path>
+         <path distance="2">
+            <location ref="OKL"/>
+            <location ref="DAL"/>
+         </path>
+         <path distance="3">
+            <location ref="OKL"/>
+            <location ref="HOU"/>
+         </path>
+         <path distance="5">
+            <location ref="OKL"/>
+            <location ref="NOL"/>
+         </path>
+         <path distance="2">
+            <location ref="OKL"/>
+            <location ref="LRK"/>
+         </path>
+         <path distance="4">
+            <location ref="OKL"/>
+            <location ref="STL"/>
+         </path>
+         <path distance="6">
+            <location ref="OKL"/>
+            <location ref="CCG"/>
+         </path>
+         <path distance="9">
+            <location ref="OKL"/>
+            <location ref="PIT"/>
+         </path>
+         <path distance="13">
             <location ref="OKL"/>
             <location ref="BOS"/>
          </path>
-         <path distance="12">
+         <path distance="11">
             <location ref="OKL"/>
             <location ref="NYC"/>
          </path>
@@ -2632,7 +2634,7 @@
             <location ref="OKL"/>
             <location ref="ATL"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="OKL"/>
             <location ref="CHA"/>
          </path>
@@ -2672,7 +2674,7 @@
             <location ref="DUL"/>
             <location ref="CCG"/>
          </path>
-         <path distance="10">
+         <path distance="6">
             <location ref="DUL"/>
             <location ref="PIT"/>
          </path>
@@ -2680,31 +2682,31 @@
             <location ref="DUL"/>
             <location ref="BOS"/>
          </path>
-         <path distance="11">
+         <path distance="8">
             <location ref="DUL"/>
             <location ref="NYC"/>
          </path>
-         <path distance="12">
+         <path distance="8">
             <location ref="DUL"/>
             <location ref="WAS"/>
          </path>
-         <path distance="12">
+         <path distance="8">
             <location ref="DUL"/>
             <location ref="RAL"/>
          </path>
-         <path distance="10">
+         <path distance="7">
             <location ref="DUL"/>
             <location ref="NAS"/>
          </path>
-         <path distance="11">
+         <path distance="8">
             <location ref="DUL"/>
             <location ref="ATL"/>
          </path>
-         <path distance="13">
+         <path distance="10">
             <location ref="DUL"/>
             <location ref="CHA"/>
          </path>
-         <path distance="16">
+         <path distance="13">
             <location ref="DUL"/>
             <location ref="MIA"/>
          </path>
@@ -2720,7 +2722,7 @@
             <location ref="OMA"/>
             <location ref="HOU"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="OMA"/>
             <location ref="NOL"/>
          </path>
@@ -2736,19 +2738,19 @@
             <location ref="OMA"/>
             <location ref="CCG"/>
          </path>
-         <path distance="10">
+         <path distance="7">
             <location ref="OMA"/>
             <location ref="PIT"/>
          </path>
-         <path distance="12">
+         <path distance="11">
             <location ref="OMA"/>
             <location ref="BOS"/>
          </path>
-         <path distance="12">
+         <path distance="9">
             <location ref="OMA"/>
             <location ref="NYC"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="OMA"/>
             <location ref="WAS"/>
          </path>
@@ -2764,7 +2766,7 @@
             <location ref="OMA"/>
             <location ref="ATL"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="OMA"/>
             <location ref="CHA"/>
          </path>
@@ -2808,7 +2810,7 @@
             <location ref="KAN"/>
             <location ref="NYC"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="KAN"/>
             <location ref="WAS"/>
          </path>
@@ -2852,15 +2854,15 @@
             <location ref="DAL"/>
             <location ref="CCG"/>
          </path>
-         <path distance="10">
+         <path distance="9">
             <location ref="DAL"/>
             <location ref="PIT"/>
          </path>
-         <path distance="14">
+         <path distance="13">
             <location ref="DAL"/>
             <location ref="BOS"/>
          </path>
-         <path distance="12">
+         <path distance="11">
             <location ref="DAL"/>
             <location ref="NYC"/>
          </path>
@@ -2880,11 +2882,11 @@
             <location ref="DAL"/>
             <location ref="ATL"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="DAL"/>
             <location ref="CHA"/>
          </path>
-         <path distance="11">
+         <path distance="9">
             <location ref="DAL"/>
             <location ref="MIA"/>
          </path>
@@ -2932,11 +2934,11 @@
             <location ref="HOU"/>
             <location ref="ATL"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="HOU"/>
             <location ref="CHA"/>
          </path>
-         <path distance="11">
+         <path distance="8">
             <location ref="HOU"/>
             <location ref="MIA"/>
          </path>
@@ -2952,7 +2954,7 @@
             <location ref="NOL"/>
             <location ref="CCG"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="NOL"/>
             <location ref="PIT"/>
          </path>
@@ -2984,7 +2986,7 @@
             <location ref="NOL"/>
             <location ref="CHA"/>
          </path>
-         <path distance="10">
+         <path distance="6">
             <location ref="NOL"/>
             <location ref="MIA"/>
          </path>
@@ -3000,11 +3002,11 @@
             <location ref="LRK"/>
             <location ref="PIT"/>
          </path>
-         <path distance="12">
+         <path distance="11">
             <location ref="LRK"/>
             <location ref="BOS"/>
          </path>
-         <path distance="10">
+         <path distance="9">
             <location ref="LRK"/>
             <location ref="NYC"/>
          </path>
@@ -3028,7 +3030,7 @@
             <location ref="LRK"/>
             <location ref="CHA"/>
          </path>
-         <path distance="10">
+         <path distance="9">
             <location ref="LRK"/>
             <location ref="MIA"/>
          </path>
@@ -3068,7 +3070,7 @@
             <location ref="STL"/>
             <location ref="CHA"/>
          </path>
-         <path distance="11">
+         <path distance="8">
             <location ref="STL"/>
             <location ref="MIA"/>
          </path>
@@ -3160,11 +3162,11 @@
             <location ref="BOS"/>
             <location ref="ATL"/>
          </path>
-         <path distance="10">
+         <path distance="8">
             <location ref="BOS"/>
             <location ref="CHA"/>
          </path>
-         <path distance="13">
+         <path distance="12">
             <location ref="BOS"/>
             <location ref="MIA"/>
          </path>
@@ -3208,7 +3210,7 @@
             <location ref="WAS"/>
             <location ref="CHA"/>
          </path>
-         <path distance="14">
+         <path distance="8">
             <location ref="WAS"/>
             <location ref="MIA"/>
          </path>
@@ -3224,7 +3226,7 @@
             <location ref="RAL"/>
             <location ref="CHA"/>
          </path>
-         <path distance="12">
+         <path distance="6">
             <location ref="RAL"/>
             <location ref="MIA"/>
          </path>
@@ -3236,7 +3238,7 @@
             <location ref="NAS"/>
             <location ref="CHA"/>
          </path>
-         <path distance="11">
+         <path distance="6">
             <location ref="NAS"/>
             <location ref="MIA"/>
          </path>
@@ -3244,7 +3246,7 @@
             <location ref="ATL"/>
             <location ref="CHA"/>
          </path>
-         <path distance="10">
+         <path distance="5">
             <location ref="ATL"/>
             <location ref="MIA"/>
          </path>

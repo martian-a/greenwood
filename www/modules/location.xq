@@ -35,7 +35,7 @@ function loc:get-location($id as xs:string, $with-connections as xs:boolean, $wi
     let $game-id := substring-before($id, '-')
     let $location-id := substring-after($id, '-')
     
-    let $locations := $loc:db/game[@id = $game-id]/map[not(shortest-paths)]/descendant::location
+    let $locations := $loc:db/game[@id = $game-id]/map/descendant::location
     for $location in $locations[@id = $location-id]
     let $games := 
         <games>
@@ -117,23 +117,8 @@ declare function loc:get-shortest-paths($id as xs:string) as item() {
     
 };
 
-declare function loc:get-game($id as xs:string) as item() {
-    
-    let $base := $loc:db/game[@id = $id][not(map/shortest-paths)]
-    let $paths := $loc:db/game[@id = $id][map/shortest-paths]
-    return
-        <game id="{$base/@id}">
-            {
-                $base/map/preceding-sibling::*
-            }
-            <map>
-                {
-                    $base/map/*,
-                    $paths/map/*
-                }    
-            </map>
-            {$base/map/following-sibling::*}
-        </game>
+declare function loc:get-game($id as xs:string) as item() { 
+   $loc:db/game[@id = $id]
 };
 
 

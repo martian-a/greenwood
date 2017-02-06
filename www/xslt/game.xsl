@@ -301,24 +301,28 @@
                     <xsl:variable name="colour-id" select="@id"/>
                     <td>
                         <xsl:value-of select="sum(
-                  			21 * count($routes/route[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) +
-                  			15 * count($routes/route[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) +
-                  			7 * count($routes/route[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) +
-                  			4 * count($routes/route[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) +
-                  			2 * count($routes/route[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) +
-                  			count($routes/route[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))
-                        )"/>
+			21 * count($routes/route[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 
+			18 * count($routes/route[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) +
+			15 * count($routes/route[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 
+			10 * count($routes/route[@length = '5']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) +
+			7 * count($routes/route[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 
+			4 * count($routes/route[@length = '3']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 
+			2 * count($routes/route[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 
+			count($routes/route[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))
+		    )"/>
                     </td>
                 </xsl:for-each>
                 <td>
                     <xsl:value-of select="sum(
-                    	21 * count($routes/route[@length = '8']) +
-                  		15 * count($routes/route[@length = '6']) +
-                  		7 * count($routes/route[@length = '7']) +
-                  		4 * count($routes/route[@length = '4']) +
-                  		2 * count($routes/route[@length = '2']) +
-                  			count($routes/route[@length = '1'])
-                        )"/>
+			21 * count($routes/route[@length = '8']) + 
+			18 * count($routes/route[@length = '7']) +
+			15 * count($routes/route[@length = '6']) + 
+			10 * count($routes/route[@length = '5']) +
+			7 * count($routes/route[@length = '4']) + 
+			4 * count($routes/route[@length = '3']) + 
+			2 * count($routes/route[@length = '2']) + 
+			count($routes/route[@length = '1'])
+		)"/>
                 </td>
             </tr>
         </table>

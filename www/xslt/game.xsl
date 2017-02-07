@@ -1,7 +1,6 @@
 <xsl:stylesheet xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0" exclude-result-prefixes="#all">
 
 
-
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -14,93 +13,21 @@
 	</xsl:template>
 
 
-
 	<xsl:template match="games" mode="html.header">
 		<title>Games</title>
 	</xsl:template>
-
 
 
 	<xsl:template match="game" mode="html.header">
 		<title>
 			<xsl:value-of select="title" />
 		</title>
+		<script type="text/javascript" src="../../js/jquery.min.js" />
 		<script type="text/javascript" src="../../js/vis.js" />
+		<script type="text/javascript" src="../../js/game.js" />
 		<link type="text/css" href="../../js/vis.css" rel="stylesheet" />
-		<style type="text/css">
-			p,
-			li{
-				line-height: 1.25em;
-			}
-
-			div.locations ul{
-				-webkit-column-count: 3; /* Chrome, Safari, Opera */
-				-moz-column-count: 3; /* Firefox */
-				column-count: 3;
-				-webkit-column-gap: 5em; /* Chrome, Safari, Opera */
-				-moz-column-gap: 5em; /* Firefox */
-				column-gap: 5em;
-			}
-			
-			table.cross-reference{
-				border-collapse: collapse;
-			}
-			table.cross-reference th,
-			table.cross-reference td{
-				border: 1px solid black;
-				padding: .25em;
-			}
-			table.cross-reference th{
-				text-align: left;
-				white-space: wrap;
-			}
-			table.cross-reference td{
-				text-align: center;
-			}
-			table.cross-reference td.empty{
-				background-color: #c0c0c0;
-			}
-			table.cross-reference th.destination{
-				height: 12em;
-				white-space: nowrap;
-				width: 2em;
-			}
-			table.cross-reference th.destination span{
-				display: block;
-				position: relative;
-				width: 1.5em;
-				line-height: 2em;
-				margin: 0;
-				transform: rotate(-90deg);
-				transform-origin: 3.25em 3.25em 0;
-			}
-			table.cross-reference th.total{
-				whitespace: wrap;
-				width: 3em;
-				vertical-align: bottom;
-			}
-			table.cross-reference td.destination{
-				text-align: left;
-				font-weight: bold;
-			}
-			
-			span.ticket{
-				display: inline-block;
-				font-size: 1.25em;
-				margin: 0;
-				vertical-align: middle;
-				padding: 0 .25em;
-				transform: rotate(-10deg);
-			}
-			
-			#mynetwork{
-				width: 1200px;
-				height: 800px;
-				border: 1px solid lightgray;
-				background-color: #f5f5f5;
-			}</style>
+		<link type="text/css" href="../../style/game.css" rel="stylesheet" />
 	</xsl:template>
-
 
 
 	<xsl:template match="games" mode="html.body">
@@ -118,8 +45,7 @@
 			</xsl:for-each>
 		</ul>
 	</xsl:template>
-
-
+	
 
 	<xsl:template match="game" mode="html.body">
 		<p> <a href="game.html">Games</a> | <a href="../xml/game.xml?id={@id}">XML</a> </p>
@@ -140,7 +66,6 @@
 			<xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes" />
 		</xsl:apply-templates>
 	</xsl:template>
-
 
 
 	<xsl:template match="locations">
@@ -166,7 +91,6 @@
 	</xsl:template>
 
 
-
 	<xsl:template match="routes">
 		<xsl:param name="colour" as="element()*" tunnel="yes" />
 		<xsl:variable name="routes" select="." as="element()" />
@@ -174,9 +98,8 @@
 		<h3>Network</h3>
 		<div id="mynetwork" />
 		<script type="text/javascript">
-            <!--
-				create an array with nodes//-->
-            <xsl:text>var nodes = new vis.DataSet([</xsl:text>
+            <!-- Create an array representing the nodes in the network (game map) -->
+            <xsl:text>var routesNodeData = [</xsl:text>
             <xsl:for-each select="ancestor::map[1]/locations/descendant::location">
                 <xsl:variable name="total-tickets" select="count(ancestor::game[1]/tickets/ticket[location/@ref = current()/@id or country/@ref = current()/ancestor::country[1]/@id])" as="xs:integer" />
                 <xsl:text>{
@@ -197,17 +120,16 @@
                 }</xsl:text>
                 <xsl:if test="position() != last()">,</xsl:if>
             </xsl:for-each>
-            <xsl:text>]);</xsl:text>
-            <!--
-				create an array with edges//-->
-            <xsl:text>var edges = new vis.DataSet([</xsl:text>
+            <xsl:text>];</xsl:text>
+            <!-- Create an array representing the edges in the network (game map) -->
+            <xsl:text>var routesEdgeData = [</xsl:text>
             <xsl:for-each select="route/(@colour | colour)">
                 <xsl:variable name="route" select="ancestor::route[1]" />
                 <xsl:variable name="colour" select="
-						if (self::colour) then
-							@ref
-						else
-							." />
+				if (self::colour) then
+					@ref
+				else
+					." />
                 <xsl:text>{
                     from: '</xsl:text>
                         <xsl:value-of select="$route/location[1]/@ref" />
@@ -224,53 +146,10 @@
                 }</xsl:text>
                 <xsl:if test="position() != last()">,</xsl:if>
             </xsl:for-each>
-            <xsl:text>]);</xsl:text>
-            <!--
-				create a network//-->
-            <xsl:text>var container = document.getElementById('mynetwork');</xsl:text>
-            <!--
-				provide the data in the vis format//-->
-            <xsl:text>
-            var data = {
-                nodes: nodes,
-                edges: edges
-            };
-            </xsl:text>
-            <!--
-				set options//-->
-            <xsl:text>
-            var options = {
-                nodes: {
-                    shape: 'dot',
-                    mass: 1
-                },
-                edges: {
-                    width: 12
-                },
-                physics: {
-                    barnesHut: {
-                        gravitationalConstant: -2000,
-                        centralGravity: 0.3,
-                        springLength: 95,
-                        springConstant: 0.04,
-                        damping: 0.09,
-                        avoidOverlap: 1
-                    },
-                    maxVelocity: 50,
-                    minVelocity: 0.1,
-                    solver: 'barnesHut',
-                    timestep: 0.5,
-                    stabilization: {
-                        enabled: true
-                    }
-                }
-            };
-            </xsl:text>
-            <!--
-				initialise the network//-->
-            <xsl:text>
-            var network = new vis.Network(container, data, options);
-            </xsl:text>
+            <xsl:text>];</xsl:text>
+            <!-- Populate a vis network visualisation -->
+        	var routesNetwork = createNetwork('mynetwork', routesNodeData, routesEdgeData, routesOptions);
+        	
         </script>
 		<h3>Options</h3>
 		<table>
@@ -493,8 +372,6 @@
 	</xsl:template>
 
 
-
-
 	<xsl:template match="shortest-paths">
 		<xsl:param name="game-id" as="xs:string" tunnel="yes" />
 		<xsl:variable name="paths" select="path" as="element()*" />
@@ -568,6 +445,8 @@
 			</ul>
 		</div>
 	</xsl:template>
+	
+	
 	<xsl:template match="tickets">
 		<xsl:param name="game-id" as="xs:string" tunnel="yes" />
 		<xsl:variable name="tickets" select="ticket" as="element()*" />
@@ -583,6 +462,20 @@
 		<div class="tickets">
 			<h2>Tickets</h2>
 			<p>Total: <xsl:value-of select="count(descendant::ticket)" /></p>
+
+			<div id="ticket-distribution" />
+			<script type="text/javascript">
+				<!-- Clone routesNodesData, reset mass and size. -->
+				var ticketsNodeData = prepTicketsNodeData(routesNodeData);
+
+            	<!-- Clone routesEdgesData, delete double edges. -->
+            	var ticketsEdgeData = prepTicketsEdgeData(routesEdgeData);
+            	
+				<!-- Populate a vis network visualisation -->
+				var ticketsNetwork = createNetwork('ticket-distribution', ticketsNodeData, ticketsEdgeData, ticketsOptions);
+            
+            </script>
+
 			<table class="cross-reference">
 				<tr>
 					<th> </th>
@@ -847,11 +740,9 @@
 	</xsl:template>
 
 
-
 	<xsl:template match="game" mode="game.name">
 		<xsl:value-of select="title" />
 	</xsl:template>
-
 
 
 	<xsl:template match="location[@ref] | country[@ref]" mode="location.name">
@@ -859,11 +750,9 @@
 	</xsl:template>
 
 
-
 	<xsl:template match="location[@id][name]" mode="location.name">
 		<xsl:apply-templates select="name" mode="#current" />
 	</xsl:template>
-
 
 
 	<xsl:template match="location[@id][not(name)]" mode="location.name">
@@ -871,11 +760,9 @@
 	</xsl:template>
 
 
-
 	<xsl:template match="country[@id]" mode="location.name">
 		<xsl:apply-templates select="name" mode="#current" />
 	</xsl:template>
-
 
 
 	<xsl:template match="name" mode="location.name">
@@ -900,8 +787,7 @@
 		<xsl:apply-templates select="*[2]" mode="location.name" />
 		<xsl:value-of select="concat(' [', @points, ']')" />
 	</xsl:template>
-
-
+	
 
 	<xsl:template match="ticket[count(*) > 2]" mode="ticket.name">
 		<xsl:apply-templates select="*[not(@points)]" mode="location.name" />
@@ -915,7 +801,6 @@
 			</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
-
 
 
 	<xsl:template match="path" mode="path.name">
@@ -993,7 +878,5 @@
 			<xsl:otherwise>0</xsl:otherwise>
 		</xsl:choose>
 	</xsl:function>
-
-
 
 </xsl:stylesheet>

@@ -28,15 +28,21 @@ function prepTicketsEdgeData(source) {
     clone = simplifiedClone;
     clone.forEach(function(item){
         item.color = '#c0c0c0';
+        item.hidden = 'false';
     });
 	
 	return clone;
 };
 
 var ticketsOptions = {
+	width: '100%',
+	height: '100%',
     nodes: {
         shape: 'dot',
-        mass: 1
+        mass: 1,
+        font: {
+        	size: 50
+        }
     },
     edges: {
         width: 12
@@ -61,9 +67,14 @@ var ticketsOptions = {
 };
 
 var routesOptions = {
+	width: '100%',
+	height: '100%',
     nodes: {
         shape: 'dot',
-        mass: 1
+        mass: 1,
+        font: {
+        	size: 50
+        }
     },
     edges: {
         width: 12

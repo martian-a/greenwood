@@ -1,4 +1,9 @@
-<xsl:stylesheet xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0" exclude-result-prefixes="#all">
+<xsl:stylesheet 
+	xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	version="2.0" 
+	exclude-result-prefixes="#all">
 
 
 	<xsl:template match="/">
@@ -45,7 +50,7 @@
 			</xsl:for-each>
 		</ul>
 	</xsl:template>
-	
+
 
 	<xsl:template match="game" mode="html.body">
 		<p> <a href="game.html">Games</a> | <a href="../xml/game.xml?id={@id}">XML</a> </p>
@@ -445,8 +450,8 @@
 			</ul>
 		</div>
 	</xsl:template>
-	
-	
+
+
 	<xsl:template match="tickets">
 		<xsl:param name="game-id" as="xs:string" tunnel="yes" />
 		<xsl:variable name="tickets" select="ticket" as="element()*" />
@@ -469,7 +474,28 @@
 				var ticketsNodeData = prepTicketsNodeData(routesNodeData);
 
             	<!-- Clone routesEdgesData, delete double edges. -->
-            	var ticketsEdgeData = prepTicketsEdgeData(routesEdgeData);
+            	var simplifiedRoutesEdgeData = prepTicketsEdgeData(routesEdgeData);
+            	
+				<!-- Create an array representing ticket edges (ticket start and end points) -->
+				<xsl:text>var ticketsEdgeData = [</xsl:text>
+				<xsl:for-each select="descendant::ticket">
+					<xsl:text>{
+                    from: '</xsl:text>
+					<xsl:value-of select="location[1]/@ref" />
+					<xsl:text>', 
+                    to: '</xsl:text>
+					<xsl:value-of select="location[2]/@ref" />
+					<xsl:text>',
+                    color: '#000000',
+                    length: </xsl:text>
+					<xsl:value-of select="sum(150 * number(@points))" />
+					<xsl:text>
+                }</xsl:text>
+					<xsl:if test="position() != last()">,</xsl:if>
+				</xsl:for-each>
+				<xsl:text>];</xsl:text>
+            	
+            	ticketsEdgeData = simplifiedRoutesEdgeData.concat(ticketsEdgeData);
             	
 				<!-- Populate a vis network visualisation -->
 				var ticketsNetwork = createNetwork('ticket-distribution', ticketsNodeData, ticketsEdgeData, ticketsOptions);
@@ -740,9 +766,11 @@
 	</xsl:template>
 
 
+
 	<xsl:template match="game" mode="game.name">
 		<xsl:value-of select="title" />
 	</xsl:template>
+
 
 
 	<xsl:template match="location[@ref] | country[@ref]" mode="location.name">
@@ -750,9 +778,11 @@
 	</xsl:template>
 
 
+
 	<xsl:template match="location[@id][name]" mode="location.name">
 		<xsl:apply-templates select="name" mode="#current" />
 	</xsl:template>
+
 
 
 	<xsl:template match="location[@id][not(name)]" mode="location.name">
@@ -760,9 +790,11 @@
 	</xsl:template>
 
 
+
 	<xsl:template match="country[@id]" mode="location.name">
 		<xsl:apply-templates select="name" mode="#current" />
 	</xsl:template>
+
 
 
 	<xsl:template match="name" mode="location.name">
@@ -787,7 +819,8 @@
 		<xsl:apply-templates select="*[2]" mode="location.name" />
 		<xsl:value-of select="concat(' [', @points, ']')" />
 	</xsl:template>
-	
+
+
 
 	<xsl:template match="ticket[count(*) > 2]" mode="ticket.name">
 		<xsl:apply-templates select="*[not(@points)]" mode="location.name" />
@@ -801,6 +834,7 @@
 			</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
+
 
 
 	<xsl:template match="path" mode="path.name">
@@ -825,6 +859,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:function>
+
 
 
 	<xsl:function name="gw:getMaxPoints" as="xs:integer">
@@ -878,5 +913,6 @@
 			<xsl:otherwise>0</xsl:otherwise>
 		</xsl:choose>
 	</xsl:function>
+
 
 </xsl:stylesheet>

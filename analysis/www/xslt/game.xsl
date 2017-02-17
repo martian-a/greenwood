@@ -5,6 +5,27 @@
 	version="2.0" 
 	exclude-result-prefixes="#all">
 
+	<xsl:param name="path-to-js" select="'../../js'" as="xs:string" />
+	<xsl:param name="path-to-css" select="'../../style'" as="xs:string" />
+
+	<xsl:output 
+		method="html"
+		encoding="utf-8"
+	 	media-type="text/html"
+		indent="yes" 
+	    omit-xml-declaration="yes"
+		version="5" />
+
+	<xsl:variable name="normalised-path-to-js">
+		<xsl:variable name="directory-separators" select="translate($path-to-js, '\', '/')" />
+		<xsl:value-of select="concat($directory-separators, if (ends-with($directory-separators, '/')) then '' else '/')" />
+	</xsl:variable>
+	
+	<xsl:variable name="normalised-path-to-css">
+		<xsl:variable name="directory-separators" select="translate($path-to-css, '\', '/')" />
+		<xsl:value-of select="concat($directory-separators, if (ends-with($directory-separators, '/')) then '' else '/')" />
+	</xsl:variable>
+
 
 	<xsl:template match="/">
 		<html>
@@ -27,11 +48,11 @@
 		<title>
 			<xsl:value-of select="title" />
 		</title>
-		<script type="text/javascript" src="../../js/jquery.min.js" />
-		<script type="text/javascript" src="../../js/vis.js" />
-		<script type="text/javascript" src="../../js/game.js" />
-		<link type="text/css" href="../../js/vis.css" rel="stylesheet" />
-		<link type="text/css" href="../../style/game.css" rel="stylesheet" />
+		<script type="text/javascript" src="{concat($normalised-path-to-js, 'jquery.min.js')}" />
+		<script type="text/javascript" src="{concat($normalised-path-to-js, 'vis.js')}" />
+		<script type="text/javascript" src="{concat($normalised-path-to-js, 'game.js')}" />
+		<link type="text/css" href="{concat($normalised-path-to-js, 'vis.css')}" rel="stylesheet" />
+		<link type="text/css" href="{concat($normalised-path-to-css, 'game.css')}" rel="stylesheet" />
 	</xsl:template>
 
 
@@ -70,6 +91,15 @@
 		<xsl:apply-templates select="tickets">
 			<xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes" />
 		</xsl:apply-templates>
+		<div class="scripts">
+			<xsl:apply-templates select="map/routes" mode="script">
+				<xsl:with-param name="colour" select="map/colours/colour" as="element()*" tunnel="yes" />
+				<xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes" />
+			</xsl:apply-templates>
+			<xsl:apply-templates select="tickets" mode="script">
+				<xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes" />
+			</xsl:apply-templates>
+		</div>
 	</xsl:template>
 
 
@@ -95,246 +125,200 @@
 		</div>
 	</xsl:template>
 
+	<xsl:template match="routes" mode="#default script" priority="10">
+		<xsl:next-match>
+			<xsl:with-param name="routes" select="." as="element()" />
+		</xsl:next-match>
+	</xsl:template>
+	
 
 	<xsl:template match="routes">
 		<xsl:param name="colour" as="element()*" tunnel="yes" />
-		<xsl:variable name="routes" select="." as="element()" />
-		<h2>Routes</h2>
-		<h3>Network</h3>
-		<div id="mynetwork" />
-		<script type="text/javascript">
-            <!-- Create an array representing the nodes in the network (game map) -->
-            <xsl:text>var routesNodeData = [</xsl:text>
-            <xsl:for-each select="ancestor::map[1]/locations/descendant::location">
-                <xsl:variable name="total-tickets" select="count(ancestor::game[1]/tickets/ticket[location/@ref = current()/@id or country/@ref = current()/ancestor::country[1]/@id])" as="xs:integer" />
-                <xsl:text>{
-                    id: '</xsl:text>
-                        <xsl:value-of select="@id" />
-                        <xsl:text>', 
-                    label: '</xsl:text>
-                        <xsl:apply-templates select="." mode="location.name">
-                    <xsl:with-param name="for-js" select="true()" as="xs:boolean" tunnel="yes" />
-                </xsl:apply-templates>
-                        <xsl:text>',
-                    size: </xsl:text>
-                        <xsl:value-of select="sum(10 * sum(1 + $total-tickets))" />
-                        <xsl:text>,
-                    mass: </xsl:text>
-                        <xsl:value-of select="sum(1 + $total-tickets)" />
-                        <xsl:text>
-                }</xsl:text>
-                <xsl:if test="position() != last()">,</xsl:if>
-            </xsl:for-each>
-            <xsl:text>];</xsl:text>
-            <!-- Create an array representing the edges in the network (game map) -->
-            <xsl:text>var routesEdgeData = [</xsl:text>
-            <xsl:for-each select="route/(@colour | colour)">
-                <xsl:variable name="route" select="ancestor::route[1]" />
-                <xsl:variable name="colour" select="
-				if (self::colour) then
-					@ref
-				else
-					." />
-                <xsl:text>{
-                    from: '</xsl:text>
-                        <xsl:value-of select="$route/location[1]/@ref" />
-                        <xsl:text>', 
-                    to: '</xsl:text>
-                        <xsl:value-of select="$route/location[2]/@ref" />
-                        <xsl:text>',
-                    color: '</xsl:text>
-                        <xsl:value-of select="gw:getColourHex($colour)" />
-                        <xsl:text>',
-                    length: </xsl:text>
-                        <xsl:value-of select="sum(150 * number($route/@length))" />
-                        <xsl:text>
-                }</xsl:text>
-                <xsl:if test="position() != last()">,</xsl:if>
-            </xsl:for-each>
-            <xsl:text>];</xsl:text>
-            <!-- Populate a vis network visualisation -->
-        	var routesNetwork = createNetwork('mynetwork', routesNodeData, routesEdgeData, routesOptions);
-        	
-        </script>
-		<h3>Options</h3>
-		<table>
-			<tr>
-				<th>Length</th>
-				<xsl:for-each select="$colour">
-					<th>
-						<xsl:value-of select="name" />
-					</th>
-				</xsl:for-each>
-				<th>Total</th>
-			</tr>
-			<xsl:for-each-group select="route" group-by="@length">
-				<xsl:sort select="current-grouping-key()" order="descending" data-type="number" />
+		<xsl:param name="routes" as="element()" tunnel="no" />
+		
+		<div class="routes">
+			<h2>Routes</h2>
+			<h3>Network</h3>
+			<div id="routes" class="network-visualisation" />
+			<h3>Options</h3>
+			<table>
 				<tr>
-					<td>
-						<xsl:value-of select="current-grouping-key()" />
-					</td>
+					<th>Length</th>
+					<xsl:for-each select="$colour">
+						<th>
+							<xsl:value-of select="name" />
+						</th>
+					</xsl:for-each>
+					<th>Total</th>
+				</tr>
+				<xsl:for-each-group select="route" group-by="@length">
+					<xsl:sort select="current-grouping-key()" order="descending" data-type="number" />
+					<tr>
+						<td>
+							<xsl:value-of select="current-grouping-key()" />
+						</td>
+						<xsl:for-each select="$colour">
+							<xsl:variable name="colour-id" select="@id" />
+							<td>
+								<xsl:value-of select="count(current-group()/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							</td>
+						</xsl:for-each>
+						<td>
+							<xsl:value-of select="count(current-group()/(@colour | colour/@ref))" />
+						</td>
+					</tr>
+				</xsl:for-each-group>
+				<tr>
+					<td>Total</td>
 					<xsl:for-each select="$colour">
 						<xsl:variable name="colour-id" select="@id" />
 						<td>
-							<xsl:value-of select="count(current-group()/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							<xsl:value-of select="count($routes/route/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
 						</td>
 					</xsl:for-each>
 					<td>
-						<xsl:value-of select="count(current-group()/(@colour | colour/@ref))" />
+						<xsl:value-of select="count($routes/route/(@colour | colour/@ref))" />
 					</td>
 				</tr>
-			</xsl:for-each-group>
-			<tr>
-				<td>Total</td>
-				<xsl:for-each select="$colour">
-					<xsl:variable name="colour-id" select="@id" />
-					<td>
-						<xsl:value-of select="count($routes/route/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
-					</td>
-				</xsl:for-each>
-				<td>
-					<xsl:value-of select="count($routes/route/(@colour | colour/@ref))" />
-				</td>
-			</tr>
-			<tr>
-				<td>Value</td>
-				<xsl:for-each select="$colour">
-					<xsl:variable name="colour-id" select="@id" />
-					<td>
-						<xsl:value-of select="sum(21 * count($routes/route[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 18 * count($routes/route[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 15 * count($routes/route[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 10 * count($routes/route[@length = '5']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 7 * count($routes/route[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 4 * count($routes/route[@length = '3']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 2 * count($routes/route[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + count($routes/route[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))" />
-					</td>
-				</xsl:for-each>
-				<td>
-					<xsl:value-of select="sum(21 * count($routes/route[@length = '8']) + 18 * count($routes/route[@length = '7']) + 15 * count($routes/route[@length = '6']) + 10 * count($routes/route[@length = '5']) + 7 * count($routes/route[@length = '4']) + 4 * count($routes/route[@length = '3']) + 2 * count($routes/route[@length = '2']) + count($routes/route[@length = '1']))" />
-				</td>
-			</tr>
-		</table>
-		<h3>Double Routes</h3>
-		<table>
-			<tr>
-				<th>Length</th>
-				<xsl:for-each select="$colour">
-					<th>
-						<xsl:value-of select="name" />
-					</th>
-				</xsl:for-each>
-				<th>Total</th>
-			</tr>
-			<xsl:for-each-group select="route" group-by="@length">
-				<xsl:sort select="current-grouping-key()" order="descending" data-type="number" />
 				<tr>
-					<td>
-						<xsl:value-of select="current-grouping-key()" />
-					</td>
+					<td>Value</td>
 					<xsl:for-each select="$colour">
 						<xsl:variable name="colour-id" select="@id" />
 						<td>
-							<xsl:value-of select="count(current-group()[count(colour) &gt; 1]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							<xsl:value-of select="sum(21 * count($routes/route[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 18 * count($routes/route[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 15 * count($routes/route[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 10 * count($routes/route[@length = '5']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 7 * count($routes/route[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 4 * count($routes/route[@length = '3']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 2 * count($routes/route[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + count($routes/route[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))" />
 						</td>
 					</xsl:for-each>
 					<td>
-						<xsl:value-of select="count(current-group()[count(colour) &gt; 1]/(@colour | colour/@ref))" />
+						<xsl:value-of select="sum(21 * count($routes/route[@length = '8']) + 18 * count($routes/route[@length = '7']) + 15 * count($routes/route[@length = '6']) + 10 * count($routes/route[@length = '5']) + 7 * count($routes/route[@length = '4']) + 4 * count($routes/route[@length = '3']) + 2 * count($routes/route[@length = '2']) + count($routes/route[@length = '1']))" />
 					</td>
 				</tr>
-			</xsl:for-each-group>
-			<tr>
-				<td>Total</td>
-				<xsl:for-each select="$colour">
-					<xsl:variable name="colour-id" select="@id" />
-					<td>
-						<xsl:value-of select="count($routes/route[count(colour) &gt; 1]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
-					</td>
-				</xsl:for-each>
-				<td>
-					<xsl:value-of select="count($routes/route[count(colour) &gt; 1]/(@colour | colour/@ref))" />
-				</td>
-			</tr>
-		</table>
-		<h3>Tunnels</h3>
-		<table>
-			<tr>
-				<th>Length</th>
-				<xsl:for-each select="$colour">
-					<th>
-						<xsl:value-of select="name" />
-					</th>
-				</xsl:for-each>
-				<th>Total</th>
-			</tr>
-			<xsl:for-each-group select="route" group-by="@length">
-				<xsl:sort select="current-grouping-key()" order="descending" data-type="number" />
+			</table>
+			<h3>Double Routes</h3>
+			<table>
 				<tr>
-					<td>
-						<xsl:value-of select="current-grouping-key()" />
-					</td>
+					<th>Length</th>
+					<xsl:for-each select="$colour">
+						<th>
+							<xsl:value-of select="name" />
+						</th>
+					</xsl:for-each>
+					<th>Total</th>
+				</tr>
+				<xsl:for-each-group select="route" group-by="@length">
+					<xsl:sort select="current-grouping-key()" order="descending" data-type="number" />
+					<tr>
+						<td>
+							<xsl:value-of select="current-grouping-key()" />
+						</td>
+						<xsl:for-each select="$colour">
+							<xsl:variable name="colour-id" select="@id" />
+							<td>
+								<xsl:value-of select="count(current-group()[count(colour) &gt; 1]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							</td>
+						</xsl:for-each>
+						<td>
+							<xsl:value-of select="count(current-group()[count(colour) &gt; 1]/(@colour | colour/@ref))" />
+						</td>
+					</tr>
+				</xsl:for-each-group>
+				<tr>
+					<td>Total</td>
 					<xsl:for-each select="$colour">
 						<xsl:variable name="colour-id" select="@id" />
 						<td>
-							<xsl:value-of select="count(current-group()[@tunnel = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							<xsl:value-of select="count($routes/route[count(colour) &gt; 1]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
 						</td>
 					</xsl:for-each>
 					<td>
-						<xsl:value-of select="count(current-group()[@tunnel = 'true']/(@colour | colour/@ref))" />
+						<xsl:value-of select="count($routes/route[count(colour) &gt; 1]/(@colour | colour/@ref))" />
 					</td>
 				</tr>
-			</xsl:for-each-group>
-			<tr>
-				<td>Total</td>
-				<xsl:for-each select="$colour">
-					<xsl:variable name="colour-id" select="@id" />
-					<td>
-						<xsl:value-of select="count($routes/route[@tunnel = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
-					</td>
-				</xsl:for-each>
-				<td>
-					<xsl:value-of select="count($routes/route[@tunnel = 'true']/(@colour | colour/@ref))" />
-				</td>
-			</tr>
-		</table>
-
-		<h3>Microlights</h3>
-		<table>
-			<tr>
-				<th>Length</th>
-				<xsl:for-each select="$colour">
-					<th>
-						<xsl:value-of select="name" />
-					</th>
-				</xsl:for-each>
-				<th>Total</th>
-			</tr>
-			<xsl:for-each-group select="route" group-by="@length">
-				<xsl:sort select="current-grouping-key()" order="descending" data-type="number" />
+			</table>
+			<h3>Tunnels</h3>
+			<table>
 				<tr>
-					<td>
-						<xsl:value-of select="current-grouping-key()" />
-					</td>
+					<th>Length</th>
+					<xsl:for-each select="$colour">
+						<th>
+							<xsl:value-of select="name" />
+						</th>
+					</xsl:for-each>
+					<th>Total</th>
+				</tr>
+				<xsl:for-each-group select="route" group-by="@length">
+					<xsl:sort select="current-grouping-key()" order="descending" data-type="number" />
+					<tr>
+						<td>
+							<xsl:value-of select="current-grouping-key()" />
+						</td>
+						<xsl:for-each select="$colour">
+							<xsl:variable name="colour-id" select="@id" />
+							<td>
+								<xsl:value-of select="count(current-group()[@tunnel = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							</td>
+						</xsl:for-each>
+						<td>
+							<xsl:value-of select="count(current-group()[@tunnel = 'true']/(@colour | colour/@ref))" />
+						</td>
+					</tr>
+				</xsl:for-each-group>
+				<tr>
+					<td>Total</td>
 					<xsl:for-each select="$colour">
 						<xsl:variable name="colour-id" select="@id" />
 						<td>
-							<xsl:value-of select="count(current-group()[@microlight = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							<xsl:value-of select="count($routes/route[@tunnel = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
 						</td>
 					</xsl:for-each>
 					<td>
-						<xsl:value-of select="count(current-group()[@microlight = 'true']/(@colour | colour/@ref))" />
+						<xsl:value-of select="count($routes/route[@tunnel = 'true']/(@colour | colour/@ref))" />
 					</td>
 				</tr>
-			</xsl:for-each-group>
-			<tr>
-				<td>Total</td>
-				<xsl:for-each select="$colour">
-					<xsl:variable name="colour-id" select="@id" />
+			</table>
+	
+			<h3>Microlights</h3>
+			<table>
+				<tr>
+					<th>Length</th>
+					<xsl:for-each select="$colour">
+						<th>
+							<xsl:value-of select="name" />
+						</th>
+					</xsl:for-each>
+					<th>Total</th>
+				</tr>
+				<xsl:for-each-group select="route" group-by="@length">
+					<xsl:sort select="current-grouping-key()" order="descending" data-type="number" />
+					<tr>
+						<td>
+							<xsl:value-of select="current-grouping-key()" />
+						</td>
+						<xsl:for-each select="$colour">
+							<xsl:variable name="colour-id" select="@id" />
+							<td>
+								<xsl:value-of select="count(current-group()[@microlight = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							</td>
+						</xsl:for-each>
+						<td>
+							<xsl:value-of select="count(current-group()[@microlight = 'true']/(@colour | colour/@ref))" />
+						</td>
+					</tr>
+				</xsl:for-each-group>
+				<tr>
+					<td>Total</td>
+					<xsl:for-each select="$colour">
+						<xsl:variable name="colour-id" select="@id" />
+						<td>
+							<xsl:value-of select="count($routes/route[@microlight = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+						</td>
+					</xsl:for-each>
 					<td>
-						<xsl:value-of select="count($routes/route[@microlight = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+						<xsl:value-of select="count($routes/route[@microlight = 'true']/(@colour | colour/@ref))" />
 					</td>
-				</xsl:for-each>
-				<td>
-					<xsl:value-of select="count($routes/route[@microlight = 'true']/(@colour | colour/@ref))" />
-				</td>
-			</tr>
-		</table>
-		<h3>Ferries</h3>
-		<table>
+				</tr>
+			</table>
+			<h3>Ferries</h3>
+			<table>
 			<tr>
 				<th>Length</th>
 				<xsl:for-each select="$colour">
@@ -374,6 +358,68 @@
 				</td>
 			</tr>
 		</table>
+		</div>
+	</xsl:template>
+
+
+	<xsl:template match="routes" mode="script">
+		<xsl:param name="colour" as="element()*" tunnel="yes" />
+		<xsl:param name="routes" as="element()" tunnel="no" />
+		
+		<script type="text/javascript">
+			<!-- Create an array representing the nodes in the network (game map) -->
+			<xsl:text>var routesNodeData = [</xsl:text>
+			<xsl:for-each select="ancestor::map[1]/locations/descendant::location">
+				<xsl:variable name="total-tickets" select="count(ancestor::game[1]/tickets/ticket[location/@ref = current()/@id or country/@ref = current()/ancestor::country[1]/@id])" as="xs:integer" />
+				<xsl:text>{
+                    id: '</xsl:text>
+				<xsl:value-of select="@id" />
+				<xsl:text>', 
+                    label: '</xsl:text>
+				<xsl:apply-templates select="." mode="location.name">
+					<xsl:with-param name="for-js" select="true()" as="xs:boolean" tunnel="yes" />
+				</xsl:apply-templates>
+				<xsl:text>',
+                    size: </xsl:text>
+				<xsl:value-of select="sum(10 * sum(1 + $total-tickets))" />
+				<xsl:text>,
+                    mass: </xsl:text>
+				<xsl:value-of select="sum(1 + $total-tickets)" />
+				<xsl:text>
+                }</xsl:text>
+				<xsl:if test="position() != last()">,</xsl:if>
+			</xsl:for-each>
+			<xsl:text>];</xsl:text>
+			<!-- Create an array representing the edges in the network (game map) -->
+			<xsl:text>var routesEdgeData = [</xsl:text>
+			<xsl:for-each select="route/(@colour | colour)">
+				<xsl:variable name="route" select="ancestor::route[1]" />
+				<xsl:variable name="colour" select="
+					if (self::colour) then
+					@ref
+					else
+					." />
+				<xsl:text>{
+                    from: '</xsl:text>
+				<xsl:value-of select="$route/location[1]/@ref" />
+				<xsl:text>', 
+                    to: '</xsl:text>
+				<xsl:value-of select="$route/location[2]/@ref" />
+				<xsl:text>',
+                    color: '</xsl:text>
+				<xsl:value-of select="gw:getColourHex($colour)" />
+				<xsl:text>',
+                    length: </xsl:text>
+				<xsl:value-of select="sum(150 * number($route/@length))" />
+				<xsl:text>
+                }</xsl:text>
+				<xsl:if test="position() != last()">,</xsl:if>
+			</xsl:for-each>
+			<xsl:text>];</xsl:text>
+			<!-- Populate a vis network visualisation -->
+			var routesNetwork = createNetwork('routes', routesNodeData, routesEdgeData, routesOptions);
+			
+		</script>
 	</xsl:template>
 
 
@@ -452,56 +498,31 @@
 	</xsl:template>
 
 
+	<xsl:template match="tickets" mode="#default script" priority="10">
+		<xsl:next-match>
+			<xsl:with-param name="tickets" select="ticket" as="element()*" />
+			<xsl:with-param name="destinations" as="element()*">
+				<xsl:for-each-group select="descendant::ticket/location" group-by="@ref">
+					<xsl:copy-of select="ancestor::game[1]/map/locations/descendant::location[@id = current-grouping-key()]" />
+				</xsl:for-each-group>
+				<xsl:for-each-group select="descendant::ticket/country" group-by="@ref">
+					<xsl:copy-of select="ancestor::game[1]/map/locations/descendant::country[@id = current-grouping-key()]" />
+				</xsl:for-each-group>
+			</xsl:with-param>
+		</xsl:next-match>
+	</xsl:template>
+	
+
 	<xsl:template match="tickets">
 		<xsl:param name="game-id" as="xs:string" tunnel="yes" />
-		<xsl:variable name="tickets" select="ticket" as="element()*" />
-		<xsl:variable name="destinations" as="element()*">
-			<xsl:for-each-group select="descendant::ticket/location" group-by="@ref">
-				<xsl:copy-of select="ancestor::game[1]/map/locations/descendant::location[@id = current-grouping-key()]" />
-			</xsl:for-each-group>
-			<xsl:for-each-group select="descendant::ticket/country" group-by="@ref">
-				<xsl:copy-of select="ancestor::game[1]/map/locations/descendant::country[@id = current-grouping-key()]" />
-			</xsl:for-each-group>
-		</xsl:variable>
+		<xsl:param name="tickets" select="ticket" as="element()*" tunnel="no" />
+		<xsl:param name="destinations" as="element()*" tunnel="no" />
 
 		<div class="tickets">
 			<h2>Tickets</h2>
 			<p>Total: <xsl:value-of select="count(descendant::ticket)" /></p>
 
-			<div id="ticket-distribution" />
-			<script type="text/javascript">
-				<!-- Clone routesNodesData, reset mass and size. -->
-				var ticketsNodeData = prepTicketsNodeData(routesNodeData);
-
-            	<!-- Clone routesEdgesData, delete double edges. -->
-            	var simplifiedRoutesEdgeData = prepTicketsEdgeData(routesEdgeData);
-            	
-				<!-- Create an array representing ticket edges (ticket start and end points) -->
-				<xsl:text>var ticketsEdgeData = [</xsl:text>
-				<xsl:for-each select="descendant::ticket">
-					<xsl:text>{
-                    from: '</xsl:text>
-					<xsl:value-of select="location[1]/@ref" />
-					<xsl:text>', 
-                    to: '</xsl:text>
-					<xsl:value-of select="location[2]/@ref" />
-					<xsl:text>',
-                    color: '#000000',
-                    length: </xsl:text>
-					<xsl:value-of select="sum(150 * number(@points))" />
-					<xsl:text>
-                }</xsl:text>
-					<xsl:if test="position() != last()">,</xsl:if>
-				</xsl:for-each>
-				<xsl:text>];</xsl:text>
-            	
-            	ticketsEdgeData = simplifiedRoutesEdgeData.concat(ticketsEdgeData);
-            	
-				<!-- Populate a vis network visualisation -->
-				var ticketsNetwork = createNetwork('ticket-distribution', ticketsNodeData, ticketsEdgeData, ticketsOptions);
-            
-            </script>
-
+			<div id="ticket-distribution" class="network-visualisation" />
 			<table class="cross-reference">
 				<tr>
 					<th> </th>
@@ -766,7 +787,47 @@
 	</xsl:template>
 
 
-
+	<xsl:template match="tickets" mode="script">
+		<xsl:param name="game-id" as="xs:string" tunnel="yes" />
+		<xsl:param name="tickets" select="ticket" as="element()*" tunnel="no" />
+		<xsl:param name="destinations" as="element()*" tunnel="no" />
+		
+		<script type="text/javascript">
+			<!-- Clone routesNodesData, reset mass and size. -->
+			var ticketsNodeData = prepTicketsNodeData(routesNodeData);
+			
+			<!-- Clone routesEdgesData, delete double edges. -->
+			var simplifiedRoutesEdgeData = prepTicketsEdgeData(routesEdgeData);
+			
+			<!-- Create an array representing ticket edges (ticket start and end points) -->
+			<xsl:text>var ticketsEdgeData = [</xsl:text>
+			<xsl:for-each select="descendant::ticket">
+				<xsl:text>{
+                    from: '</xsl:text>
+				<xsl:value-of select="location[1]/@ref" />
+				<xsl:text>', 
+                    to: '</xsl:text>
+				<xsl:value-of select="location[2]/@ref" />
+				<xsl:text>',
+                    color: '#000000',
+                    length: </xsl:text>
+				<xsl:value-of select="sum(150 * number(@points))" />
+				<xsl:text>
+                }</xsl:text>
+				<xsl:if test="position() != last()">,</xsl:if>
+			</xsl:for-each>
+			<xsl:text>];</xsl:text>
+			
+			ticketsEdgeData = simplifiedRoutesEdgeData.concat(ticketsEdgeData);
+			
+			<!-- Populate a vis network visualisation -->
+			var ticketsNetwork = createNetwork('ticket-distribution', ticketsNodeData, ticketsEdgeData, ticketsOptions);
+			
+		</script>
+		
+	</xsl:template>
+	
+	
 	<xsl:template match="game" mode="game.name">
 		<xsl:value-of select="title" />
 	</xsl:template>

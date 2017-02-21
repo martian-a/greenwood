@@ -5,8 +5,9 @@
 	version="2.0" 
 	exclude-result-prefixes="#all">
 
-	<xsl:param name="path-to-js" select="'../../js'" as="xs:string" />
-	<xsl:param name="path-to-css" select="'../../style'" as="xs:string" />
+	<xsl:param name="path-to-js" select="'../../js/'" as="xs:string" />
+	<xsl:param name="path-to-css" select="'../../style/'" as="xs:string" />
+	<xsl:param name="path-to-xml" select="'../../xml/'" as="xs:string" />
 
 	<xsl:output 
 		method="html"
@@ -23,6 +24,11 @@
 	
 	<xsl:variable name="normalised-path-to-css">
 		<xsl:variable name="directory-separators" select="translate($path-to-css, '\', '/')" />
+		<xsl:value-of select="concat($directory-separators, if (ends-with($directory-separators, '/')) then '' else '/')" />
+	</xsl:variable>
+	
+	<xsl:variable name="normalised-path-to-xml">
+		<xsl:variable name="directory-separators" select="translate($path-to-xml, '\', '/')" />
 		<xsl:value-of select="concat($directory-separators, if (ends-with($directory-separators, '/')) then '' else '/')" />
 	</xsl:variable>
 
@@ -48,23 +54,23 @@
 		<title>
 			<xsl:value-of select="title" />
 		</title>
-		<script type="text/javascript" src="{concat($normalised-path-to-js, 'jquery.min.js')}" />
-		<script type="text/javascript" src="{concat($normalised-path-to-js, 'vis.js')}" />
-		<script type="text/javascript" src="{concat($normalised-path-to-js, 'game.js')}" />
-		<link type="text/css" href="{concat($normalised-path-to-js, 'vis.css')}" rel="stylesheet" />
-		<link type="text/css" href="{concat($normalised-path-to-css, 'game.css')}" rel="stylesheet" />
+		<script type="text/javascript" src="{$normalised-path-to-js}jquery.min.js" />
+		<script type="text/javascript" src="{$normalised-path-to-js}vis.js" />
+		<script type="text/javascript" src="{$normalised-path-to-js}game.js" />
+		<link type="text/css" href="{$normalised-path-to-js}vis.css" rel="stylesheet" />
+		<link type="text/css" href="{$normalised-path-to-css}game.css" rel="stylesheet" />
 	</xsl:template>
 
 
 	<xsl:template match="games" mode="html.body">
 		<p>
-			<a href="../xml/game.xml">XML</a>
+			<a href="{$normalised-path-to-xml}/index.xml">XML</a>
 		</p>
 		<h1>Games</h1>
 		<ul>
 			<xsl:for-each select="//game">
 				<li>
-					<a href="game.html?id={@id}">
+					<a href="{@id}.html">
 						<xsl:apply-templates select="." mode="game.name" />
 					</a>
 				</li>
@@ -74,7 +80,7 @@
 
 
 	<xsl:template match="game" mode="html.body">
-		<p> <a href="game.html">Games</a> | <a href="../xml/game.xml?id={@id}">XML</a> </p>
+		<p> <a href="index.html">Games</a> | <a href="{$normalised-path-to-xml}/game/{@id}.xml">XML</a> </p>
 		<h1>
 			<xsl:value-of select="title" />
 		</h1>
@@ -116,7 +122,7 @@
 							else
 								ancestor::country[1]/concat(name, ' (', @id, ')')" data-type="text" order="ascending" />
 					<li>
-						<a href="location.html?id={$game-id}-{@id}">
+						<a href="../location/{$game-id}-{@id}.html">
 							<xsl:apply-templates select="." mode="location.name" />
 						</a>
 					</li>
@@ -616,7 +622,7 @@
 						<td>
 							<xsl:choose>
 								<xsl:when test="$destinations[@id = current-grouping-key()]">
-									<a href="location.html?id={$game-id}-{current-grouping-key()}">
+									<a href="../location/{$game-id}-{current-grouping-key()}.html">
 										<xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" />
 									</a>
 								</xsl:when>
@@ -639,7 +645,7 @@
 				<xsl:for-each select="ancestor::game[1]/map/locations/descendant::location[not(@id = $destinations/@id)][not(ancestor::country[1]/@id = $destinations/@id)]">
 					<tr>
 						<td>
-							<a href="location.html?id={$game-id}-{@id}">
+							<a href="../location/{$game-id}-{@id}.html">
 								<xsl:apply-templates select="." mode="location.name" />
 							</a>
 						</td>
@@ -667,7 +673,7 @@
 						<td>
 							<xsl:choose>
 								<xsl:when test="$destinations[@id = current-grouping-key()]">
-									<a href="location.html?id={$game-id}-{current-grouping-key()}">
+									<a href="../location/{$game-id}-{current-grouping-key()}.html">
 										<xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" />
 									</a>
 								</xsl:when>
@@ -707,7 +713,7 @@
 						<td>
 							<xsl:choose>
 								<xsl:when test="$destinations[@id = current-grouping-key()]">
-									<a href="location.html?id={$game-id}{current-grouping-key()}">
+									<a href="../location/{$game-id}{current-grouping-key()}.html">
 										<xsl:apply-templates select="$destinations[@id = current-grouping-key()]" mode="location.name" />
 									</a>
 								</xsl:when>

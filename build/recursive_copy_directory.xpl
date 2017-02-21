@@ -36,6 +36,7 @@
 		</d:doc>
 	</p:documentation>
 	<p:option name="target" required="true" />
+	
 
 	<p:output port="result">
 		<p:pipe step="results" port="result"/>
@@ -79,12 +80,7 @@
 						</d:doc>
 					</p:documentation>
 					<p:variable name="filename" select="c:file/@name" />
-					
-					<p:documentation>
-						<d:doc scope="step">
-							<d:desc>Determine a path to the source file.</d:desc>
-						</d:doc>
-					</p:documentation>
+
 					<p:variable name="source-file-path" select="concat($href, '/', $filename)" />
 					
 					<cxf:copy name="copy">

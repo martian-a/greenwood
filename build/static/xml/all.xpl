@@ -50,10 +50,12 @@
 	<p:output port="result" sequence="true">
 		<p:pipe port="result" step="copy-game-xml" />
 		<p:pipe port="result" step="generate-location-xml" />
+		<p:pipe port="result" step="generate-index-xml" />
 	</p:output> 
 	
 	<p:import href="game.xpl" />
 	<p:import href="locations.xpl" />
+	<p:import href="indices.xpl" />
 
 	<p:documentation>
 		<d:doc scope="step">
@@ -76,5 +78,15 @@
 		<p:with-option name="target" select="concat($target, '/location/')" />
 	</tcy:static-location-xml>
 		
+		
+		
+	<p:documentation>
+		<d:doc scope="step">
+			<d:desc>Generate custom index XML files and store them in the output directory.</d:desc>
+		</d:doc>
+	</p:documentation>
+	<tcy:static-xml-indices name="generate-index-xml">
+		<p:with-option name="href" select="$target" />
+	</tcy:static-xml-indices>	
 	
 </p:declare-step>

@@ -64,7 +64,7 @@
 
 	<xsl:template match="games" mode="html.body">
 		<p>
-			<a href="{$normalised-path-to-xml}/index.xml">XML</a>
+			<a href="{$normalised-path-to-xml}/game/index.xml">XML</a>
 		</p>
 		<h1>Games</h1>
 		<ul>

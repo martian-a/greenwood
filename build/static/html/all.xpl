@@ -120,7 +120,7 @@
 			
 			<p:documentation>
 				<d:doc scope="step">
-					<d:desc>Determine the name of the source file.</d:desc>
+					<d:desc>Determine the name of the directory.</d:desc>
 				</d:doc>
 			</p:documentation>
 			<p:variable name="directory-name" select="c:directory/@name">

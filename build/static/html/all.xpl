@@ -24,7 +24,7 @@
 			</d:note>
 		</d:doc>
 	</p:documentation>
-	<p:option name="source-data-path" required="true" />
+	<p:option name="href-data" required="true" />
 	
 	
 	<p:documentation>
@@ -35,17 +35,7 @@
 			</d:note>
 		</d:doc>
 	</p:documentation>
-	<p:option name="source-dependencies-path" required="true" />
-	
-	<p:documentation>
-		<d:doc>
-			<d:desc>A URL to the directory containing XSLT for generating the HTML views.</d:desc>
-			<d:note>
-				<d:p>For example: file:///projects/greenwood/www/xslt/</d:p>
-			</d:note>
-		</d:doc>
-	</p:documentation>
-	<p:option name="html-xslt-path" required="true" />
+	<p:option name="href-app" required="true" />
 	
 	<p:documentation>
 		<d:doc>
@@ -55,7 +45,7 @@
 			</d:note>
 		</d:doc>
 	</p:documentation>
-	<p:option name="output-path" required="true" />
+	<p:option name="target" required="true" />
 	
 	
 	<p:output port="result" sequence="true">
@@ -73,19 +63,19 @@
 		</d:doc>
 	</p:documentation>
 	<tcy:copy-dependencies name="copy-dependencies">
-		<p:with-option name="href" select="$source-dependencies-path" />
-		<p:with-option name="target" select="$output-path" />
+		<p:with-option name="href" select="$href-app" />
+		<p:with-option name="target" select="$target" />
 	</tcy:copy-dependencies>
 
 	<p:sink />
 		
 	<p:documentation >
 		<d:doc>
-			<d:desc>Generate a listing of the XML files in the directory referenced by $source-data-path.</d:desc>
+			<d:desc>Generate a listing of the XML files in the directory referenced by $href-data.</d:desc>
 		</d:doc>
 	</p:documentation>
 	<p:directory-list name="directory-listing">
-		<p:with-option name="path" select="$source-data-path"/>
+		<p:with-option name="path" select="$href-data"/>
 	</p:directory-list>
 	
 	<p:sink />
@@ -130,11 +120,11 @@
 			
 			<p:documentation >
 				<d:doc>
-					<d:desc>Generate a listing of the XML files in the directory referenced by $source-data-path.</d:desc>
+					<d:desc>Generate a listing of the XML files in the directory referenced by $href-data.</d:desc>
 				</d:doc>
 			</p:documentation>
 			<p:directory-list name="file-listing">
-				<p:with-option name="path" select="concat($source-data-path, '/', $directory-name, '/')"/>
+				<p:with-option name="path" select="concat($href-data, '/', $directory-name, '/')"/>
 				<p:with-option name="include-filter" select="'.*\.xml'"/>
 			</p:directory-list>
 		
@@ -178,7 +168,7 @@
 						</d:doc>
 					</p:documentation>
 					<p:load name="stylesheet">
-						<p:with-option name="href" select="concat($source-dependencies-path, '/xslt/', $stylesheet-name)" />
+						<p:with-option name="href" select="concat($href-app, 'xslt/', $stylesheet-name)" />
 					</p:load>
 					
 					<p:sink />		
@@ -227,7 +217,7 @@
 						<p:input port="source">
 							<p:pipe port="result" step="generate-summary" />
 						</p:input>
-						<p:with-option name="href" select="concat($output-path, '/html/', $directory-name, '/', substring-before($filename, '.xml'), '.html')" />
+						<p:with-option name="href" select="concat($target, '/html/', $directory-name, '/', substring-before($filename, '.xml'), '.html')" />
 					</p:store>
 					
 					

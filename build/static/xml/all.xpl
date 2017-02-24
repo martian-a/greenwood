@@ -28,16 +28,6 @@
 	
 	<p:documentation>
 		<d:doc>
-			<d:desc>A URL to the directory containing XSLT for generating custom XML views.</d:desc>
-			<d:note>
-				<d:p>For example: file:///projects/greenwood/build/static/xml/</d:p>
-			</d:note>
-		</d:doc>
-	</p:documentation>
-	<p:option name="stylesheets-dir" required="true" />
-	
-	<p:documentation>
-		<d:doc>
 			<d:desc>A URL to the directory where output results should be stored.</d:desc>
 			<d:note>
 				<d:p>For example: file:///projects/greenwood/dist/www/xml/</d:p>

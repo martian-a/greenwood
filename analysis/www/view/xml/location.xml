@@ -6,13 +6,18 @@ import module namespace loc = "http://ns.greenwood.thecodeyard.co.uk/location" a
 declare option exist:serialize "method=xml media-type=text/xml omit-xml-declaration=no indent=yes";
 
 let $request-id := string(request:get-parameter("id", ""))
-
 return
     if ($request-id != "")
     then
         let $location := loc:get-location($request-id, true(), true())
         return $location
                 
-    else 
-		let $locations := $loc:db/game/map/locations
-        return $locations
+	else 
+    	<locations>
+    		{
+    			for $location in $loc:db/game/map/locations//descendant::*[@id]
+    			let $location-id := concat($location/ancestor::game/@id, '-', $location/@id)
+    			return loc:get-location($location-id, false(), false())
+    		}
+    	</locations>
+ 

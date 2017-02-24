@@ -29,7 +29,7 @@
 	
 	<p:documentation>
 		<d:doc>
-			<d:desc>A URL to the directory containing dependencies, such as JS and CSS.</d:desc>
+			<d:desc>A URL to the directory containing dependencies, such as JS, CSS and XSLT.</d:desc>
 			<d:note>
 				<d:p>For example: file:///projects/greenwood/app/</d:p>
 			</d:note>
@@ -41,7 +41,7 @@
 		<d:doc>
 			<d:desc>A URL to the directory where output results should be stored.</d:desc>
 			<d:note>
-				<d:p>For example: file:///projects/greenwood/dist/www/html/</d:p>
+				<d:p>For example: file:///projects/greenwood/dist/www/</d:p>
 			</d:note>
 		</d:doc>
 	</p:documentation>
@@ -59,7 +59,7 @@
 
 	<p:documentation>
 		<d:doc scope="step">
-			<d:desc>Copy javascript assets that the result will depend on the output directory.</d:desc>
+			<d:desc>Copy javascript and style assets that the result will depend on the output directory.</d:desc>
 		</d:doc>
 	</p:documentation>
 	<tcy:copy-dependencies name="copy-dependencies">
@@ -71,7 +71,7 @@
 		
 	<p:documentation >
 		<d:doc>
-			<d:desc>Generate a listing of the XML files in the directory referenced by $href-data.</d:desc>
+			<d:desc>Generate a listing of source data sub-directories.</d:desc>
 		</d:doc>
 	</p:documentation>
 	<p:directory-list name="directory-listing">
@@ -83,11 +83,11 @@
 	<p:documentation>
 		<d:doc>
 			<d:desc>
-				<d:p>Iterate through the list of files returned by the directory-listing step.</d:p>
+				<d:p>Iterate through the sub-directories directory-listing step.</d:p>
 				<d:ul>
-					<d:ingress>For each data file:</d:ingress>
-					<d:li>generate an HTML summary of the game data</d:li>
-					<d:li>generate an HTML summary of every location in the game</d:li>
+					<d:ingress>For each director:</d:ingress>
+					<d:li>build a list of the data files it contains</d:li>
+					<d:li>generate an HTML summary for each file</d:li>
 				</d:ul>
 			</d:desc>
 		</d:doc>
@@ -120,7 +120,7 @@
 			
 			<p:documentation >
 				<d:doc>
-					<d:desc>Generate a listing of the XML files in the directory referenced by $href-data.</d:desc>
+					<d:desc>Generate a listing of the XML files in the current directory.</d:desc>
 				</d:doc>
 			</p:documentation>
 			<p:directory-list name="file-listing">
@@ -164,7 +164,7 @@
 					
 					<p:documentation>
 						<d:doc scope="step">
-							<d:desc>Load stylesheet for generating a static HTML view of TTR game data.</d:desc>
+							<d:desc>Load stylesheet for generating a static HTML view of this file.</d:desc>
 						</d:doc>
 					</p:documentation>
 					<p:load name="stylesheet">
@@ -175,7 +175,7 @@
 					
 					<p:documentation>
 						<d:doc scope="step">
-							<d:desc>Load game data for generating a static HTML view of TTR game data.</d:desc>
+							<d:desc>Load the current data file.</d:desc>
 						</d:doc>
 					</p:documentation>
 					<p:load name="data">
@@ -186,7 +186,7 @@
 					
 					<p:documentation>
 						<d:doc scope="step">
-							<d:desc>Generate a summary of the game data.</d:desc>
+							<d:desc>Generate an HTML view of the data.</d:desc>
 						</d:doc>
 					</p:documentation>
 					<p:xslt name="generate-summary"> 
@@ -204,7 +204,7 @@
 					
 					<p:documentation>
 						<d:doc scope="step">
-							<d:desc>Store the HTML view of the game.</d:desc>
+							<d:desc>Store the HTML view of the data.</d:desc>
 						</d:doc>
 					</p:documentation>
 					<p:store name="store"

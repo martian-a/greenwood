@@ -42,7 +42,7 @@
 	
 	<p:documentation>
 		<d:doc>
-			<d:desc>Generate a listing of the contents of the directory referenced by $href.</d:desc>
+			<d:desc>Generate a listing of the game data files.</d:desc>
 		</d:doc>
 	</p:documentation>
 	<p:directory-list name="directory-listing">
@@ -55,8 +55,8 @@
 	<p:documentation>
 		<d:doc>
 			<d:desc>
-				<d:p>Iterate through the result returned by the directory-listing step.</d:p>
-				<d:p>For each file or directory, make a copy in the same location, relative to the $target directory.</d:p>
+				<d:p>Iterate through the game data files.</d:p>
+				<d:p>For each game, generate a custom XML document for each location on its map.</d:p>
 			</d:desc>
 		</d:doc>
 	</p:documentation>
@@ -113,7 +113,7 @@
 					
 					<p:documentation>
 						<d:doc scope="step">
-							<d:desc>Store the updated game data.</d:desc>
+							<d:desc>Store the new location XML document.</d:desc>
 						</d:doc>
 					</p:documentation>
 					<p:store name="store" 

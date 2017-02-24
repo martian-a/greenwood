@@ -21,7 +21,7 @@
 		<d:doc>
 			<d:desc>A URL to the directory where the dependencies are stored.</d:desc>
 			<d:note>
-				<d:p>For example: file:///projects/greenwood/app/html/</d:p>
+				<d:p>For example: file:///projects/greenwood/app/</d:p>
 			</d:note>
 		</d:doc>
 	</p:documentation>
@@ -32,7 +32,7 @@
 		<d:doc>
 			<d:desc>A URL to the directory where output results should be stored.</d:desc>
 			<d:note>
-				<d:p>For example: file:///projects/greenwood/dist/www/html/</d:p>
+				<d:p>For example: file:///projects/greenwood/dist/www/</d:p>
 			</d:note>
 		</d:doc>
 	</p:documentation>

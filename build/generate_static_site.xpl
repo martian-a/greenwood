@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:pipeline
-	xmlns:p="http://www.w3.org/ns/xproc"
 	xmlns:c="http://www.w3.org/ns/xproc-step"
 	xmlns:d="http://ns.kaikoda.com/documentation/xml"
+	xmlns:p="http://www.w3.org/ns/xproc"
 	xmlns:tcy="http://ns.thecodeyard.co.uk/xproc/step"
 	version="2.0">
 	
@@ -45,16 +45,25 @@
 	</p:documentation>
 	<p:option name="target" required="true" />
 	
+	<p:import href="utils/recursive_delete_directory.xpl"/>
+	<p:import href="static/delete_static_site.xpl"/>
 	<p:import href="static/xml/all.xpl" />
 	<p:import href="static/html/all.xpl" />
 
 	<p:group>
-		
+
 		<p:output port="result" sequence="true">
+			<p:pipe port="result" step="clean" />
 			<p:pipe port="result" step="generate-xml" />
 			<p:pipe port="result" step="generate-html" />
 		</p:output>
-	
+		
+		<tcy:delete-static-site name="clean">
+			<p:with-option name="href" select="$target" />	
+		</tcy:delete-static-site>
+		
+		<p:sink />
+		
 		<p:documentation>
 			<d:doc scope="step">
 				<d:desc>Generate a snapshot of the XML that would currently be returned by the analysis app.</d:desc>
@@ -77,9 +86,9 @@
 			<p:with-option name="href-app" select="$href-app" />
 			<p:with-option name="target" select="$target" />
 		</tcy:generate-static-html>
-	
+		
 	</p:group>
 	
 	<p:wrap-sequence wrapper="c:results" />
-	
+		
 </p:pipeline>

@@ -41,7 +41,7 @@
 	
 	<p:output port="result" sequence="true" />
 	
-	<p:import href="../../recursive_copy_directory.xpl" />
+	<p:import href="../../utils/recursive_copy_directory.xpl" />
 
 	<p:group name="copy-dependencies">
 	

@@ -1,6 +1,6 @@
-[submodule "www/js/vis"]
-	path = www/js/vis
+[submodule "lib/vis"]
+	path = lib/vis
 	url = https://github.com/almende/vis
-[submodule "www/js/jquery"]
-	path = www/js/jquery
+[submodule "lib/jquery"]
+	path = lib/jquery
 	url = https://github.com/jquery/jquery.git

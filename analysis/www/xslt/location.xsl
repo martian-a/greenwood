@@ -1,14 +1,11 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
-    <xsl:template match="/">
-        <html>
-            <head>
-                <xsl:apply-templates mode="html.header"/>
-            </head>
-            <body>
-                <xsl:apply-templates mode="html.body"/>
-            </body>
-        </html>
-    </xsl:template>
+<xsl:stylesheet 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	exclude-result-prefixes="#all"
+	version="2.0">
+	
+	<xsl:import href="global.xsl" />
+
     <xsl:template match="locations" mode="html.header">
         <title>Locations</title>
     </xsl:template>
@@ -19,7 +16,7 @@
     </xsl:template>
     <xsl:template match="locations" mode="html.body">
         <p>
-            <a href="../xml/location.xml">XML</a>
+            <a href="{$normalised-path-to-xml}/location/{$index}{$ext-xml}">XML</a>
         </p>
         <h1>Locations</h1>
         <ul>
@@ -27,7 +24,7 @@
             	<xsl:sort select="if (name) then name else ancestor::country[1]/concat(name, ' (', @id, ')')" data-type="text" order="ascending" />
                 <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                 <li>
-                    <a href="location.html?id={$game-id}-{@id}">
+                	<a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
                         <xsl:apply-templates select="." mode="location.name"/>
                     </a>
                 </li>
@@ -37,7 +34,7 @@
     <xsl:template match="location" mode="html.body">
         <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
         <p>
-            <a href="location.html">Locations</a> | <a href="../xml/location.xml?id={$game-id}-{@id}">XML</a>
+        	<a href="{$normalised-path-to-html}/location/{$index}{$ext-html}">Locations</a> | <a href="{$normalised-path-to-xml}/location/{$game-id}-{@id}{$ext-xml}">XML</a>
         </p>
         <h1>
             <xsl:value-of select="name"/>
@@ -51,7 +48,7 @@
         <ul>
             <xsl:for-each select="game">
                 <li>
-                    <a href="game.html?id={@id}">
+                	<a href="{$normalised-path-to-html}/game/{@id}{$ext-html}">
                         <xsl:value-of select="title"/>
                     </a>
                 </li>
@@ -76,7 +73,7 @@
         <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
         <tr>
             <td>
-                <a href="location.html?id={$game-id}-{@id}">
+            	<a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
                     <xsl:apply-templates select="." mode="location.name"/>
                 </a>
             </td>
@@ -116,7 +113,7 @@
         <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
         <tr>
             <td>
-                <a href="location.html?id={$game-id}-{@id}">
+            	<a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
                     <xsl:apply-templates select="." mode="location.name"/>
                 </a>
             </td>

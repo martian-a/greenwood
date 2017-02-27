@@ -35,6 +35,14 @@
 	
 	<p:documentation>
 		<d:doc>
+			<d:desc>Whether the routes for shortest paths between nodes should be recorded (true) or just the distance (false).</d:desc>
+		</d:doc>
+	</p:documentation>
+	<p:option name="route" required="true" as="xs:boolean" />
+	
+	
+	<p:documentation>
+		<d:doc>
 			<d:desc>Generate a listing of the XML files in the directory referenced by $path.</d:desc>
 		</d:doc>
 	</p:documentation>
@@ -141,6 +149,7 @@
 				<p:input port="source">
 					<p:pipe port="result" step="generate-network" />
 				</p:input>
+				<p:with-param name="route" select="$route" />
 			</p:xslt> 
 			
 			

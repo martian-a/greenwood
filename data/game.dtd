@@ -18,7 +18,8 @@
 <!ELEMENT node (name?)>
 <!ELEMENT edge (node, node)>
 <!ELEMENT shortest-paths (path+)>
-<!ELEMENT path (location, location)>
+<!ELEMENT path (location, location, via*)>
+<!ELEMENT via (location*)>
 
 <!ATTLIST game 
 	id ID #REQUIRED>
@@ -49,3 +50,5 @@
 	length CDATA #IMPLIED>
 <!ATTLIST path
 	distance CDATA #IMPLIED>
+<!ATTLIST via
+	direct (true|false) "false">

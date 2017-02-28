@@ -760,6 +760,8 @@
 		<xsl:param name="tickets" select="ticket" as="element()*" tunnel="no" />
 		<xsl:param name="destinations" as="element()*" tunnel="no" />
 		
+		<xsl:variable name="shortest-paths" select="ancestor::game[1]/map/shortest-paths/path" as="element()*" />
+		
 		<script type="text/javascript">
 			<!-- Clone routesNodesData, reset mass and size. -->
 			var ticketsNodeData = prepTicketsNodeData(routesNodeData);
@@ -768,8 +770,67 @@
 			var simplifiedRoutesEdgeData = prepTicketsEdgeData(routesEdgeData);
 			
 			<!-- Create an array representing ticket edges (ticket start and end points) -->
+			<xsl:variable name="edges" as="element()*">
+				<xsl:for-each select="descendant::ticket">
+				
+					<xsl:choose>
+						
+						<!-- City-to-country ticket -->
+						<xsl:when test="country and location">
+
+							<xsl:variable name="start" select="location[1]" as="element()" />
+							
+							<xsl:for-each select="country">
+								<xsl:variable name="country-id" select="@ref" as="xs:string" />
+								
+								<xsl:for-each select="$destinations[@ref = $country-id]/descendant::location">
+									<xsl:variable name="end" select="current()" as="element()" />
+									<xsl:copy-of select="gw:consolidate-shortest-routes($shortest-paths[location/@ref = $start/@ref and location/@ref = $end/@ref])" />
+								</xsl:for-each>
+									
+							</xsl:for-each>
+							
+						</xsl:when>
+						
+						<!-- Country-to-country ticket -->
+						<xsl:when test="not(location) and country">
+							
+							<xsl:variable name="start-country-id" select="country[1]/@ref" as="xs:string" />
+							<xsl:variable name="end-countries" select="country[position() != 1]" as="element()*" />
+							
+							<xsl:for-each select="$destinations[@ref = $start-country-id]/descendant::location">
+								<xsl:variable name="start" select="current()" as="element()" />
+								
+								<xsl:for-each select="$end-countries">
+									<xsl:variable name="country-id" select="@ref" as="xs:string" />
+									
+									<xsl:for-each select="$destinations[@ref = $country-id]/descendant::location">
+										<xsl:variable name="end" select="current()" as="element()" />
+										<xsl:copy-of select="gw:consolidate-shortest-routes($shortest-paths[location/@ref = $start/@ref and location/@ref = $end/@ref])" />
+									</xsl:for-each>
+									
+								</xsl:for-each>
+								
+							</xsl:for-each>
+						
+						</xsl:when>
+						
+						<!-- Standard ticket between two locations -->
+						<xsl:otherwise>
+							<xsl:variable name="start" select="location[1]" as="element()" />
+							<xsl:variable name="end" select="location[2]" as="element()" />
+							<xsl:copy-of select="gw:consolidate-shortest-routes($shortest-paths[location/@ref = $start/@ref and location/@ref = $end/@ref])" />
+						</xsl:otherwise>
+						
+					</xsl:choose>
+					<!-- Find the data for the shortest paths between the start and end of the ticket -->
+					
+				</xsl:for-each>
+			</xsl:variable>
+			
 			<xsl:text>var ticketsEdgeData = [</xsl:text>
-			<xsl:for-each select="descendant::ticket">
+
+			<xsl:for-each-group select="$edges" group-by="@id">
 				<xsl:text>{
                     from: '</xsl:text>
 				<xsl:value-of select="location[1]/@ref" />
@@ -778,12 +839,16 @@
 				<xsl:value-of select="location[2]/@ref" />
 				<xsl:text>',
                     color: '#000000',
+                    width: </xsl:text>
+				<xsl:value-of select="sum(15 * number(@paths))" />
+				<xsl:text>,
                     length: </xsl:text>
-				<xsl:value-of select="sum(150 * number(@points))" />
+				<xsl:value-of select="sum(150 * number(@length))" />
 				<xsl:text>
                 }</xsl:text>
 				<xsl:if test="position() != last()">,</xsl:if>
-			</xsl:for-each>
+			</xsl:for-each-group>
+
 			<xsl:text>];</xsl:text>
 			
 			ticketsEdgeData = simplifiedRoutesEdgeData.concat(ticketsEdgeData);
@@ -941,6 +1006,53 @@
 			</xsl:when>
 			<xsl:otherwise>0</xsl:otherwise>
 		</xsl:choose>
+	</xsl:function>
+	
+	<xsl:function name="gw:consolidate-shortest-routes" as="element()*">
+		<xsl:param name="shortest-paths" as="element()*" />
+		
+		<xsl:variable name="start-node" select="$shortest-paths[1]/location[1]/@ref" as="xs:string" />
+		<xsl:variable name="end-node" select="$shortest-paths[1]/location[2]/@ref" as="xs:string" />
+		<xsl:variable name="routes" select="$shortest-paths/ancestor::map[1]/routes/route" as="element()*" />
+		
+		<xsl:for-each-group select="$shortest-paths/via[@direct = 'true']" group-by="@direct">
+			<edge paths="{count(current-group())}" id="{$start-node}-{$end-node}">
+				<xsl:copy-of select="$routes[location/@ref = $start-node][location/@ref = $end-node]/@length" />
+				<location ref="{$start-node}" />
+				<location ref="{$end-node}" />
+			</edge>
+		</xsl:for-each-group>
+
+		<xsl:for-each-group select="$shortest-paths/via/location[1]" group-by="@ref">
+			<edge paths="{count(current-group())}" id="{$start-node}-{current-grouping-key()}">
+				<xsl:copy-of select="$routes[location/@ref = $start-node][location/@ref = current-grouping-key()]/@length" />
+				<location ref="{$start-node}" />
+				<location ref="{current-grouping-key()}" />
+			</edge>
+		</xsl:for-each-group>
+		
+		<xsl:for-each-group select="$shortest-paths/via/location" group-by="@ref">
+			
+			<xsl:variable name="location" select="current-grouping-key()" as="xs:string" />
+			
+			<xsl:for-each-group select="$shortest-paths/via/location[position() &gt; 1][@ref = $location]" group-by="preceding-sibling::*[1]/@ref">
+				<edge paths="{count(current-group())}" id="{$location}-{current-grouping-key()}">
+					<xsl:copy-of select="$routes[location/@ref = $location][location/@ref = current-grouping-key()]/@length" />
+					<location ref="{$location}" />
+					<location ref="{current-grouping-key()}" />
+				</edge>
+			</xsl:for-each-group>		
+			
+		</xsl:for-each-group>
+		
+		<xsl:for-each-group select="$shortest-paths/via/location[position() = last()]" group-by="@ref">
+			<edge paths="{count(current-group())}" id="{current-grouping-key()}-{$end-node}">
+				<xsl:copy-of select="$routes[location/@ref = $end-node][location/@ref = current-grouping-key()]/@length" />
+				<location ref="{current-grouping-key()}" />
+				<location ref="{$end-node}" />
+			</edge>
+		</xsl:for-each-group>
+		
 	</xsl:function>
 
 

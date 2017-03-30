@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game id="WDR">
+   <map>
+      <network>
+         <nodes>
+            <node id="ABB">
+               <name>Abbotsbury</name>
+            </node>
+            <node id="ALW">
+               <name>Alweston</name>
+            </node>
+            <node id="BEA">
+               <name>Beaminster</name>
+            </node>
+            <node id="BIS">
+               <name>Bishop's Caundle</name>
+            </node>
+            <node id="BIS2">
+               <name>Bishop's Down</name>
+            </node>
+            <node id="BRA">
+               <name>Bradford Abbas</name>
+            </node>
+            <node id="BRI">
+               <name>Bridport</name>
+            </node>
+            <node id="BRO">
+               <name>Broadmayne</name>
+            </node>
+            <node id="BRO2">
+               <name>Broadwindsor</name>
+            </node>
+            <node id="BUC">
+               <name>Buckland Newton</name>
+            </node>
+            <node id="BUR">
+               <name>Burton Bradstock</name>
+            </node>
+            <node id="CAT">
+               <name>Cattistock</name>
+            </node>
+            <node id="CER">
+               <name>Cerne Abbas</name>
+            </node>
+            <node id="CHA">
+               <name>Charminster</name>
+            </node>
+            <node id="CHA2">
+               <name>Charmouth</name>
+            </node>
+            <node id="CHE">
+               <name>Cheselbourne</name>
+            </node>
+            <node id="CHI">
+               <name>Chideock</name>
+            </node>
+            <node id="CRO">
+               <name>Crossways</name>
+            </node>
+            <node id="DOR">
+               <name>Dorchester</name>
+            </node>
+            <node id="DOR2">
+               <name>Dorchester FC</name>
+            </node>
+            <node id="EGG">
+               <name>Eggardon Hill</name>
+            </node>
+            <node id="EVE">
+               <name>Evershot</name>
+            </node>
+            <node id="FOR">
+               <name>Forde Abbey</name>
+            </node>
+            <node id="FOR2">
+               <name>Fortuneswell</name>
+            </node>
+            <node id="GRI">
+               <name>Grimstone</name>
+            </node>
+            <node id="HAL">
+               <name>Halstock</name>
+            </node>
+            <node id="HAL2">
+               <name>Halstock Leigh</name>
+            </node>
+            <node id="HOL">
+               <name>Holywell</name>
+            </node>
+            <node id="HOO">
+               <name>Hooke</name>
+            </node>
+            <node id="HOR">
+               <name>Horn Ash</name>
+            </node>
+            <node id="KIN">
+               <name>Kingston Russell</name>
+            </node>
+            <node id="LIT">
+               <name>Litton Cheney</name>
+            </node>
+            <node id="LYM">
+               <name>Lyme Regis</name>
+            </node>
+            <node id="MAI">
+               <name>Maiden Newton</name>
+            </node>
+            <node id="MAR">
+               <name>Marshwood</name>
+            </node>
+            <node id="MEL">
+               <name>Melbury</name>
+            </node>
+            <node id="MEL2">
+               <name>Melplash</name>
+            </node>
+            <node id="MID">
+               <name>Middlemarsh</name>
+            </node>
+            <node id="MIN">
+               <name>Minterne Magna</name>
+            </node>
+            <node id="MON">
+               <name>Monkton Wyld</name>
+            </node>
+            <node id="MOS">
+               <name>Mosterton</name>
+            </node>
+            <node id="OSM">
+               <name>Osmington Mills</name>
+            </node>
+            <node id="PID">
+               <name>Piddlehinton</name>
+            </node>
+            <node id="PID2">
+               <name>Piddletrenthide</name>
+            </node>
+            <node id="POR">
+               <name>Portesham</name>
+            </node>
+            <node id="POU">
+               <name>Poundbury</name>
+            </node>
+            <node id="PUD">
+               <name>Puddletown</name>
+            </node>
+            <node id="PUR">
+               <name>Purse Caundle</name>
+            </node>
+            <node id="RYM">
+               <name>Ryme Intrinseca</name>
+            </node>
+            <node id="SHE">
+               <name>Sherborne</name>
+            </node>
+            <node id="SOU">
+               <name>South Perrott</name>
+            </node>
+            <node id="STI">
+               <name>Stinsford</name>
+            </node>
+            <node id="TOL">
+               <name>Toller Down Gate</name>
+            </node>
+            <node id="TOL2">
+               <name>Tolpuddle</name>
+            </node>
+            <node id="UPL">
+               <name>Uploders</name>
+            </node>
+            <node id="UPW">
+               <name>Upwey</name>
+            </node>
+            <node id="WES">
+               <name>West Bay</name>
+            </node>
+            <node id="WEY">
+               <name>Weymouth</name>
+            </node>
+            <node id="WIN">
+               <name>Winterbourne Abbas</name>
+            </node>
+            <node id="WYN">
+               <name>Wynford Eagle</name>
+            </node>
+            <node id="YET">
+               <name>Yetminster</name>
+            </node>
+         </nodes>
+         <edges>
+            <edge id="ABB-BUR" length="6">
+               <node ref="ABB"/>
+               <node ref="BUR"/>
+            </edge>
+            <edge id="ABB-KIN" length="3">
+               <node ref="ABB"/>
+               <node ref="KIN"/>
+            </edge>
+            <edge id="ABB-POR" length="1">
+               <node ref="ABB"/>
+               <node ref="POR"/>
+            </edge>
+            <edge id="ABB-WIN" length="4">
+               <node ref="ABB"/>
+               <node ref="WIN"/>
+            </edge>
+            <edge id="ALW-BIS" length="2">
+               <node ref="ALW"/>
+               <node ref="BIS"/>
+            </edge>
+            <edge id="ALW-BIS2" length="1">
+               <node ref="ALW"/>
+               <node ref="BIS2"/>
+            </edge>
+            <edge id="ALW-PUR" length="2">
+               <node ref="ALW"/>
+               <node ref="PUR"/>
+            </edge>
+            <edge id="ALW-SHE" length="3">
+               <node ref="ALW"/>
+               <node ref="SHE"/>
+            </edge>
+            <edge id="BEA-BRO2" length="2">
+               <node ref="BEA"/>
+               <node ref="BRO2"/>
+            </edge>
+            <edge id="BEA-MEL2" length="2">
+               <node ref="BEA"/>
+               <node ref="MEL2"/>
+            </edge>
+            <edge id="BEA-MOS" length="2">
+               <node ref="BEA"/>
+               <node ref="MOS"/>
+            </edge>
+            <edge id="BEA-TOL" length="3">
+               <node ref="BEA"/>
+               <node ref="TOL"/>
+            </edge>
+            <edge id="BIS-BIS2" length="2">
+               <node ref="BIS"/>
+               <node ref="BIS2"/>
+            </edge>
+            <edge id="BIS-BUC" length="4">
+               <node ref="BIS"/>
+               <node ref="BUC"/>
+            </edge>
+            <edge id="BIS-PUR" length="3">
+               <node ref="BIS"/>
+               <node ref="PUR"/>
+            </edge>
+            <edge id="BIS2-MID" length="2">
+               <node ref="BIS2"/>
+               <node ref="MID"/>
+            </edge>
+            <edge id="BRA-HAL" length="5">
+               <node ref="BRA"/>
+               <node ref="HAL"/>
+            </edge>
+            <edge id="BRA-SHE" length="2">
+               <node ref="BRA"/>
+               <node ref="SHE"/>
+            </edge>
+            <edge id="BRA-YET" length="2">
+               <node ref="BRA"/>
+               <node ref="YET"/>
+            </edge>
+            <edge id="BRI-BRO2" length="6">
+               <node ref="BRI"/>
+               <node ref="BRO2"/>
+            </edge>
+            <edge id="BRI-CHI" length="2">
+               <node ref="BRI"/>
+               <node ref="CHI"/>
+            </edge>
+            <edge id="BRI-MEL2" length="2">
+               <node ref="BRI"/>
+               <node ref="MEL2"/>
+            </edge>
+            <edge id="BRI-UPL" length="2">
+               <node ref="BRI"/>
+               <node ref="UPL"/>
+            </edge>
+            <edge id="BRI-WES" length="1">
+               <node ref="BRI"/>
+               <node ref="WES"/>
+            </edge>
+            <edge id="BRO-CRO" length="2">
+               <node ref="BRO"/>
+               <node ref="CRO"/>
+            </edge>
+            <edge id="BRO-DOR2" length="3">
+               <node ref="BRO"/>
+               <node ref="DOR2"/>
+            </edge>
+            <edge id="BRO-OSM" length="2">
+               <node ref="BRO"/>
+               <node ref="OSM"/>
+            </edge>
+            <edge id="BRO2-HOR" length="3">
+               <node ref="BRO2"/>
+               <node ref="HOR"/>
+            </edge>
+            <edge id="BRO2-MAR" length="3">
+               <node ref="BRO2"/>
+               <node ref="MAR"/>
+            </edge>
+            <edge id="BRO2-MOS" length="2">
+               <node ref="BRO2"/>
+               <node ref="MOS"/>
+            </edge>
+            <edge id="BUC-CER" length="2">
+               <node ref="BUC"/>
+               <node ref="CER"/>
+            </edge>
+            <edge id="BUC-MID" length="1">
+               <node ref="BUC"/>
+               <node ref="MID"/>
+            </edge>
+            <edge id="BUC-PID2" length="3">
+               <node ref="BUC"/>
+               <node ref="PID2"/>
+            </edge>
+            <edge id="BUR-LIT" length="2">
+               <node ref="BUR"/>
+               <node ref="LIT"/>
+            </edge>
+            <edge id="BUR-UPL" length="2">
+               <node ref="BUR"/>
+               <node ref="UPL"/>
+            </edge>
+            <edge id="BUR-WES" length="1">
+               <node ref="BUR"/>
+               <node ref="WES"/>
+            </edge>
+            <edge id="CAT-EVE" length="2">
+               <node ref="CAT"/>
+               <node ref="EVE"/>
+            </edge>
+            <edge id="CAT-HOL" length="2">
+               <node ref="CAT"/>
+               <node ref="HOL"/>
+            </edge>
+            <edge id="CAT-MAI" length="1">
+               <node ref="CAT"/>
+               <node ref="MAI"/>
+            </edge>
+            <edge id="CAT-TOL" length="4">
+               <node ref="CAT"/>
+               <node ref="TOL"/>
+            </edge>
+            <edge id="CER-CHA" length="6">
+               <node ref="CER"/>
+               <node ref="CHA"/>
+            </edge>
+            <edge id="CER-GRI" length="4">
+               <node ref="CER"/>
+               <node ref="GRI"/>
+            </edge>
+            <edge id="CER-MIN" length="2">
+               <node ref="CER"/>
+               <node ref="MIN"/>
+            </edge>
+            <edge id="CER-PID2" length="2">
+               <node ref="CER"/>
+               <node ref="PID2"/>
+            </edge>
+            <edge id="CHA-DOR" length="1">
+               <node ref="CHA"/>
+               <node ref="DOR"/>
+            </edge>
+            <edge id="CHA-GRI" length="2">
+               <node ref="CHA"/>
+               <node ref="GRI"/>
+            </edge>
+            <edge id="CHA-PID" length="2">
+               <node ref="CHA"/>
+               <node ref="PID"/>
+            </edge>
+            <edge id="CHA-POU" length="1">
+               <node ref="CHA"/>
+               <node ref="POU"/>
+            </edge>
+            <edge id="CHA2-CHI" length="4">
+               <node ref="CHA2"/>
+               <node ref="CHI"/>
+            </edge>
+            <edge id="CHA2-LYM" length="1">
+               <node ref="CHA2"/>
+               <node ref="LYM"/>
+            </edge>
+            <edge id="CHA2-MON" length="2">
+               <node ref="CHA2"/>
+               <node ref="MON"/>
+            </edge>
+            <edge id="CHE-PID2" length="3">
+               <node ref="CHE"/>
+               <node ref="PID2"/>
+            </edge>
+            <edge id="CHE-PUD" length="3">
+               <node ref="CHE"/>
+               <node ref="PUD"/>
+            </edge>
+            <edge id="CHE-TOL2" length="4">
+               <node ref="CHE"/>
+               <node ref="TOL2"/>
+            </edge>
+            <edge id="CHI-MAR" length="5">
+               <node ref="CHI"/>
+               <node ref="MAR"/>
+            </edge>
+            <edge id="CRO-OSM" length="4">
+               <node ref="CRO"/>
+               <node ref="OSM"/>
+            </edge>
+            <edge id="CRO-STI" length="3">
+               <node ref="CRO"/>
+               <node ref="STI"/>
+            </edge>
+            <edge id="CRO-TOL2" length="4">
+               <node ref="CRO"/>
+               <node ref="TOL2"/>
+            </edge>
+            <edge id="DOR2-POU" length="1">
+               <node ref="DOR2"/>
+               <node ref="POU"/>
+            </edge>
+            <edge id="DOR2-STI" length="3">
+               <node ref="DOR2"/>
+               <node ref="STI"/>
+            </edge>
+            <edge id="DOR2-UPW" length="2">
+               <node ref="DOR2"/>
+               <node ref="UPW"/>
+            </edge>
+            <edge id="DOR-DOR2" length="1">
+               <node ref="DOR"/>
+               <node ref="DOR2"/>
+            </edge>
+            <edge id="DOR-POU" length="1">
+               <node ref="DOR"/>
+               <node ref="POU"/>
+            </edge>
+            <edge id="DOR-STI" length="1">
+               <node ref="DOR"/>
+               <node ref="STI"/>
+            </edge>
+            <edge id="EGG-HOO" length="2">
+               <node ref="EGG"/>
+               <node ref="HOO"/>
+            </edge>
+            <edge id="EGG-MEL2" length="4">
+               <node ref="EGG"/>
+               <node ref="MEL2"/>
+            </edge>
+            <edge id="EGG-UPL" length="2">
+               <node ref="EGG"/>
+               <node ref="UPL"/>
+            </edge>
+            <edge id="EGG-WYN" length="3">
+               <node ref="EGG"/>
+               <node ref="WYN"/>
+            </edge>
+            <edge id="EVE-HAL" length="3">
+               <node ref="EVE"/>
+               <node ref="HAL"/>
+            </edge>
+            <edge id="EVE-HOL" length="1">
+               <node ref="EVE"/>
+               <node ref="HOL"/>
+            </edge>
+            <edge id="EVE-TOL" length="3">
+               <node ref="EVE"/>
+               <node ref="TOL"/>
+            </edge>
+            <edge id="FOR-HOR" length="3">
+               <node ref="FOR"/>
+               <node ref="HOR"/>
+            </edge>
+            <edge id="FOR-MAR" length="3">
+               <node ref="FOR"/>
+               <node ref="MAR"/>
+            </edge>
+            <edge id="FOR-MON" length="5">
+               <node ref="FOR"/>
+               <node ref="MON"/>
+            </edge>
+            <edge id="FOR2-WEY" length="4">
+               <node ref="FOR2"/>
+               <node ref="WEY"/>
+            </edge>
+            <edge id="FOR2-WEY-2" length="6">
+               <node ref="FOR2"/>
+               <node ref="WEY"/>
+            </edge>
+            <edge id="GRI-HOL" length="6">
+               <node ref="GRI"/>
+               <node ref="HOL"/>
+            </edge>
+            <edge id="GRI-MAI" length="3">
+               <node ref="GRI"/>
+               <node ref="MAI"/>
+            </edge>
+            <edge id="GRI-WIN" length="3">
+               <node ref="GRI"/>
+               <node ref="WIN"/>
+            </edge>
+            <edge id="HAL2-SOU" length="2">
+               <node ref="HAL2"/>
+               <node ref="SOU"/>
+            </edge>
+            <edge id="HAL2-TOL" length="3">
+               <node ref="HAL2"/>
+               <node ref="TOL"/>
+            </edge>
+            <edge id="HAL-HAL2" length="1">
+               <node ref="HAL"/>
+               <node ref="HAL2"/>
+            </edge>
+            <edge id="HAL-MEL" length="3">
+               <node ref="HAL"/>
+               <node ref="MEL"/>
+            </edge>
+            <edge id="HOL-MEL" length="2">
+               <node ref="HOL"/>
+               <node ref="MEL"/>
+            </edge>
+            <edge id="HOL-MIN" length="2">
+               <node ref="HOL"/>
+               <node ref="MIN"/>
+            </edge>
+            <edge id="HOL-YET" length="4">
+               <node ref="HOL"/>
+               <node ref="YET"/>
+            </edge>
+            <edge id="HOO-MAI" length="4">
+               <node ref="HOO"/>
+               <node ref="MAI"/>
+            </edge>
+            <edge id="HOO-TOL" length="2">
+               <node ref="HOO"/>
+               <node ref="TOL"/>
+            </edge>
+            <edge id="HOR-MAR" length="2">
+               <node ref="HOR"/>
+               <node ref="MAR"/>
+            </edge>
+            <edge id="KIN-LIT" length="2">
+               <node ref="KIN"/>
+               <node ref="LIT"/>
+            </edge>
+            <edge id="KIN-UPL" length="5">
+               <node ref="KIN"/>
+               <node ref="UPL"/>
+            </edge>
+            <edge id="KIN-WIN" length="2">
+               <node ref="KIN"/>
+               <node ref="WIN"/>
+            </edge>
+            <edge id="KIN-WYN" length="3">
+               <node ref="KIN"/>
+               <node ref="WYN"/>
+            </edge>
+            <edge id="LYM-MON" length="3">
+               <node ref="LYM"/>
+               <node ref="MON"/>
+            </edge>
+            <edge id="MAI-TOL" length="6">
+               <node ref="MAI"/>
+               <node ref="TOL"/>
+            </edge>
+            <edge id="MAI-WYN" length="1">
+               <node ref="MAI"/>
+               <node ref="WYN"/>
+            </edge>
+            <edge id="MAR-MON" length="4">
+               <node ref="MAR"/>
+               <node ref="MON"/>
+            </edge>
+            <edge id="MEL-YET" length="1">
+               <node ref="MEL"/>
+               <node ref="YET"/>
+            </edge>
+            <edge id="MID-MIN" length="1">
+               <node ref="MID"/>
+               <node ref="MIN"/>
+            </edge>
+            <edge id="MID-SHE" length="6">
+               <node ref="MID"/>
+               <node ref="SHE"/>
+            </edge>
+            <edge id="MIN-YET" length="4">
+               <node ref="MIN"/>
+               <node ref="YET"/>
+            </edge>
+            <edge id="MOS-SOU" length="1">
+               <node ref="MOS"/>
+               <node ref="SOU"/>
+            </edge>
+            <edge id="OSM-UPW" length="4">
+               <node ref="OSM"/>
+               <node ref="UPW"/>
+            </edge>
+            <edge id="PID-PID2" length="3">
+               <node ref="PID"/>
+               <node ref="PID2"/>
+            </edge>
+            <edge id="PID-PUD" length="2">
+               <node ref="PID"/>
+               <node ref="PUD"/>
+            </edge>
+            <edge id="PID-STI" length="2">
+               <node ref="PID"/>
+               <node ref="STI"/>
+            </edge>
+            <edge id="POR-UPW" length="4">
+               <node ref="POR"/>
+               <node ref="UPW"/>
+            </edge>
+            <edge id="POR-WEY" length="5">
+               <node ref="POR"/>
+               <node ref="WEY"/>
+            </edge>
+            <edge id="POU-WIN" length="3">
+               <node ref="POU"/>
+               <node ref="WIN"/>
+            </edge>
+            <edge id="PUD-STI" length="3">
+               <node ref="PUD"/>
+               <node ref="STI"/>
+            </edge>
+            <edge id="PUD-TOL2" length="1">
+               <node ref="PUD"/>
+               <node ref="TOL2"/>
+            </edge>
+            <edge id="PUR-SHE" length="5">
+               <node ref="PUR"/>
+               <node ref="SHE"/>
+            </edge>
+            <edge id="RYM-YET" length="1">
+               <node ref="RYM"/>
+               <node ref="YET"/>
+            </edge>
+            <edge id="SHE-YET" length="3">
+               <node ref="SHE"/>
+               <node ref="YET"/>
+            </edge>
+            <edge id="SOU-TOL" length="3">
+               <node ref="SOU"/>
+               <node ref="TOL"/>
+            </edge>
+            <edge id="UPW-WEY" length="2">
+               <node ref="UPW"/>
+               <node ref="WEY"/>
+            </edge>
+            <edge id="UPW-WIN" length="5">
+               <node ref="UPW"/>
+               <node ref="WIN"/>
+            </edge>
+            <edge id="WIN-WYN" length="4">
+               <node ref="WIN"/>
+               <node ref="WYN"/>
+            </edge>
+         </edges>
+      </network>
+   </map>
+</game>

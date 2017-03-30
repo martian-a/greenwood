@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game id="TST">
+	<map>
+		<shortest-paths>
+			<path distance="1">
+				<location ref="ALL" />
+				<location ref="ARG" />
+				<via direct="true" />
+			</path>
+			<path distance="1">
+				<location ref="ALL" />
+				<location ref="ARK" />
+				<via direct="true" />
+			</path>
+			<path distance="2">
+				<location ref="ALL" />
+				<location ref="ASB" />
+				<via>
+					<location ref="ARG" />
+				</via>
+				<via>
+					<location ref="ARK" />
+				</via>
+			</path>
+			<path distance="2">
+				<location ref="ALL" />
+				<location ref="BAR" />
+				<via>
+					<location ref="ARG" />
+				</via>
+			</path>
+			<path distance="3">
+				<location ref="ALL" />
+				<location ref="BAR2" />
+				<via>
+					<location ref="ARG" />
+					<location ref="BAR" />
+				</via>
+			</path>
+			<path distance="2">
+				<location ref="ARG" />
+				<location ref="ARK" />
+				<via>
+					<location ref="ALL" />
+				</via>
+				<via>
+					<location ref="ASB" />
+				</via>
+			</path>
+			<path distance="1">
+				<location ref="ARG" />
+				<location ref="ASB" />
+				<via direct="true" />
+			</path>
+			<path distance="1">
+				<location ref="ARG" />
+				<location ref="BAR" />
+				<via direct="true" />
+			</path>
+			<path distance="2">
+				<location ref="ARG" />
+				<location ref="BAR2" />
+				<via>
+					<location ref="BAR" />
+				</via>
+			</path>
+			<path distance="1">
+				<location ref="ARK" />
+				<location ref="ASB" />
+				<via direct="true" />
+			</path>
+			<path distance="2">
+				<location ref="ARK" />
+				<location ref="BAR" />
+				<via>
+					<location ref="ASB" />
+				</via>
+			</path>
+			<path distance="3">
+				<location ref="ARK" />
+				<location ref="BAR2" />
+				<via>
+					<location ref="ASB" />
+				</via>
+				<via>
+					<location ref="ASB" />
+					<location ref="BAR" />
+				</via>
+			</path>
+			<path distance="1">
+				<location ref="ASB" />
+				<location ref="BAR" />
+				<via direct="true" />
+			</path>
+			<path distance="2">
+				<location ref="ASB" />
+				<location ref="BAR2" />
+				<via direct="true" />
+				<via>
+					<location ref="BAR" />
+				</via>
+			</path>
+			<path distance="1">
+				<location ref="BAR" />
+				<location ref="BAR2" />
+				<via direct="true" />
+			</path>
+		</shortest-paths>
+	</map>
+</game>

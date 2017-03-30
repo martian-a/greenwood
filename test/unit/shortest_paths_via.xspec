@@ -8,7 +8,7 @@
 	
 	<x:scenario label="Multiple routes">
 			
-		<x:scenario label="No parallel routes" pending="true"> 	
+		<x:scenario label="No parallel routes"> 	
 			
 			<x:context href="../data/shortest_paths/multiple_edges.xml" />
 				
@@ -17,7 +17,7 @@
 			
 		</x:scenario>
 		
-		<x:scenario label="Parallel routes" pending="true">
+		<x:scenario label="Parallel routes">
 			
 			<x:context href="../data/shortest_paths/parallel_edges.xml" />
 			

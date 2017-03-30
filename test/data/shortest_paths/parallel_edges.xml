@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game id="TST">
+	<map>
+		<network>
+			<nodes>
+				<node id="ALL">
+					<name>Allosimanius Syneca</name>
+				</node>
+				<node id="ARG">
+					<name>Argabuthon</name>
+				</node>
+				<node id="ARK">
+					<name>Arkintoofle Minor</name>
+				</node>
+				<node id="ASB">
+					<name>Asbleg</name>
+				</node>
+				<node id="BAR">
+					<name>Bartledan</name>
+				</node>
+				<node id="BAR2">
+					<name>Baratrax</name>
+				</node>
+			</nodes>
+			<edges>
+				<edge id="ALL-ARG" length="1">
+					<node ref="ALL" />
+					<node ref="ARG" />
+				</edge>
+				<edge id="ALL-ARG" length="2">
+					<node ref="ALL" />
+					<node ref="ARG" />
+				</edge>
+				<edge id="ALL-ARK" length="1">
+					<node ref="ALL" />
+					<node ref="ARK" />
+				</edge>
+				<edge id="ALL-ARK" length="2">
+					<node ref="ALL" />
+					<node ref="ARK" />
+				</edge>
+				<edge id="ARG-ASB" length="1">
+					<node ref="ARG" />
+					<node ref="ASB" />
+				</edge>
+				<edge id="ARG-BAR" length="1">
+					<node ref="ARG" />
+					<node ref="BAR" />
+				</edge>
+				<edge id="ARK-ASB" length="1">
+					<node ref="ARK" />
+					<node ref="ASB" />
+				</edge>
+				<edge id="ASB-BAR" length="1">
+					<node ref="ASB" />
+					<node ref="BAR" />
+				</edge>
+				<edge id="ASB-BAR2" length="2">
+					<node ref="ASB" />
+					<node ref="BAR2" />
+				</edge>
+				<edge id="BAR-BAR2" length="1">
+					<node ref="BAR" />
+					<node ref="BAR2" />
+				</edge>
+			</edges>
+		</network>
+	</map>
+</game>

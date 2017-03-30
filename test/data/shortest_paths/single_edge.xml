@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game id="TST">
+	<map>
+		<network>
+			<nodes>
+				<node id="ALL">
+					<name>Allosimanius Syneca</name>
+				</node>
+				<node id="ARG">
+					<name>Argabuthon</name>
+				</node>
+			</nodes>
+			<edges>
+				<edge id="ALL-ARG" length="1">
+					<node ref="ALL" />
+					<node ref="ARG" />
+				</edge>
+			</edges>
+		</network>
+	</map>
+</game>

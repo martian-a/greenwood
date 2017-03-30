@@ -4,3 +4,4 @@
 dist
 test/data/results
 test/unit/**/*.html
+lib/**

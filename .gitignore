@@ -1,3 +1,6 @@
 /.project
 /*.xpr
 **/*.bak
+dist
+test/data/results
+test/unit/**/*.html

@@ -8,7 +8,7 @@
 	
 	<x:scenario label="Multiple routes">
 			
-		<x:scenario label="No parallel routes">	
+		<x:scenario label="No parallel routes" pending="true"> 	
 			
 			<x:context href="../data/shortest_paths/multiple_edges.xml" />
 				
@@ -17,7 +17,7 @@
 			
 		</x:scenario>
 		
-		<x:scenario label="Parallel routes">
+		<x:scenario label="Parallel routes" pending="true">
 			
 			<x:context href="../data/shortest_paths/parallel_edges.xml" />
 			
@@ -26,6 +26,14 @@
 			
 		</x:scenario>
 		
+		
+		<x:scenario label="Potential circular route">
+			
+			<x:context href="../data/input/circular.xml" />
+			
+			<x:expect label="No location is visited more than once per potential route." href="../data/expected/circular.xml" select="*" />
+			
+		</x:scenario>
 	</x:scenario>
 	
 </x:description>

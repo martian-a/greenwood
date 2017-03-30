@@ -172,7 +172,7 @@
 									<xsl:otherwise>
 										<xsl:for-each select="$via">
 											<via>
-												<xsl:copy-of select="$via/node" />
+												<xsl:copy-of select="node" />
 												<node ref="{$current/@id}" />
 											</via>
 										</xsl:for-each>

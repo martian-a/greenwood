@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game id="SWI">
+   <map>
+      <network>
+         <nodes>
+            <node id="GEN">
+               <name>Geneve</name>
+            </node>
+            <node id="LAU">
+               <name>Lausanne</name>
+            </node>
+            <node id="MAR">
+               <name>Martigny</name>
+            </node>
+            <node id="SIO">
+               <name>Sion</name>
+            </node>
+            <node id="BRI">
+               <name>Brig</name>
+            </node>
+            <node id="LOC">
+               <name>Locarno</name>
+            </node>
+            <node id="WAS">
+               <name>Wassen</name>
+            </node>
+            <node id="INT">
+               <name>Interlaken</name>
+            </node>
+            <node id="FRI">
+               <name>Fribourg</name>
+            </node>
+            <node id="YVE">
+               <name>Yverdon</name>
+            </node>
+            <node id="LUG">
+               <name>Lugano</name>
+            </node>
+            <node id="BEL">
+               <name>Bellinzona</name>
+            </node>
+            <node id="CDF">
+               <name>La Chaux-de-fonds</name>
+            </node>
+            <node id="NEU">
+               <name>Neuchâtel</name>
+            </node>
+            <node id="BER">
+               <name>Bern</name>
+            </node>
+            <node id="DEL">
+               <name>Delémont</name>
+            </node>
+            <node id="BAS">
+               <name>Basel</name>
+            </node>
+            <node id="SOL">
+               <name>Solothurn</name>
+            </node>
+            <node id="BAD">
+               <name>Baden</name>
+            </node>
+            <node id="OLT">
+               <name>Olten</name>
+            </node>
+            <node id="LUZ">
+               <name>Luzern</name>
+            </node>
+            <node id="ZUG">
+               <name>Zug</name>
+            </node>
+            <node id="SWZ">
+               <name>Schwyz</name>
+            </node>
+            <node id="PFA">
+               <name>Pfäffikon</name>
+            </node>
+            <node id="ZUR">
+               <name>Zürich</name>
+            </node>
+            <node id="SFH">
+               <name>Schaffhausen</name>
+            </node>
+            <node id="WIN">
+               <name>Winterthur</name>
+            </node>
+            <node id="STG">
+               <name>St Gallen</name>
+            </node>
+            <node id="VAD">
+               <name>Vaduz</name>
+            </node>
+            <node id="KRE">
+               <name>Kreuzlingen</name>
+            </node>
+            <node id="SAR">
+               <name>Sargans</name>
+            </node>
+            <node id="CHU">
+               <name>Chur</name>
+            </node>
+            <node id="DAV">
+               <name>Davos</name>
+            </node>
+            <node id="BRU">
+               <name>Brusio</name>
+            </node>
+            <node id="FRA1"/>
+            <node id="FRA2"/>
+            <node id="FRA3"/>
+            <node id="FRA4"/>
+            <node id="ITA1"/>
+            <node id="ITA2"/>
+            <node id="ITA3"/>
+            <node id="ITA4"/>
+            <node id="ITA5"/>
+            <node id="GER1"/>
+            <node id="GER2"/>
+            <node id="GER3"/>
+            <node id="GER4"/>
+            <node id="GER5"/>
+            <node id="AUS1"/>
+            <node id="AUS2"/>
+            <node id="AUS3"/>
+         </nodes>
+         <edges>
+            <edge id="GEN-FRA3" length="1">
+               <node ref="GEN"/>
+               <node ref="FRA3"/>
+            </edge>
+            <edge id="GEN-LAU" length="4">
+               <node ref="GEN"/>
+               <node ref="LAU"/>
+            </edge>
+            <edge id="MAR-LAU" length="4">
+               <node ref="MAR"/>
+               <node ref="LAU"/>
+            </edge>
+            <edge id="MAR-FRA4" length="2">
+               <node ref="MAR"/>
+               <node ref="FRA4"/>
+            </edge>
+            <edge id="MAR-SIO" length="2">
+               <node ref="MAR"/>
+               <node ref="SIO"/>
+            </edge>
+            <edge id="SIO-BRI" length="3">
+               <node ref="SIO"/>
+               <node ref="BRI"/>
+            </edge>
+            <edge id="ITA1-BRI" length="3">
+               <node ref="ITA1"/>
+               <node ref="BRI"/>
+            </edge>
+            <edge id="LOC-BRI" length="6">
+               <node ref="LOC"/>
+               <node ref="BRI"/>
+            </edge>
+            <edge id="LOC-ITA2" length="2">
+               <node ref="LOC"/>
+               <node ref="ITA2"/>
+            </edge>
+            <edge id="BRI-WAS" length="4">
+               <node ref="BRI"/>
+               <node ref="WAS"/>
+            </edge>
+            <edge id="BRI-INT" length="2">
+               <node ref="BRI"/>
+               <node ref="INT"/>
+            </edge>
+            <edge id="LAU-FRI" length="3">
+               <node ref="LAU"/>
+               <node ref="FRI"/>
+            </edge>
+            <edge id="GEN-YVE" length="6">
+               <node ref="GEN"/>
+               <node ref="YVE"/>
+            </edge>
+            <edge id="LOC-LUG" length="1">
+               <node ref="LOC"/>
+               <node ref="LUG"/>
+            </edge>
+            <edge id="LOC-BEL" length="1">
+               <node ref="LOC"/>
+               <node ref="BEL"/>
+            </edge>
+            <edge id="BEL-LUG" length="1">
+               <node ref="BEL"/>
+               <node ref="LUG"/>
+            </edge>
+            <edge id="WAS-BEL" length="4">
+               <node ref="WAS"/>
+               <node ref="BEL"/>
+            </edge>
+            <edge id="WAS-SWZ" length="2">
+               <node ref="WAS"/>
+               <node ref="SWZ"/>
+            </edge>
+            <edge id="SWZ-PFA" length="1">
+               <node ref="SWZ"/>
+               <node ref="PFA"/>
+            </edge>
+            <edge id="SWZ-ZUG" length="1">
+               <node ref="SWZ"/>
+               <node ref="ZUG"/>
+            </edge>
+            <edge id="SWZ-LUZ" length="1">
+               <node ref="SWZ"/>
+               <node ref="LUZ"/>
+            </edge>
+            <edge id="PFA-ZUR" length="2">
+               <node ref="PFA"/>
+               <node ref="ZUR"/>
+            </edge>
+            <edge id="ZUR-ZUG" length="1">
+               <node ref="ZUR"/>
+               <node ref="ZUG"/>
+            </edge>
+            <edge id="LUZ-ZUG" length="1">
+               <node ref="LUZ"/>
+               <node ref="ZUG"/>
+            </edge>
+            <edge id="LUZ-BER" length="4">
+               <node ref="LUZ"/>
+               <node ref="BER"/>
+            </edge>
+            <edge id="BER-FRI" length="1">
+               <node ref="BER"/>
+               <node ref="FRI"/>
+            </edge>
+            <edge id="ZUR-WIN" length="1">
+               <node ref="ZUR"/>
+               <node ref="WIN"/>
+            </edge>
+            <edge id="WIN-SFH" length="1">
+               <node ref="WIN"/>
+               <node ref="SFH"/>
+            </edge>
+            <edge id="SFH-GER2" length="1">
+               <node ref="SFH"/>
+               <node ref="GER2"/>
+            </edge>
+            <edge id="SFH-ZUR" length="3">
+               <node ref="SFH"/>
+               <node ref="ZUR"/>
+            </edge>
+            <edge id="ZUR-BAD" length="1">
+               <node ref="ZUR"/>
+               <node ref="BAD"/>
+            </edge>
+            <edge id="ZUR-OLT" length="3">
+               <node ref="ZUR"/>
+               <node ref="OLT"/>
+            </edge>
+            <edge id="OLT-LUZ" length="3">
+               <node ref="OLT"/>
+               <node ref="LUZ"/>
+            </edge>
+            <edge id="OLT-BAD" length="2">
+               <node ref="OLT"/>
+               <node ref="BAD"/>
+            </edge>
+            <edge id="BAD-BAS" length="3">
+               <node ref="BAD"/>
+               <node ref="BAS"/>
+            </edge>
+            <edge id="BAS-GER1" length="1">
+               <node ref="BAS"/>
+               <node ref="GER1"/>
+            </edge>
+            <edge id="BAS-OLT" length="2">
+               <node ref="BAS"/>
+               <node ref="OLT"/>
+            </edge>
+            <edge id="OLT-SOL" length="1">
+               <node ref="OLT"/>
+               <node ref="SOL"/>
+            </edge>
+            <edge id="BAS-DEL" length="2">
+               <node ref="BAS"/>
+               <node ref="DEL"/>
+            </edge>
+            <edge id="DEL-FRA1" length="2">
+               <node ref="DEL"/>
+               <node ref="FRA1"/>
+            </edge>
+            <edge id="DEL-SOL" length="1">
+               <node ref="DEL"/>
+               <node ref="SOL"/>
+            </edge>
+            <edge id="SOL-BER" length="2">
+               <node ref="SOL"/>
+               <node ref="BER"/>
+            </edge>
+            <edge id="BER-NEU" length="2">
+               <node ref="BER"/>
+               <node ref="NEU"/>
+            </edge>
+            <edge id="LAU-NEU" length="4">
+               <node ref="LAU"/>
+               <node ref="NEU"/>
+            </edge>
+            <edge id="WAS-CHU" length="5">
+               <node ref="WAS"/>
+               <node ref="CHU"/>
+            </edge>
+            <edge id="BER-INT" length="3">
+               <node ref="BER"/>
+               <node ref="INT"/>
+            </edge>
+            <edge id="LUZ-INT" length="4">
+               <node ref="LUZ"/>
+               <node ref="INT"/>
+            </edge>
+            <edge id="DEL-CDF" length="3">
+               <node ref="DEL"/>
+               <node ref="CDF"/>
+            </edge>
+            <edge id="FRA2-CDF" length="2">
+               <node ref="FRA2"/>
+               <node ref="CDF"/>
+            </edge>
+            <edge id="YVE-CDF" length="3">
+               <node ref="YVE"/>
+               <node ref="CDF"/>
+            </edge>
+            <edge id="NEU-CDF" length="1">
+               <node ref="NEU"/>
+               <node ref="CDF"/>
+            </edge>
+            <edge id="LUG-ITA3" length="2">
+               <node ref="LUG"/>
+               <node ref="ITA3"/>
+            </edge>
+            <edge id="YVE-NEU" length="2">
+               <node ref="YVE"/>
+               <node ref="NEU"/>
+            </edge>
+            <edge id="NEU-SOL" length="4">
+               <node ref="NEU"/>
+               <node ref="SOL"/>
+            </edge>
+            <edge id="BRU-ITA4" length="2">
+               <node ref="BRU"/>
+               <node ref="ITA4"/>
+            </edge>
+            <edge id="BRU-DAV" length="4">
+               <node ref="BRU"/>
+               <node ref="DAV"/>
+            </edge>
+            <edge id="BRU-CHU" length="5">
+               <node ref="BRU"/>
+               <node ref="CHU"/>
+            </edge>
+            <edge id="CHU-DAV" length="2">
+               <node ref="CHU"/>
+               <node ref="DAV"/>
+            </edge>
+            <edge id="CHU-SAR" length="1">
+               <node ref="CHU"/>
+               <node ref="SAR"/>
+            </edge>
+            <edge id="DAV-ITA5" length="3">
+               <node ref="DAV"/>
+               <node ref="ITA5"/>
+            </edge>
+            <edge id="DAV-AUS3" length="3">
+               <node ref="DAV"/>
+               <node ref="AUS3"/>
+            </edge>
+            <edge id="DAV-SAR" length="3">
+               <node ref="DAV"/>
+               <node ref="SAR"/>
+            </edge>
+            <edge id="KRE-GER3" length="1">
+               <node ref="KRE"/>
+               <node ref="GER3"/>
+            </edge>
+            <edge id="KRE-GER4" length="1">
+               <node ref="KRE"/>
+               <node ref="GER4"/>
+            </edge>
+            <edge id="KRE-STG" length="1">
+               <node ref="KRE"/>
+               <node ref="STG"/>
+            </edge>
+            <edge id="KRE-WIN" length="2">
+               <node ref="KRE"/>
+               <node ref="WIN"/>
+            </edge>
+            <edge id="KRE-SFH" length="3">
+               <node ref="KRE"/>
+               <node ref="SFH"/>
+            </edge>
+            <edge id="PFA-STG" length="3">
+               <node ref="PFA"/>
+               <node ref="STG"/>
+            </edge>
+            <edge id="PFA-SAR" length="3">
+               <node ref="PFA"/>
+               <node ref="SAR"/>
+            </edge>
+            <edge id="SAR-VAD" length="1">
+               <node ref="SAR"/>
+               <node ref="VAD"/>
+            </edge>
+            <edge id="STG-WIN" length="3">
+               <node ref="STG"/>
+               <node ref="WIN"/>
+            </edge>
+            <edge id="STG-ZUR" length="4">
+               <node ref="STG"/>
+               <node ref="ZUR"/>
+            </edge>
+            <edge id="STG-VAD" length="2">
+               <node ref="STG"/>
+               <node ref="VAD"/>
+            </edge>
+            <edge id="STG-AUS1" length="4">
+               <node ref="STG"/>
+               <node ref="AUS1"/>
+            </edge>
+            <edge id="STG-GER5" length="2">
+               <node ref="STG"/>
+               <node ref="GER5"/>
+            </edge>
+            <edge id="VAD-AUS2" length="1">
+               <node ref="VAD"/>
+               <node ref="AUS2"/>
+            </edge>
+         </edges>
+      </network>
+   </map>
+</game>

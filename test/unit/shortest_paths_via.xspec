@@ -10,19 +10,19 @@
 			
 		<x:scenario label="No parallel routes"> 	
 			
-			<x:context href="../data/shortest_paths/multiple_edges.xml" />
+			<x:context href="../data/input/multiple_edges.xml" />
 				
 			<x:expect label="Route taken is included in each path." 
-				href="../data/shortest_paths/expected/multiple_edges.xml" select="*" />
+				href="../data/expected/multiple_edges.xml" select="*" />
 			
 		</x:scenario>
 		
 		<x:scenario label="Parallel routes">
 			
-			<x:context href="../data/shortest_paths/parallel_edges.xml" />
+			<x:context href="../data/input/parallel_edges.xml" />
 			
 			<x:expect label="Route taken is included in each path." 
-				href="../data/shortest_paths/expected/parallel_edges.xml" select="*" />
+				href="../data/expected/parallel_edges.xml" select="*" />
 			
 		</x:scenario>
 		

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:pipeline
 	xmlns:c="http://www.w3.org/ns/xproc-step"
+	xmlns:cxf="http://xmlcalabash.com/ns/extensions/fileutils"
 	xmlns:d="http://ns.kaikoda.com/documentation/xml"
 	xmlns:p="http://www.w3.org/ns/xproc"
 	xmlns:tcy="http://ns.thecodeyard.co.uk/xproc/step"
@@ -45,6 +46,7 @@
 	</p:documentation>
 	<p:option name="target" required="true" />
 	
+	<p:import href="http://xmlcalabash.com/extension/steps/fileutils.xpl"/>
 	<p:import href="utils/recursive_delete_directory.xpl"/>
 	<p:import href="static/delete_static_site.xpl"/>
 	<p:import href="static/xml/all.xpl" />
@@ -53,14 +55,39 @@
 	<p:group>
 
 		<p:output port="result" sequence="true">
-			<p:pipe port="result" step="clean" />
+			<p:pipe port="result" step="reset" />			
 			<p:pipe port="result" step="generate-xml" />
 			<p:pipe port="result" step="generate-html" />
 		</p:output>
 		
-		<tcy:delete-static-site name="clean">
-			<p:with-option name="href" select="$target" />	
-		</tcy:delete-static-site>
+		<p:group name="reset">
+			
+			<p:output port="result">
+				<p:pipe port="result" step="create-target-dir" />
+			</p:output>
+			
+			<!-- Ensure that the target directory exists before
+					attempting to delete any prexisting results
+					otherwise, if it doesn't exist, the pipeline 
+					fails.-->
+			<!-- TODO: find a better way to test whether the 
+					directory exists and if it doesn't, simply 
+					skip delete step.-->
+			<cxf:mkdir>
+				<p:with-option name="href" select="$target" />
+			</cxf:mkdir>
+			
+			<tcy:delete-static-site name="clean">
+				<p:with-option name="href" select="$target" />	
+			</tcy:delete-static-site>
+			
+			<p:sink />
+			
+			<cxf:mkdir name="create-target-dir">
+				<p:with-option name="href" select="$target" />
+			</cxf:mkdir>
+			
+		</p:group>
 		
 		<p:sink />
 		

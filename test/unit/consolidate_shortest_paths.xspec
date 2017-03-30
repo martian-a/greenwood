@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description 
+	xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" 
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"	
+	stylesheet="../../analysis/www/xslt/functions.xsl"
+	xslt-version="2.0">
+	
+	<x:scenario label="Consolidate shortest path">
+			
+		<x:call function="gw:consolidate-shortest-routes">
+				<x:param href="../data/input/consolidate_shortest_paths.xml" 
+					select="/game/map/shortest-paths/path[location/@ref = 'PSH' and location/@ref = 'BEZ']" />
+
+		</x:call>
+				
+		<x:expect label="Edges match expected..." href="../data/expected/consolidate_shortest_paths.xml" select="/result/*"/>
+			
+	</x:scenario>
+	
+</x:description>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description 
+	xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" 
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"	
+	stylesheet="../../analysis/www/xslt/functions.xsl"
+	xslt-version="2.0">
+	
+	<x:scenario label="Get location name">
+			
+		<x:scenario label="Map">
+			
+			<x:scenario label="Named settlement">
+				
+				<x:call function="gw:get-location-name">
+					<x:param href="../data/input/schweiz.xml" 
+						select="/game/map/locations/country[1]/location[1]" />
+					
+				</x:call>
+				
+				<x:expect label="Settlement name" select="'Geneve'" />
+				
+			</x:scenario>
+			
+			<x:scenario label="Named country">
+				
+				<x:call function="gw:get-location-name">
+					<x:param href="../data/input/schweiz.xml" 
+						select="/game/map/locations/country[@id = 'FRA']" />
+					
+				</x:call>
+				
+				<x:expect label="Country name" select="'France'" />
+				
+			</x:scenario>
+			
+			<x:scenario label="Unnamed settlement">
+				
+				<x:call function="gw:get-location-name">
+					<x:param href="../data/input/schweiz.xml" 
+						select="/game/map/locations/descendant::location[@id = 'FRA2']" />
+					
+				</x:call>
+				
+				<x:expect label="Country name and location ID" select="'France (FRA2)'" />
+				
+			</x:scenario>
+			
+			<x:scenario label="Escaped for Javascript">
+				
+				<x:call function="gw:get-location-name">
+					<x:param select="/game/map/locations/location">
+						<game>
+							<map>
+								<locations>
+									<location id="BAR">
+										<name>Barnard's Star</name>
+									</location>
+								</locations>
+							</map>
+						</game>
+					</x:param>
+					<x:param select="true()" />
+					
+				</x:call>
+				
+				<x:expect label="Settlement name" select="concat('Barnard\', codepoints-to-string(39), 's Star')" />
+				
+			</x:scenario>
+			
+		</x:scenario>
+		
+		<x:scenario label="Route">
+			
+			<x:scenario label="Start">
+				
+				<x:call function="gw:get-location-name">
+					<x:param href="../data/input/schweiz.xml" 
+						select="/game/map/routes/route[1]/location[1]" />
+					
+				</x:call>
+				
+				<x:expect label="Geneva" select="'Geneve'" />
+				
+			</x:scenario>
+			
+			<x:scenario label="End">
+				
+				<x:call function="gw:get-location-name">
+					<x:param href="../data/input/schweiz.xml" 
+						select="/game/map/routes/route[2]/location[2]" />
+					
+				</x:call>
+				
+				<x:expect label="Lausanne" select="'Lausanne'" />
+				
+			</x:scenario>
+			
+		</x:scenario>
+		
+		<x:scenario label="Shortest Path">
+			
+			<x:scenario label="Start">
+				
+				<x:call function="gw:get-location-name">
+					<x:param href="../data/input/schweiz.xml" 
+						select="/game/map/shortest-paths/path[1]/location[1]" />
+					
+				</x:call>
+				
+				<x:expect label="Geneva" select="'Geneve'" />
+				
+			</x:scenario>
+			
+			<x:scenario label="End">
+				
+				<x:call function="gw:get-location-name">
+					<x:param href="../data/input/schweiz.xml" 
+						select="/game/map/shortest-paths/path[1]/location[2]" />
+					
+				</x:call>
+				
+				<x:expect label="Lausanne" select="'Lausanne'" />
+				
+			</x:scenario>
+			
+			<x:scenario label="Via">
+				
+				<x:call function="gw:get-location-name">
+					<x:param href="../data/input/schweiz.xml" 
+						select="/game/map/shortest-paths/path[2]/via/location" />
+					
+				</x:call>
+				
+				<x:expect label="Lausanne" select="'Lausanne'" />
+				
+			</x:scenario>
+			
+		</x:scenario>
+		
+		<x:scenario label="Ticket">
+			
+			<x:scenario label="City-to-city">
+				
+				<x:scenario label="Start">
+					
+					<x:call function="gw:get-location-name">
+						<x:param href="../data/input/schweiz.xml" 
+							select="/game/tickets/ticket[1]/location[1]" />
+						
+					</x:call>
+					
+					<x:expect label="Bern" select="'Bern'" />
+					
+				</x:scenario>
+				
+				<x:scenario label="End">
+					
+					<x:call function="gw:get-location-name">
+						<x:param href="../data/input/schweiz.xml" 
+							select="/game/tickets/ticket[1]/location[2]" />
+						
+					</x:call>
+					
+					<x:expect label="Zurich" select="'Zürich'" />
+					
+				</x:scenario>
+				
+			</x:scenario>
+			
+			<x:scenario label="City-to-country">
+				
+				<x:scenario label="City">
+					
+					<x:call function="gw:get-location-name">
+						<x:param href="../data/input/schweiz.xml" 
+							select="/game/tickets/ticket[2]/location" />
+						
+					</x:call>
+					
+					<x:expect label="Settlement name" select="'Bern'" />
+					
+				</x:scenario>
+				
+				<x:scenario label="Country">
+					
+					<x:call function="gw:get-location-name">
+						<x:param href="../data/input/schweiz.xml" 
+							select="/game/tickets/ticket[2]/country[1]" />
+						
+					</x:call>
+					
+					<x:expect label="Country name" select="'France'" />
+					
+				</x:scenario>
+				
+			</x:scenario>
+			
+			<x:scenario label="Country-to-country">
+				
+				<x:scenario label="Start">
+					
+					<x:call function="gw:get-location-name">
+						<x:param href="../data/input/schweiz.xml" 
+							select="/game/tickets/ticket[3]/country[not(@points)]" />
+						
+					</x:call>
+					
+					<x:expect label="Country name" select="'Italia'" />
+					
+				</x:scenario>
+				
+				<x:scenario label="End">
+					
+					<x:call function="gw:get-location-name">
+						<x:param href="../data/input/schweiz.xml" 
+							select="/game/tickets/ticket[3]/country[@points][1]" />
+						
+					</x:call>
+					
+					<x:expect label="Country name" select="'France'" />
+					
+				</x:scenario>
+				
+			</x:scenario>
+			
+		</x:scenario>
+			
+	</x:scenario>
+	
+</x:description>

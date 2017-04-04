@@ -27,8 +27,7 @@ function prepTicketsEdgeData(source) {
     });
     clone = simplifiedClone;
     clone.forEach(function(item){
-        item.color = '#c0c0c0';
-        item.hidden = 'false';
+        item.hidden = 'true';
     });
 	
 	return clone;
@@ -53,11 +52,11 @@ var ticketsOptions = {
             centralGravity: 0.3,
             springLength: 95,
             springConstant: 0.04,
-            damping: 0.09,
+            damping: 0.25,
             avoidOverlap: 1
         },
         maxVelocity: 50,
-        minVelocity: 0.1,
+        minVelocity: 0.5,
         solver: 'barnesHut',
         timestep: 0.5,
         stabilization: {

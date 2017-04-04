@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script type="text/javascript">
+
+var routesNodeData = [{
+id: 'PSH',
+label: 'Peshawar',
+size: 60,
+mass: 6
+},{
+id: 'LAH',
+label: 'Lahore',
+size: 50,
+mass: 5
+},{
+id: 'JAC',
+label: 'Jacobabad',
+size: 70,
+mass: 7
+},{
+id: 'BHA',
+label: 'Bhatinda',
+size: 50,
+mass: 5
+},{
+id: 'AMB',
+label: 'Ambala',
+size: 60,
+mass: 6
+},{
+id: 'NGA',
+label: 'Ngari',
+size: 50,
+mass: 5
+},{
+id: 'KAB',
+label: 'Kabul',
+size: 50,
+mass: 5
+},{
+id: 'KAN',
+label: 'Kandahar',
+size: 50,
+mass: 5
+}];
+
+var routesEdgeData = [{
+from: 'PSH',
+to: 'LAH',
+color: '#9370DB',
+length: 150
+},{
+from: 'PSH',
+to: 'LAH',
+color: '#32CD32',
+length: 150
+},{
+from: 'PSH',
+to: 'JAC',
+color: '#FF8C00',
+length: 450
+},{
+from: 'PSH',
+to: 'JAC',
+color: '#FFD700',
+length: 450
+},{
+from: 'LAH',
+to: 'JAC',
+color: '#FF0000',
+length: 450
+},{
+from: 'AMB',
+to: 'BHA',
+color: '#FFFFFF',
+length: 300
+},{
+from: 'LAH',
+to: 'BHA',
+color: '#C0C0C0',
+length: 300
+},{
+from: 'LAH',
+to: 'AMB',
+color: '#000000',
+length: 600
+},{
+from: 'LAH',
+to: 'NGA',
+color: '#C0C0C0',
+length: 750
+},{
+from: 'NGA',
+to: 'AMB',
+color: '#C0C0C0',
+length: 600
+},{
+from: 'PSH',
+to: 'KAB',
+color: '#C0C0C0',
+length: 300
+},{
+from: 'JAC',
+to: 'KAB',
+color: '#C0C0C0',
+length: 450
+},{
+from: 'KAB',
+to: 'KAN',
+color: '#FF0000',
+length: 450
+},{
+from: 'JAC',
+to: 'KAN',
+color: '#C0C0C0',
+length: 450
+}];
+
+var routesNetwork = createNetwork('routes', routesNodeData, routesEdgeData, routesOptions);
+</script>

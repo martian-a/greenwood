@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description 
+	xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" 
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"	
+	stylesheet="../../analysis/www/xslt/functions.xsl"
+	xslt-version="2.0">
+	
+	<x:scenario label="Generate data for visualisations">
+			
+		<x:scenario label="Network map">
+			
+			<x:scenario label="Routes node data">
+				
+				<x:call function="gw:generate-routes-node-data">
+					<x:param href="../data/input/generate_map.xml" 
+						select="/game" />
+					
+				</x:call>
+				
+				<x:expect label="An object per node." href="../data/expected/generate_routes_node_data.xml" select="/result/*" />
+				
+			</x:scenario>
+			
+			<x:scenario label="Routes edge data">
+				
+				<x:call function="gw:generate-routes-edge-data">
+					<x:param href="../data/input/generate_map.xml" 
+						select="/game" />
+					
+				</x:call>
+				
+				<x:expect label="An object per edge." href="../data/expected/generate_routes_edge_data.xml" select="/result/*" />
+				
+			</x:scenario>
+			
+		</x:scenario>
+
+		<x:scenario label="Tickets map">
+			
+			<x:scenario label="Tickets edge data">
+				
+				<x:scenario label="City-to-city">
+					<x:call function="gw:generate-tickets-edge-data">
+						<x:param href="../data/input/tickets/city_to_city.xml" 
+							select="/game" />
+						
+					</x:call>
+					
+					<x:expect label="An object per edge for each shortest route per ticket." href="../data/expected/tickets/city_to_city.xml" select="/result/*" />
+					
+				</x:scenario>
+				
+				<x:scenario label="City-to-country">
+					<x:call function="gw:generate-tickets-edge-data">
+						<x:param href="../data/input/tickets/city_to_country.xml" 
+							select="/game" />
+						
+					</x:call>
+					
+					<x:expect label="An object per edge for each shortest route per ticket." href="../data/expected/tickets/city_to_country.xml" select="/result/*" />
+					
+				</x:scenario>
+				
+				<x:scenario label="Country-to-country">
+					<x:call function="gw:generate-tickets-edge-data">
+						<x:param href="../data/input/tickets/country_to_country.xml" 
+							select="/game" />
+						
+					</x:call>
+					
+					<x:expect label="An object per edge for each shortest route per ticket." href="../data/expected/tickets/country_to_country.xml" select="/result/*" />
+					
+				</x:scenario>
+				
+				<x:scenario label="Combination of ticket types">
+					<x:call function="gw:generate-tickets-edge-data">
+						<x:param href="../data/input/generate_map.xml" 
+							select="/game" />
+						
+					</x:call>
+					
+					<x:expect label="An object per edge for each shortest route per ticket." href="../data/expected/tickets/combination.xml" select="/result/*" />
+					
+				</x:scenario>
+			
+			</x:scenario>
+	
+		</x:scenario>
+		
+	</x:scenario>
+	
+</x:description>

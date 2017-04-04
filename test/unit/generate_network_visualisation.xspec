@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description 
+	xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" 
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"	
+	stylesheet="../../analysis/www/xslt/script.xsl"
+	xslt-version="2.0">
+	
+	<x:param name="static" select="'true'" />
+	
+	<x:scenario label="Generate visualisations">
+			
+		<x:scenario label="Generate script for network map">
+			
+			<x:call template="generate-network-map">
+				<x:param name="game" href="../data/input/generate_map.xml" select="/game" />
+			</x:call>
+			
+			<x:expect label="All javascript." href="../data/expected/generate_network_map.xml" select="/script" />
+			
+		</x:scenario>
+			
+
+		<x:scenario label="Tickets map">
+			
+			<x:call template="generate-tickets-map">
+				<x:param name="game" href="../data/input/generate_map.xml" 
+					select="/game" />
+				
+			</x:call>
+			
+			<x:expect label="All Javaascript" href="../data/expected/generate_tickets_map.xml" select="/script" />
+			
+		</x:scenario>
+		
+	</x:scenario>
+	
+</x:description>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <edge paths="8" id="LAH-PSH" length="1">
+        <location ref="LAH"/>
+        <location ref="PSH"/>
+    </edge>
+    <!-- After first -->
+    <edge paths="7" id="BHA-LAH" length="2">
+        <location ref="BHA"/>
+        <location ref="LAH"/>
+    </edge>
+    <edge id="BHA-JOD" paths="4" length="3">
+        <location ref="BHA"/>
+        <location ref="JOD"/>
+    </edge>
+    <edge paths="4" id="AHM-JOD" length="3">
+        <location ref="AHM"/>
+        <location ref="JOD"/>
+    </edge>
+    <edge paths="2" id="AHM-BMB" length="3">
+        <location ref="AHM"/>
+        <location ref="BMB"/>
+    </edge>
+    <edge paths="1" id="BMB-MMG" length="1">
+        <location ref="BMB"/>
+        <location ref="MMG"/>
+    </edge>
+    <edge paths="1" id="GUN-MMG" length="2">
+        <location ref="GUN"/>
+        <location ref="MMG"/>
+    </edge>
+    <edge paths="2" id="GUN-WAD" length="1">
+        <location ref="GUN"/>
+        <location ref="WAD"/>
+    </edge>
+    <edge paths="1" id="BMB-PNA" length="1">
+        <location ref="BMB"/>
+        <location ref="PNA"/>
+    </edge>
+    <edge paths="1" id="MAN-PNA" length="1">
+        <location ref="MAN"/>
+        <location ref="PNA"/>
+    </edge>
+    <edge paths="2" length="1" id="PNA-WAD">
+        <location ref="PNA"/>
+        <location ref="WAD"/>
+    </edge>
+    <edge paths="2" id="AHM-KHA" length="2">
+        <location ref="AHM"/>
+        <location ref="KHA"/>
+    </edge>
+    <edge paths="2" id="KHA-MAN" length="1">
+        <location ref="KHA"/>
+        <location ref="MAN"/>
+    </edge>
+    <edge id="IND-MAN" paths="1" length="3">
+        <location ref="IND"/>
+        <location ref="MAN"/>
+    </edge>
+    <edge id="BHA-DHL" paths="2" length="3">
+        <location ref="BHA"/>
+        <location ref="DHL"/>
+    </edge>
+    <edge paths="1" id="DHL-LUC" length="2">
+        <location ref="DHL"/>
+        <location ref="LUC"/>
+    </edge>
+    <edge paths="3" id="BAR-LUC" length="1">
+        <location ref="BAR"/>
+        <location ref="LUC"/>
+    </edge>
+    <edge paths="4" id="KAT-LUC" length="1">
+        <location ref="KAT"/>
+        <location ref="LUC"/>
+    </edge>
+    <edge paths="4" id="BIL-KAT" length="1">
+        <location ref="BIL"/>
+        <location ref="KAT"/>
+    </edge>
+    <edge paths="4" id="BIL-RAI" length="1">
+        <location ref="BIL"/>
+        <location ref="RAI"/>
+    </edge>
+    <edge paths="4" id="RAI-WAL" length="4">
+        <location ref="RAI"/>
+        <location ref="WAL"/>
+    </edge>
+    <edge paths="1" id="AMB-LAH" length="4">
+        <location ref="AMB"/>
+        <location ref="LAH"/>
+    </edge>
+    <edge id="AMB-BHA" paths="1" length="2">
+        <location ref="AMB"/>
+        <location ref="BHA"/>
+    </edge>
+    <edge id="AMB-BAR" paths="2" length="2">
+        <location ref="AMB"/>
+        <location ref="BAR"/>
+    </edge>
+    <edge paths="1" id="BAR-DHL" length="1">
+        <location ref="BAR"/>
+        <location ref="DHL"/>
+    </edge>
+    <!-- Last -->
+    <edge paths="3" id="BEZ-GUN" length="2">
+        <location ref="BEZ"/>
+        <location ref="GUN"/>
+    </edge>
+    <edge paths="1" id="BEZ-IND" length="2">
+        <location ref="BEZ"/>
+        <location ref="IND"/>
+    </edge>
+    <edge paths="4" id="BEZ-WAL" length="2">
+        <location ref="BEZ"/>
+        <location ref="WAL"/>
+    </edge>
+</result>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description 
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"	
+	stylesheet="../../data/generate/shortest_paths.xsl"
+	preserve-space="x:expect">
+	
+	<x:param name="route" select="'true'" />
+	
+	<x:scenario label="Multiple routes">
+			
+		<x:scenario label="No parallel routes"> 	
+			
+			<x:context href="../data/input/multiple_edges.xml" />
+				
+			<x:expect label="Route taken is included in each path." 
+				href="../data/expected/multiple_edges.xml" select="*" />
+			
+		</x:scenario>
+		
+		<x:scenario label="Parallel routes">
+			
+			<x:context href="../data/input/parallel_edges.xml" />
+			
+			<x:expect label="Route taken is included in each path." 
+				href="../data/expected/parallel_edges.xml" select="*" />
+			
+		</x:scenario>
+		
+		
+		<x:scenario label="Potential circular route">
+			
+			<x:context href="../data/input/circular.xml" />
+			
+			<x:expect label="No location is visited more than once per potential route." href="../data/expected/circular.xml" select="*" />
+			
+		</x:scenario>
+	</x:scenario>
+	
+</x:description>

@@ -1,6 +1,7 @@
 <xsl:stylesheet 
+    xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	exclude-result-prefixes="#all"
 	version="2.0">
 	
@@ -25,7 +26,7 @@
                 <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                 <li>
                 	<a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
-                        <xsl:apply-templates select="." mode="location.name"/>
+                        <xsl:value-of select="gw:get-location-name(.)" />
                     </a>
                 </li>
             </xsl:for-each>
@@ -74,7 +75,7 @@
         <tr>
             <td>
             	<a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
-                    <xsl:apply-templates select="." mode="location.name"/>
+            	    <xsl:value-of select="gw:get-location-name(.)" />
                 </a>
             </td>
             <td>
@@ -114,7 +115,7 @@
         <tr>
             <td>
             	<a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
-                    <xsl:apply-templates select="." mode="location.name"/>
+            	    <xsl:value-of select="gw:get-location-name(.)" />
                 </a>
             </td>
             <td>
@@ -122,10 +123,5 @@
             </td>
         </tr>
     </xsl:template>
-    <xsl:template match="location[name]" mode="location.name">
-        <xsl:value-of select="name"/>
-    </xsl:template>
-    <xsl:template match="location[not(name)]" mode="location.name">
-        <xsl:value-of select="concat(ancestor::country[1]/name, ' (', @id, ')')"/>
-    </xsl:template>
+
 </xsl:stylesheet>

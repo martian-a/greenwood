@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <object>
+        <property label="id" data-type="xs:string">PSH</property>
+        <property label="label" data-type="xs:string">Peshawar</property>
+        <property label="size" data-type="integer">60</property>
+        <property label="mass" data-type="integer">6</property>
+    </object>
+    <object>
+        <property label="id" data-type="xs:string">LAH</property>
+        <property label="label" data-type="xs:string">Lahore</property>
+        <property label="size" data-type="integer">50</property>
+        <property label="mass" data-type="integer">5</property>
+    </object>
+    <object>
+        <property label="id" data-type="xs:string">JAC</property>
+        <property label="label" data-type="xs:string">Jacobabad</property>
+        <property label="size" data-type="integer">70</property>
+        <property label="mass" data-type="integer">7</property>
+    </object>
+    <object>
+        <property label="id" data-type="xs:string">BHA</property>
+        <property label="label" data-type="xs:string">Bhatinda</property>
+        <property label="size" data-type="integer">50</property>
+        <property label="mass" data-type="integer">5</property>
+    </object>
+    <object>
+        <property label="id" data-type="xs:string">AMB</property>
+        <property label="label" data-type="xs:string">Ambala</property>
+        <property label="size" data-type="integer">60</property>
+        <property label="mass" data-type="integer">6</property>
+    </object>
+    <object>
+        <property label="id" data-type="xs:string">NGA</property>
+        <property label="label" data-type="xs:string">Ngari</property>
+        <property label="size" data-type="integer">50</property>
+        <property label="mass" data-type="integer">5</property>
+    </object>
+    <object>
+        <property label="id" data-type="xs:string">KAB</property>
+        <property label="label" data-type="xs:string">Kabul</property>
+        <property label="size" data-type="integer">50</property>
+        <property label="mass" data-type="integer">5</property>
+    </object>
+    <object>
+        <property label="id" data-type="xs:string">KAN</property>
+        <property label="label" data-type="xs:string">Kandahar</property>
+        <property label="size" data-type="integer">50</property>
+        <property label="mass" data-type="integer">5</property>
+    </object>
+</result>

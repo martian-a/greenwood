@@ -112,6 +112,7 @@ declare function loc:get-shortest-paths($id as xs:string) as item() {
             return
                 <location id="{$location/@id}" distance="{$distance}">
                     <name>{$location/name}</name>
+                    {$path/via}
                 </location>
         }</shortest-paths>
     

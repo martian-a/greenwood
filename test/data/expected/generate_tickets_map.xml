@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script type="text/javascript">
+
+var ticketsNodeData = prepTicketsNodeData(routesNodeData);
+
+var simplifiedRoutesEdgeData = prepTicketsEdgeData(routesEdgeData);
+
+var ticketsEdgeData = [{
+from: 'JAC',
+to: 'PSH',
+color: '#66ccff',
+length: 450
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#66ccff',
+length: 450
+},{
+from: 'LAH',
+to: 'PSH',
+color: '#66ccff',
+length: 150
+},{
+from: 'BHA',
+to: 'LAH',
+color: '#66ccff',
+length: 300
+},{
+from: 'AMB',
+to: 'LAH',
+color: '#66ccff',
+length: 600
+},{
+from: 'AMB',
+to: 'BHA',
+color: '#66ccff',
+length: 300
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#66ccff',
+length: 450
+},{
+from: 'BHA',
+to: 'LAH',
+color: '#66ccff',
+length: 300
+},{
+from: 'AMB',
+to: 'LAH',
+color: '#66ccff',
+length: 600
+},{
+from: 'AMB',
+to: 'BHA',
+color: '#66ccff',
+length: 300
+},{
+from: 'LAH',
+to: 'NGA',
+color: '#6534ff',
+length: 750
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#6534ff',
+length: 450
+},{
+from: 'JAC',
+to: 'KAB',
+color: '#ff66cc',
+length: 450
+},{
+from: 'JAC',
+to: 'KAN',
+color: '#ff66cc',
+length: 450
+},{
+from: 'AMB',
+to: 'NGA',
+color: '#ff66cc',
+length: 600
+},{
+from: 'AMB',
+to: 'BHA',
+color: '#ff66cc',
+length: 300
+},{
+from: 'BHA',
+to: 'LAH',
+color: '#6534ff',
+length: 300
+},{
+from: 'LAH',
+to: 'PSH',
+color: '#6534ff',
+length: 150
+},{
+from: 'KAB',
+to: 'PSH',
+color: '#6534ff',
+length: 300
+},{
+from: 'AMB',
+to: 'LAH',
+color: '#6534ff',
+length: 600
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#6534ff',
+length: 450
+},{
+from: 'JAC',
+to: 'KAN',
+color: '#6534ff',
+length: 450
+},{
+from: 'KAB',
+to: 'KAN',
+color: '#6534ff',
+length: 450
+},{
+from: 'AMB',
+to: 'BHA',
+color: '#6534ff',
+length: 300
+},{
+from: 'LAH',
+to: 'PSH',
+color: '#66ccff',
+length: 150
+},{
+from: 'BHA',
+to: 'LAH',
+color: '#66ccff',
+length: 300
+},{
+from: 'AMB',
+to: 'LAH',
+color: '#66ccff',
+length: 600
+},{
+from: 'AMB',
+to: 'BHA',
+color: '#66ccff',
+length: 300
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#66ccff',
+length: 450
+},{
+from: 'AMB',
+to: 'NGA',
+color: '#ff66cc',
+length: 600
+},{
+from: 'AMB',
+to: 'BHA',
+color: '#ff66cc',
+length: 300
+},{
+from: 'LAH',
+to: 'NGA',
+color: '#6534ff',
+length: 750
+},{
+from: 'LAH',
+to: 'PSH',
+color: '#6534ff',
+length: 150
+},{
+from: 'KAB',
+to: 'PSH',
+color: '#6534ff',
+length: 300
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#6534ff',
+length: 450
+},{
+from: 'JAC',
+to: 'KAN',
+color: '#6534ff',
+length: 450
+},{
+from: 'KAB',
+to: 'KAN',
+color: '#6534ff',
+length: 450
+},{
+from: 'LAH',
+to: 'NGA',
+color: '#66ccff',
+length: 750
+},{
+from: 'LAH',
+to: 'PSH',
+color: '#66ccff',
+length: 150
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#66ccff',
+length: 450
+},{
+from: 'BHA',
+to: 'LAH',
+color: '#6534ff',
+length: 300
+},{
+from: 'LAH',
+to: 'PSH',
+color: '#6534ff',
+length: 150
+},{
+from: 'KAB',
+to: 'PSH',
+color: '#6534ff',
+length: 300
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#6534ff',
+length: 450
+},{
+from: 'JAC',
+to: 'KAN',
+color: '#6534ff',
+length: 450
+},{
+from: 'KAB',
+to: 'KAN',
+color: '#6534ff',
+length: 450
+},{
+from: 'AMB',
+to: 'LAH',
+color: '#6534ff',
+length: 600
+},{
+from: 'AMB',
+to: 'BHA',
+color: '#6534ff',
+length: 300
+},{
+from: 'LAH',
+to: 'NGA',
+color: '#6534ff',
+length: 750
+},{
+from: 'LAH',
+to: 'PSH',
+color: '#6534ff',
+length: 150
+},{
+from: 'KAB',
+to: 'PSH',
+color: '#6534ff',
+length: 300
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#6534ff',
+length: 450
+},{
+from: 'JAC',
+to: 'KAN',
+color: '#6534ff',
+length: 450
+},{
+from: 'KAB',
+to: 'KAN',
+color: '#6534ff',
+length: 450
+},{
+from: 'KAB',
+to: 'PSH',
+color: '#66ccff',
+length: 300
+},{
+from: 'KAB',
+to: 'KAN',
+color: '#66ccff',
+length: 450
+},{
+from: 'LAH',
+to: 'PSH',
+color: '#66ccff',
+length: 150
+},{
+from: 'JAC',
+to: 'LAH',
+color: '#66ccff',
+length: 450
+},{
+from: 'JAC',
+to: 'KAN',
+color: '#66ccff',
+length: 450
+},{
+from: 'JAC',
+to: 'KAB',
+color: '#66ccff',
+length: 450
+}];
+
+ticketsEdgeData = simplifiedRoutesEdgeData.concat(ticketsEdgeData);
+
+var ticketsNetwork = createNetwork('ticket-distribution', ticketsNodeData, ticketsEdgeData, ticketsOptions);
+</script>

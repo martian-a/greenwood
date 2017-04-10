@@ -1,6 +1,6 @@
-[submodule "lib/vis"]
-	path = lib/vis
-	url = https://github.com/almende/vis
 [submodule "lib/jquery"]
 	path = lib/jquery
 	url = https://github.com/jquery/jquery.git
+[submodule "lib/vis"]
+	path = lib/vis
+	url = https://github.com/almende/vis.git

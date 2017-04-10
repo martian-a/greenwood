@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game id="GINDIA">
+    <title>India</title>
+    <map>
+        <locations>
+            <country id="CPAK">
+                <name>Pakistan</name>
+                <location id="PSH">
+                    <name>Peshawar</name>
+                </location>
+                <location id="LAH">
+                    <name>Lahore</name>
+                </location>
+                <location id="JAC">
+                    <name>Jacobabad</name>
+                </location>
+            </country>
+            <country id="CIND">
+                <name>India</name>
+                <location id="BHA">
+                    <name>Bhatinda</name>
+                </location>
+                <location id="AMB">
+                    <name>Ambala</name>
+                </location>
+            </country>
+            <country id="CTIB">
+                <name>Tibet</name>
+                <location id="NGA">
+                    <name>Ngari</name>
+                </location>
+            </country>
+            <country id="CAFG">
+                <name>Afghanistan</name>
+                <location id="KAB">
+                    <name>Kabul</name>
+                </location>
+                <location id="KAN">
+                    <name>Kandahar</name>
+                </location>
+            </country>
+        </locations>
+        <routes>
+            <route length="1" tunnel="false" ferry="0" microlight="false">
+                <location ref="PSH"/>
+                <location ref="LAH"/>
+                <colour ref="VIO"/>
+                <colour ref="GRN"/>
+            </route>
+            <route length="3" tunnel="false" ferry="0" microlight="false">
+                <location ref="PSH"/>
+                <location ref="JAC"/>
+                <colour ref="ORA"/>
+                <colour ref="YEL"/>
+            </route>
+            <route length="3"
+                colour="RED"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+                <location ref="LAH"/>
+                <location ref="JAC"/>
+            </route>
+            <route colour="WHI" length="2" tunnel="false" ferry="0" microlight="false">
+                <location ref="AMB"/>
+                <location ref="BHA"/>
+            </route>
+            <route length="2" tunnel="false" ferry="0" microlight="false">
+                <location ref="LAH"/>
+                <location ref="BHA"/>
+                <colour ref="GRY"/>
+            </route>
+            <route length="4"
+                colour="BLA"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+                <location ref="LAH"/>
+                <location ref="AMB"/>
+            </route>
+            <route length="5"
+                colour="GRY"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
+                <location ref="LAH"/>
+                <location ref="NGA"/>
+            </route>
+            <route length="4"
+                colour="GRY"
+                tunnel="true"
+                ferry="0"
+                microlight="false">
+                <location ref="NGA"/>
+                <location ref="AMB"/>
+            </route>
+            <route length="2"
+                colour="GRY"
+                tunnel="false"
+                ferry="0"
+                microlight="true">
+                <location ref="PSH"/>
+                <location ref="KAB"/>
+            </route>
+            <route length="3"
+                colour="GRY"
+                tunnel="false"
+                ferry="0"
+                microlight="true">
+                <location ref="JAC"/>
+                <location ref="KAB"/>
+            </route>
+            <route length="3"
+                colour="RED"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+                <location ref="KAB"/>
+                <location ref="KAN"/>
+            </route>
+            <route length="3"
+                colour="GRY"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+                <location ref="JAC"/>
+                <location ref="KAN"/>
+            </route>
+        </routes>
+      
+        <colours>
+            <colour id="RED">
+                <name>Red</name>
+            </colour>
+            <colour id="ORA">
+                <name>Orange</name>
+            </colour>
+            <colour id="YEL">
+                <name>Yellow</name>
+            </colour>
+            <colour id="GRN">
+                <name>Green</name>
+            </colour>
+            <colour id="BLU">
+                <name>Blue</name>
+            </colour>
+            <colour id="VIO">
+                <name>Pink</name>
+            </colour>
+            <colour id="WHI">
+                <name>White</name>
+            </colour>
+            <colour id="BLA">
+                <name>Black</name>
+            </colour>
+            <colour id="GRY">
+                <name>Grey</name>
+            </colour>
+        </colours>
+      
+      
+      
+      
+      <shortest-paths>
+         <path distance="1">
+            <location ref="PSH"/>
+            <location ref="LAH"/>
+            <via direct="true"/>
+         </path>
+         <path distance="3">
+            <location ref="PSH"/>
+            <location ref="JAC"/>
+            <via direct="true"/>
+         </path>
+         <path distance="3">
+            <location ref="LAH"/>
+            <location ref="JAC"/>
+            <via direct="true"/>
+         </path>        
+         <path>
+             <location ref="PSH" />
+             <location ref="BHA" />
+             <via>
+                 <location ref="LAH" />
+             </via>
+         </path>        
+          <path>
+              <location ref="JAC" />
+              <location ref="BHA" />
+              <via>
+                  <location ref="LAH" />
+              </via>
+          </path>        
+          <path>
+              <location ref="LAH" />
+              <location ref="BHA" />
+              <via direct="true" />
+          </path>        
+          <path>
+              <location ref="AMB" />
+              <location ref="BHA" />
+              <via direct="true" />
+          </path>        
+          <path>
+              <location ref="PSH" />
+              <location ref="AMB" />
+              <via>
+                  <location ref="LAH" />
+              </via>
+              <via>
+                  <location ref="LAH" />
+                  <location ref="BHA" />
+              </via>
+          </path>       
+          <path>
+              <location ref="JAC" />
+              <location ref="AMB" />
+              <via>
+                  <location ref="LAH" />
+              </via>
+              <via>
+                  <location ref="LAH" />
+                  <location ref="BHA" />
+              </via>
+          </path>       
+          <path>
+              <location ref="LAH" />
+              <location ref="AMB" />
+              <via direct="true" />
+          </path>
+          <path>
+              <location ref="NGA" />
+              <location ref="PSH"/>
+              <via>
+                  <location ref="LAH"/>
+              </via>
+          </path>
+          <path>
+              <location ref="NGA" />
+              <location ref="JAC"/>
+              <via>
+                  <location ref="LAH"/>
+              </via>
+          </path>
+          <path>
+              <location ref="NGA" />
+              <location ref="BHA"/>
+              <via>
+                  <location ref="AMB"/>
+              </via>
+          </path>
+          <path>
+              <location ref="NGA" />
+              <location ref="AMB"/>
+              <via direct="true" />
+          </path>
+          <path>
+              <location ref="NGA" />
+              <location ref="LAH"/>
+              <via direct="true"/>
+          </path>
+          <path>
+              <location ref="PSH"/>
+              <location ref="KAN"/>
+              <via>
+                  <location ref="KAB" />
+              </via>
+          </path>
+          <path>
+              <location ref="JAC"/>
+              <location ref="KAN"/>
+              <via direct="true"/>
+          </path>
+          <path>
+              <location ref="LAH"/>
+              <location ref="KAN"/>
+              <via>
+                  <location ref="JAC"/>
+              </via>
+              <via>
+                  <location ref="PSH" />
+                  <location ref="KAB" />
+              </via>
+          </path>
+          <path>
+              <location ref="BHA"/>
+              <location ref="KAN"/>
+              <via>
+                  <location ref="LAH"/>
+                  <location ref="JAC"/>
+              </via>
+              <via>
+                  <location ref="LAH"/>
+                  <location ref="PSH" />
+                  <location ref="KAB" />
+              </via>
+          </path>
+          <path>
+              <location ref="AMB"/>
+              <location ref="KAN"/>
+              <via>
+                  <location ref="LAH"/>
+                  <location ref="JAC"/>
+              </via>
+              <via>
+                  <location ref="LAH"/>
+                  <location ref="PSH" />
+                  <location ref="KAB" />
+              </via>
+              <via>
+                  <location ref="BHA"/>
+                  <location ref="LAH"/>
+                  <location ref="JAC"/>
+              </via>
+              <via>
+                  <location ref="BHA"/>
+                  <location ref="LAH"/>
+                  <location ref="PSH" />
+                  <location ref="KAB" />
+              </via>
+          </path>
+          <path>
+              <location ref="NGA"/>
+              <location ref="KAN"/>
+              <via>
+                  <location ref="LAH"/>
+                  <location ref="JAC"/>
+              </via>
+              <via>
+                  <location ref="LAH"/>
+                  <location ref="PSH" />
+                  <location ref="KAB" />
+              </via>
+          </path>
+          <path>
+              <location ref="KAN"/>
+              <location ref="KAB"/>
+              <via direct="true" />
+          </path>
+          <path>
+              <location ref="PSH"/>
+              <location ref="KAB"/>
+              <via direct="true" />
+          </path>
+          <path>
+              <location ref="JAC"/>
+              <location ref="KAB"/>
+              <via direct="true" />
+          </path>
+          <path>
+              <location ref="LAH"/>
+              <location ref="KAB"/>
+              <via>
+                  <location ref="PSH"/>
+              </via>
+          </path>
+          <path>
+              <location ref="BHA"/>
+              <location ref="KAB"/>
+              <via>
+                  <location ref="LAH"/>
+                  <location ref="PSH"/>
+              </via>
+          </path>
+          <path>
+              <location ref="AMB"/>
+              <location ref="KAB"/>
+              <via>
+                  <location ref="LAH"/>
+                  <location ref="PSH"/>
+              </via>
+          </path>
+          <path>
+              <location ref="NGA"/>
+              <location ref="KAB"/>
+              <via>
+                  <location ref="LAH"/>
+                  <location ref="PSH"/>
+              </via>
+          </path>
+      </shortest-paths>
+   </map>
+	  <tickets>
+	      <ticket>
+	          <country ref="CTIB" />
+	          <country ref="CAFG" points="15"/>
+	          <country ref="CIND" points="5" />
+	      </ticket>
+	  </tickets>
+</game>

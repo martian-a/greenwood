@@ -27,7 +27,7 @@
 	</p:documentation>
 	<p:option name="href" required="true" />
 	
-	<p:option name="fail-on-error" select="false()" />
+	<p:option name="fail-on-error" select="'false'" />
 	
 	<p:output port="result" primary="true">
 		<p:pipe step="results" port="result"/>

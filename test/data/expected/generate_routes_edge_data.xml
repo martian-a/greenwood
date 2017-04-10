@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <object>
+        <property label="from" data-type="xs:string">PSH</property>
+        <property label="to" data-type="xs:string">LAH</property>
+        <property label="color" data-type="xs:string">#9370DB</property>
+        <property label="length" data-type="integer">150</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">PSH</property>
+        <property label="to" data-type="xs:string">LAH</property>
+        <property label="color" data-type="xs:string">#32CD32</property>
+        <property label="length" data-type="integer">150</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">PSH</property>
+        <property label="to" data-type="xs:string">JAC</property>
+        <property label="color" data-type="xs:string">#FF8C00</property>
+        <property label="length" data-type="integer">450</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">PSH</property>
+        <property label="to" data-type="xs:string">JAC</property>
+        <property label="color" data-type="xs:string">#FFD700</property>
+        <property label="length" data-type="integer">450</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">LAH</property>
+        <property label="to" data-type="xs:string">JAC</property>
+        <property label="color" data-type="xs:string">#FF0000</property>
+        <property label="length" data-type="integer">450</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">AMB</property>
+        <property label="to" data-type="xs:string">BHA</property>
+        <property label="color" data-type="xs:string">#FFFFFF</property>
+        <property label="length" data-type="integer">300</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">LAH</property>
+        <property label="to" data-type="xs:string">BHA</property>
+        <property label="color" data-type="xs:string">#C0C0C0</property>
+        <property label="length" data-type="integer">300</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">LAH</property>
+        <property label="to" data-type="xs:string">AMB</property>
+        <property label="color" data-type="xs:string">#000000</property>
+        <property label="length" data-type="integer">600</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">LAH</property>
+        <property label="to" data-type="xs:string">NGA</property>
+        <property label="color" data-type="xs:string">#C0C0C0</property>
+        <property label="length" data-type="integer">750</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">NGA</property>
+        <property label="to" data-type="xs:string">AMB</property>
+        <property label="color" data-type="xs:string">#C0C0C0</property>
+        <property label="length" data-type="integer">600</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">PSH</property>
+        <property label="to" data-type="xs:string">KAB</property>
+        <property label="color" data-type="xs:string">#C0C0C0</property>
+        <property label="length" data-type="integer">300</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">JAC</property>
+        <property label="to" data-type="xs:string">KAB</property>
+        <property label="color" data-type="xs:string">#C0C0C0</property>
+        <property label="length" data-type="integer">450</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">KAB</property>
+        <property label="to" data-type="xs:string">KAN</property>
+        <property label="color" data-type="xs:string">#FF0000</property>
+        <property label="length" data-type="integer">450</property>
+    </object>
+    <object>
+        <property label="from" data-type="xs:string">JAC</property>
+        <property label="to" data-type="xs:string">KAN</property>
+        <property label="color" data-type="xs:string">#C0C0C0</property>
+        <property label="length" data-type="integer">450</property>
+    </object>
+</result>

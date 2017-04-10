@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<xsl:stylesheet 
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	exclude-result-prefixes="#all"
 	version="2.0">
 	
+	<xsl:import href="script.xsl" />
+	<xsl:import href="functions.xsl" />
 	
 	<xsl:param name="path-to-js" select="'../../../js/'" as="xs:string" />
 	<xsl:param name="path-to-css" select="'../../../style/'" as="xs:string" />
@@ -48,6 +51,10 @@
 				<xsl:apply-templates mode="html.body" />
 			</body>
 		</html>
+	</xsl:template>
+	
+	<xsl:template match="game" mode="game.name">
+		<xsl:value-of select="title" />
 	</xsl:template>
 	
 </xsl:stylesheet>

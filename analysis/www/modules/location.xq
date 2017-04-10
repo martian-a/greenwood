@@ -8,7 +8,11 @@ declare namespace httpclient="http://exist-db.org/xquery/httpclient";
 
 declare variable $loc:db := collection("/db/apps/greenwood/data");
 declare variable $loc:host := "http://localhost:8080";
-declare variable $loc:path-view-xml := "/exist/rest/db/apps/greenwood/view/xml/";
+
+declare variable $loc:path-to-view := "/exist/rest/db/apps/greenwood/view/";
+declare variable $loc:path-to-view-xml := concat($loc:path-to-view, "xml/");
+declare variable $loc:upload-path-to-data := "/db/apps/greenwood/data/";
+declare variable $loc:upload-path-to-view := "/db/apps/greenwood/view/";
 
 
 declare 
@@ -134,7 +138,7 @@ declare function loc:request-http($uri as xs:anyURI) as item() {
 };
 
 declare function loc:request-xml($path as xs:string) as item()* {
-    let $uri := xs:anyURI(concat($loc:host, $loc:path-view-xml, $path))
+    let $uri := xs:anyURI(concat($loc:host, $loc:path-to-view-xml, $path))
     let $response := loc:request-http($uri)
     return $response/httpclient:body/*
 };

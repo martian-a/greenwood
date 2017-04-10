@@ -1,0 +1,6 @@
+xquery version "3.0";
+
+module namespace local = "http://ns.greenwood.thecodeyard.co.uk/settings/local";
+
+declare variable $local:path-to-data := "/home/username/git/projectname/data/";
+declare variable $local:path-to-view := "/home/username/git/projectname/www/view/";

@@ -16,9 +16,7 @@
         </title>
     </xsl:template>
     <xsl:template match="locations" mode="html.body">
-        <p>
-            <a href="{$normalised-path-to-xml}/location/{$index}{$ext-xml}">XML</a>
-        </p>
+		<xsl:call-template name="site-navigation" />
         <h1>Locations</h1>
         <ul>
             <xsl:for-each select="//location">

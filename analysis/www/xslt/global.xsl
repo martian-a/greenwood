@@ -46,6 +46,7 @@
 		<html>
 			<head>
 				<xsl:apply-templates mode="html.header" />
+				<link type="text/css" href="{$normalised-path-to-css}global.css" rel="stylesheet" />
 			</head>
 			<body>
 				<xsl:apply-templates mode="html.body" />
@@ -55,6 +56,10 @@
 	
 	<xsl:template match="game" mode="game.name">
 		<xsl:value-of select="title" />
+	</xsl:template>
+	
+	<xsl:template name="site-navigation">
+		<p> <a href="{$normalised-path-to-html}/game/{$index}{$ext-html}">Games</a> | <a href="{$normalised-path-to-xml}/game/{@id}{$ext-xml}">XML</a> </p>
 	</xsl:template>
 	
 </xsl:stylesheet>

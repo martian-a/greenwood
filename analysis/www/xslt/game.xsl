@@ -43,7 +43,7 @@
 
 
 	<xsl:template match="game" mode="html.body">
-		<p> <a href="{$normalised-path-to-html}/game/{$index}{$ext-html}">Games</a> | <a href="{$normalised-path-to-xml}/game/{@id}{$ext-xml}">XML</a> </p>
+		<xsl:call-template name="site-navigation" />
 		<h1>
 			<xsl:value-of select="title" />
 		</h1>

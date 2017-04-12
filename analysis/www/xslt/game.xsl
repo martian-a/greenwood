@@ -337,7 +337,7 @@
         <xsl:variable name="paths" select="path" as="element()*"/>
         <xsl:variable name="destinations" as="element()*">
             <xsl:for-each-group select="descendant::path/location" group-by="@ref">
-                <xsl:copy-of select="$game/map/locations/descendant::*[name() = ('location', 'country')][@id = current-grouping-key()]"/>
+                <xsl:sequence select="$game/map/locations/descendant::location[@id = current-grouping-key()]"/>
             </xsl:for-each-group>
         </xsl:variable>
         <section id="shortest-paths" class="shortest-paths">
@@ -348,7 +348,7 @@
                     <tr>
                         <th> </th>
                         <xsl:for-each select="$destinations">
-                            <xsl:sort select="name" data-type="text" order="ascending"/>
+                            <xsl:sort select="gw:get-location-name(self::*)" data-type="text" order="ascending"/>
                             <th class="destination">
                                 <span>
                                     <xsl:value-of select="gw:get-location-name(self::*)"/>
@@ -357,7 +357,7 @@
                         </xsl:for-each>
                         </tr>
                 <xsl:for-each select="$destinations">
-                        <xsl:sort select="name" data-type="text" order="ascending"/>
+                        <xsl:sort select="gw:get-location-name(self::*)" data-type="text" order="ascending"/>
                         <xsl:variable name="from" select="." as="element()"/>
                         <xsl:variable name="paths-from" select="$paths[*/@ref = $from/@id]" as="element()*"/>
                         <tr>

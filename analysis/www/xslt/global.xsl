@@ -34,7 +34,7 @@
     
 	
 	<xsl:template match="/">
-        <html>
+        <html class="{/*/local-name()}">
             <head>
                 <xsl:apply-templates mode="html.header"/>
                 <script type="text/javascript" src="{$normalised-path-to-js}jquery.min.js"/>

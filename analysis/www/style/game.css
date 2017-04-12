@@ -34,9 +34,10 @@ table.cross-reference th.destination{
 	height: 12em;
 	white-space: nowrap;
 	width: 2em;
+	vertical-align: middle;
 }
 table.cross-reference th.destination span{
-	display: block;
+	display: inline-block;
 	position: relative;
 	width: 1.5em;
 	line-height: 2em;

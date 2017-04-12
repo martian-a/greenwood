@@ -13,6 +13,9 @@ h1 {
 h2 {
 	font-size: 1.5em;
 }
+th {
+	font-weight: bold;
+}
 /* End of Headings */
 
 

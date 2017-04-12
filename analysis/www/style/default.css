@@ -1,3 +1,7 @@
+/**********
+ * Headings
+ */
+ 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	margin: 1em 0 1.5em;
@@ -9,10 +13,13 @@ h1 {
 h2 {
 	font-size: 1.5em;
 }
+/* End of Headings */
 
-p,li {
-	line-height: 1.5em;
-}
+
+
+/**********
+ * Lists
+ */
 
 ul {
 	list-style-type: disc;
@@ -26,8 +33,26 @@ ul, ol {
 	list-style-position: outside;
 	margin-left: 1em;
 	padding-left: 1em;
+	word-spacing: -.5em;
+}
+li {
+	word-spacing: 0;
+}
+/* End of Lists */
+
+
+
+/**********
+ * Line Height
+ */
+ 
+p,li {
+	line-height: 1.5em;
+	margin: .25em 0;
 }
 
 td, th {
 	line-height: 1.5em;
+	padding: .25em 0;
 }
+/* End of Line Height */

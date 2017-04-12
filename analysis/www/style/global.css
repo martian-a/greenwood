@@ -27,7 +27,7 @@ body {
 }
 
 .header h2,
-.header ul.nav-site {
+.header nav.site {
 	display:inline-block;
 }
 
@@ -36,13 +36,13 @@ body {
 	padding: 0;	
 }
 
-ul.nav-site {
+nav.site ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.nav-site li {
+nav.site li {
 	display: inline-block;
 	margin: 0 1em;
 	padding: 0;	
@@ -70,12 +70,12 @@ ul.nav-site {
  * Content 
  */
  
- .content {
+ main {
  	margin: 0;
  	padding: 1.5em;
  }
  
- /* End of Content */
+/* End of Content */
  
  
  /**********
@@ -86,4 +86,66 @@ ul.nav-site {
  	margin: 0;
  }
  
- /* End of Page Title */
+/* End of Page Title */
+ 
+ 
+/**********
+ * Tabbed Content 
+ */
+
+.tabbed .contents {
+	margin: 1em 0;
+}
+
+/* ToC Heading */
+.tabbed .contents h2 {
+	display: none;
+}
+
+/* Tab Headings */
+.tabbed nav ul {
+	list-style-type: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background-color: #330000;
+	color: rgba(255, 255, 255, 1);
+}
+
+.tabbed nav li {
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 0;
+	padding: .5em 1em;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.tabbed nav li.focus,
+.tabbed nav li:hover {
+	color: rgba(0, 0, 0, 0.75);
+}
+
+.tabbed nav li.focus {
+	background-color:  #ffcc00;
+}
+.tabbed nav li:hover {
+	background-color:  #cc9900;
+}
+
+
+/* Show/Hide */
+.tabbed section {
+	display: none;	
+} 
+
+.tabbed section.focus {
+	display: block;
+}
+
+/* Content Panels */
+.tabbed section h2:first-child {
+	display: none;
+} 
+ 
+ 
+/* End of Tabbed Content */

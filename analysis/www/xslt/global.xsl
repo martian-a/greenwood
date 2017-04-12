@@ -37,13 +37,18 @@
         <html>
             <head>
                 <xsl:apply-templates mode="html.header"/>
+                <script type="text/javascript" src="{$normalised-path-to-js}jquery.min.js"/>
+                <script type="text/javascript" src="{$normalised-path-to-js}global.js"/>
+                <xsl:apply-templates mode="html.header.scripts"/>
                 <link type="text/css" href="{$normalised-path-to-css}global.css" rel="stylesheet"/>
+            <xsl:apply-templates mode="html.header.style"/>
             </head>
             <body>
             	<xsl:apply-templates mode="nav.site"/>
-				<div class="content">
+				<main>
 					<xsl:apply-templates mode="html.body"/>
-				</div>
+				</main>
+            <xsl:apply-templates mode="html.footer.scripts"/>
             </body>
         </html>
     </xsl:template>
@@ -53,9 +58,10 @@
     </xsl:template>
     
 	<xsl:template match="game | games | location | locations" mode="nav.site">
-        <div class="header">
+        <header class="header">
             <h2>TTR Analysis</h2>
-            <ul class="nav-site">
+            <nav class="site">
+                <ul>
                 <li>
                     <a href="{$normalised-path-to-html}/game/{$index}{$ext-html}">Games</a>
                 </li>
@@ -64,7 +70,8 @@
                 </li>
                 <xsl:apply-templates select="self::game | self::location" mode="nav.site.xml"/>
             </ul>
-        </div>
+        </nav>
+        </header>
     </xsl:template>
     
 	<xsl:template match="game" mode="nav.site.xml" priority="10">
@@ -89,9 +96,11 @@
 	<xsl:template match="game | location" mode="nav.page" priority="100">
         <div class="contents">
             <h2>Contents</h2>
-            <ul>
+            <nav>
+                <ul>
                 <xsl:next-match/>
             </ul>
+        </nav>
         </div>
     </xsl:template>
 	

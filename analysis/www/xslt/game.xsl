@@ -13,14 +13,28 @@
         <title>
             <xsl:value-of select="title"/>
         </title>
-        <script type="text/javascript" src="{$normalised-path-to-js}jquery.min.js"/>
+        </xsl:template>
+    
+	<xsl:template match="games" mode="html.header.scripts html.header.style html.footer.scripts"/>
+    <xsl:template match="game" mode="html.header.scripts">
         <script type="text/javascript" src="{$normalised-path-to-js}vis.js"/>
         <script type="text/javascript" src="{$normalised-path-to-js}game.js"/>
+    </xsl:template>
+    <xsl:template match="game" mode="html.footer.scripts">
+        <div class="scripts">
+            <xsl:call-template name="generate-network-map">
+                <xsl:with-param name="game" select="self::game" as="element()"/>
+            </xsl:call-template>
+            <xsl:call-template name="generate-tickets-map">
+                <xsl:with-param name="game" select="self::game" as="element()"/>
+            </xsl:call-template>
+        </div>
+    </xsl:template>
+    <xsl:template match="game" mode="html.header.style">
         <link type="text/css" href="{$normalised-path-to-js}vis.css" rel="stylesheet"/>
         <link type="text/css" href="{$normalised-path-to-css}game.css" rel="stylesheet"/>
     </xsl:template>
-    
-	<xsl:template match="games" mode="html.body">
+    <xsl:template match="games" mode="html.body">
         <h1>Games</h1>
         <ul>
             <xsl:for-each select="//game">
@@ -51,15 +65,7 @@
         <xsl:apply-templates select="tickets">
             <xsl:with-param name="game-id" select="@id" as="xs:string" tunnel="yes"/>
         </xsl:apply-templates>
-        <div class="scripts">
-            <xsl:call-template name="generate-network-map">
-                <xsl:with-param name="game" select="self::game" as="element()"/>
-            </xsl:call-template>
-            <xsl:call-template name="generate-tickets-map">
-                <xsl:with-param name="game" select="self::game" as="element()"/>
-            </xsl:call-template>
-        </div>
-    </xsl:template>
+        </xsl:template>
     
 	<xsl:template match="game" mode="nav.page">
 		<li><a href="#routes">Routes</a></li>
@@ -70,7 +76,7 @@
     
 	<xsl:template match="locations">
         <xsl:param name="game-id" as="xs:string" tunnel="yes"/>
-        <div id="locations" class="locations">
+        <section id="locations" class="locations">
             <h2>Locations</h2>
             <p>Total: <xsl:value-of select="count(descendant::location)"/>
             </p>
@@ -84,7 +90,7 @@
                     </li>
                 </xsl:for-each>
             </ul>
-        </div>
+        </section>
     </xsl:template>
     
 	<xsl:template match="routes" mode="#default script" priority="10">
@@ -96,7 +102,7 @@
 	<xsl:template match="routes">
         <xsl:param name="colour" as="element()*" tunnel="yes"/>
         <xsl:param name="routes" as="element()" tunnel="no"/>
-        <div id="routes" class="routes">
+        <section id="routes" class="routes">
             <h2>Routes</h2>
             <h3>Network</h3>
             <div id="routes" class="network-visualisation"/>
@@ -317,7 +323,7 @@
                     </td>
                 </tr>
             </table>
-        </div>
+        </section>
     </xsl:template>
     
 	<xsl:template match="map/shortest-paths">
@@ -329,7 +335,7 @@
                 <xsl:copy-of select="$game/map/locations/descendant::*[name() = ('location', 'country')][@id = current-grouping-key()]"/>
             </xsl:for-each-group>
         </xsl:variable>
-        <div id="shortest-paths" class="shortest-paths">
+        <section id="shortest-paths" class="shortest-paths">
             <h2>Shortest Paths</h2>
             <table class="cross-reference">
                 <tr>
@@ -393,7 +399,7 @@
                     </li>
                 </xsl:for-each-group>
             </ul>
-        </div>
+        </section>
     </xsl:template>
     
 	<xsl:template match="tickets" mode="#default script" priority="10">
@@ -415,7 +421,7 @@
         <xsl:param name="tickets" select="ticket" as="element()*" tunnel="no"/>
         <xsl:param name="destinations" as="element()*" tunnel="no"/>
         <xsl:variable name="game" select="ancestor::game[1]" as="element()"/>
-        <div id="tickets" class="tickets">
+        <section id="tickets" class="tickets">
             <h2>Tickets</h2>
             <p>Total: <xsl:value-of select="count(descendant::ticket)"/>
             </p>
@@ -680,7 +686,7 @@
                     </xsl:choose>
                 </li>
             </ul>
-        </div>
+        </section>
     </xsl:template>
     
 	<xsl:template match="ticket[count(*[name() = ('location', 'country')]) = 2]" mode="ticket.name">

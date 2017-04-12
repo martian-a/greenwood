@@ -1,14 +1,28 @@
-jQuery(document).ready(function() {
-	jQuery("main > section").filter(":first").addClass("focus");
-	jQuery("main > .contents li:first-child").addClass("focus");
-	jQuery("main > .contents a").each(function(){
-		jQuery(this).replaceWith(this.childNodes);	
+jQuery(document).ready(function($) {
+
+	/* 
+	 * Insert containers for javascript dependent visualisations
+	 */
+	$("main > section").filter(":first").before("<section id=\"network\" class=\"network\"><h2>Network</h2><div id=\"vis1\" class=\"network-visualisation\"/></section>");
+	$("main > .contents li").filter(":first").before("<li>Network</li>");
+	$("main > #tickets > section").filter(":first").before("<section id=\"ticket-distribution\"><h3>Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></section>");
+
+	/* 
+	 * Reorganise the content into tabbed containers
+	 */
+	$("main > section").filter(":first").addClass("focus");
+	$("main > .contents li:first-child").addClass("focus");
+	$("main > .contents a").each(function(){
+		$(this).replaceWith(this.childNodes);	
 	});
-	jQuery("main > .contents li").click(function(){
-		jQuery("main > .contents li, main > section").removeClass("focus");
-		jQuery(this).addClass("focus");
-		var i = jQuery(this).prevAll().length;
-		jQuery("main > section").eq(i).addClass("focus");
+	$("main > .contents li").click(function(){
+		$("main > .contents li, main > section").removeClass("focus");
+		$(this).addClass("focus");
+		var i = $(this).prevAll().length;
+		$("main > section").eq(i).addClass("focus");
 	});
-	jQuery("main").addClass("tabbed");
+	$("main").addClass("tabbed");
+		
+	generateVisualisations($);
+	
 });

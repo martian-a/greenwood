@@ -134,16 +134,16 @@ nav.site li {
 
 
 /* Show/Hide */
-.tabbed section {
+.tabbed > section {
 	display: none;	
 } 
 
-.tabbed section.focus {
+.tabbed > section.focus {
 	display: block;
 }
 
 /* Content Panels */
-.tabbed section h2:first-child {
+.tabbed > section h2:first-child {
 	display: none;
 } 
  

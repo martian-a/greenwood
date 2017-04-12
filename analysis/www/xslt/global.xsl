@@ -38,8 +38,11 @@
             <head>
                 <xsl:apply-templates mode="html.header"/>
                 <script type="text/javascript" src="{$normalised-path-to-js}jquery.min.js"/>
-                <script type="text/javascript" src="{$normalised-path-to-js}global.js"/>
+                <script type="text/javascript">
+            		jQuery.noConflict();
+            	</script>
                 <xsl:apply-templates mode="html.header.scripts"/>
+                <script type="text/javascript" src="{$normalised-path-to-js}global.js"/>
                 <link type="text/css" href="{$normalised-path-to-css}global.css" rel="stylesheet"/>
             <xsl:apply-templates mode="html.header.style"/>
             </head>

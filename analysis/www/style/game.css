@@ -65,11 +65,7 @@ span.ticket{
 
 div.network-visualisation {
 	height: 800px;
-}
-
-#routes{
 	/* width: 1200px; */
-	height: 800px;
 	border: 1px solid lightgray;
 	background-color: #f5f5f5;
 }

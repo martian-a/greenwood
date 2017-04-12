@@ -28,10 +28,7 @@
 			<xsl:apply-templates select="gw:generate-routes-edge-data($game)" mode="serialize.javascript" />
 			<xsl:text>];</xsl:text>
 			
-			<xsl:text>&#10;&#10;</xsl:text>
-			
-			<!-- Populate a vis network visualisation -->
-			<xsl:text>var routesNetwork = createNetwork('routes', routesNodeData, routesEdgeData, routesOptions);&#10;</xsl:text>
+			<xsl:text>&#10;</xsl:text>
 			
 		</script>
 	</xsl:template>
@@ -44,29 +41,12 @@
             
             <xsl:text>&#10;&#10;</xsl:text>
             
-            <!-- Clone routesNodesData, reset mass and size. -->
-            <xsl:text>var ticketsNodeData = prepTicketsNodeData(routesNodeData);</xsl:text>
-            
-            <xsl:text>&#10;&#10;</xsl:text>
-            
-            <!-- Clone routesEdgesData, delete double edges. -->
-            <xsl:text>var simplifiedRoutesEdgeData = prepTicketsEdgeData(routesEdgeData);</xsl:text>
-            
-            <xsl:text>&#10;&#10;</xsl:text>
-            
             <!-- Create an array representing ticket edges (ticket start and end points) -->
             <xsl:text>var ticketsEdgeData = [</xsl:text>
             <xsl:apply-templates select="gw:generate-tickets-edge-data($game)" mode="serialize.javascript" />
             <xsl:text>];</xsl:text>
             
-            <xsl:text>&#10;&#10;</xsl:text>
-            
-            <xsl:text>ticketsEdgeData = simplifiedRoutesEdgeData.concat(ticketsEdgeData);</xsl:text>
-            
-            <xsl:text>&#10;&#10;</xsl:text>
-            
-            <!-- Populate a vis network visualisation -->
-            <xsl:text>var ticketsNetwork = createNetwork('ticket-distribution', ticketsNodeData, ticketsEdgeData, ticketsOptions);&#10;</xsl:text>
+            <xsl:text>&#10;</xsl:text>
             
         </script>
     </xsl:template>      

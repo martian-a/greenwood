@@ -160,7 +160,7 @@
 
 					<p:variable name="file-path" select="concat($directory-path, '/', $filename)" />
 					
-					<p:variable name="stylesheet-name" select="if ($directory-name = 'game') then 'game.xsl' else 'location.xsl'" />
+					<p:variable name="stylesheet-name" select="'global.xsl'" />
 					
 					<p:documentation>
 						<d:doc scope="step">

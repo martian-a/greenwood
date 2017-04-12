@@ -7,7 +7,7 @@ import module namespace loc = "http://ns.greenwood.thecodeyard.co.uk/location" a
 declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
 
 let $request-id := string(request:get-parameter("id", ""))
-let $stylesheet := doc("/db/apps/greenwood/xslt/game.xsl")
+let $stylesheet := doc("/db/apps/greenwood/xslt/global.xsl")
 let $parameters := 
     <parameters />
 return

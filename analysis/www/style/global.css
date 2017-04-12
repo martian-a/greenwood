@@ -1,0 +1,89 @@
+@import 'reset.css';
+@import 'default.css';
+
+/**********
+ * Body 
+ */
+
+body {
+	background-color: #f7f7f7;
+	margin: 0;
+	padding: 0;
+}
+
+/* End of Body */
+
+
+/**********
+ * Header 
+ */
+
+.header {
+	box-sizing: border-box;
+	margin: 0;
+	padding: .5em 0;
+	background-color: #24292e;
+	color: rgba(255, 255, 255, 1);
+}
+
+.header h2,
+.header ul.nav-site {
+	display:inline-block;
+}
+
+.header h2 {
+	margin: 0 1em;
+	padding: 0;	
+}
+
+ul.nav-site {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-site li {
+	display: inline-block;
+	margin: 0 1em;
+	padding: 0;	
+}
+
+.header a:link,
+.header a:hover,
+.header a:visited {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.header a:link,
+.header a:visited {
+	text-decoration: none;
+}
+
+.header a:hover {
+	text-decoration: underline;
+}
+
+/* End of Header */
+
+
+/**********
+ * Content 
+ */
+ 
+ .content {
+ 	margin: 0;
+ 	padding: 1.5em;
+ }
+ 
+ /* End of Content */
+ 
+ 
+ /**********
+ * Page Title 
+ */
+ 
+ h1 {
+ 	margin: 0;
+ }
+ 
+ /* End of Page Title */

@@ -24,8 +24,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    
-    
+	
     
     <xsl:function name="gw:getMaxPoints" as="xs:integer">
         <xsl:param name="ticket" as="element()" />

@@ -23,6 +23,8 @@
 
 <!ATTLIST game 
 	id ID #REQUIRED>
+<!ATTLIST map
+	seed CDATA #IMPLIED>
 <!ATTLIST country 
 	id ID #IMPLIED
 	ref IDREF #IMPLIED
@@ -30,7 +32,9 @@
 <!ATTLIST location 
 	id ID #IMPLIED
 	ref IDREF #IMPLIED
-	points CDATA #IMPLIED>
+	points CDATA #IMPLIED
+	x CDATA #IMPLIED
+	y CDATA #IMPLIED>
 <!ATTLIST route 
 	length (1|2|3|4|5|6|8) #REQUIRED
 	colour IDREF #IMPLIED

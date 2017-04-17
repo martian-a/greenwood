@@ -40,6 +40,7 @@
                 <script type="text/javascript" src="{$normalised-path-to-js}jquery.min.js"/>
                 <script type="text/javascript">
             		jQuery.noConflict();
+            		var showHide = jQuery.Callbacks();
             	</script>
                 <xsl:apply-templates mode="html.header.scripts"/>
                 <script type="text/javascript" src="{$normalised-path-to-js}global.js"/>

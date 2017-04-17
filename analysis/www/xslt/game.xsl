@@ -25,6 +25,19 @@
             <xsl:with-param name="game" select="self::game" as="element()"/>
         </xsl:call-template>
         <script type="text/javascript" src="{$normalised-path-to-js}game.js"/>
+    <xsl:choose>
+            <xsl:when test="$static = 'false'">
+                <script type="text/javascript">
+                    <xsl:text>var gameId = "</xsl:text>
+                    <xsl:value-of select="@id"/>
+                    <xsl:text>";</xsl:text>
+                </script>
+                <script type="text/javascript" src="{$normalised-path-to-js}update.js"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <script type="text/javascript">function update(){};</script>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="game" mode="html.footer.scripts"/>
     <xsl:template match="game" mode="html.header.style">

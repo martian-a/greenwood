@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-
+	
 	var pageClass = $("html").attr("class");
 
 	/* 
@@ -14,19 +14,89 @@ jQuery(document).ready(function($) {
 	/* 
 	 * Reorganise the content into tabbed containers
 	 */
-	$("main > section").filter(":first").addClass("focus");
-	$("main > .contents li:first-child").addClass("focus");
-	$("main > .contents a").each(function(){
-		$(this).replaceWith(this.childNodes);	
-	});
-	$("main > .contents li").click(function(){
-		$("main > .contents li, main > section").removeClass("focus");
-		$(this).addClass("focus");
-		var i = $(this).prevAll().length;
-		$("main > section").eq(i).addClass("focus");
-	});
-	$("main").addClass("tabbed");
+	 function tab(containerElement, labelElement, keyIn, parent) {
+	 	
+	 	this.key = keyIn;
+	 	this.container = containerElement;
+	 	this.label = labelElement;
+	 	this.tabs = parent;
+	 	
+	 	this.show = function(){
+	 		$(this.container, this.label).addClass("focus");
+	 	};
+	 	this.hide = function(){
+	 		$(this.container, this.label).removeClass("focus");
+	 	};
+	 	
+	 	this.init = function(hasFocus){
+	 		
+	 		var self = this;
+  			$(this.label).find("a").each(function(){
+				$(this).replaceWith(this.childNodes);	
+			});
+			
+	 		$(this.container, this.label).addClass("tab");
+			
+			$(this.label).on("click", function(){
+				self.tabs.show(self.key);
+			});
+			 	 		
+ 	 		if (hasFocus) {
+ 	 			this.show();
+ 	 		} else {
+ 	 			this.hide();
+ 	 		}
+		};
 		
+	 };
+	 
+	 function tabs(containerElement) {
+	 	
+	 	this.collection = new Array();
+	 	this.container = containerElement;
+	 	
+	 	this.length = this.collection.length;	
+	 	
+	 	this.createTab = function(containerElement, labelElement){
+	 		this.collection.push(new tab(containerElement, labelElement, this.collection.length + 1, this));
+	 	};
+	 	
+	 	this.show = function(key) {
+	 		for (var i = 0; i < this.collection.length; i++) {
+	 			this.collection[i].hide();
+	 		};
+	 		for (var i = 0; i < this.collection.length; i++) {
+	 			var tab = this.collection[i];
+	 			if (tab.key == key) {
+	 				tab.show();
+	 			};
+	 		};
+	 		showHide.fire();
+	 	};
+	 	
+	 	this.init = function(){
+	 		for (var i = 0; i < this.collection.length; i++) {
+	 			var hasFocus;
+	 			if (i == 0) {
+	 				hasFocus = true;
+	 			} else {
+	 				hasFocus = false;
+	 			};
+	 			this.collection[i].init(hasFocus);
+	 		};
+	 		$(this.container).addClass("tabbed");
+	 	};
+	 	
+	 };
+	 
+	 var tabs = new tabs($("main"));
+	 $("main > .contents li").each(function(){
+	 	var i = $(this).prevAll().length;
+	 	tabs.createTab($("main > section").eq(i), this);
+	 
+	 });
+	 tabs.init();
+	
 	generateVisualisations($);
 	
 });

@@ -30,7 +30,12 @@
 			
 			<xsl:text>&#10;</xsl:text>
 			
-		</script>
+		<xsl:text>var storedLayout = </xsl:text>
+            <xsl:value-of select="if ($game/map/locations/descendant::location[@id][@x][@y]) then 'true' else 'false'"/>
+            <xsl:text>;</xsl:text>
+            <xsl:text>
+</xsl:text>
+        </script>
 	</xsl:template>
     
     
@@ -65,7 +70,7 @@
         <xsl:text>&#10;</xsl:text>
     </xsl:template>
     
-    <xsl:template match="property[@data-type = 'xs:string']" mode="serialize.javascript" priority="5">
+    <xsl:template match="property[@data-type = 'xs:string'] | property[@data-type = 'boolean'] | property[@data-type = 'xs:integer'][starts-with(normalize-space(.), '-')]" mode="serialize.javascript" priority="5">
         <xsl:text>'</xsl:text><xsl:next-match /><xsl:text>'</xsl:text>
     </xsl:template>
     

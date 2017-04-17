@@ -228,8 +228,21 @@
             <object>
                 <property label="id" data-type="xs:string"><xsl:value-of select="@id" /></property>
                 <property label="label" data-type="xs:string"><xsl:value-of select="normalize-space($label)" /></property>
-                <property label="size" data-type="integer"><xsl:value-of select="sum(10 * sum(1 + $total-tickets))" /></property>
-                <property label="mass" data-type="integer"><xsl:value-of select="sum(1 + $total-tickets)" /></property>
+                <property label="size" data-type="xs:integer"><xsl:value-of select="sum(10 * sum(1 + $total-tickets))" /></property>
+                <property label="mass" data-type="xs:integer"><xsl:value-of select="sum(1 + $total-tickets)" /></property>
+            <xsl:if test="@x or @y">
+                    <property label="fixed" data-type="boolean">true</property>
+                    <xsl:if test="@x">
+                        <property label="x" data-type="xs:integer">
+                            <xsl:value-of select="@x"/>
+                        </property>
+                    </xsl:if>
+                    <xsl:if test="@y">
+                        <property label="y" data-type="xs:integer">
+                            <xsl:value-of select="@y"/>
+                        </property>
+                    </xsl:if>
+                </xsl:if>
             </object>
         </xsl:for-each>
     </xsl:function>
@@ -244,7 +257,7 @@
                 <property label="from" data-type="xs:string"><xsl:value-of select="$route/location[1]/@ref" /></property>
                 <property label="to" data-type="xs:string"><xsl:value-of select="$route/location[2]/@ref" /></property>
                 <property label="color" data-type="xs:string"><xsl:value-of select="gw:getColourHex($colour)" /></property>
-                <property label="length" data-type="integer"><xsl:value-of select="sum(150 * number($route/@length))" /></property>
+                <property label="length" data-type="xs:integer"><xsl:value-of select="sum(150 * number($route/@length))" /></property>
             </object>
         </xsl:for-each>
     </xsl:function>
@@ -369,7 +382,7 @@
                         <xsl:otherwise>#66ccff</xsl:otherwise>
                     </xsl:choose>
                 </property>
-                <property label="length" data-type="integer"><xsl:value-of select="sum(150 * number($edge/@length))" /></property>
+                <property label="length" data-type="xs:integer"><xsl:value-of select="sum(150 * number($edge/@length))" /></property>
             </object>
         </xsl:for-each>
         

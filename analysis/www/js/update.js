@@ -18,10 +18,10 @@ function update($) {
 	};
 	
 	$("#save-network").on("click", function(){
-		getData(routesNetworkCollection.getNetwork());
+		getData(routesNetwork.getNetwork());
 	});
 	$("#save-tickets").on("click", function(){
-		getData(ticketsNetworkCollection.getNetwork());		
+		getData(ticketsNetwork.getNetwork());		
 	});
 	
 };

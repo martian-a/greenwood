@@ -72,20 +72,21 @@ var generateVisualisations = function generateVisualisations($) {
 	        }
 	    },
 	    physics: {
+	        solver: 'barnesHut',
 	        barnesHut: {
 	            gravitationalConstant: -2000,
-	            centralGravity: 0.3,
+	            centralGravity: 0.1,
 	            springLength: 95,
-	            springConstant: 0.04,
+	            springConstant: 0.01,
 	            damping: 0.09,
 	            avoidOverlap: 1
 	        },
 	        maxVelocity: 50,
 	        minVelocity: 0.1,
-	        solver: 'barnesHut',
 	        timestep: 0.5,
 	        stabilization: {
-	            enabled: true
+	            onlyDynamicEdges: true,
+	            fit: true
 	        }
 	    },
 	    interaction: {
@@ -114,9 +115,12 @@ var generateVisualisations = function generateVisualisations($) {
 	function networkVisualisation(containerId, nodesData, edgesData, optionsIn) {
 		
 		this.container;
+		this.controls;
+		this.canvas;
 		this.data;
 		this.options = optionsIn;
 		this.network;
+		this.stabilized = false;
 		
 		this.getData = function(){
 			return this.data;
@@ -130,14 +134,23 @@ var generateVisualisations = function generateVisualisations($) {
 		this.getNetwork = function() {
 			return this.network;
 		};
+		this.getCanvas = function() {
+			return this.canvas;
+		};
 		this.getOptions = function(){
 			return this.options;
+		};
+		this.getId = function(){
+			return this.container.getAttribute("id");
 		};
 		this.isVisible = function(){
 			if ($(this.container).is(":visible")) {
 				return true;
 			}
 			return false;
+		};
+		this.isStabilized = function(){
+			return this.stabilized;
 		};
 		
 		this.bestFit = function() {		
@@ -147,6 +160,8 @@ var generateVisualisations = function generateVisualisations($) {
 			};
 			
 			var network = this.getNetwork();
+			var canvas = this.getCanvas();
+			var wasStabilized = this.isStabilized();
 			
 			network.moveTo({scale:1}); 
 			network.stopSimulation();
@@ -160,8 +175,8 @@ var generateVisualisations = function generateVisualisations($) {
 				if (bb.bottom > bigBB.bottom) bigBB.bottom = bb.bottom;  
 			});
 			
-			var canvasWidth = 0.9 * this.container.clientWidth;
-			var canvasHeight = 0.9 * this.container.clientHeight; 
+			var canvasWidth = 0.9 * canvas.clientWidth;
+			var canvasHeight = 0.9 * canvas.clientHeight; 
 			
 			var networkHeight = bigBB.bottom - bigBB.top;
 			var networkWidth = bigBB.right - bigBB.left;
@@ -186,7 +201,10 @@ var generateVisualisations = function generateVisualisations($) {
 				  y: (bigBB.bottom + bigBB.top)/2
 				}
 			});
-			network.startSimulation();
+			
+			if (wasStabilized == false) {
+				network.startSimulation();				
+			};
 	
 		};
 		
@@ -197,20 +215,74 @@ var generateVisualisations = function generateVisualisations($) {
 			};
 		};
 		
+		this.setStabilized = function(state){
+			
+			if (state == true) {
+				this.stabilized = true;
+			} else if (state == false) {
+				this.stabilized = false;
+			};
+			
+
+			var freezeLabel;
+			if (this.isStabilized()) {
+				freezeLabel = "Unfreeze";
+			} else {
+				freezeLabel = "Freeze";
+			}
+			
+			if (($(this.controls).find("button.freeze")).length < 1) {
+				$(this.controls).append("<button class=\"freeze\">" + freezeLabel + "</button>");
+				var self = this;
+				$(this.controls).find("button.freeze").on("click", function(){
+					self.toggleFreeze();
+				});
+			} else {
+				$(this.controls).find("button.freeze").text(freezeLabel);	
+			}
+			
+		};
+		
+		this.toggleFreeze = function() {
+			
+			var network = this.getNetwork();
+			if (this.isStabilized()) {
+				network.startSimulation();
+			} else {
+				network.stopSimulation();
+			}
+			
+		};
+		
 		if (!this.network) {
 			
+			var self = this;
 			this.container = document.getElementById(containerId);
+			var canvasId = this.getId() + "-canvas";
+			$(this.container).append("<div class=\"canvas\" id=\"" + canvasId + "\" /><div class=\"controls\" />");
+			this.canvas = document.getElementById(canvasId);
+			this.controls = $(this.container).find(".controls");
 			var nodes = new vis.DataSet(nodesData);
 			var edges = new vis.DataSet(edgesData);
 		    this.data = {
 	       	 	nodes: nodes,
 	        	edges: edges
 	        };
-			this.network = new vis.Network(this.container, this.data, this.options);
+			this.network = new vis.Network(this.canvas, this.data, this.options);
 			networkVisualisations.push(this);
 			if (!showHide.has(networkVisualisation.updateAll)) {
 				showHide.add(networkVisualisation.updateAll);
 			};
+			 
+			
+			this.network.on("stabilized", function(){
+				self.setStabilized(true);
+				
+			}); 
+			this.network.on("startStabilizing", function(){				
+				self.setStabilized(false);
+			}); 
+			
 			this.bestFit();
 		};
 	

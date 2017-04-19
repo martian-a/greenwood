@@ -64,7 +64,7 @@ span.ticket{
 	transform: rotate(-10deg);
 }
 
-div.network-visualisation {
+div.network-visualisation .canvas {
 	height: 800px;
 	/* width: 1200px; */
 	border: 1px solid lightgray;

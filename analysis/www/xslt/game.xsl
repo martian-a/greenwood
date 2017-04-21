@@ -405,8 +405,8 @@
                     <xsl:for-each-group select="path" group-by="@distance">
                         <xsl:sort select="current-grouping-key()" data-type="number" order="ascending"/>
                         <li>
-                            <h3>
-                                <xsl:value-of select="current-grouping-key()"/> Carriage<xsl:if test="current-grouping-key() != 1">s</xsl:if> (<xsl:value-of select="count(current-group())"/> paths)</h3>
+                            <h4>
+                                <xsl:value-of select="current-grouping-key()"/> Carriage<xsl:if test="current-grouping-key() != 1">s</xsl:if> (<xsl:value-of select="count(current-group())"/> paths)</h4>
                             <ul>
                                 <xsl:for-each select="current-group()">
                                     <li>

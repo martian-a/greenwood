@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 	/* 
 	 * Reorganise the content into tabbed containers
 	 */
-	 function tab(containerElement, labelElement, keyIn, parent) {
+	 var Tab = function tab(containerElement, labelElement, keyIn, parent) {
 	 	
 	 	this.key = keyIn;
 	 	this.container = containerElement;
@@ -22,10 +22,10 @@ jQuery(document).ready(function($) {
 	 	this.tabs = parent;
 	 	
 	 	this.show = function(){
-	 		$(this.container, this.label).addClass("focus");
+	 		$(this.container).add(this.label).addClass("focus");
 	 	};
 	 	this.hide = function(){
-	 		$(this.container, this.label).removeClass("focus");
+	 		$(this.container).add(this.label).removeClass("focus");
 	 	};
 	 	
 	 	this.init = function(hasFocus){
@@ -50,7 +50,7 @@ jQuery(document).ready(function($) {
 		
 	 };
 	 
-	 function tabs(containerElement) {
+	 var Tabs = function tabs(containerElement) {
 	 	
 	 	this.collection = new Array();
 	 	this.container = containerElement;
@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
 	 	this.length = this.collection.length;	
 	 	
 	 	this.createTab = function(containerElement, labelElement){
-	 		this.collection.push(new tab(containerElement, labelElement, this.collection.length + 1, this));
+	 		this.collection.push(new Tab(containerElement, labelElement, this.collection.length + 1, this));
 	 	};
 	 	
 	 	this.show = function(key) {
@@ -89,13 +89,31 @@ jQuery(document).ready(function($) {
 	 	
 	 };
 	 
-	 var tabs = new tabs($("main"));
+	 // Convert each of the main sections into tabs (tabbed content).
+	 var tabs = new Tabs($("main"));
 	 $("main > .contents li").each(function(){
 	 	var i = $(this).prevAll().length;
 	 	tabs.createTab($("main > section").eq(i), this);
 	 
 	 });
+	 
+	 var routesSubTabs = new Tabs($("section#routes")); 
+	 var subsectionHeadings = [];
+	 $("section#routes > section > h3").each(function(){
+	    subsectionHeadings.push($(this).text());
+	 });
+	 $("section#routes > h2").after("<div class=\"contents\"><h3 class=\"heading\">Contents</h3><nav><ul></ul></nav></div>");
+	 for (var i = 0; i < subsectionHeadings.length; i++) {
+	     $("section#routes > .contents ul").append("<li>" + subsectionHeadings[i] + "</li>");
+	 };
+	 $("section#routes > .contents li").each(function(){
+		var i = $(this).prevAll().length;
+	 	routesSubTabs.createTab($("section#routes > section").eq(i), this);
+	 });
+	
+	 
 	 tabs.init();
+	 routesSubTabs.init();
 	
 	generateVisualisations($);
 	

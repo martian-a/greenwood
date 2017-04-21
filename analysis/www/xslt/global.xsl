@@ -99,7 +99,7 @@
     
 	<xsl:template match="game | location" mode="nav.page" priority="100">
         <div class="contents">
-            <h2>Contents</h2>
+            <h2 class="heading">Contents</h2>
             <nav>
                 <ul>
                 <xsl:next-match/>

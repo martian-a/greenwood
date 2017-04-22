@@ -115,7 +115,7 @@
         <section id="routes" class="routes">
             <h2>Routes</h2>
             <section>
-                <h3>Options</h3>
+                <h3>Length</h3>
                 <table>
                     <tr>
                         <th>Length</th>

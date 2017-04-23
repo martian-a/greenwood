@@ -105,244 +105,136 @@
     
 	<xsl:template match="routes" mode="#default script" priority="10">
         <xsl:next-match>
-            <xsl:with-param name="routes" select="." as="element()"/>
+            <xsl:with-param name="routes" select="." as="element()" tunnel="no" />
         </xsl:next-match>
     </xsl:template>
     
 	<xsl:template match="routes">
-        <xsl:param name="colour" as="element()*" tunnel="yes"/>
-        <xsl:param name="routes" as="element()" tunnel="no"/>
         <section id="routes" class="routes">
             <h2>Routes</h2>
             <section>
                 <h3>Length</h3>
-                <table>
-                    <tr>
-                        <th>Length</th>
-                        <xsl:for-each select="$colour">
-                            <th>
-                                <xsl:value-of select="name"/>
-                            </th>
-                        </xsl:for-each>
-                        <th>Total</th>
-                    </tr>
-                    <xsl:for-each-group select="route" group-by="@length">
-                        <xsl:sort select="current-grouping-key()" order="descending" data-type="number"/>
-                        <tr>
-                            <td>
-                                <xsl:value-of select="current-grouping-key()"/>
-                            </td>
-                            <xsl:for-each select="$colour">
-                                <xsl:variable name="colour-id" select="@id"/>
-                                <td>
-                                    <xsl:value-of select="count(current-group()/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                                </td>
-                            </xsl:for-each>
-                            <td>
-                                <xsl:value-of select="count(current-group()/(@colour | colour/@ref))"/>
-                            </td>
-                        </tr>
-                    </xsl:for-each-group>
-                    <tr>
-                        <td>Total</td>
-                        <xsl:for-each select="$colour">
-                            <xsl:variable name="colour-id" select="@id"/>
-                            <td>
-                                <xsl:value-of select="count($routes/route/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                            </td>
-                        </xsl:for-each>
-                        <td>
-                            <xsl:value-of select="count($routes/route/(@colour | colour/@ref))"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Value</td>
-                        <xsl:for-each select="$colour">
-                            <xsl:variable name="colour-id" select="@id"/>
-                            <td>
-                                <xsl:value-of select="sum(21 * count($routes/route[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 18 * count($routes/route[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 15 * count($routes/route[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 10 * count($routes/route[@length = '5']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 7 * count($routes/route[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 4 * count($routes/route[@length = '3']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 2 * count($routes/route[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + count($routes/route[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))"/>
-                            </td>
-                        </xsl:for-each>
-                        <td>
-                            <xsl:value-of select="sum(21 * count($routes/route[@length = '8']) + 18 * count($routes/route[@length = '7']) + 15 * count($routes/route[@length = '6']) + 10 * count($routes/route[@length = '5']) + 7 * count($routes/route[@length = '4']) + 4 * count($routes/route[@length = '3']) + 2 * count($routes/route[@length = '2']) + count($routes/route[@length = '1']))"/>
-                        </td>
-                    </tr>
-                </table>
+                <xsl:apply-templates select="self::routes" mode="routes.table">
+                	<xsl:with-param name="routes-filtered" select="route" as="element()*" tunnel="no" />
+                </xsl:apply-templates>
             </section>
             <section>
-                <h3>Double Routes</h3>
-                <table>
-                    <tr>
-                        <th>Length</th>
-                        <xsl:for-each select="$colour">
-                            <th>
-                                <xsl:value-of select="name"/>
-                            </th>
-                        </xsl:for-each>
-                        <th>Total</th>
-                    </tr>
-                    <xsl:for-each-group select="route" group-by="@length">
-                        <xsl:sort select="current-grouping-key()" order="descending" data-type="number"/>
-                    <tr>
-                            <td>
-                                <xsl:value-of select="current-grouping-key()"/>
-                            </td>
-                            <xsl:for-each select="$colour">
-                                <xsl:variable name="colour-id" select="@id"/>
-                                <td>
-                                    <xsl:value-of select="count(current-group()[count(colour) &gt; 1]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                                </td>
-                            </xsl:for-each>
-                            <td>
-                                <xsl:value-of select="count(current-group()[count(colour) &gt; 1]/(@colour | colour/@ref))"/>
-                            </td>
-                        </tr>
-                    </xsl:for-each-group>
-                <tr>
-                        <td>Total</td>
-                        <xsl:for-each select="$colour">
-                            <xsl:variable name="colour-id" select="@id"/>
-                            <td>
-                                <xsl:value-of select="count($routes/route[count(colour) &gt; 1]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                            </td>
-                        </xsl:for-each>
-                        <td>
-                            <xsl:value-of select="count($routes/route[count(colour) &gt; 1]/(@colour | colour/@ref))"/>
-                        </td>
-                    </tr>
-                </table>
+                <h3>Double Routes</h3>            	
+            	<xsl:apply-templates select="self::routes" mode="routes.table">
+            		<xsl:with-param name="routes-filtered" select="route[count(colour) &gt; 1]" as="element()*" tunnel="no" />
+            	</xsl:apply-templates>
             </section>
             <section>
-                <h3>Tunnels</h3>
-                <table>
-                    <tr>
-                        <th>Length</th>
-                        <xsl:for-each select="$colour">
-                            <th>
-                                <xsl:value-of select="name"/>
-                            </th>
-                        </xsl:for-each>
-                    <th>Total</th>
-                    </tr>
-                    <xsl:for-each-group select="route" group-by="@length">
-                        <xsl:sort select="current-grouping-key()" order="descending" data-type="number"/>
-                    <tr>
-                            <td>
-                                <xsl:value-of select="current-grouping-key()"/>
-                            </td>
-                            <xsl:for-each select="$colour">
-                                <xsl:variable name="colour-id" select="@id"/>
-                                <td>
-                                    <xsl:value-of select="count(current-group()[@tunnel = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                                </td>
-                            </xsl:for-each>
-                            <td>
-                                <xsl:value-of select="count(current-group()[@tunnel = 'true']/(@colour | colour/@ref))"/>
-                            </td>
-                        </tr>
-                    </xsl:for-each-group>
-                <tr>
-                        <td>Total</td>
-                        <xsl:for-each select="$colour">
-                            <xsl:variable name="colour-id" select="@id"/>
-                            <td>
-                                <xsl:value-of select="count($routes/route[@tunnel = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                            </td>
-                        </xsl:for-each>
-                        <td>
-                            <xsl:value-of select="count($routes/route[@tunnel = 'true']/(@colour | colour/@ref))"/>
-                        </td>
-                    </tr>
-                </table>
+            	<h3>Tunnels</h3>            	
+            	<xsl:apply-templates select="self::routes" mode="routes.table">
+            		<xsl:with-param name="routes-filtered" select="route[@tunnel = 'true']" as="element()*" tunnel="no" />
+            	</xsl:apply-templates>
             </section>
             <section>
-                <h3>Microlights</h3>
-                <table>
-                    <tr>
-                        <th>Length</th>
-                        <xsl:for-each select="$colour">
-                            <th>
-                                <xsl:value-of select="name"/>
-                            </th>
-                        </xsl:for-each>
-                    <th>Total</th>
-                    </tr>
-                    <xsl:for-each-group select="route" group-by="@length">
-                        <xsl:sort select="current-grouping-key()" order="descending" data-type="number"/>
-                    <tr>
-                            <td>
-                                <xsl:value-of select="current-grouping-key()"/>
-                            </td>
-                            <xsl:for-each select="$colour">
-                                <xsl:variable name="colour-id" select="@id"/>
-                                <td>
-                                    <xsl:value-of select="count(current-group()[@microlight = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                                </td>
-                            </xsl:for-each>
-                            <td>
-                                <xsl:value-of select="count(current-group()[@microlight = 'true']/(@colour | colour/@ref))"/>
-                            </td>
-                        </tr>
-                    </xsl:for-each-group>
-                <tr>
-                        <td>Total</td>
-                        <xsl:for-each select="$colour">
-                            <xsl:variable name="colour-id" select="@id"/>
-                            <td>
-                                <xsl:value-of select="count($routes/route[@microlight = 'true']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                            </td>
-                        </xsl:for-each>
-                        <td>
-                            <xsl:value-of select="count($routes/route[@microlight = 'true']/(@colour | colour/@ref))"/>
-                        </td>
-                    </tr>
-                </table>
+            	<h3>Microlights</h3>            	
+            	<xsl:apply-templates select="self::routes" mode="routes.table">
+            		<xsl:with-param name="routes-filtered" select="route[@microlight = 'true']" as="element()*" tunnel="no" />
+            	</xsl:apply-templates>
             </section>
             <section>
-                <h3>Ferries</h3>
-                <table>
-                    <tr>
-                        <th>Length</th>
-                        <xsl:for-each select="$colour">
-                            <th>
-                                <xsl:value-of select="name"/>
-                            </th>
-                        </xsl:for-each>
-                    <th>Total</th>
-                    </tr>
-                    <xsl:for-each-group select="route" group-by="@length">
-                        <xsl:sort select="current-grouping-key()" order="descending" data-type="number"/>
-                    <tr>
-                            <td>
-                                <xsl:value-of select="current-grouping-key()"/>
-                            </td>
-                            <xsl:for-each select="$colour">
-                                <xsl:variable name="colour-id" select="@id"/>
-                                <td>
-                                    <xsl:value-of select="count(current-group()[@ferry/number(.) &gt; 0]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                                </td>
-                            </xsl:for-each>
-                            <td>
-                                <xsl:value-of select="count(current-group()[@ferry/number(.) &gt; 0]/(@colour | colour/@ref))"/>
-                            </td>
-                        </tr>
-                    </xsl:for-each-group>
-                <tr>
-                        <td>Total</td>
-                        <xsl:for-each select="$colour">
-                            <xsl:variable name="colour-id" select="@id"/>
-                            <td>
-                                <xsl:value-of select="count($routes/route[@ferry/number(.) &gt; 0]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>
-                            </td>
-                        </xsl:for-each>
-                        <td>
-                            <xsl:value-of select="count($routes/route[@ferry/number(.) &gt; 0]/(@colour | colour/@ref))"/>
-                        </td>
-                    </tr>
-                </table>
+            	<h3>Ferries</h3>            	
+            	<xsl:apply-templates select="self::routes" mode="routes.table">
+            		<xsl:with-param name="routes-filtered" select="route[@ferry/number(.) &gt; 0]" as="element()*" tunnel="no" />
+            	</xsl:apply-templates>
             </section>
-            </section>
+        </section>
     </xsl:template>
+	
+	<xsl:template match="routes" mode="routes.table">
+		<xsl:param name="routes-filtered" as="element()*" tunnel="no" />
+		<xsl:param name="colour" as="element()*" tunnel="yes"/>
+		
+		<table>
+			<tr>
+				
+				<!-- Segment length column heading -->
+				<th>Length</th>
+				
+				<!-- Track colour column headings -->
+				<xsl:for-each select="$colour">
+					<th class="{@id}">
+						<xsl:value-of select="name"/>
+					</th>
+				</xsl:for-each>
+				
+				<!-- Segment length sub-total column heading -->
+				<th>Total</th>
+			</tr>
+			<xsl:for-each-group select="self::routes/route" group-by="@length">
+				<xsl:sort select="current-grouping-key()" order="descending" data-type="number"/>
+				
+				<!-- 1 row per segment length -->
+				<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+					
+					<!-- Row heading: the length of this segment -->
+					<td>
+						<xsl:value-of select="current-grouping-key()"/>
+					</td>
+					
+					<xsl:for-each select="$colour">
+						<xsl:variable name="colour-id" select="@id"/>
+						
+						<!-- The number of segments of this length, in this colour -->
+						<td class="{$colour-id}">
+							<xsl:value-of select="count($routes-filtered[@length = current-grouping-key()]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>	
+						</td>
+						
+					</xsl:for-each>
+					
+					<!-- The total number of segments of this length, in any colour -->
+					<td>
+						<xsl:value-of select="count($routes-filtered[@length = current-grouping-key()]/(@colour | colour/@ref))"/>
+					</td>
+					
+				</tr>
+				
+			</xsl:for-each-group>
+			<xsl:variable name="total-unique-route-lengths" select="count(distinct-values(self::routes/route/@length))"/>
+            <tr class="total{if (sum($total-unique-route-lengths + 1) mod 2 = 0) then ' even' else ' odd'}">
+				
+				<td>Total</td>
+				<xsl:for-each select="$colour">
+					<xsl:variable name="colour-id" select="@id"/>
+					
+					<!-- The total number of segments in this colour, of any length -->
+					<td class="{$colour-id}">
+						<xsl:value-of select="count($routes-filtered/(@colour[. = $colour-id] | colour[@ref = $colour-id]))"/>	
+					</td>
+					
+				</xsl:for-each>
+				
+				<!-- The total number of segments in any colour, of any length -->
+				<td>
+					<xsl:value-of select="count($routes-filtered/(@colour | colour/@ref))"/>
+				</td>
+				
+			</tr>
+			<tr class="value{if (sum($total-unique-route-lengths + 2) mod 2 = 0) then ' even' else ' odd'}">
+				
+				<td>Value</td>
+				<xsl:for-each select="$colour">
+					<xsl:variable name="colour-id" select="@id"/>
+					
+					<!-- The total value of the segments in this colour -->
+					<td class="{$colour-id}">
+						<xsl:value-of select="sum(21 * count($routes-filtered[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 18 * count($routes-filtered[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 15 * count($routes-filtered[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 10 * count($routes-filtered[@length = '5']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 7 * count($routes-filtered[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 4 * count($routes-filtered[@length = '3']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 2 * count($routes-filtered[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + count($routes-filtered[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))"/>
+					</td>
+					
+				</xsl:for-each>
+				
+				<!-- The total value of all segments (of any length) in any colour -->
+				<td>
+					<xsl:value-of select="sum(21 * count($routes-filtered[@length = '8']) + 18 * count($routes-filtered[@length = '7']) + 15 * count($routes-filtered[@length = '6']) + 10 * count($routes-filtered[@length = '5']) + 7 * count($routes-filtered[@length = '4']) + 4 * count($routes-filtered[@length = '3']) + 2 * count($routes-filtered[@length = '2']) + count($routes-filtered[@length = '1']))"/>
+				</td>
+			</tr>
+		</table>
+	</xsl:template>
+	
     
 	<xsl:template match="map/shortest-paths">
         <xsl:param name="game-id" as="xs:string" tunnel="yes"/>

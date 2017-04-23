@@ -70,3 +70,127 @@ div.network-visualisation .canvas {
 	border: 1px solid lightgray;
 	background-color: #f5f5f5;
 }
+#routes table td, 
+#routes table th {
+    padding: 1em;
+    text-align: center;
+    color: rgba(0,0,0,1);
+}
+#routes table {
+	border-collapse: collapse;
+}
+
+/* Red columns */
+#routes table th.RED,
+#routes table td.RED {
+	background-color: rgba(204, 0, 0, 1);
+}
+#routes table tr.odd td.RED {
+	background-color: rgba(204, 0, 0, 0.5);
+}
+#routes table tr.even td.RED {
+	background-color: rgba(204, 0, 0, 0.75);
+}
+
+/* Orange columns */
+#routes table th.ORA,
+#routes table td.ORA {
+	background-color: rgba(252, 125, 0, 1);
+}
+#routes table tr.odd td.ORA {
+	background-color: rgba(252, 125, 0, 0.5);
+}
+#routes table tr.even td.ORA {
+	background-color: rgba(252, 125, 0, 0.75);
+}
+
+/* Yellow columns */
+#routes table th.YEL,
+#routes table td.YEL {
+	background-color: rgba(226, 192, 56, 1);
+}
+#routes table tr.odd td.YEL {
+	background-color: rgba(226, 192, 56, 0.5);
+}
+#routes table tr.even td.YEL {
+	background-color: rgba(226, 192, 56, 0.75);
+}
+
+/* Green columns */
+#routes table th.GRN,
+#routes table td.GRN {
+	background-color: rgba(144, 185, 22, 1);
+}
+#routes table tr.odd td.GRN {
+	background-color: rgba(144, 185, 22, 0.5);
+}
+#routes table tr.even td.GRN {
+	background-color: rgba(144, 185, 22, 0.75);
+}
+
+/* Blue columns */
+#routes table th.BLU,
+#routes table td.BLU {
+	background-color: rgba(0, 153, 255, 1);
+}
+#routes table tr.odd td.BLU {
+	background-color: rgba(0, 153, 255, 0.5);
+}
+#routes table tr.even td.BLU {
+	background-color: rgba(0, 153, 255, 0.75);
+}
+
+/* Violet columns */
+#routes table th.VIO,
+#routes table td.VIO {
+	background-color: rgba(204, 102, 255, 1);
+}
+#routes table tr.odd td.VIO {
+	background-color: rgba(204, 102, 255, 0.5);
+}
+#routes table tr.even td.VIO {
+	background-color: rgba(204, 102, 255, 0.75);
+}
+
+/* White columns */
+#routes table th.WHI,
+#routes table td.WHI {
+	background-color: rgba(252, 252, 252, 1);
+}
+#routes table tr.odd td.WHI {
+	background-color: rgba(252, 252, 252, 0.5);
+}
+#routes table tr.even td.WHI {
+	background-color: rgba(252, 252, 252, 0.75);
+}
+
+/* Black columns */
+#routes table th.BLA,
+#routes table td.BLA {
+	background-color: rgba(2, 2, 2, 1);
+	color: rgba(255, 255, 255, 1);
+}
+#routes table tr.odd td.BLA {
+	background-color: rgba(2, 2, 2, 0.5);
+}
+#routes table tr.even td.BLA {
+	background-color: rgba(2, 2, 2, 0.75);
+}
+
+/* Grey columns */
+#routes table th.GRY,
+#routes table td.GRY {
+	background-color: rgba(202, 202, 202, 1);
+}
+#routes table tr.odd td.GRY {
+	background-color: rgba(202, 202, 202, 0.5);
+}
+#routes table tr.even td.GRY {
+	background-color: rgba(202, 202, 202, 0.75);
+}
+
+#routes table th,
+#routes table td {
+	border: 3px solid;
+	border-color: rgba(255,255,255,1);
+}

@@ -338,8 +338,59 @@
         <xsl:variable name="game" select="ancestor::game[1]" as="element()"/>
         <section id="tickets" class="tickets">
             <h2>Tickets</h2>
-            <p>Total: <xsl:value-of select="count(descendant::ticket)"/>
-            </p>
+        	<section>
+        		<h3>Summary</h3>
+        		<xsl:variable name="total-ticket-points-max" as="xs:integer?">
+        			<xsl:variable name="non-standard-tickets" as="element()*">
+        				<xsl:for-each select="$tickets[not(@points)]/*[@points]">
+        					<xsl:sort select="@points" data-type="number" order="descending" />
+        					<xsl:if test="position() = 1">
+                                <xsl:sequence select="self::*"/>
+                            </xsl:if>
+        				</xsl:for-each>
+        			</xsl:variable>	
+        			<xsl:value-of select="sum($tickets/@points) + sum($non-standard-tickets/@points)" />
+        		</xsl:variable>
+        		<xsl:variable name="total-ticket-points-min" as="xs:integer?">
+                    <xsl:variable name="non-standard-tickets" as="element()*">
+                        <xsl:for-each select="$tickets[not(@points)]/*[@points]">
+                            <xsl:sort select="@points" data-type="number" order="ascending"/>
+                            <xsl:if test="position() = 1">
+                                <xsl:sequence select="self::*"/>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:variable>
+                    <xsl:value-of select="sum($tickets/@points) + sum($non-standard-tickets/@points)"/>
+                </xsl:variable>
+                <p>Total tickets: <xsl:value-of select="count($tickets)"/></p>
+        		<p>Total ticket points: <xsl:value-of select="$total-ticket-points-max"/>
+                </p>
+        	<p>Average points per ticket: <xsl:value-of select="format-number(sum($total-ticket-points-max div count($tickets)), '###.##')"/>
+                    <xsl:if test="$total-ticket-points-max != $total-ticket-points-min"> (max), <xsl:value-of select="format-number(sum($total-ticket-points-min div count($tickets)), '###.##')"/> (min)</xsl:if>
+                </p>
+                <p>Total tickets per total locations (average): <xsl:value-of select="format-number(sum(count($tickets) div count(/game/map/locations/descendant::location[@id])), '0.#')"/>
+                </p>
+            </section>
+            <section>
+                <h3>Points Frequency</h3>
+                <table>
+                    <tr>
+                        <th>Ticket Value</th>
+                        <th>Total Tickets</th>
+                    </tr>
+                    <xsl:for-each-group select="$tickets" group-by="if (@points) then @points else */@points">
+                        <xsl:sort select="current-grouping-key()" data-type="number" order="ascending"/>
+                        <tr>
+                            <td>
+                                <xsl:value-of select="current-grouping-key()"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="count(current-group())"/>
+                            </td>
+                        </tr>
+                    </xsl:for-each-group>
+                </table>
+            </section>
             <section>
                 <h3>Cross-referenced</h3>
                 <table class="cross-reference">

@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
 	if (pageClass == "game") {
 		$("main > section").filter(":first").before("<section id=\"network\" class=\"network\"><h2>Network</h2><div id=\"vis1\" class=\"network-visualisation\"/></section>");
 		$("main > .contents li").filter(":first").before("<li>Network</li>");
-		$("main > #tickets > section").filter(":first").before("<section id=\"ticket-distribution\"><h3>Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></section>");	 	
+		$("main > #tickets > section").filter(":first").after("<section id=\"ticket-distribution\"><h3>Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></section>");	 	
 	};
 
 	/* 

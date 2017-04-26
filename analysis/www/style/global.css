@@ -6,7 +6,7 @@
  */
 
 body {
-	background-color: #f7f7f7;
+	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
 }
@@ -165,3 +165,129 @@ section.tab.tabbed {
  
  
 /* End of Tabbed Content */
+
+
+/* Tables: Generic */
+
+table {
+	border-collapse: collapse;
+}
+table td, 
+table th {
+	padding: 0.25em 1em;
+    color: rgba(0,0,0,1);
+	border: 3px solid;
+	border-color: rgba(255,255,255,1);
+	text-align: center;
+}
+table tr th:first-of-type,
+table tr td:first-of-type {
+	text-align: left;
+	font-weight: bold;
+}
+
+/* Header Row */
+table th {
+	background-color: rgba(210, 215, 223, 1);
+}
+
+/* Odd Rows */
+table tr.odd td {
+	background-color: rgba(235, 235, 235, .5);
+}
+
+/* Even Rows */
+table tr.even td {
+	background-color: rgba(228, 231, 236, 0.75);
+}
+
+/* Cross-referencing self cells */
+table tr.odd td.self,
+table tr.even td.self {
+	background-color: rgba(210, 215, 223, 1);
+}
+
+/* End of Tables: Generic */
+
+/* Tables: Cross-reference */
+
+
+table.cross-reference{
+	border-collapse: collapse;
+}
+table.cross-reference th,
+table.cross-reference td {
+	padding: .25em;
+}
+table.cross-reference th {
+	text-align: left;
+	white-space: normal;
+}
+table.cross-reference td {
+	text-align: center;
+}
+table.cross-reference th.destination {
+	height: 13em;
+	white-space: nowrap;
+	width: 2em;
+	vertical-align: middle;
+}
+table.cross-reference th.destination span {
+	display: inline-block;
+	position: relative;
+	width: 1.5em;
+	line-height: 2em;
+	margin: 0;
+	transform: rotate(-90deg);
+	transform-origin: 3.5em 3.5em 0;
+}
+table.cross-reference th.total{
+	white-space: normal;
+	width: 3em;
+	vertical-align: bottom;
+}
+table.cross-reference td.destination{
+	text-align: left;
+	font-weight: bold;
+}
+
+/* Header Row */
+table.cross-reference th {
+	background-color: rgba(210, 215, 223, 1);
+}
+table.cross-reference th.odd {
+	background-color: rgba(210, 215, 223, 0.5);
+}
+table.cross-reference th.even {
+	background-color: rgba(210, 215, 223, 0.75);
+}
+
+/* Odd Rows */
+table.cross-reference tr.odd td {
+	background-color: rgba(235, 235, 235, 1);
+}
+table.cross-reference tr.odd td.odd {
+	background-color: rgba(235, 235, 235, 0.25);
+}
+table.cross-reference tr.odd td.even {
+	background-color: rgba(235, 235, 235, 0.5);
+}
+
+/* Even Rows */
+table.cross-reference tr.even td {
+	background-color: rgba(228, 231, 236, 1);
+}
+table.cross-reference tr.even td.odd {
+	background-color: rgba(228, 231, 236, 0.5);
+}
+table.cross-reference tr.even td.even {
+	background-color: rgba(228, 231, 236, 0.85);
+}
+
+/* Cross-referencing self cells */
+table.cross-reference tr.odd td.self,
+table.cross-reference tr.even td.self {
+	background-color: rgba(210, 215, 223, 1);
+}
+
+/* End of Tables: Cross-reference */

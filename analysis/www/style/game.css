@@ -12,48 +12,6 @@ div.locations ul{
 	column-gap: 5em;
 }
 
-table.cross-reference{
-	border-collapse: collapse;
-}
-table.cross-reference th,
-table.cross-reference td{
-	border: 1px solid black;
-	padding: .25em;
-}
-table.cross-reference th{
-	text-align: left;
-	white-space: normal;
-}
-table.cross-reference td{
-	text-align: center;
-}
-table.cross-reference td.empty{
-	background-color: #c0c0c0;
-}
-table.cross-reference th.destination{
-	height: 12em;
-	white-space: nowrap;
-	width: 2em;
-	vertical-align: middle;
-}
-table.cross-reference th.destination span{
-	display: inline-block;
-	position: relative;
-	width: 1.5em;
-	line-height: 2em;
-	margin: 0;
-	transform: rotate(-90deg);
-	transform-origin: 3.25em 3.25em 0;
-}
-table.cross-reference th.total{
-	white-space: normal;
-	width: 3em;
-	vertical-align: bottom;
-}
-table.cross-reference td.destination{
-	text-align: left;
-	font-weight: bold;
-}
 
 span.ticket{
 	display: inline-block;
@@ -67,18 +25,10 @@ span.ticket{
 div.network-visualisation .canvas {
 	height: 800px;
 	/* width: 1200px; */
-	border: 1px solid lightgray;
-	background-color: #f5f5f5;
+	border: 1px solid #f5f5f5;
+	background-color: #f7f7f7;
 }
-#routes table td, 
-#routes table th {
-    padding: 1em;
-    text-align: center;
-    color: rgba(0,0,0,1);
-}
-#routes table {
-	border-collapse: collapse;
-}
+
 
 /* Red columns */
 #routes table th.RED,
@@ -153,15 +103,11 @@ div.network-visualisation .canvas {
 }
 
 /* White columns */
-#routes table th.WHI,
-#routes table td.WHI {
-	background-color: rgba(252, 252, 252, 1);
+#routes table th.WHI {
+	background-color: rgba(245, 245, 245, 1);
 }
 #routes table tr.odd td.WHI {
-	background-color: rgba(252, 252, 252, 0.5);
-}
-#routes table tr.even td.WHI {
-	background-color: rgba(252, 252, 252, 0.75);
+	background-color: rgba(255, 255, 255, 1);
 }
 
 /* Black columns */
@@ -187,10 +133,4 @@ div.network-visualisation .canvas {
 }
 #routes table tr.even td.GRY {
 	background-color: rgba(202, 202, 202, 0.75);
-}
-
-#routes table th,
-#routes table td {
-	border: 3px solid;
-	border-color: rgba(255,255,255,1);
 }

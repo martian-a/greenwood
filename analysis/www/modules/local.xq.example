@@ -4,3 +4,6 @@ module namespace local = "http://ns.greenwood.thecodeyard.co.uk/settings/local";
 
 declare variable $local:path-to-data := "/home/username/git/projectname/data/";
 declare variable $local:path-to-view := "/home/username/git/projectname/www/view/";
+declare variable $local:path-to-css := "/home/username/git/projectname/www/style/";
+declare variable $local:path-to-xslt := "/home/username/projectname/www/xslt/";
+declare variable $local:path-to-js := "/home/username/git/projectname/www/js/";

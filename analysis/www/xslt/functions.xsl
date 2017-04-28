@@ -219,6 +219,28 @@
     </xsl:function>
    
    
+    <xsl:function name="gw:get-path-start-name" as="xs:string?">
+        <xsl:param name="path" as="element()"/>
+        <xsl:for-each select="$path/location/gw:get-location-name(.)">
+            <xsl:sort select="." data-type="text" order="ascending"/>
+            <xsl:if test="position() = 1">
+                <xsl:value-of select="."/>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:function>
+
+
+    <xsl:function name="gw:get-path-end-name" as="xs:string?">
+        <xsl:param name="path" as="element()"/>
+        <xsl:for-each select="$path/location/gw:get-location-name(.)">
+            <xsl:sort select="." data-type="text" order="ascending"/>
+            <xsl:if test="position() = last()">
+                <xsl:value-of select="."/>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:function>
+
+
     <xsl:function name="gw:generate-routes-node-data" as="element()*">
         <xsl:param name="game" as="element()"/>
         

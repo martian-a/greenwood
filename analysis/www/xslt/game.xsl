@@ -418,7 +418,9 @@
 						<xsl:variable name="paths-from" select="$paths[*/@ref = $from/@id]" as="element()*" />
 						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
 							<td class="destination">
-								<xsl:value-of select="gw:get-location-name($from)" />
+								<a href="{$normalised-path-to-html}/location/{$game-id}-{$from/@id}{$ext-html}">
+					                                    <xsl:value-of select="gw:get-location-name($from)"/>
+					                                </a>
 							</td>
 							<xsl:for-each select="$destinations">
 								<xsl:sort select="name" data-type="text" order="ascending" />
@@ -451,7 +453,9 @@
 							<h4> <xsl:value-of select="current-grouping-key()" /> Carriage<xsl:if test="current-grouping-key() != 1">s</xsl:if> (<xsl:value-of select="count(current-group())" /> paths)</h4>
 							<ul>
 								<xsl:for-each select="current-group()">
-									<li>
+									<xsl:sort select="gw:get-path-start-name(self::path)" data-type="text" order="ascending"/>
+						                               <xsl:sort select="gw:get-path-end-name(self::path)" data-type="text" order="ascending"/>
+						                               <li>
 										<xsl:apply-templates select="." mode="path.name" />
 										<xsl:for-each select="ancestor::game[1]/tickets/ticket[location/@ref = current()/location[1]/@ref][location/@ref = current()/location[2]/@ref]">
 											<span class="ticket">🎫</span>
@@ -566,7 +570,9 @@
 						<xsl:variable name="tickets-from" select="$tickets[*/@ref = $from/@id]" as="element()*" />
 						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
 							<td class="destination {if (position() mod 2 = 0) then 'even' else 'odd'}">
-								<xsl:value-of select="gw:get-location-name($from)" />
+								<a href="{$normalised-path-to-html}/location/{$game-id}-{$from/@id}{$ext-html}">
+                                    						<xsl:value-of select="gw:get-location-name($from)"/>
+                                					</a>
 							</td>
 							<xsl:for-each select="$destinations">
 								<xsl:sort select="name" data-type="text" order="ascending" />
@@ -726,8 +732,15 @@
 
 
 	<xsl:template match="path" mode="path.name">
-		<xsl:value-of select="gw:get-location-name(location[1])" />
-		<xsl:text> to </xsl:text>
-		<xsl:value-of select="gw:get-location-name(location[2])" />
+		<xsl:param name="game-id" as="xs:string" tunnel="yes"/>
+		<xsl:for-each select="location">
+	            <xsl:sort select="gw:get-location-name(self::location)" data-type="text" order="ascending"/>
+	            <a href="{$normalised-path-to-html}/location/{$game-id}-{@ref}{$ext-html}">
+	                <xsl:value-of select="gw:get-location-name(self::location)"/>
+	            </a>
+	            <xsl:if test="position() = 1">
+	                <xsl:text> to </xsl:text>
+	            </xsl:if>
+	        </xsl:for-each>
 	</xsl:template>
 </xsl:stylesheet>

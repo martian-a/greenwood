@@ -31,106 +31,106 @@ div.network-visualisation .canvas {
 
 
 /* Red columns */
-#routes table th.RED,
-#routes table td.RED {
+section.routes table th.RED,
+section.routes table td.RED {
 	background-color: rgba(204, 0, 0, 1);
 }
-#routes table tr.odd td.RED {
+section.routes table tr.odd td.RED {
 	background-color: rgba(204, 0, 0, 0.5);
 }
-#routes table tr.even td.RED {
+section.routes table tr.even td.RED {
 	background-color: rgba(204, 0, 0, 0.75);
 }
 
 /* Orange columns */
-#routes table th.ORA,
-#routes table td.ORA {
+section.routes table th.ORA,
+section.routes table td.ORA {
 	background-color: rgba(252, 125, 0, 1);
 }
-#routes table tr.odd td.ORA {
+section.routes table tr.odd td.ORA {
 	background-color: rgba(252, 125, 0, 0.5);
 }
-#routes table tr.even td.ORA {
+section.routes table tr.even td.ORA {
 	background-color: rgba(252, 125, 0, 0.75);
 }
 
 /* Yellow columns */
-#routes table th.YEL,
-#routes table td.YEL {
+section.routes table th.YEL,
+section.routes table td.YEL {
 	background-color: rgba(226, 192, 56, 1);
 }
-#routes table tr.odd td.YEL {
+section.routes table tr.odd td.YEL {
 	background-color: rgba(226, 192, 56, 0.5);
 }
-#routes table tr.even td.YEL {
+section.routes table tr.even td.YEL {
 	background-color: rgba(226, 192, 56, 0.75);
 }
 
 /* Green columns */
-#routes table th.GRN,
-#routes table td.GRN {
+section.routes table th.GRN,
+section.routes table td.GRN {
 	background-color: rgba(144, 185, 22, 1);
 }
-#routes table tr.odd td.GRN {
+section.routes table tr.odd td.GRN {
 	background-color: rgba(144, 185, 22, 0.5);
 }
-#routes table tr.even td.GRN {
+section.routes table tr.even td.GRN {
 	background-color: rgba(144, 185, 22, 0.75);
 }
 
 /* Blue columns */
-#routes table th.BLU,
-#routes table td.BLU {
+section.routes table th.BLU,
+section.routes table td.BLU {
 	background-color: rgba(0, 153, 255, 1);
 }
-#routes table tr.odd td.BLU {
+section.routes table tr.odd td.BLU {
 	background-color: rgba(0, 153, 255, 0.5);
 }
-#routes table tr.even td.BLU {
+section.routes table tr.even td.BLU {
 	background-color: rgba(0, 153, 255, 0.75);
 }
 
 /* Violet columns */
-#routes table th.VIO,
-#routes table td.VIO {
+section.routes table th.VIO,
+section.routes table td.VIO {
 	background-color: rgba(204, 102, 255, 1);
 }
-#routes table tr.odd td.VIO {
+section.routes table tr.odd td.VIO {
 	background-color: rgba(204, 102, 255, 0.5);
 }
-#routes table tr.even td.VIO {
+section.routes table tr.even td.VIO {
 	background-color: rgba(204, 102, 255, 0.75);
 }
 
 /* White columns */
-#routes table th.WHI {
+section.routes table th.WHI {
 	background-color: rgba(245, 245, 245, 1);
 }
-#routes table tr.odd td.WHI {
+section.routes table tr.odd td.WHI {
 	background-color: rgba(255, 255, 255, 1);
 }
 
 /* Black columns */
-#routes table th.BLA,
-#routes table td.BLA {
+section.routes table th.BLA,
+section.routes table td.BLA {
 	background-color: rgba(2, 2, 2, 1);
 	color: rgba(255, 255, 255, 1);
 }
-#routes table tr.odd td.BLA {
+section.routes table tr.odd td.BLA {
 	background-color: rgba(2, 2, 2, 0.5);
 }
-#routes table tr.even td.BLA {
+section.routes table tr.even td.BLA {
 	background-color: rgba(2, 2, 2, 0.75);
 }
 
 /* Grey columns */
-#routes table th.GRY,
-#routes table td.GRY {
+section.routes table th.GRY,
+section.routes table td.GRY {
 	background-color: rgba(202, 202, 202, 1);
 }
-#routes table tr.odd td.GRY {
+section.routes table tr.odd td.GRY {
 	background-color: rgba(202, 202, 202, 0.5);
 }
-#routes table tr.even td.GRY {
+section.routes table tr.even td.GRY {
 	background-color: rgba(202, 202, 202, 0.75);
 }

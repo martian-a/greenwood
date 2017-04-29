@@ -239,6 +239,30 @@
             </xsl:if>
         </xsl:for-each>
     </xsl:function>
+	
+	<xsl:function name="gw:get-sorted-ticket-locations" as="xs:string*">
+		<xsl:param name="ticket" as="element()"/>
+		<xsl:choose>
+			<xsl:when test="$ticket[count(*[name() = ('location', 'country')]) &gt; 2]">
+				<xsl:value-of select="$ticket/*[name() = ('location', 'country')][not(@points)]/gw:get-location-name(.)"/>
+				<xsl:text> </xsl:text>
+				<xsl:for-each select="$ticket/*[name() = ('location', 'country')][@points]">
+					<xsl:sort select="@points" data-type="number" order="ascending"/>
+					<xsl:sort select="gw:get-location-name(self::*)" data-type="text" order="ascending"/>
+					<xsl:if test="position() = last()">
+						<xsl:value-of select="gw:get-location-name(self::*)"/>
+					</xsl:if>
+				</xsl:for-each>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:for-each select="$ticket/*[name() = ('location', 'country')]/gw:get-location-name(.)">
+					<xsl:sort select="." data-type="text" order="ascending"/>
+					<xsl:value-of select="."/>
+					<xsl:if test="position() != last()"><xsl:text> </xsl:text></xsl:if>
+				</xsl:for-each>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:function>
 
 
     <xsl:function name="gw:generate-routes-node-data" as="element()*">

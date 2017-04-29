@@ -661,7 +661,8 @@
 								<ul class="multi-column">
 									<xsl:for-each select="descendant::ticket[not(country)]">
 										<xsl:sort select="@points" data-type="number" order="ascending" />
-										<li>
+										<xsl:sort select="string-join(gw:get-sorted-ticket-locations(self::ticket), ';')" data-type="text" order="ascending"/>
+                                        <li>
 											<xsl:apply-templates select="." mode="ticket.name" />
 										</li>
 									</xsl:for-each>
@@ -678,7 +679,8 @@
 							<xsl:when test="descendant::ticket[location][country]">
 								<ul class="multi-column">
 									<xsl:for-each select="descendant::ticket[location][country]">
-										<li>
+										<xsl:sort select="string-join(gw:get-sorted-ticket-locations(self::ticket), ';')" data-type="text" order="ascending"/>
+                                        <li>
 											<xsl:apply-templates select="." mode="ticket.name" />
 										</li>
 									</xsl:for-each>
@@ -695,7 +697,8 @@
 							<xsl:when test="descendant::ticket[not(location)]">
 								<ul class="multi-column">
 									<xsl:for-each select="descendant::ticket[not(location)]">
-										<li>
+										<xsl:sort select="string-join(gw:get-sorted-ticket-locations(self::ticket), ';')" data-type="text" order="ascending"/>
+                                        <li>
 											<xsl:apply-templates select="." mode="ticket.name" />
 										</li>
 									</xsl:for-each>
@@ -713,9 +716,13 @@
 
 
 	<xsl:template match="ticket[count(*[name() = ('location', 'country')]) = 2]" mode="ticket.name">
-		<xsl:value-of select="gw:get-location-name(*[name() = ('location', 'country')][1])" />
-		<xsl:text> to </xsl:text>
-		<xsl:value-of select="gw:get-location-name(*[name() = ('location', 'country')][2])" />
+		<xsl:for-each select="*[name() = ('location', 'country')]">
+            <xsl:sort select="gw:get-location-name(self::*)" data-type="text" order="ascending"/>
+            <xsl:value-of select="gw:get-location-name(self::*)"/>
+            <xsl:if test="position() = 1">
+                <xsl:text> to </xsl:text>
+            </xsl:if>
+        </xsl:for-each>
 		<xsl:value-of select="concat(' [', @points, ']')" />
 	</xsl:template>
 

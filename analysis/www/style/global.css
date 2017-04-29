@@ -307,3 +307,39 @@ table.cross-reference tr.even td.self {
 }
 
 /* End of Tables: Cross-reference */
+
+
+/* Multi-column */
+
+ul.multi-column {
+	column-count: 3;
+	column-gap: 5em;	
+}
+
+/* End of Multi-column */
+
+
+/* Zebra */
+
+ul.zebra {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.zebra > li {
+	padding: 1em;
+}
+ul.zebra > li > h4 {
+	margin-top: 0;
+} 
+
+ul.zebra > li:first-of-type {
+	padding-top: 0;
+}
+
+ul.zebra li.even {
+	background-color: rgba(228, 231, 236, 0.5);
+}
+
+/* End of Zebra */

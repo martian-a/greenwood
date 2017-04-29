@@ -118,16 +118,19 @@
                 <h3 id="locations-summary">Summary</h3>
                 <p>Total: <xsl:value-of select="count(descendant::location)"/>
                 </p>
-                <ul>
-                    <xsl:for-each select="descendant::location">
-                        <xsl:sort select="if (name) then name else ancestor::country[1]/concat(name, ' (', @id, ')')" data-type="text" order="ascending"/>
-                        <li>
-                            <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
-                                <xsl:value-of select="gw:get-location-name(.)"/>
-                            </a>
-                        </li>
-                    </xsl:for-each>
-                </ul>
+                <div class="multi-column">
+                    <h4>All Locations</h4>
+                    <ul class="multi-column">
+                        <xsl:for-each select="descendant::location">
+                            <xsl:sort select="if (name) then name else ancestor::country[1]/concat(name, ' (', @id, ')')" data-type="text" order="ascending"/>
+                            <li>
+                                <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                                    <xsl:value-of select="gw:get-location-name(.)"/>
+                                </a>
+                            </li>
+                        </xsl:for-each>
+                    </ul>
+                </div>
             </section>
 			<section>
 				<h3 id="locations-by-total-tickets">By Total Tickets</h3>
@@ -446,12 +449,12 @@
 			</section>
 			<section>
 				<h3 id="shortest-paths-by-distance">By Distance</h3>
-				<ul>
+				<ul class="zebra">
 					<xsl:for-each-group select="path" group-by="@distance">
 						<xsl:sort select="current-grouping-key()" data-type="number" order="ascending" />
-						<li>
+						<li class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
 							<h4> <xsl:value-of select="current-grouping-key()" /> Carriage<xsl:if test="current-grouping-key() != 1">s</xsl:if> (<xsl:value-of select="count(current-group())" /> paths)</h4>
-							<ul>
+							<ul class="multi-column">
 								<xsl:for-each select="current-group()">
 									<xsl:sort select="gw:get-path-start-name(self::path)" data-type="text" order="ascending"/>
 						                               <xsl:sort select="gw:get-path-end-name(self::path)" data-type="text" order="ascending"/>
@@ -650,12 +653,12 @@
 			</section>
 			<section>
 				<h3 id="tickets-by-type">By Type</h3>
-				<ul>
-					<li>
+				<ul class="zebra">
+					<li class="odd">
 						<h4>Settlement-to-settlement</h4>
 						<xsl:choose>
 							<xsl:when test="descendant::ticket[not(country)]">
-								<ul>
+								<ul class="multi-column">
 									<xsl:for-each select="descendant::ticket[not(country)]">
 										<xsl:sort select="@points" data-type="number" order="ascending" />
 										<li>
@@ -669,11 +672,11 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</li>
-					<li>
+					<li class="even">
 						<h4>Settlement-to-region</h4>
 						<xsl:choose>
 							<xsl:when test="descendant::ticket[location][country]">
-								<ul>
+								<ul class="multi-column">
 									<xsl:for-each select="descendant::ticket[location][country]">
 										<li>
 											<xsl:apply-templates select="." mode="ticket.name" />
@@ -686,11 +689,11 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</li>
-					<li>
+					<li class="odd">
 						<h4>Region-to-region</h4>
 						<xsl:choose>
 							<xsl:when test="descendant::ticket[not(location)]">
-								<ul>
+								<ul class="multi-column">
 									<xsl:for-each select="descendant::ticket[not(location)]">
 										<li>
 											<xsl:apply-templates select="." mode="ticket.name" />

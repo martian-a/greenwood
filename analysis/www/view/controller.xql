@@ -38,8 +38,14 @@ return
 			)
 	
 	)
+	else if ($params[1] = ('html', 'xml'))
+	then (
+		<dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+	        <forward url="{$exist:controller}/{$params[1]}/index.{$params[1]}" />
+	    </dispatch>
+	)
 	else (
 		<dispatch xmlns="http://exist.sourceforge.net/NS/exist">
-	        <forward url="{$exist:controller}/html/game.html" />
+	        <forward url="{$exist:controller}/html/index.html" />
 	    </dispatch>
 	)

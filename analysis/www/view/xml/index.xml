@@ -1,0 +1,17 @@
+xquery version "3.0";
+
+declare namespace request="http://exist-db.org/xquery/request";
+
+import module namespace loc = "http://ns.greenwood.thecodeyard.co.uk/location" at "/db/apps/greenwood/modules/location.xq";
+declare option exist:serialize "method=xml media-type=text/xml indent=yes";
+
+let $data := collection("/db/apps/greenwood/data")
+
+return
+	<games>
+		{
+			for $id in $data/game/@id
+			let $game := loc:get-game($id)				
+			return $game 
+		}
+	</games>

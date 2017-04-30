@@ -1,0 +1,19 @@
+xquery version "3.0";
+
+declare namespace request="http://exist-db.org/xquery/request";
+
+import module namespace loc = "http://ns.greenwood.thecodeyard.co.uk/location" at "/db/apps/greenwood/modules/location.xq";
+
+declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
+
+let $stylesheet := doc("/db/apps/greenwood/xslt/global.xsl")
+let $parameters := 
+	<parameters>
+		<param name="path-to-js" value="../../js/" />
+		<param name="path-to-css" value="../../style/" />
+		<param name="path-to-xml" value="../xml" />
+		<param name="path-to-html" value="../html" />
+	</parameters>
+return
+	let $xml := loc:request-xml('index.xml')
+	return transform:transform($xml, $stylesheet, $parameters)

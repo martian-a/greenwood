@@ -66,7 +66,9 @@
 
 	<xsl:template match="game | games | location | locations" mode="nav.site">
 		<header class="header">
-			<h2>TTR Analysis</h2>
+			<h2>
+                <a href="{$normalised-path-to-html}/">TTR Analysis</a>
+            </h2>
 			<nav class="site">
 				<ul>
 					<li>

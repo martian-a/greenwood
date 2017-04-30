@@ -26,59 +26,134 @@
     </xsl:function>
 	
     
-    <xsl:function name="gw:getMaxPoints" as="xs:integer">
-        <xsl:param name="ticket" as="element()" />
-        <xsl:param name="location-id" as="xs:string?" />
+    <xsl:function name="gw:get-greatest-common-denominator" as="xs:integer?">
+        <xsl:param name="x" as="xs:integer"/>
+        <xsl:param name="y" as="xs:integer"/>
         
+        <xsl:choose>
+            <xsl:when test="$x &lt; 0">
+                <xsl:value-of select="gw:get-greatest-common-denominator(abs($x), $y)"/>
+            </xsl:when>
+            <xsl:when test="$y &lt; 0">
+                <xsl:value-of select="gw:get-greatest-common-denominator($x, abs($y))"/>
+            </xsl:when>
+            <xsl:when test="sum($x + $y) &lt; 0">
+                <!-- Error: both parameters zero -->
+                </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="gw:get-greatest-common-denominator($x, $y, $y)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+    
+    
+    <xsl:function name="gw:get-greatest-common-denominator" as="xs:integer">
+        <xsl:param name="x" as="xs:integer"/>
+        <xsl:param name="y" as="xs:integer"/>
+        <xsl:param name="g" as="xs:integer"/>
+        <xsl:choose>
+            <xsl:when test="$x &gt; 0">
+                <xsl:value-of select="gw:get-greatest-common-denominator($y mod $x, $x, $x)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$g"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+    <xsl:function name="gw:get-ratio" as="xs:string?">
+        <xsl:param name="x" as="xs:integer"/>
+        <xsl:param name="y" as="xs:integer"/>
+        <xsl:variable name="greatest-common-denominator" select="gw:get-greatest-common-denominator($x, $y)" as="xs:integer"/>
+        <xsl:value-of select="concat($x div $greatest-common-denominator, ':', $y div $greatest-common-denominator)"/>
+    </xsl:function>
+    <xsl:function name="gw:get-min-ticket-points" as="xs:integer">
+        <xsl:param name="ticket" as="element()"/>
+        <xsl:choose>
+			<!-- settlement to settlement -->
+            <xsl:when test="$ticket/@points">
+                <xsl:value-of select="$ticket/@points"/>
+            </xsl:when>
+			<!-- multi-location -->
+            <xsl:otherwise>
+				<!-- Find the destination with the highest points -->
+                <xsl:for-each select="$ticket/*[@points]">
+                    <xsl:sort select="@points" data-type="number" order="ascending"/>
+                    <xsl:if test="position() = 1">
+                        <xsl:value-of select="@points"/>
+                    </xsl:if>
+                </xsl:for-each>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+    <xsl:function name="gw:get-max-ticket-points" as="xs:integer">
+        <xsl:param name="ticket" as="element()"/>
+        <xsl:choose>
+			<!-- settlement to settlement -->
+            <xsl:when test="$ticket/@points">
+                <xsl:value-of select="$ticket/@points"/>
+            </xsl:when>
+			<!-- multi-location -->
+            <xsl:otherwise>
+				<!-- Find the destination with the highest points -->
+                <xsl:for-each select="$ticket/*[@points]">
+                    <xsl:sort select="@points" data-type="number" order="descending"/>
+                    <xsl:if test="position() = 1">
+                        <xsl:value-of select="@points"/>
+                    </xsl:if>
+                </xsl:for-each>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+    <xsl:function name="gw:get-max-ticket-points-for-location" as="xs:integer">
+        <xsl:param name="ticket" as="element()"/>
+        <xsl:param name="location-id" as="xs:string?"/>
         <xsl:choose>
             <!-- Location is a settlement -->
             <xsl:when test="$ticket/location[@ref = $location-id]">
                 <xsl:choose>
                     <!-- settlement to settlement -->
                     <xsl:when test="$ticket/@points">
-                        <xsl:value-of select="$ticket/@points" />
+                        <xsl:value-of select="$ticket/@points"/>
                     </xsl:when>
                     <!-- settlement to region (location is starting point) -->
                     <xsl:when test="$ticket/location[@ref = $location-id][not(@points)]">
                         <!-- Find the destination with the highest points -->
                         <xsl:for-each select="$ticket/*[@points]">
-                            <xsl:sort select="@points" data-type="number" order="descending" />
+                            <xsl:sort select="@points" data-type="number" order="descending"/>
                             <xsl:if test="position() = 1">
-                                <xsl:value-of select="@points" />
+                                <xsl:value-of select="@points"/>
                             </xsl:if>
                         </xsl:for-each>
                     </xsl:when>
                     <!-- settlement to region (location is destination)  -->
                     <xsl:otherwise>
-                        <xsl:value-of select="$ticket/location[@ref = $location-id]/@points" />
+                        <xsl:value-of select="$ticket/location[@ref = $location-id]/@points"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <!-- Location is a region -->
             <xsl:when test="$ticket/country[@ref = $location-id]">
-                <xsl:variable name="country-id" select="$location-id" />
+                <xsl:variable name="country-id" select="$location-id"/>
                 <xsl:choose>
                     <!-- region to region (location is starting point) -->
                     <xsl:when test="$ticket/country[@ref = $country-id][not(@points)]">
                         <!-- Find the destination with the highest points -->
                         <xsl:for-each select="$ticket/*[@points]">
-                            <xsl:sort select="@points" data-type="number" order="descending" />
+                            <xsl:sort select="@points" data-type="number" order="descending"/>
                             <xsl:if test="position() = 1">
-                                <xsl:value-of select="@points" />
+                                <xsl:value-of select="@points"/>
                             </xsl:if>
                         </xsl:for-each>
                     </xsl:when>
                     <!-- region to region (location is destination) -->
                     <xsl:otherwise>
-                        <xsl:value-of select="$ticket/country[@ref = $country-id]/@points" />
+                        <xsl:value-of select="$ticket/country[@ref = $country-id]/@points"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>0</xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    
-    
     <xsl:function name="gw:consolidate-shortest-routes" as="element()*">
         <xsl:param name="shortest-paths" as="element()*" />
         

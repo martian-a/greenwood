@@ -2,7 +2,13 @@
 <!DOCTYPE game
   SYSTEM "game.dtd">
 <game id="GINDIA">
-    <title>India</title>
+	<title>India</title>
+	<players max="4" double-routes-min="4" />
+	<starting-hand>
+		<cards>
+			<destinations regular="4" />
+		</cards>
+	</starting-hand>
     <map>
         <locations>
             <country id="CIND">

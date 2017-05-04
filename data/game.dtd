@@ -1,5 +1,9 @@
-<!ELEMENT game (title?, map?, tickets*)>
+<!ELEMENT game (title?, players?, starting-hand?, map?, tickets*)>
 <!ELEMENT title (#PCDATA)>
+<!ELEMENT players (#PCDATA)>
+<!ELEMENT starting-hand (cards?)>
+<!ELEMENT cards (destinations?)>
+<!ELEMENT destinations (#PCDATA)>
 <!ELEMENT map (((locations?, routes?, colours)|network?), shortest-paths?)>
 <!ELEMENT locations (location*, country*)>
 <!ELEMENT country (name?, location*)>
@@ -56,3 +60,16 @@
 	distance CDATA #IMPLIED>
 <!ATTLIST via
 	direct (true|false) "false">
+<!ATTLIST players
+	min (2|4) "2"
+	max (3|4|5) "5"
+	double-routes-min (3|4) "4">
+<!ATTLIST starting-hand
+	carriages (40|45) "45"
+	stations (0|3) "0">
+<!ATTLIST cards
+	train (4) "4">
+<!ATTLIST destinations
+	regular (1|2|3|4|5) "3"
+	long (1|2|3|4|5) "1"
+	must-keep (1|2|3|4|5) "2">

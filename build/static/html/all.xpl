@@ -51,10 +51,12 @@
 	<p:output port="result" sequence="true">
 		<p:pipe port="result" step="copy-dependencies" />
 		<p:pipe port="result" step="process-directories" />
+		<p:pipe port="result" step="process-homepage" />
 	</p:output>
 	
 	
 	<p:import href="copy_dependencies.xpl" />
+	<p:import href="homepage.xpl" />
 
 
 	<p:documentation>
@@ -240,6 +242,19 @@
 		</p:group>
 		
 	</p:for-each>
+	
+	<p:sink />
+	
+	<p:documentation>
+		<d:doc scope="step">
+			<d:desc>Copy javascript and style assets that the result will depend on the output directory.</d:desc>
+		</d:doc>
+	</p:documentation>
+	<tcy:generate-static-html-publish-homepage name="process-homepage">
+		<p:with-option name="href-xml" select="concat($target, '/xml/index.xml')" />
+		<p:with-option name="href-app" select="$href-app" />
+		<p:with-option name="target" select="$target" />
+	</tcy:generate-static-html-publish-homepage>
 
 	
 </p:declare-step>

@@ -39,11 +39,13 @@
 	
 	<p:output port="result" sequence="true">
 		<p:pipe port="result" step="copy-game-xml" />
+		<p:pipe port="result" step="generate-homepage-xml" />
 		<p:pipe port="result" step="generate-location-xml" />
 		<p:pipe port="result" step="generate-index-xml" />
 	</p:output> 
 	
 	<p:import href="game.xpl" />
+	<p:import href="homepage.xpl" />
 	<p:import href="locations.xpl" />
 	<p:import href="indices.xpl" />
 
@@ -57,6 +59,17 @@
 		<p:with-option name="target" select="concat($target, '/game/')" />
 	</tcy:static-game-xml>
 		
+		
+	<p:documentation>
+		<d:doc scope="step">
+			<d:desc>Generate custom a XML file for the site homepage and store it in the output directory.</d:desc>
+		</d:doc>
+	</p:documentation>
+	<tcy:static-homepage-xml name="generate-homepage-xml">
+		<p:with-option name="href" select="concat($target, '/game/')" />
+		<p:with-option name="target" select="concat($target, '/')" />
+	</tcy:static-homepage-xml>
+	
 
 	<p:documentation>
 		<d:doc scope="step">

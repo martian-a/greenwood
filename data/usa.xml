@@ -3,6 +3,12 @@
   SYSTEM "game.dtd">
 <game id="GUSA">
     <title>USA</title>
+	<players max="5" />
+	<starting-hand>
+		<cards>
+			<destinations regular="3" />
+		</cards>
+	</starting-hand>
     <map>
         <locations>
             <country id="CAN">

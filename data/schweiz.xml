@@ -3,6 +3,12 @@
   SYSTEM "game.dtd">
 <game id="SWI">
     <title>Schweiz</title>
+	<players max="3" double-routes-min="3" />
+	<starting-hand carriages="40">
+		<cards>
+			<destinations regular="5" />
+		</cards>
+	</starting-hand>
     <map>
         <locations>
             <country id="SZL">

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE game SYSTEM "game.dtd">
 <game id="NOR">
+	<title>Nordic</title>
+	<players max="3" double-routes-min="3" />
+	<starting-hand carriages="40">
+		<cards>
+			<destinations regular="5" />
+		</cards>
+	</starting-hand>
    <map>
       <locations>
          <location id="HON">
@@ -78,7 +85,7 @@
          <location id="STO">
             <name>Stockholm</name>
          </location>
-         <location id="NOR">
+         <location id="NKP">
             <name>Norrköping</name>
          </location>
          <location id="KAR">

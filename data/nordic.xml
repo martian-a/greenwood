@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE game SYSTEM "game.dtd">
+<game id="NOR">
+   <map>
+      <locations>
+         <location id="HON">
+            <name>Honningsvåg</name>
+         </location>
+         <location id="KIR">
+            <name>Kirkenes</name>
+         </location>
+         <location id="MUR">
+            <name>Murmansk</name>
+         </location>
+         <location id="LIE">
+            <name>Lieska</name>
+         </location>
+         <location id="KAJ">
+            <name>Kajaani</name>
+         </location>
+         <location id="OUL">
+            <name>Oulu</name>
+         </location>
+         <location id="TOR">
+            <name>Tornio</name>
+         </location>
+         <location id="ROV">
+            <name>Rovaniemi</name>
+         </location>
+         <location id="BOD">
+            <name>Boden</name>
+         </location>
+         <location id="KIR2">
+            <name>Kiruna</name>
+         </location>
+         <location id="TRO">
+            <name>Tromsø</name>
+         </location>
+         <location id="NAR">
+            <name>Narvik</name>
+         </location>
+         <location id="MOI">
+            <name>Mo I Rana</name>
+         </location>
+         <location id="TRO2">
+            <name>Trondheim</name>
+         </location>
+         <location id="OST">
+            <name>Östersund</name>
+         </location>
+         <location id="UME">
+            <name>Umeå</name>
+         </location>
+         <location id="VAS">
+            <name>Vassa</name>
+         </location>
+         <location id="KUO">
+            <name>Kuopio</name>
+         </location>
+         <location id="IMA">
+            <name>Imatra</name>
+         </location>
+         <location id="LAH">
+            <name>Lahti</name>
+         </location>
+         <location id="TAM">
+            <name>Tampere</name>
+         </location>
+         <location id="TUR">
+            <name>Turku</name>
+         </location>
+         <location id="HEL">
+            <name>Helsinki</name>
+         </location>
+         <location id="TAL">
+            <name>Talinn</name>
+         </location>
+         <location id="STO">
+            <name>Stockholm</name>
+         </location>
+         <location id="NOR">
+            <name>Norrköping</name>
+         </location>
+         <location id="KAR">
+            <name>Kariskrona</name>
+         </location>
+         <location id="KOB">
+            <name>København</name>
+         </location>
+         <location id="ARH">
+            <name>Århus</name>
+         </location>
+         <location id="ALB">
+            <name>Ålborg</name>
+         </location>
+         <location id="GOT">
+            <name>Göteborg</name>
+         </location>
+      </locations>
+      <colours>
+         <colour id="RED">
+            <name>Red</name>
+         </colour>
+         <colour id="ORA">
+            <name>Orange</name>
+         </colour>
+         <colour id="YEL">
+            <name>Yellow</name>
+         </colour>
+         <colour id="GRN">
+            <name>Green</name>
+         </colour>
+         <colour id="BLU">
+            <name>Blue</name>
+         </colour>
+         <colour id="VIO">
+            <name>Pink</name>
+         </colour>
+         <colour id="WHI">
+            <name>White</name>
+         </colour>
+         <colour id="BLA">
+            <name>Black</name>
+         </colour>
+         <colour id="GRY">
+            <name>Grey</name>
+         </colour>
+      </colours>
+   </map>
+ </game>

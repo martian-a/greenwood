@@ -26,45 +26,101 @@
     </xsl:function>
 	
     
+    <!--xsl:function name="gw:square-root" as="xs:double">
+		<xsl:param name="number" as="xs:integer" />
+		<xsl:value-of select="gw:square-root($number, 1, 1, 20)" />
+	</xsl:function>
+	
+	<xsl:function name="gw:square-root" as="xs:double">
+		<xsl:param name="number" as="xs:integer" />
+		<xsl:param name="try" as="xs:double" />
+		<xsl:param name="iteration" as="xs:integer" />
+		<xsl:param name="max-iterations" as="xs:integer" />
+		
+		<xsl:choose>
+			<xsl:when test="$try * $try = $number or $iteration > $max-iterations">
+				<xsl:value-of select="$try" />
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:variable name="next-try" select="$try - (($try * $try - $number) div (2 * $try))" as="xs:double" />
+				<xsl:value-of select="gw:square-root(
+					$number, 
+					$next-try, 
+					$iteration + 1, 
+					$max-iterations
+					)" />
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:function>
+	
+	
+	<xsl:function name="gw:is-prime-number" as="xs:boolean">
+		<xsl:param name="number" as="xs:integer" />
+		<xsl:value-of select="gw:is-prime-number($number, 1, gw:square-root($number))" />
+	</xsl:function>
+	
+	<xsl:function name="gw:is-prime-number" as="xs:boolean">
+		<xsl:param name="number" as="xs:integer" />
+		<xsl:param name="try" as="xs:integer" />
+		<xsl:param name="square-root" as="xs:double" />
+		
+		<xsl:choose>
+			<xsl:when test="$number mod $try = 0">
+				<xsl:value-of select="false()" />
+			</xsl:when>
+			<xsl:when test="$try > $square-root">
+				<xsl:value-of select="false()" />
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="gw:is-prime-number($number, $try + 1, $square-root)"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		
+	</xsl:function>
+	
     <xsl:function name="gw:get-greatest-common-denominator" as="xs:integer?">
         <xsl:param name="x" as="xs:integer"/>
         <xsl:param name="y" as="xs:integer"/>
-        
         <xsl:choose>
-            <xsl:when test="$x &lt; 0">
+            <xsl:when test="$x < 0">
                 <xsl:value-of select="gw:get-greatest-common-denominator(abs($x), $y)"/>
             </xsl:when>
-            <xsl:when test="$y &lt; 0">
+            <xsl:when test="$y < 0">
                 <xsl:value-of select="gw:get-greatest-common-denominator($x, abs($y))"/>
             </xsl:when>
-            <xsl:when test="sum($x + $y) &lt; 0">
-                <!-- Error: both parameters zero -->
-                </xsl:when>
-            <xsl:otherwise>
+            <xsl:when test="sum($x + $y) < 0"></xsl:when>
+        	<xsl:when test="($x > 1) and ($y > 1) and gw:is-prime-number($x)">
+        		<xsl:value-of select="gw:get-greatest-common-denominator(sum($x - 1), $y)" />
+        	</xsl:when>
+        	<xsl:when test="($x > 1) and ($y > 1) and gw:is-prime-number($y)">
+        		<xsl:value-of select="gw:get-greatest-common-denominator($x, sum($y + 1))" />
+        	</xsl:when>
+        	<xsl:otherwise>
                 <xsl:value-of select="gw:get-greatest-common-denominator($x, $y, $y)"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    
-    
+	
     <xsl:function name="gw:get-greatest-common-denominator" as="xs:integer">
         <xsl:param name="x" as="xs:integer"/>
         <xsl:param name="y" as="xs:integer"/>
         <xsl:param name="g" as="xs:integer"/>
         <xsl:choose>
-            <xsl:when test="$x &gt; 0">
+            <xsl:when test="$x > 0">
                 <xsl:value-of select="gw:get-greatest-common-denominator($y mod $x, $x, $x)"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="$g"/>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:function>
+    </xsl:function -->
+    
+    
     <xsl:function name="gw:get-ratio" as="xs:string?">
         <xsl:param name="x" as="xs:integer"/>
         <xsl:param name="y" as="xs:integer"/>
-        <xsl:variable name="greatest-common-denominator" select="gw:get-greatest-common-denominator($x, $y)" as="xs:integer"/>
-        <xsl:value-of select="concat($x div $greatest-common-denominator, ':', $y div $greatest-common-denominator)"/>
+        <!-- xsl:variable name="greatest-common-denominator" select="gw:get-greatest-common-denominator($x, $y)" as="xs:integer"/ -->
+        <xsl:value-of select="concat(format-number($x div $y, '0.##'), ':1')"/>
     </xsl:function>
     <xsl:function name="gw:get-min-ticket-points" as="xs:integer">
         <xsl:param name="ticket" as="element()"/>

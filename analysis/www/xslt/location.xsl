@@ -107,7 +107,7 @@
                 <xsl:value-of select="count(colour) &gt; 1"/>
             </td>
             <td>
-                <xsl:value-of select="string-join(colour, ', ')"/>
+                <xsl:value-of select="string-join(colour/normalize-space(), ', ')"/>
             </td>
             <td>
                 <xsl:choose>

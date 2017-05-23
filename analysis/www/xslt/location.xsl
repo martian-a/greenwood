@@ -84,7 +84,10 @@
         			<th>Type</th>
         			<th>Locomotives Required (Min)</th>
         		</tr>
-        		<xsl:apply-templates select="location" mode="connections"/>
+        		<xsl:apply-templates select="location" mode="connections">
+                    <xsl:sort select="@length" data-type="number" order="ascending"/>
+                    <xsl:sort select="gw:get-location-name(.)" data-type="text" order="ascending"/>
+                </xsl:apply-templates>
         	</table>
         </section>
     </xsl:template>
@@ -129,7 +132,10 @@
         			<th>Location</th>
         			<th>Distance</th>
         		</tr>
-        		<xsl:apply-templates select="location" mode="shortest-path"/>
+        		<xsl:apply-templates select="location" mode="shortest-path">
+                    <xsl:sort select="@distance" data-type="number" order="ascending"/>
+                    <xsl:sort select="gw:get-location-name(.)" data-type="text" order="ascending"/>
+                </xsl:apply-templates>
         	</table>
         </section>
     </xsl:template>

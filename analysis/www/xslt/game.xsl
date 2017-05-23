@@ -7,7 +7,9 @@
 
 
 	<xsl:template match="games[not(game/*[name() != 'title'])]" mode="html.header">
-		<title>Games</title>
+		<xsl:apply-templates select="self::*" mode="html.header.title">
+            <xsl:with-param name="title" select="'Games'" as="xs:string"/>
+        </xsl:apply-templates>
 	</xsl:template>
 
 
@@ -15,12 +17,12 @@
 
 
 	<xsl:template match="games[game/*[name() != 'title']]" mode="html.header">
-		<title>TTR Analysis</title>
+		<xsl:apply-templates select="self::*" mode="html.header.title"/>
 	</xsl:template>
 	<xsl:template match="game" mode="html.header">
-		<title>
-			<xsl:value-of select="title" />
-		</title>
+		<xsl:apply-templates select="self::*" mode="html.header.title">
+			<xsl:with-param name="title" select="title" as="xs:string?"/>
+		</xsl:apply-templates>
 	</xsl:template>
 
 

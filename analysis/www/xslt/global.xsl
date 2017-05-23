@@ -59,7 +59,17 @@
 	</xsl:template>
 
 
-	<xsl:template match="game" mode="game.name">
+	<xsl:template match="*" mode="html.header.title">
+        <xsl:param name="title" as="xs:string?"/>
+        <title>
+            <xsl:text>Ticket to Ride Analysis</xsl:text>
+            <xsl:if test="$title != ''">
+                <xsl:text>: </xsl:text>
+            </xsl:if>
+            <xsl:value-of select="$title"/>
+        </title>
+    </xsl:template>
+    <xsl:template match="game" mode="game.name">
 		<xsl:value-of select="title"/>
 	</xsl:template>
 

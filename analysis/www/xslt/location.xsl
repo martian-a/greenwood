@@ -6,13 +6,15 @@
 	version="2.0">
 	
 	<xsl:template match="locations" mode="html.header">
-        <title>Locations</title>
+        <xsl:apply-templates select="self::*" mode="html.header.title">
+            <xsl:with-param name="title" select="'Locations'" as="xs:string"/>
+        </xsl:apply-templates>
     </xsl:template>
     
 	<xsl:template match="location" mode="html.header">
-        <title>
-            <xsl:value-of select="name"/>
-        </title>
+        <xsl:apply-templates select="self::*" mode="html.header.title">
+            <xsl:with-param name="title" select="name" as="xs:string?"/>
+        </xsl:apply-templates>
     </xsl:template>
     
 	<xsl:template match="location" mode="html.header.style">

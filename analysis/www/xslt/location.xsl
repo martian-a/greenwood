@@ -15,7 +15,10 @@
         </title>
     </xsl:template>
     
-	<xsl:template match="locations | location" mode="html.header.scripts html.header.style html.footer.scripts"/>
+	<xsl:template match="location" mode="html.header.style">
+        <link href="{$normalised-path-to-css}location.css" rel="stylesheet" type="text/css"/>
+    </xsl:template>
+    <xsl:template match="locations | location" mode="html.header.scripts html.footer.scripts"/>
     <xsl:template match="locations" mode="html.body">
         <h1>Locations</h1>
         <ul>
@@ -86,7 +89,7 @@
     
 	<xsl:template match="location" mode="connections">
         <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
-        <tr>
+		<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
             <td>
                 <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
                     <xsl:value-of select="gw:get-location-name(.)"/>
@@ -131,7 +134,7 @@
     
 	<xsl:template match="location" mode="shortest-path">
         <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
-        <tr>
+		<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
             <td>
                 <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
                     <xsl:value-of select="gw:get-location-name(.)"/>

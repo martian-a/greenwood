@@ -78,12 +78,6 @@ jQuery(document).ready(function($) {
                  for (var i = 0; i < subsectionHeadings.length; i++) {
                      $(subTabsContainer).find(" > .contents ul").append("<li><a href=\"#" + subsectionIds[i] + "\">" + subsectionHeadings[i] + "</a></li>");
                  };
-                 
-                 // Create a tab from each subsection.
-                 $(subTabsContainer).find(" > .contents li").each(function(){
-                	var i = $(this).prevAll().length;
-                 	subTabs.createTab($(subTabsContainer).find(" > section").eq(i), this);
-                 }); 
     	 		
     	 		// Initialise this collection of sub-tabs.
             	subTabs.init();
@@ -163,9 +157,20 @@ jQuery(document).ready(function($) {
 		};
 
 	 	this.init = function(){
-	 	
+
+			var self = this;
+            var container = this.container;
+            
+            // Create a tab from each subsection.
+		 	$(container).find("> .contents li").each(function(){
+			 	var i = $(this).prevAll().length;
+			 	self.createTab($(container).find("> section").eq(i), this);
+		 	});
+		 	
+		 	// Determine which tab should have focus
 	 		var focusOnTab = shouldHaveFocus(this); 
 	 		
+	 		// Set focus
 	 		for (var i = 0; i < this.collection.length; i++) {			
 	 			
 	 			var hasFocus;
@@ -177,7 +182,6 @@ jQuery(document).ready(function($) {
 	 			this.collection[i].init(hasFocus);
 	 		};
 	 		
-            var container = this.container;
 	 		$(container).addClass("tabbed");
 	 		
 	 	};
@@ -185,11 +189,7 @@ jQuery(document).ready(function($) {
 	 };
 	 
 	 // Convert each of the main sections into tabs (tabbed content).
-	 var mainTabs = new Tabs($("main"));
-	 $("main > .contents li").each(function(){
-	 	var i = $(this).prevAll().length;
-	 	mainTabs.createTab($("main > section").eq(i), this);
-	 });
+	 var mainTabs = new Tabs($("main").has("> .contents"));
 	 mainTabs.init();
 	
 	generateVisualisations($);

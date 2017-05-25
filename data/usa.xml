@@ -12,6 +12,7 @@
     <map>
         <locations>
             <country id="CAN">
+            	<name>Canada</name>
                 <location id="VAN" x="-1120" y="-883">
                     <name>Vancouver</name>
                 </location>
@@ -32,6 +33,7 @@
                 </location>
             </country>
             <country id="USA">
+            	<name>United States of America</name>
                 <location id="SEA" x="-1159" y="-673">
                     <name>Seattle</name>
                 </location>

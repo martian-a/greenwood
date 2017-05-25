@@ -83,37 +83,60 @@
 			
 			<p:group>
 				
-				<p:variable name="game-id" select="/game/@id">
+				<p:variable name="publish" select="/game/@publish">
 					<p:pipe port="result" step="game-data" />
 				</p:variable>
 				
-				<p:documentation>
-					<d:doc scope="step">
-						<d:desc>Store the game data.</d:desc>
-					</d:doc>
-				</p:documentation>
-				<p:store name="store" 
-					indent="true" 
-					omit-xml-declaration="false" 
-					encoding="utf-8" 
-					method="xml" 
-					media-type="text/xml">
-					<p:input port="source">
-						<p:pipe port="result" step="game-data" />
-					</p:input>
-					<p:with-option name="href" select="concat($target, '/', $game-id, '.xml')" />
-				</p:store>
-
-				<p:documentation>
-					<d:doc scope="step">
-						<d:desc>Return a path to where the updated game data has been stored.</d:desc>
-					</d:doc>
-				</p:documentation>
-				<p:identity>
-					<p:input port="source">
-						<p:pipe port="result" step="store" />
-					</p:input>
-				</p:identity>
+				<p:choose>
+					<p:when test="$publish = true()">
+						
+						<p:variable name="game-id" select="/game/@id">
+							<p:pipe port="result" step="game-data" />
+						</p:variable>
+						
+						<p:documentation>
+							<d:doc scope="step">
+								<d:desc>Store the game data.</d:desc>
+							</d:doc>
+						</p:documentation>
+						<p:store name="store" 
+							indent="true" 
+							omit-xml-declaration="false" 
+							encoding="utf-8" 
+							method="xml" 
+							media-type="text/xml">
+							<p:input port="source">
+								<p:pipe port="result" step="game-data" />
+							</p:input>
+							<p:with-option name="href" select="concat($target, '/', $game-id, '.xml')" />
+						</p:store>
+						
+						<p:documentation>
+							<d:doc scope="step">
+								<d:desc>Return a path to where the updated game data has been stored.</d:desc>
+							</d:doc>
+						</p:documentation>
+						<p:identity>
+							<p:input port="source">
+								<p:pipe port="result" step="store" />
+							</p:input>
+						</p:identity>
+						
+						<p:wrap match="/" wrapper="included" />
+						
+					</p:when>
+					<p:otherwise>
+						
+						<p:identity>
+							<p:input port="source">
+								<p:pipe port="current" step="copy-files" />
+							</p:input>
+						</p:identity>
+						
+						<p:wrap match="/" wrapper="excluded" />
+						
+					</p:otherwise>
+				</p:choose>
 
 			</p:group>
 			

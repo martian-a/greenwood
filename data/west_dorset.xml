@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE game
   SYSTEM "game.dtd">
-<game id="WDR">
+<game id="WDR" publish="false">
     <title>West Dorset</title>
 	<players max="7" double-routes-min="5" />
 	<starting-hand stations="3">

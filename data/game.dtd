@@ -26,7 +26,8 @@
 <!ELEMENT via (location*)>
 
 <!ATTLIST game 
-	id ID #REQUIRED>
+	id ID #REQUIRED
+	publish (true|false) "true">
 <!ATTLIST map
 	seed CDATA #IMPLIED>
 <!ATTLIST country 

@@ -69,13 +69,21 @@ function loc:get-location($id as xs:string, $with-connections as xs:boolean, $wi
     	else ()
     return
         <location id="{$location/@id}">
-            <name>{
+            {
                 if ($location/name) 
-                then
-                    string($location/name)
-                else 
-                    concat($location/ancestor::country[1]/name, ' (', $location/@id, ')')
-            }</name>
+                then $location/name
+                else (
+                	for $ancestor in $location/ancestor::*[name][1]
+                	let $name := concat($location/ancestor::country[1]/name, ' (', $location/@id, ')')
+                	return
+                		if ($ancestor/name/@sort)
+                		then 
+                			<name sort="{concat($ancestor/name/@sort, ' (', $location/@id, ')')}">{$name}</name>
+                		else
+                			<name>{$name}</name>
+                    
+                )
+            }
             {
                 $games,
                 if ($connections/*) 
@@ -108,8 +116,8 @@ function loc:get-connections($id as xs:string) as item() {
             let $location := loc:get-location($terminus-id)
             return
                 <location id="{$location/@id}" length="{$route/@length}" tunnel="{$route/@tunnel/xs:boolean(.)}" ferry="{if ($route/@ferry > 0) then ($route/@ferry) else 0}" microlight="{$route/@microlight/xs:boolean(.)}">
-                    <name>{$location/name}</name>
-                    {
+		           	{
+		           		$location/name,
                         for $colour-id in $route/(@colour | colour/@ref)
                         let $colour := $colours/colour[@id = $colour-id]/name
                         return
@@ -132,8 +140,10 @@ declare function loc:get-shortest-paths($id as xs:string) as item() {
             let $location := loc:get-location($terminus-id)
             return
                 <location id="{$location/@id}" distance="{$distance}">
-                    <name>{$location/name}</name>
-                    {$path/via}
+                    {
+	                    $location/name,
+    	                $path/via
+    	             }
                 </location>
         }</shortest-paths>
     

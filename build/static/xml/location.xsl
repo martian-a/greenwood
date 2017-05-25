@@ -1,4 +1,4 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0" exclude-result-prefixes="#all">
 	
 	<xsl:param name="location-id" required="yes" />
 	
@@ -76,7 +76,15 @@
 				<xsl:copy-of select="name" />
 			</xsl:when>
 			<xsl:otherwise>
-				<name><xsl:value-of select="concat(ancestor::country[1]/name, ' (', @id, ')')" /></name>
+				<xsl:variable name="id" select="@id" as="xs:string" />
+				<xsl:for-each select="ancestor::*[name][1]">
+					<name>
+						<xsl:if test="name/@sort">
+							<xsl:attribute name="sort" select="concat(name/@sort, ' (', $id, ')')" />
+						</xsl:if>
+						<xsl:value-of select="concat(name, ' (', $id, ')')" />
+					</name>
+				</xsl:for-each>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>

@@ -53,13 +53,13 @@
                     <name>La Chaux-de-fonds</name>
                 </location>
                 <location id="NEU" x="-1160" y="431">
-                    <name>Neuchâtel</name>
+                    <name sort="Neuchatel">Neuchâtel</name>
                 </location>
                 <location id="BER" x="-705" y="298">
                     <name>Bern</name>
                 </location>
                 <location id="DEL" x="-1211" y="-262">
-                    <name>Delémont</name>
+                    <name sort="Delemont">Delémont</name>
                 </location>
                 <location id="BAS" x="-859" y="-626">
                     <name>Basel</name>
@@ -83,10 +83,10 @@
                     <name>Schwyz</name>
                 </location>
                 <location id="PFA" x="490" y="-129">
-                    <name>Pfäffikon</name>
+                    <name sort="Pfaffikon">Pfäffikon</name>
                 </location>
                 <location id="ZUR" x="115" y="-405">
-                    <name>Zürich</name>
+                    <name sort="Zurich">Zürich</name>
                 </location>
                 <location id="SFH" x="-84" y="-972">
                     <name>Schaffhausen</name>
@@ -140,7 +140,7 @@
                 <location id="GER5" x="1057" y="-1233"/>
             </country>
             <country id="AUS">
-                <name>Österreich</name>
+                <name sort="Osterreich">Österreich</name>
                 <location id="AUS1" x="1549" y="-945"/>
                 <location id="AUS2" x="1633" y="-243"/>
                 <location id="AUS3" x="2209" y="736"/>

@@ -40,6 +40,8 @@
 	points CDATA #IMPLIED
 	x CDATA #IMPLIED
 	y CDATA #IMPLIED>
+<!ATTLIST name
+	sort CDATA #IMPLIED>
 <!ATTLIST route 
 	length (1|2|3|4|5|6|8) #REQUIRED
 	colour IDREF #IMPLIED

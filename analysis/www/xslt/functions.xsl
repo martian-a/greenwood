@@ -296,6 +296,57 @@
         
     </xsl:function>
    
+    <xsl:function name="gw:get-location-sort-name" as="xs:string?">
+        <xsl:param name="location" as="element()"/>
+        <xsl:value-of select="gw:get-location-sort-name($location, false())"/>
+    </xsl:function>
+
+    <xsl:function name="gw:get-location-sort-name" as="xs:string?">
+        <xsl:param name="location" as="element()"/>
+        <xsl:param name="for-js" as="xs:boolean"/>
+        <xsl:variable name="name" as="xs:string">
+            <xsl:variable name="id" select="$location/(@ref | @id)" as="xs:string"/>
+            <xsl:variable name="source" as="element()">
+                <xsl:choose>
+                    <xsl:when test="$location/ancestor::game[1]/map/locations/descendant::*[@id = $id][not(name)]">
+                        <xsl:sequence select="$location/ancestor::game[1]/map/locations/descendant::*[@id = $id]/ancestor::*[name][1]"/>
+                    </xsl:when>
+                    <xsl:when test="$location[not(ancestor::game)]">
+                        <xsl:sequence select="$location"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:sequence select="$location/ancestor::game[1]/map/locations/descendant::*[name][@id = $id]"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+            <xsl:variable name="sort-name" as="xs:string">
+                <xsl:choose>
+                    <xsl:when test="$source/name/@sort/normalize-space() != ''">
+                        <xsl:value-of select="$source/name/@sort"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="$source/name"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+            <xsl:value-of select="if ($source/@id = $id) then $sort-name else concat($sort-name, ' (', $id, ')')"/>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="$for-js = true()">
+				
+				<!-- create an $apos variable to make it easier to refer to -->
+                <xsl:variable name="apos" select="codepoints-to-string(39)"/>
+                <xsl:value-of select="replace($name, $apos, '\\''')"/>
+            </xsl:when>
+			
+			<!-- otherwise... -->
+            <xsl:otherwise>
+                <xsl:value-of select="$name"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
+
     <xsl:function name="gw:get-location-name" as="xs:string?">
         <xsl:param name="location" as="element()" />
         
@@ -350,23 +401,23 @@
     </xsl:function>
    
    
-    <xsl:function name="gw:get-path-start-name" as="xs:string?">
+    <xsl:function name="gw:get-path-start-location" as="element()">
         <xsl:param name="path" as="element()"/>
-        <xsl:for-each select="$path/location/gw:get-location-name(.)">
-            <xsl:sort select="." data-type="text" order="ascending"/>
+        <xsl:for-each select="$path/location">
+            <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
             <xsl:if test="position() = 1">
-                <xsl:value-of select="."/>
+                <xsl:sequence select="self::*"/>
             </xsl:if>
         </xsl:for-each>
     </xsl:function>
 
 
-    <xsl:function name="gw:get-path-end-name" as="xs:string?">
+    <xsl:function name="gw:get-path-end-location" as="element()">
         <xsl:param name="path" as="element()"/>
-        <xsl:for-each select="$path/location/gw:get-location-name(.)">
-            <xsl:sort select="." data-type="text" order="ascending"/>
+        <xsl:for-each select="$path/location">
+            <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
             <xsl:if test="position() = last()">
-                <xsl:value-of select="."/>
+                <xsl:sequence select="self::*"/>
             </xsl:if>
         </xsl:for-each>
     </xsl:function>
@@ -379,16 +430,16 @@
 				<xsl:text> </xsl:text>
 				<xsl:for-each select="$ticket/*[name() = ('location', 'country')][@points]">
 					<xsl:sort select="@points" data-type="number" order="ascending"/>
-					<xsl:sort select="gw:get-location-name(self::*)" data-type="text" order="ascending"/>
+					<xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
 					<xsl:if test="position() = last()">
-						<xsl:value-of select="gw:get-location-name(self::*)"/>
+						<xsl:value-of select="gw:get-location-name(.)"/>
 					</xsl:if>
 				</xsl:for-each>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:for-each select="$ticket/*[name() = ('location', 'country')]/gw:get-location-name(.)">
-					<xsl:sort select="." data-type="text" order="ascending"/>
-					<xsl:value-of select="."/>
+				<xsl:for-each select="$ticket/*[name() = ('location', 'country')]">
+					<xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
+					<xsl:value-of select="gw:get-location-name(.)"/>
 					<xsl:if test="position() != last()"><xsl:text> </xsl:text></xsl:if>
 				</xsl:for-each>
 			</xsl:otherwise>

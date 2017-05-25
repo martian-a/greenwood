@@ -17,7 +17,7 @@ return
     		{
     			for $location in $loc:db/game/map/locations//descendant::*[@id]
     			let $location-id := concat($location/ancestor::game/@id, '-', $location/@id)
-    			return loc:get-location($location-id, false(), false())
+    			return loc:get-location($location-id)
     		}
     	</locations>
  

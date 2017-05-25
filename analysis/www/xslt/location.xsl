@@ -24,8 +24,8 @@
     <xsl:template match="locations" mode="html.body">
         <h1>Locations</h1>
         <ul>
-            <xsl:for-each select="descendant::*[name() = ('country', 'location')][@id]">
-                <xsl:sort select="gw:get-location-name(.)" data-type="text" order="ascending"/>
+            <xsl:for-each select="*">
+                <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                 <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                 <li>
                     <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
@@ -95,7 +95,7 @@
         		</tr>
         		<xsl:apply-templates select="location" mode="connections">
                     <xsl:sort select="@length" data-type="number" order="ascending"/>
-                    <xsl:sort select="gw:get-location-name(.)" data-type="text" order="ascending"/>
+                    <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                 </xsl:apply-templates>
         	</table>
         </section>
@@ -143,7 +143,7 @@
         		</tr>
         		<xsl:apply-templates select="location" mode="shortest-path">
                     <xsl:sort select="@distance" data-type="number" order="ascending"/>
-                    <xsl:sort select="gw:get-location-name(.)" data-type="text" order="ascending"/>
+                    <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                 </xsl:apply-templates>
         	</table>
         </section>
@@ -169,7 +169,7 @@
             <p class="summary">All locations in <xsl:value-of select="/location/name"/>.</p>
             <ul>
                 <xsl:for-each select="*">
-                    <xsl:sort select="gw:get-location-name(.)" data-type="text" order="ascending"/>
+                    <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                     <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                     <li>
                         <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">

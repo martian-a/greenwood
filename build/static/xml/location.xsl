@@ -30,23 +30,45 @@
 	
 	
 	<xsl:template match="location | country">
-		<location>
-			<xsl:copy-of select="@id" />
+		<xsl:param name="with-connections" select="true()" as="xs:boolean" />
+		<xsl:param name="with-shortest-paths" select="true()" as="xs:boolean" />
+		<xsl:param name="with-sub-locations" select="true()" as="xs:boolean" />
+		<xsl:variable name="id" select="@id" as="xs:string" />
+		
+		<location id="{$id}">
 			<xsl:apply-templates select="self::*" mode="name" />
 			<games>
 				<xsl:apply-templates select="ancestor::game[1]" mode="games" />
 			</games>
-			<connections>
-				<xsl:apply-templates select="ancestor::map[1]/routes/route[location/@ref = $location-id]"  mode="connections" />
-			</connections>
-			<shortest-paths>
-				<xsl:apply-templates select="ancestor::map[1]/shortest-paths/path[location/@ref = $location-id]" mode="shortest-path" />
-			</shortest-paths>
+			<xsl:apply-templates select="ancestor::map[1][$with-connections = true()]/routes[route/location/@ref = $id]"  mode="connections" />
+			<xsl:apply-templates select="ancestor::map[1][$with-shortest-paths = true()]/shortest-paths[path/location/@ref = $id]"  mode="shortest-paths" />	
+			<xsl:apply-templates select="self::*[$with-sub-locations = true()][descendant::*/@id]"  mode="sub-locations" />
 		</location>
 		
 		
 	</xsl:template>
 	
+	<xsl:template match="routes" mode="connections">
+		<connections>
+			<xsl:apply-templates select="route[location/@ref = $location-id]" mode="connections" />
+		</connections>
+	</xsl:template>
+	
+	<xsl:template match="shortest-paths" mode="shortest-paths">
+		<shortest-paths>
+			<xsl:apply-templates select="path[location/@ref = $location-id]"  mode="shortest-path" />
+		</shortest-paths>
+	</xsl:template>
+	
+	<xsl:template match="*[name() = ('country', 'location')]" mode="sub-locations">
+		<sub-locations>
+			<xsl:apply-templates select="descendant::*[@id]">
+				<xsl:with-param name="with-connections" select="false()" as="xs:boolean" />
+				<xsl:with-param name="with-shortest-paths" select="false()" as="xs:boolean" />
+				<xsl:with-param name="with-sub-locations" select="false()" as="xs:boolean" />
+			</xsl:apply-templates>
+		</sub-locations>
+	</xsl:template>
 	
 	<xsl:template match="*[name() = ('location', 'country')]" mode="name">
 		<xsl:choose>
@@ -110,6 +132,8 @@
 			<xsl:apply-templates select="$terminus" mode="name" />
 		</location>
 	</xsl:template>
+	
+
 	
 	
 	<xsl:template match="/" mode="error">

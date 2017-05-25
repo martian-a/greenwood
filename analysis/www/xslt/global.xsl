@@ -129,4 +129,9 @@
 		</div>
 	</xsl:template>
 
+<xsl:template match="game/* | location/*" mode="nav.page" priority="100">
+        <li>
+            <xsl:next-match/>
+        </li>
+    </xsl:template>
 </xsl:stylesheet>

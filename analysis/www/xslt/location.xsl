@@ -24,8 +24,8 @@
     <xsl:template match="locations" mode="html.body">
         <h1>Locations</h1>
         <ul>
-            <xsl:for-each select="//location">
-                <xsl:sort select="if (name) then name else ancestor::country[1]/concat(name, ' (', @id, ')')" data-type="text" order="ascending"/>
+            <xsl:for-each select="descendant::*[name() = ('country', 'location')][@id]">
+                <xsl:sort select="gw:get-location-name(.)" data-type="text" order="ascending"/>
                 <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                 <li>
                     <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
@@ -40,21 +40,30 @@
         <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
         <h1><xsl:value-of select="name"/></h1>
 		<xsl:apply-templates select="games"/>
-        <xsl:apply-templates select="self::*" mode="nav.page"/>
+        <xsl:apply-templates select="self::*[count(*[name() = ('connections', 'shortest-paths', 'sub-locations')]) &gt; 1]" mode="nav.page"/>
         <xsl:apply-templates select="connections"/>
         <xsl:apply-templates select="shortest-paths"/>
+    <xsl:apply-templates select="sub-locations"/>
     </xsl:template>
     
 	<xsl:template match="location" mode="nav.page">
-		<li><a href="#connections">Connections</a></li>
-		<li><a href="#shortest-paths">Shortest Paths</a></li>
+		<xsl:apply-templates select="connections | shortest-paths | sub-locations" mode="nav.page"/>
 		<!-- 
 			TODO: Add list of tickets that start/end at this location.
 			<li><a href="#tickets">Tickets</a></li>
 		-->
 	</xsl:template>
     
-	<xsl:template match="games">
+	<xsl:template match="location/connections" mode="nav.page">
+        <a href="#connections">Connections</a>
+    </xsl:template>
+    <xsl:template match="location/shortest-paths" mode="nav.page">
+        <a href="#shortest-paths">Shortest Paths</a>
+    </xsl:template>
+    <xsl:template match="location/sub-locations" mode="nav.page">
+        <a href="#sub-locations">Locations</a>
+    </xsl:template>
+    <xsl:template match="games">
 		<div id="games">
 			<p class="game">
 				<span class="label">Game</span>
@@ -154,4 +163,21 @@
         </tr>
     </xsl:template>
 	
+<xsl:template match="sub-locations">
+        <section class="sub-locations">
+            <h2 id="sub-locations">Locations</h2>
+            <p class="summary">All locations in <xsl:value-of select="/location/name"/>.</p>
+            <ul>
+                <xsl:for-each select="*">
+                    <xsl:sort select="gw:get-location-name(.)" data-type="text" order="ascending"/>
+                    <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
+                    <li>
+                        <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                            <xsl:value-of select="gw:get-location-name(.)"/>
+                        </a>
+                    </li>
+                </xsl:for-each>
+            </ul>
+        </section>
+    </xsl:template>
 </xsl:stylesheet>

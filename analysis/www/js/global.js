@@ -6,8 +6,7 @@ jQuery(document).ready(function($) {
 	 * Insert containers for javascript dependent visualisations
 	 */
 	if (pageClass == "game") {
-		$("main > section").filter(":first").before("<section class=\"network\"><h2 id=\"network\">Network</h2><div id=\"vis1\" class=\"network-visualisation\"/></section>");
-		$("main > .contents li").filter(":first").before("<li><a href=\"#network\">Network</a></li>");
+		$("main > section.overview > section").filter(":last").after("<section class=\"network\"><h3 id=\"network\">Network</h3><div id=\"vis1\" class=\"network-visualisation\"/></section>");
 		$("main > section.tickets > section").filter(":first").after("<section><h3 id=\"ticket-distribution\">Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></section>");	 	
 	};
 

@@ -12,6 +12,7 @@
 	<xsl:param name="path-to-css" select="'../../../style/'" as="xs:string"/>
 	<xsl:param name="path-to-xml" select="'../../xml'" as="xs:string"/>
 	<xsl:param name="path-to-html" select="'../../html'" as="xs:string"/>
+	<xsl:param name="path-to-images" select="'../../../images'" as="xs:string" />
 	<xsl:param name="static" select="'false'" as="xs:string"/>
 
 	<xsl:output method="html" encoding="utf-8" media-type="text/html" indent="yes" omit-xml-declaration="yes" version="5"/>
@@ -23,6 +24,11 @@
 
 	<xsl:variable name="normalised-path-to-css">
 		<xsl:variable name="directory-separators" select="translate($path-to-css, '\', '/')"/>
+		<xsl:value-of select="concat($directory-separators, if (ends-with($directory-separators, '/')) then '' else '/')"/>
+	</xsl:variable>
+	
+	<xsl:variable name="normalised-path-to-images">
+		<xsl:variable name="directory-separators" select="translate($path-to-images, '\', '/')"/>
 		<xsl:value-of select="concat($directory-separators, if (ends-with($directory-separators, '/')) then '' else '/')"/>
 	</xsl:variable>
 

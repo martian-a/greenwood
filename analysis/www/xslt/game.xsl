@@ -228,24 +228,26 @@
     </xsl:template>
 
 
-
-
-
 	<xsl:include href="comparisons.xsl"/>
+	
+	
     <xsl:template name="game-overview">
         <xsl:variable name="min-players" select="if (players/@min &gt; 0) then players/@min else 2" as="xs:integer"/>
         <xsl:variable name="max-players" select="if (players/@max &gt; 0) then players/@max else $min-players" as="xs:integer"/>
         <section class="overview">
             <h2 id="overview">Overview</h2>
-            <img src="../../../images/{lower-case(@id)}.png"/>
-            <xsl:apply-templates select="related"/>
-            <section>
+        	<xsl:apply-templates select="related"/>
+            <section class="summary">
                 <h3 id="overview-summary">Summary</h3>
-                <xsl:call-template name="all-players">
-                    <xsl:with-param name="games" select="self::*" as="element()*" tunnel="yes"/>
-                    <xsl:with-param name="min-players" select="$min-players" as="xs:integer" tunnel="no"/>
-                    <xsl:with-param name="max-players" select="$max-players" as="xs:integer" tunnel="no"/>
-                </xsl:call-template>
+			<img src="{$normalised-path-to-images}{lower-case(@id)}.png"/>
+                <div>
+                    <xsl:apply-templates select="summary[p]"/>
+                    <xsl:call-template name="all-players">
+	                    <xsl:with-param name="games" select="self::*" as="element()*" tunnel="yes"/>
+	                    <xsl:with-param name="min-players" select="$min-players" as="xs:integer" tunnel="no"/>
+	                    <xsl:with-param name="max-players" select="$max-players" as="xs:integer" tunnel="no"/>
+	                </xsl:call-template>
+                    </div>
             </section>
             <xsl:variable name="game" select="self::game" as="element()"/>
             <section>
@@ -277,6 +279,18 @@
             </section>
         </section>
     </xsl:template>
+    <xsl:template match="game/summary">
+		<div class="description">
+			<xsl:apply-templates/>
+		</div>
+	</xsl:template>
+	
+	<xsl:template match="game/summary/p">
+		<p>
+            <xsl:apply-templates/>
+        </p>
+	</xsl:template>
+	
     <xsl:template match="game/related"/>
     <xsl:template match="locations">
 		<xsl:param as="xs:string" name="game-id" tunnel="yes" />

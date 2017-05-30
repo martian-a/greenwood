@@ -3,6 +3,9 @@
   SYSTEM "game.dtd">
 <game id="GUSA">
     <title>USA</title>
+	<summary>
+		<p>The first &#8212; and probably the simplest &#8212; version of the game.  There are no special conditions or considerations when buying track and plenty of valuable, long lengths of track.</p>
+	</summary>
 	<players max="5" />
 	<starting-hand>
 		<cards>
@@ -8491,4 +8494,21 @@
             <location ref="NYC"/>
         </ticket>
     </tickets>
+	<related>
+		<link href="https://www.daysofwonder.com/tickettoride/en/usa/">
+			<title>Days of Wonder</title>
+			<description>English product page</description>
+		</link>
+		<link href="http://amzn.to/2qjxQWW">
+			<title>Amazon</title>
+			<description>Amazon UK product page</description>
+			<img class="small" border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;MarketPlace=GB&amp;ASIN=0975277324&amp;ServiceVersion=20070822&amp;ID=AsinImage&amp;WS=1&amp;Format=_SL110_&amp;tag=thvifrdoheisa-21" />
+			<img class="medium" border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;MarketPlace=GB&amp;ASIN=0975277324&amp;ServiceVersion=20070822&amp;ID=AsinImage&amp;WS=1&amp;Format=_SL160_&amp;tag=thvifrdoheisa-21" />
+			<img class="large" border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;MarketPlace=GB&amp;ASIN=0975277324&amp;ServiceVersion=20070822&amp;ID=AsinImage&amp;WS=1&amp;Format=_SL250_&amp;tag=thvifrdoheisa-21" />
+		</link>
+		<link href="https://boardgamegeek.com/boardgame/9209/ticket-ride">
+			<title>BoardGameGeek</title>
+			<description>English profile page</description>
+		</link>
+	</related>
 </game>

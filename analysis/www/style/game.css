@@ -134,3 +134,39 @@ section.routes table tr.odd td.GRY {
 section.routes table tr.even td.GRY {
 	background-color: rgba(202, 202, 202, 0.75);
 }
+
+/* 
+ * Overview
+ */
+
+section.overview section.summary div.description * {
+	margin-bottom: 1.25em;
+}
+
+section.overview section.summary img,
+section.overview section.summary div.description {
+	margin-bottom: 1.5em;
+}
+
+@media only screen  and (min-width : 1224px) {
+
+	section.overview section.summary {
+		position: relative;
+	}
+	section.overview section.summary img {
+		float: left;
+		clear: left;
+		margin-right: 1.5em;
+		margin-bottom: 1.5em;
+	}
+	section.overview section.summary > div {
+		column-count: 2;
+		column-gap: 1.5em;	
+	}
+	section.overview section.summary div.description {
+		-webkit-column-break-inside: avoid;
+	          page-break-inside: avoid;
+	               break-inside: avoid;
+	} 
+
+} 

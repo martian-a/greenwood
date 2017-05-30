@@ -201,6 +201,7 @@
 						<p:with-param name="path-to-js" select="'../../js'" />
 						<p:with-param name="path-to-css" select="'../../style'" />
 						<p:with-param name="path-to-xml" select="'../../xml'" />
+						<p:with-param name="path-to-images" select="'../../images'" />
 						<p:with-param name="static" select="'true'" />
 					</p:xslt> 
 					

@@ -3,6 +3,10 @@
   SYSTEM "game.dtd">
 <game id="WDR" publish="false">
     <title>West Dorset</title>
+	<summary>
+		<p>This is an unofficial version of the game, created by a fan, and has not been validated by the creator of Ticket to Ride, Alan R. Moon, or Days of Wonder.  You need to buy at least one of the official base versions to play this map.</p>
+		<p>Based on the road network of West Dorset, this map was designed to accommodate a larger group of players than usual.</p>
+	</summary>
 	<players max="7" double-routes-min="5" />
 	<starting-hand stations="3">
 		<cards>

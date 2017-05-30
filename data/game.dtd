@@ -1,5 +1,6 @@
-<!ELEMENT game (title?, players?, starting-hand?, map?, tickets*)>
+<!ELEMENT game (title?, summary?, players?, starting-hand?, map?, tickets*, related?)>
 <!ELEMENT title (#PCDATA)>
+<!ELEMENT summary (p*, footnote*)>
 <!ELEMENT players (#PCDATA)>
 <!ELEMENT starting-hand (cards?)>
 <!ELEMENT cards (destinations?)>
@@ -24,6 +25,11 @@
 <!ELEMENT shortest-paths (path+)>
 <!ELEMENT path (location, location, via*)>
 <!ELEMENT via (location*)>
+<!ELEMENT related (link*)>
+<!ELEMENT link (title?, description?, img*)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT img EMPTY>
+<!ELEMENT p (#PCDATA)*>
 
 <!ATTLIST game 
 	id ID #REQUIRED
@@ -65,8 +71,8 @@
 	direct (true|false) "false">
 <!ATTLIST players
 	min (2|4) "2"
-	max (3|4|5) "5"
-	double-routes-min (3|4) "4">
+	max (3|4|5|6|7) "5"
+	double-routes-min (3|4|5) "4">
 <!ATTLIST starting-hand
 	carriages (40|45) "45"
 	stations (0|3) "0">
@@ -76,3 +82,11 @@
 	regular (1|2|3|4|5) "3"
 	long (1|2|3|4|5) "1"
 	must-keep (1|2|3|4|5) "2">
+<!ATTLIST link
+	href CDATA #REQUIRED>
+<!ATTLIST img
+	class CDATA #IMPLIED
+	border (0|1) "0"
+	src CDATA #REQUIRED
+	height CDATA #IMPLIED
+	width CDATA #IMPLIED>

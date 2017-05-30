@@ -3,6 +3,10 @@
   SYSTEM "game.dtd">
 <game id="SWI">
     <title>Schweiz</title>
+	<summary>
+		<p>Approximately half of the route options on this map are tunnels.  Not only that, but wildcards can't be used to purchase normal stretches of track &#8212; making them also more challenging to acquire.  However, some tickets are easier to complete as they offer multiple options of varying value, lending flexibility to the cost of incomplete tickets.  Duplication of routes across tickets serves as an added incentive to keep drawing more tickets.</p>
+		<p>The map for this game is on the reverse of the India board.</p>
+	</summary>
 	<players max="3" double-routes-min="3" />
 	<starting-hand carriages="40">
 		<cards>

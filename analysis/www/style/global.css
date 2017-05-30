@@ -21,9 +21,9 @@ body {
 @font-face {
     font-family: rosario;
     src: url('../fonts/rosario/Rosario-Regular.eot');
-        src: 	url('../fonts/rosario/Rosario.eot?#iefix') format('embedded-opentype'),
-    			url('../fonts/rosario/Rosario.woff') format('woff'),
-    			url('../fonts/rosario/Rosario.ttf') format('truetype');
+        src: 	url('../fonts/rosario/Rosario-Regular.eot?#iefix') format('embedded-opentype'),
+    			url('../fonts/rosario/Rosario-Regular.woff') format('woff'),
+    			url('../fonts/rosario/Rosario-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }

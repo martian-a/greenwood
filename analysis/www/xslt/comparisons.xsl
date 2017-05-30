@@ -74,7 +74,7 @@
             </comparisons>
         </xsl:document>
     </xsl:variable>
-    <xsl:template name="overview">
+    <xsl:template name="all-players">
         <xsl:param name="games" as="element()*" tunnel="yes"/>
         <xsl:param name="min-players" as="xs:integer?" tunnel="no"/>
         <xsl:param name="max-players" as="xs:integer?" tunnel="no"/>

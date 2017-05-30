@@ -126,7 +126,7 @@
         </div>
         <section>
             <h2 id="overview">Overview</h2>
-            <xsl:call-template name="overview">
+            <xsl:call-template name="all-players">
                 <xsl:with-param name="games" select="$games" as="element()*" tunnel="yes"/>
                 </xsl:call-template>
         </section>
@@ -189,48 +189,8 @@
 			<xsl:value-of select="title" />
 		</h1>
 		<xsl:apply-templates mode="nav.page" select="self::*" />
-		<xsl:variable name="min-players" select="if (players/@min &gt; 0) then players/@min else 2" as="xs:integer"/>
-		<xsl:variable name="max-players" select="if (players/@max &gt; 0) then players/@max else $min-players" as="xs:integer"/>
-        <section class="overview">
-            <h2 id="overview">Overview</h2>
-            <section>
-                <h3 id="overview-summary">Summary</h3>
-                <xsl:call-template name="overview">
-                    <xsl:with-param name="games" select="self::*" as="element()*" tunnel="yes"/>
-                    <xsl:with-param name="min-players" select="$min-players" as="xs:integer" tunnel="no"/>
-                    <xsl:with-param name="max-players" select="$max-players" as="xs:integer" tunnel="no"/>
-                </xsl:call-template>
-            </section>
-            <xsl:variable name="game" select="self::game" as="element()"/>
-            <section>
-                <h3 id="by-players">By Players</h3>
-    			<!-- h3 id="players-{$players}"></h3 -->
-                <table>
-                    <tr>
-                        <th/>
-                        <xsl:for-each select="$min-players to $max-players">
-                            <th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-                                <xsl:value-of select="current()"/> Players</th>
-                        </xsl:for-each>
-                    </tr>
-                    <xsl:for-each select="$comparisons//compare[not(@players = 'false')]">
-                        <xsl:variable name="data-point" select="self::compare" as="element()"/>
-                        <tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-                            <td>
-                                <xsl:value-of select="label"/>
-                            </td>
-                            <xsl:for-each select="$min-players to $max-players">
-                                <xsl:apply-templates select="$data-point" mode="games.compare">
-                                    <xsl:with-param name="games" select="$game" as="element()*" tunnel="yes"/>
-                                    <xsl:with-param name="players" select="current()" as="xs:integer" tunnel="yes"/>
-                                </xsl:apply-templates>
-                            </xsl:for-each>
-                        </tr>
-                    </xsl:for-each>
-                </table>
-            </section>
-        </section>
-        <xsl:apply-templates select="map/locations">
+		<xsl:call-template name="game-overview"/>
+		<xsl:apply-templates select="map/locations">
 			<xsl:with-param as="xs:string" name="game-id" select="@id" tunnel="yes" />
 		</xsl:apply-templates>
 		<xsl:apply-templates select="map/routes">
@@ -272,6 +232,52 @@
 
 
 	<xsl:include href="comparisons.xsl"/>
+    <xsl:template name="game-overview">
+        <xsl:variable name="min-players" select="if (players/@min &gt; 0) then players/@min else 2" as="xs:integer"/>
+        <xsl:variable name="max-players" select="if (players/@max &gt; 0) then players/@max else $min-players" as="xs:integer"/>
+        <section class="overview">
+            <h2 id="overview">Overview</h2>
+            <img src="../../../images/{lower-case(@id)}.png"/>
+            <xsl:apply-templates select="related"/>
+            <section>
+                <h3 id="overview-summary">Summary</h3>
+                <xsl:call-template name="all-players">
+                    <xsl:with-param name="games" select="self::*" as="element()*" tunnel="yes"/>
+                    <xsl:with-param name="min-players" select="$min-players" as="xs:integer" tunnel="no"/>
+                    <xsl:with-param name="max-players" select="$max-players" as="xs:integer" tunnel="no"/>
+                </xsl:call-template>
+            </section>
+            <xsl:variable name="game" select="self::game" as="element()"/>
+            <section>
+                <h3 id="by-players">By Players</h3>
+				<!-- h3 id="players-{$players}"></h3 -->
+                <table>
+                    <tr>
+                        <th/>
+                        <xsl:for-each select="$min-players to $max-players">
+                            <th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+                                <xsl:value-of select="current()"/> Players</th>
+                        </xsl:for-each>
+                    </tr>
+                    <xsl:for-each select="$comparisons//compare[not(@players = 'false')]">
+                        <xsl:variable name="data-point" select="self::compare" as="element()"/>
+                        <tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+                            <td>
+                                <xsl:value-of select="label"/>
+                            </td>
+                            <xsl:for-each select="$min-players to $max-players">
+                                <xsl:apply-templates select="$data-point" mode="games.compare">
+                                    <xsl:with-param name="games" select="$game" as="element()*" tunnel="yes"/>
+                                    <xsl:with-param name="players" select="current()" as="xs:integer" tunnel="yes"/>
+                                </xsl:apply-templates>
+                            </xsl:for-each>
+                        </tr>
+                    </xsl:for-each>
+                </table>
+            </section>
+        </section>
+    </xsl:template>
+    <xsl:template match="game/related"/>
     <xsl:template match="locations">
 		<xsl:param as="xs:string" name="game-id" tunnel="yes" />
 		<xsl:param as="element()*" name="tickets" select="ticket" tunnel="no" />

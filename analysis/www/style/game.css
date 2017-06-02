@@ -148,25 +148,113 @@ section.overview section.summary div.description {
 	margin-bottom: 1.5em;
 }
 
-@media only screen  and (min-width : 1224px) {
+@media only screen and (max-width: 1224px) {
+
+	section.overview section.summary img {
+		width: 200px !important;
+		height: 200px !important;
+	}
+	
+}
+
+@media only screen and (max-width: 600px) {
+
+	section.overview section.summary table {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+}
+
+@media only screen and (min-width: 480px) and (max-width: 600px) {
+	
+	section.overview section.summary img {
+		float: left;
+		margin-right: 1em;
+	}
+	
+}
+ 
+@media only screen and (min-width: 600px) {
+
+	section.overview section.summary {
+		position: relative;
+	}
+	section.overview section.summary > div {
+		column-count: 2;
+		column-gap: 1.5em;	
+		max-width: inherit;
+	}
+	section.overview section.summary div.description,
+	section.overview section.summary div.related,
+	section.overview section.summary div.purchase,
+	section.overview section.summary table {
+		-webkit-column-break-inside: avoid;
+	          page-break-inside: avoid;
+	               break-inside: avoid;
+	} 
+	
+} 
+ 
+@media only screen and (min-width: 900px) {
 
 	section.overview section.summary {
 		position: relative;
 	}
 	section.overview section.summary img {
 		float: left;
-		clear: left;
+		clear: both;
 		margin-right: 1.5em;
 		margin-bottom: 1.5em;
 	}
+	
 	section.overview section.summary > div {
-		column-count: 2;
-		column-gap: 1.5em;	
+		column-count: 1;
 	}
-	section.overview section.summary div.description {
-		-webkit-column-break-inside: avoid;
-	          page-break-inside: avoid;
-	               break-inside: avoid;
-	} 
+	
+	section.overview section.summary > div > div {
+		overflow: hidden;
+	}
+	
+	section.overview section.summary > div > div > div {
+		float: left;
+		width: 45%;
+	}
 
-} 
+	section.overview section.summary table {
+		float: right;
+		max-width: 26em;
+		margin-left: 1.5em;
+	}
+	
+	section.overview section.summary div.description {
+		margin-bottom: 0;
+	}
+	
+	section.overview section.summary div.related {
+		margin-top: 0;
+	}
+	
+}
+
+
+@media only screen and (min-width: 1750px) {
+	
+	section.overview section.summary > div > div  {
+		max-width: 1200px;
+	}
+	
+}
+
+/* Related Links */
+.related, 
+.purchase {
+	margin-top: 1.5em;
+	padding-top: 1em;
+	border-top: 1px solid;
+	border-color: rgba(210, 215, 223, 1);
+}
+.related h4,
+.purchase h4 {
+	margin-top: 0;
+}

@@ -59,7 +59,8 @@
 				<main>
 					<xsl:apply-templates mode="html.body"/>
 				</main>
-				<xsl:apply-templates mode="html.footer.scripts"/>
+				<xsl:apply-templates mode="html.footer"/>
+                <xsl:apply-templates mode="html.footer.scripts"/>
 			</body>
 		</html>
 	</xsl:template>
@@ -140,4 +141,10 @@
             <xsl:next-match/>
         </li>
     </xsl:template>
+<xsl:template match="/*" mode="html.footer">
+		<footer id="footer">
+			<p class="copyright">Copyright © 2017 martian-a</p>
+		</footer>	
+	</xsl:template>
+	
 </xsl:stylesheet>

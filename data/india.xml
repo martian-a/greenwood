@@ -11987,4 +11987,22 @@
             <location ref="MAD"/>
         </ticket>
     </tickets>
+	<related>
+		<link type="provider" href="http://amzn.to/2qAXDd1">
+			<title>Amazon UK</title>
+		</link>
+		<link type="publisher" href="https://www.daysofwonder.com/tickettoride/en/india/">
+			<title>Days of Wonder</title>
+		</link>
+		<link type="review" href="https://boardgamegeek.com/boardgame/106645/ticket-ride-map-collection-volume-2-india-switzerl">
+			<title>BoardGameGeek</title>
+		</link>
+	</related>
+	<assets>
+		<image role="product-illustration">
+			<title>Ticket to Ride: India</title>
+			<file path="india.png" height="462" width="462"/>
+			<file path="india_small.png" height="231" width="231"/>
+		</image>
+	</assets>
 </game>

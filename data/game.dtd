@@ -1,6 +1,6 @@
-<!ELEMENT game (title?, summary?, players?, starting-hand?, map?, tickets*, related?)>
+<!ELEMENT game (title?, summary?, players?, starting-hand?, map?, tickets*, related?, assets?)>
 <!ELEMENT title (#PCDATA)>
-<!ELEMENT summary (p*, footnote*)>
+<!ELEMENT summary (p*)>
 <!ELEMENT players (#PCDATA)>
 <!ELEMENT starting-hand (cards?)>
 <!ELEMENT cards (destinations?)>
@@ -26,10 +26,11 @@
 <!ELEMENT path (location, location, via*)>
 <!ELEMENT via (location*)>
 <!ELEMENT related (link*)>
-<!ELEMENT link (title?, description?, img*)>
-<!ELEMENT description (#PCDATA)>
-<!ELEMENT img EMPTY>
+<!ELEMENT link (title)>
 <!ELEMENT p (#PCDATA)*>
+<!ELEMENT assets (image*)>
+<!ELEMENT image (title, file+)>
+<!ELEMENT file EMPTY>
 
 <!ATTLIST game 
 	id ID #REQUIRED
@@ -83,10 +84,11 @@
 	long (1|2|3|4|5) "1"
 	must-keep (1|2|3|4|5) "2">
 <!ATTLIST link
-	href CDATA #REQUIRED>
-<!ATTLIST img
-	class CDATA #IMPLIED
-	border (0|1) "0"
-	src CDATA #REQUIRED
+	href CDATA #REQUIRED
+	type (publisher|provider|review) #REQUIRED>
+<!ATTLIST image
+	role (product-illustration) #REQUIRED>
+<!ATTLIST file
+	path CDATA #REQUIRED
 	height CDATA #IMPLIED
 	width CDATA #IMPLIED>

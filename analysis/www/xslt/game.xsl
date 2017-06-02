@@ -236,17 +236,20 @@
         <xsl:variable name="max-players" select="if (players/@max &gt; 0) then players/@max else $min-players" as="xs:integer"/>
         <section class="overview">
             <h2 id="overview">Overview</h2>
-        	<xsl:apply-templates select="related"/>
-            <section class="summary">
+        	<section class="summary">
                 <h3 id="overview-summary">Summary</h3>
-			<img src="{$normalised-path-to-images}{lower-case(@id)}.png"/>
-                <div>
-                    <xsl:apply-templates select="summary[p]"/>
-                    <xsl:call-template name="all-players">
-	                    <xsl:with-param name="games" select="self::*" as="element()*" tunnel="yes"/>
-	                    <xsl:with-param name="min-players" select="$min-players" as="xs:integer" tunnel="no"/>
-	                    <xsl:with-param name="max-players" select="$max-players" as="xs:integer" tunnel="no"/>
-	                </xsl:call-template>
+			<div>
+                    <xsl:apply-templates select="assets/image[@role = 'product-illustration']"/>
+                    <div>
+	                    <xsl:apply-templates select="summary[p]"/>
+	                    <xsl:call-template name="all-players">
+            				<xsl:with-param name="games" select="self::*" as="element()*" tunnel="yes"/>
+            				<xsl:with-param name="min-players" select="$min-players" as="xs:integer" tunnel="no"/>
+            				<xsl:with-param name="max-players" select="$max-players" as="xs:integer" tunnel="no"/>
+            			</xsl:call-template>
+	                    <xsl:apply-templates select="related[link/@type = ('publisher', 'review')]"/>
+	                <xsl:apply-templates select="related[link/@type = 'provider']" mode="purchase"/>
+            		</div>
                     </div>
             </section>
             <xsl:variable name="game" select="self::game" as="element()"/>
@@ -279,7 +282,17 @@
             </section>
         </section>
     </xsl:template>
-    <xsl:template match="game/summary">
+    <xsl:template match="assets/image">
+		<xsl:apply-templates select="file[1]"/>				
+	</xsl:template>
+	
+	<xsl:template match="image/file">
+		<img src="{$normalised-path-to-images}{@path}" alt="{parent::image/title}">
+			<xsl:copy-of select="@width, @height"/>
+		</img>
+	</xsl:template>
+	
+	<xsl:template match="game/summary">
 		<div class="description">
 			<xsl:apply-templates/>
 		</div>
@@ -291,7 +304,33 @@
         </p>
 	</xsl:template>
 	
-    <xsl:template match="game/related"/>
+    <xsl:template match="game/related">
+    	<div class="related">
+    		<h4>Related</h4>
+    		<ul>
+    			<xsl:apply-templates select="link[@type = 'publisher']"/>
+    			<xsl:apply-templates select="link[@type = 'review']"/>
+    		</ul>
+    	</div>
+    </xsl:template>
+    <xsl:template match="game/related" mode="purchase">
+		<div class="purchase">
+			<h4>Buy</h4>
+			<ul>
+				<xsl:apply-templates select="link[@type = 'provider']"/>
+			</ul>
+			<p class="disclaimer">Ticket to Ride Analysis is a participant in the Amazon EU Associates Programme, an affiliate advertising programme designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.co.uk.</p>
+		</div>
+	</xsl:template>
+	
+	<xsl:template match="related/link">
+			<li>
+            <a href="{@href}">
+                <xsl:value-of select="title"/>
+            </a>
+        </li>
+	</xsl:template>
+	
     <xsl:template match="locations">
 		<xsl:param as="xs:string" name="game-id" tunnel="yes" />
 		<xsl:param as="element()*" name="tickets" select="ticket" tunnel="no" />

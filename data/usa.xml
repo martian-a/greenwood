@@ -8502,4 +8502,11 @@
             <title>BoardGameGeek</title>
         </link>
     </related>
+	<assets>
+		<image role="product-illustration">
+			<title>Ticket to Ride: USA</title>
+			<file path="usa.png" height="462" width="462"/>
+			<file path="usa_small.png" height="231" width="231"/>
+		</image>
+	</assets>
 </game>

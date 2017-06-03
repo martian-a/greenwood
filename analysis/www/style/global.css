@@ -1,6 +1,5 @@
 @import 'reset.css';
 @import 'default.css';
-@import 'media.css';
 
 /**********
  * Body 
@@ -79,12 +78,6 @@ table tr td:first-of-type {
 }
 .header h2 a {
 	display: inline-block;
-	height: 73px;
-	width: 385px;
-	background-image: url('../images/ttr.png');
-}
-.header h2 span {
-	display: none;
 }
 
 nav.site ul {
@@ -112,6 +105,23 @@ nav.site li {
 
 .header a:hover {
 	text-decoration: underline;
+}
+
+@media only screen and (max-width: 410px) {
+	
+	.header .logo img {
+		width: 100%;
+	}
+	
+}
+
+@media only screen and (min-width: 411px) {
+	
+	.header img {
+		height: 73px;
+		width: 385px;
+	}
+	
 }
 
 /* End of Header */
@@ -151,99 +161,6 @@ nav.site li {
 /* End of Page Title */
  
  
-/**********
- * Tabbed Content 
- */
-
-.tabbed .contents {
-	margin: 0;
-}
-
-/* ToC Heading */
-.tabbed .contents .heading {
-	display: none;
-}
-
-/* Tab Headings */
-.tabbed nav ul {
-	list-style-type: none;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	background-color: #330000;
-	color: rgba(255, 255, 255, 1);
-}
-
-.tabbed nav li {
-	display: inline-block;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-.tabbed nav a {
-	display: inline-block;
-	box-sizing: border-box;
-	margin: 0;
-	padding: .5em 1em;
-	color: rgba(255, 255, 255, 0.75);
-	text-decoration: none;
-}
-
-.tabbed nav li.focus a:link,
-.tabbed nav li.focus a:visited,
-.tabbed nav li.focus a:hover,
-.tabbed nav li.focus a:active,
-.tabbed .tabbed nav a:link,
-.tabbed .tabbed nav a:visited,
-.tabbed .tabbed nav a:hover,
-.tabbed .tabbed nav a:active,
-.tabbed nav a:hover {
-	color: rgba(0, 0, 0, 0.75);
-}
-
-.tabbed nav li.focus a,
-.tabbed .tabbed nav ul {
-	background-color:  #ffcc00;
-}
-
-.tabbed .tabbed nav li.focus a {
-    background-color: #ebb800;
-}
-
-.tabbed nav li:hover a,
-.tabbed .tabbed nav li:hover a {
-	background-color:  #cc9900;
-}
-
-
-/* Show/Hide */
-.tabbed > section {
-	display: none;	
-} 
-
-.tabbed > section.focus {
-	display: block;
-}
-
-/* Content Panels */
-section.tab {
-    padding-top: 1em;
-}
-section.tab.tabbed {
-    padding-top: 0;
-}
-
-.tabbed > section h2:first-child,
-.tabbed .tabbed > section h3:first-child {	
-	display: none;
-	position: absolute;
-	top: -1em;
-	left: 0;
-} 
- 
- 
-/* End of Tabbed Content */
-
 
 /* Tables: Generic */
 
@@ -378,9 +295,130 @@ table.cross-reference tr.even td.self {
 
 /* Multi-column */
 
-ul.multi-column {
-	column-count: 3;
-	column-gap: 5em;	
+@media only screen and (min-width: 411px) {
+	
+	ul.multi-column {
+		column-count: 2;
+		column-gap: 5em;	
+	}
+
+}
+
+@media only screen and (max-width: 599px) {
+	
+	section.tabbed .contents {
+		display: none;
+	}
+	
+}
+
+@media only screen and (min-width: 600px) {
+	
+	ul.multi-column {
+		column-count: 3;	
+	}
+
+	/**********
+	 * Tabbed Content 
+	 */
+	
+	.tabbed .contents {
+		margin: 0;
+	}
+	
+	/* ToC Heading */
+	.tabbed .contents .heading {
+		display: none;
+	}
+	
+	/* Tab Headings */
+	.tabbed nav ul {
+		list-style-type: none;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		background-color: #330000;
+		color: rgba(255, 255, 255, 1);
+	}
+	
+	.tabbed nav li {
+		display: inline-block;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	.tabbed nav a {
+		display: inline-block;
+		box-sizing: border-box;
+		margin: 0;
+		padding: .5em 1em;
+		color: rgba(255, 255, 255, 0.75);
+		text-decoration: none;
+	}
+	
+	.tabbed nav li.focus a:link,
+	.tabbed nav li.focus a:visited,
+	.tabbed nav li.focus a:hover,
+	.tabbed nav li.focus a:active,
+	.tabbed .tabbed nav a:link,
+	.tabbed .tabbed nav a:visited,
+	.tabbed .tabbed nav a:hover,
+	.tabbed .tabbed nav a:active,
+	.tabbed nav a:hover {
+		color: rgba(0, 0, 0, 0.75);
+	}
+	
+	.tabbed nav li.focus a,
+	.tabbed .tabbed nav ul {
+		background-color:  #ffcc00;
+	}
+	
+	.tabbed .tabbed nav li.focus a {
+	    background-color: #ebb800;
+	}
+	
+	.tabbed nav li:hover a,
+	.tabbed .tabbed nav li:hover a {
+		background-color:  #cc9900;
+	}
+	
+	
+	/* Show/Hide */
+	.tabbed > section {
+		display: none;	
+	} 
+	
+	.tabbed > section.focus {
+		display: block;
+	}
+	
+	/* Content Panels */
+	section.tab {
+	    padding-top: 1em;
+	}
+	section.tab.tabbed {
+	    padding-top: 0;
+	}
+	
+	.tabbed > section h2:first-child,
+	.tabbed .tabbed > section h3:first-child {	
+		display: none;
+		position: absolute;
+		top: -1em;
+		left: 0;
+	} 
+	 
+	 
+	/* End of Tabbed Content */
+
+}
+
+@media only screen and (min-width: 1224px) {
+	
+	ul.multi-column {
+		column-count: 4;	
+	}
+
 }
 
 /* End of Multi-column */
@@ -424,9 +462,8 @@ ul.zebra li.even {
  
 /* End of Purchase Disclaimer */
 
-
  
- /* Copyright Notice */
+/* Copyright Notice */
  
  .copyright {
  	color: rgba(255, 255, 255, .5);

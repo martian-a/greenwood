@@ -1,3 +1,9 @@
+@media only screen and (min-width: 280px) {
+	main {
+		background-color: rgba(255, 0, 0, .5) !important;
+	}
+}
+
 @media only screen and (min-width: 375px) {
 	main {
 		background-color: red !important;

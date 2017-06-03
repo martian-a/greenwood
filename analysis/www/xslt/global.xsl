@@ -83,9 +83,9 @@
 
 	<xsl:template match="game | games | location | locations" mode="nav.site">
 		<header class="header">
-			<h2>
+			<h2 class="logo">
                 <a href="{$normalised-path-to-html}/{$index}{$ext-html}">
-                    <span>TTR Analysis</span>
+                    <img src="{$normalised-path-to-images}ttr.png" alt="TTR Analysis"/>
                 </a>
             </h2>
 			<nav class="site">

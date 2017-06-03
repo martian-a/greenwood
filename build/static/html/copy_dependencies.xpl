@@ -49,6 +49,7 @@
 			<p:pipe port="result" step="copy-dependencies-js" />
 			<p:pipe port="result" step="copy-dependencies-style" />
 			<p:pipe port="result" step="copy-dependencies-images" />
+			<p:pipe port="result" step="copy-dependencies-fonts" />
 		</p:output>
 	
 		<p:documentation>
@@ -83,6 +84,16 @@
 			<p:with-option name="target" select="concat($target, '/images/')" />
 		</tcy:recursive-copy-directory>
 		
+		
+		<p:documentation>
+			<d:doc scope="step">
+				<d:desc>Copy image assets that the result will depend on to the output directory.</d:desc>
+			</d:doc>
+		</p:documentation>
+		<tcy:recursive-copy-directory name="copy-dependencies-fonts">
+			<p:with-option name="href" select="concat($href, '/fonts/')" />
+			<p:with-option name="target" select="concat($target, '/fonts/')" />
+		</tcy:recursive-copy-directory>
 		
 	</p:group>
 

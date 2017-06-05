@@ -345,7 +345,6 @@ table.cross-reference tr.even td.self {
 		padding: 0;
 		background-color: #330000;
 		color: rgba(255, 255, 255, 1);
-		max-height: 2.25em;
 	}
 	
 	.tabbed nav li {
@@ -354,6 +353,7 @@ table.cross-reference tr.even td.self {
 		margin: 0;
 		padding: 0;
 	}
+	
 	.tabbed nav a {
 		display: inline-block;
 		box-sizing: border-box;
@@ -361,6 +361,12 @@ table.cross-reference tr.even td.self {
 		padding: .5em 1em;
 		color: rgba(255, 255, 255, 0.75);
 		text-decoration: none;
+	}
+	
+	.tabbed nav ul,
+	.tabbed nav li,
+	.tabbed nav a {
+		max-height: 2.5em;
 	}
 	
 	.tabbed nav li.focus a:link,

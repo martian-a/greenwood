@@ -5,11 +5,147 @@
         <p>Based on the road network of West Dorset, this map was designed to accommodate a larger group of players than usual.</p>
     </summary>
     <players max="7" double-routes-min="5" min="2"/>
-    <starting-hand stations="3" carriages="45">
+    <!-- starting-hand stations="3" carriages="45">
         <cards train="4">
             <destinations regular="4" long="1" must-keep="2"/>
         </cards>
-    </starting-hand>
+    </starting-hand -->
+	<turn min-actions="1" max-actions="1" />
+	<actions>
+		<action type="claim" id="ACT1">
+			<target ref="SOU4" max="1" />
+			<source ref="SOU10" />
+			<description>Claim a route option.  Mark it as claimed using claimants carriages.</description>
+		</action>
+		<action type="claim" id="ACT2">
+			<target ref="SOU3" max="1" />
+			<source ref="SOU11" />
+			<description>Claim a location.  Mark it as claimed using claimants station.</description>
+		</action>
+		<action type="draw" id="ACT3">
+			<source ref="SOU5" min="4" max="4" />
+			<target ref="SOU6" min="1" max="4" />
+			<target ref="SOU7" min="0" max="3" />
+			<description>Draw four cards from the tickets draw pile. Keep at least one. Zero to three of the newly drawn cards may be discarded.</description>
+		</action>
+		<action type="draw" id="ACT4">
+			<source ref="SOU1" min="0" max="2" />
+			<target ref="SOU6" min="0" max="2" />
+			<description>Draw up to two train cards (normal or wild) from the face-up river.</description>
+		</action>
+		<action type="draw" id="ACT5">
+			<source ref="SOU2" min="0" max="2" />
+			<target ref="SOU6" min="0" max="2" />
+			<description>Draw up to two train cards (normal or wild) from the face-down draw pile.</description>
+		</action>
+		
+		<!-- action type="move" id="ACT6">
+			<source ref="SOU1" min="0" max="2">
+				<asset ref="TRN" min="0" max="2" />
+				<asset ref="TRW" min="0" max="1" />
+			</source>
+			<target ref="SOU6" min="0" max="2" />
+			<description>Draw up to two normal train cards or one wild card, from the face-up river.</description>
+		</action -->
+		
+	</actions>
+	<assets>
+		<collection id="SOU4">
+			<asset ref="ROU" />
+			<name>Route options</name>
+			<description>The paths connecting together locations on the map (edge).</description>
+		</collection>
+		<collection id="SOU1" face-up="true">
+			<asset ref="TRA" init="5" />
+			<name>Train card river</name>
+			<description>A river consisting of 5 train cards, laid face-up.</description>
+		</collection>
+		<collection id="SOU2" face-up="false">
+			<asset ref="TRA" />
+			<name>Train card draw pile</name>
+			<description>A pile of train cards, stacked face-down.</description>
+		</collection>
+		<collection id="SOU3">
+			<asset ref="LOC" />
+			<name>Locations</name>
+			<description>Locations on the map (nodes).</description>
+		</collection>
+		<collection id="SOU5" face-up="false">
+			<asset ref="TIN" />
+			<name>Tickets draw pile</name>
+			<description>A pile of ticket cards, stacked face-down.</description>
+		</collection>
+		<collection id="SOU6">
+			<asset ref="CAR" init="4" />
+			<name>Players hand</name>
+			<description>Train cards.</description>
+		</collection>
+		<collection id="SOU7">
+			<asset ref="TIC" min="2">
+				<asset ref="TIN" init="4" />
+				<asset ref="TIL" init="1" />
+			</asset>
+			<name>Players tickets</name>
+			<description>Tickets that the player is expected to complete.</description>
+		</collection>
+		<collection id="SOU8">
+			<asset ref="TIC" />
+			<name>Ticket discard pile</name>
+			<description>Tickets that have been discarded by players.</description>
+		</collection>
+		<collection id="SOU9">
+			<asset ref="CAR" />
+			<name>Train card discard pile</name>
+			<description>Train cards that have been spent by players.</description>
+		</collection>
+		<collection id="SOU10">
+			<asset ref="TOC" init="45" />
+			<name>Players carriages</name>
+			<description>Carriage tokens in the players colour (that haven't yet been used to claim anything).</description>
+		</collection>
+		<collection id="SOU11">
+			<asset ref="TOS" init="3" />
+			<name>Players stations</name>
+			<description>Station tokens in the players colour (that haven't yet been used to claim a location).</description>
+		</collection>
+		<asset id="CAR" class="card">
+			<asset id="TRA" class="train">
+				<name>Train card</name>
+				<asset id="TRN" class="normal">
+					<name>Train car</name>
+				</asset>
+				<asset id="TRW" class="wild">
+					<name>Locomotive card</name>
+				</asset>
+			</asset>
+			<asset id="TIC" class="ticket">
+				<name>Route Ticket</name>
+				<asset id="TIL" class="long">
+					<name>Long</name>
+				</asset>
+				<asset id="TIN" class="normal">
+					<name>Normal</name>
+				</asset>
+			</asset>
+		</asset>
+		<asset id="TOK" class="token">
+			<asset id="TOC" class="carriage">
+				<name>Carriage</name>
+			</asset>
+			<asset id="TOS" class="station">
+				<name>Station</name>
+			</asset>
+			<asset id="TOP" class="points-marker">
+				<name>Points marker</name>
+			</asset>
+		</asset>
+		<asset id="ROU" class="route-option">
+			<name>Route option</name>
+		</asset>
+		<asset id="LOC" class="location">
+			<name>Location</name>
+		</asset>
+	</assets>
     <map>
         <locations>
             <country id="WDO">

@@ -49,7 +49,7 @@
 
 
 	<xsl:template match="/">
-		<html class="{/*/local-name()}">
+		<html class="{/*/local-name()}" lang="en">
 			<head>
 				<xsl:apply-templates mode="html.header"/>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />

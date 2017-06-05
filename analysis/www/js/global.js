@@ -6,8 +6,8 @@ jQuery(document).ready(function($) {
 	 * Insert containers for javascript dependent visualisations
 	 */
 	if (pageClass == "game") {
-		$(".main > section.overview > section").filter(":last").after("<section class=\"network\"><h3 id=\"network\">Network</h3><div id=\"vis1\" class=\"network-visualisation\"/></section>");
-		$(".main > section.tickets > section").filter(":first").after("<section><h3 id=\"ticket-distribution\">Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></section>");	 	
+		$(".main > div.overview > div.section").filter(":last").after("<div class=\"section network\"><h3 id=\"network\">Network</h3><div id=\"vis1\" class=\"network-visualisation\"/></div>");
+		$(".main > div.tickets > div.section").filter(":first").after("<div class=\"section\"><h3 id=\"ticket-distribution\">Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></div>");	 	
 	};
 
 	/* 
@@ -55,7 +55,7 @@ jQuery(document).ready(function($) {
 	 		 * Find content that should be organised into
 	 		 * sub-tabs and create those sub-tabs.
 	 		 */
-	 		if ($(this.container).find(" > section").length > 0) {
+	 		if ($(this.container).find(" > div.section").length > 0) {
 	 		    
 	 		     /*
 	 		      * Subsections found.
@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
     	 		 // Create a contents list from the subsection headings.
     	 		 var subsectionHeadings = [];
     	 		 var subsectionIds = [];
-                 $(subTabsContainer).find(" > section > h3").each(function(){
+                 $(subTabsContainer).find(" > div.section > h3").each(function(){
                     subsectionHeadings.push($(this).text());
                     subsectionIds.push($(this).attr("id"));
                  }); 
@@ -163,7 +163,7 @@ jQuery(document).ready(function($) {
             // Create a tab from each subsection.
 		 	$(container).find("> .contents li").each(function(){
 			 	var i = $(this).prevAll().length;
-			 	self.createTab($(container).find("> section").eq(i), this);
+			 	self.createTab($(container).find("> div.section").eq(i), this);
 		 	});
 		 	
 		 	// Determine which tab should have focus

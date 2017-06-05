@@ -312,7 +312,7 @@ table.cross-reference tr.even td.self {
 
 @media only screen and (max-width: 599px) {
 	
-	section.tabbed .contents {
+	div.tabbed .contents {
 		display: none;
 	}
 	
@@ -397,24 +397,24 @@ table.cross-reference tr.even td.self {
 	
 	
 	/* Show/Hide */
-	.tabbed > section {
+	.tabbed > div.section {
 		display: none;	
 	} 
 	
-	.tabbed > section.focus {
+	.tabbed > div.focus {
 		display: block;
 	}
 	
 	/* Content Panels */
-	section.tab {
+	div.tab {
 	    padding-top: 1em;
 	}
-	section.tab.tabbed {
+	div.tab.tabbed {
 	    padding-top: 0;
 	}
 	
-	.tabbed > section h2:first-child,
-	.tabbed .tabbed > section h3:first-child {	
+	.tabbed > div.section h2:first-child,
+	.tabbed .tabbed > div.section h3:first-child {	
 		display: none;
 		position: absolute;
 		top: -1em;

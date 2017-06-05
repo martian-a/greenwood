@@ -81,7 +81,7 @@
     </xsl:template>
     
 	<xsl:template match="connections">
-        <section class="connections">
+        <div class="section connections">
         	<h2 id="connections">Connections</h2>
         	<p class="summary">All locations adjacent to <xsl:value-of select="/location/name" />.</p>
         	<div class="table">
@@ -100,7 +100,7 @@
         			</xsl:apply-templates>
         		</table>
         	</div>
-        </section>
+        </div>
     </xsl:template>
     
 	<xsl:template match="location" mode="connections">
@@ -135,7 +135,7 @@
     </xsl:template>
     
 	<xsl:template match="location/shortest-paths">
-        <section class="shortest-paths">
+        <div class="section shortest-paths">
         	<h2 id="shortest-paths">Shortest Paths</h2>
         	<p class="summary">The minimum number of carriages (distance) required to claim a route between <xsl:value-of select="/location/name" /> and each other reachable location on the map.</p>
         	<div class="table">
@@ -150,7 +150,7 @@
         			</xsl:apply-templates>
         		</table>
         	</div>
-        </section>
+        </div>
     </xsl:template>
     
 	<xsl:template match="location" mode="shortest-path">
@@ -168,7 +168,7 @@
     </xsl:template>
 	
 	<xsl:template match="sub-locations">
-        <section class="sub-locations">
+        <div class="section sub-locations">
             <h2 id="sub-locations">Locations</h2>
             <p class="summary">All locations in <xsl:value-of select="/location/name"/>.</p>
             <ul>
@@ -185,6 +185,6 @@
                     </li>
                 </xsl:for-each>
             </ul>
-        </section>
+        </div>
     </xsl:template>
 </xsl:stylesheet>

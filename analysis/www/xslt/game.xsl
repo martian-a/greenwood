@@ -124,15 +124,15 @@
                 </ul>
             </div>
         </div>
-        <section>
+        <div class="section">
             <h2 id="overview">Overview</h2>
             <xsl:call-template name="all-players">
                 <xsl:with-param name="games" select="$games" as="element()*" tunnel="yes"/>
                 </xsl:call-template>
-        </section>
+        </div>
         <xsl:for-each select="$min-players to $max-players">
             <xsl:variable name="players" select="current()" as="xs:integer"/>
-            <section>
+            <div class="section">
                 <h2 id="players-{$players}">
                     <xsl:value-of select="$players"/> Players</h2>
                 	<div class="table">
@@ -164,7 +164,7 @@
                 			</xsl:for-each>
                 		</table>
                 	</div>
-            </section>
+            </div>
         </xsl:for-each>
     </xsl:template>
 	
@@ -236,9 +236,9 @@
     <xsl:template name="game-overview">
         <xsl:variable name="min-players" select="if (players/@min &gt; 0) then players/@min else 2" as="xs:integer"/>
         <xsl:variable name="max-players" select="if (players/@max &gt; 0) then players/@max else $min-players" as="xs:integer"/>
-        <section class="overview">
+        <div class="section overview">
             <h2 id="overview">Overview</h2>
-        	<section class="summary">
+        	<div class="section summary">
                 <h3 id="overview-summary">Summary</h3>
 			<div>
                     <xsl:apply-templates select="assets/image[@role = 'product-illustration']"/>
@@ -253,9 +253,9 @@
 	                <xsl:apply-templates select="related[link/@type = 'provider']" mode="purchase"/>
             		</div>
                     </div>
-            </section>
+            </div>
             <xsl:variable name="game" select="self::game" as="element()"/>
-            <section>
+            <div class="section">
                 <h3 id="by-players">By Players</h3>
                 <div class="table">
                 	<table>
@@ -282,8 +282,8 @@
                 		</xsl:for-each>
                 	</table>
                 </div>
-            </section>
-        </section>
+            </div>
+        </div>
     </xsl:template>
     <xsl:template match="assets/image">
 		<xsl:apply-templates select="file[1]"/>				
@@ -338,9 +338,9 @@
 		<xsl:param as="xs:string" name="game-id" tunnel="yes" />
 		<xsl:param as="element()*" name="tickets" select="ticket" tunnel="no" />
 		<xsl:param as="element()*" name="destinations" tunnel="no" />
-		<section class="locations">
+		<div class="section locations">
 			<h2 id="locations">Locations</h2>
-			<section>
+			<div class="section">
 				<h3 id="locations-list">List</h3>
 				<div class="multi-column"> <ul class="multi-column">
                         <xsl:for-each select="descendant::location">
@@ -353,8 +353,8 @@
                         </xsl:for-each>
                     </ul>
                 </div>
-				</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="locations-by-total-tickets">By Total Tickets</h3>
 				<div class="table">
 					<table>
@@ -403,8 +403,8 @@
 						</xsl:for-each>
 					</table>
 				</div>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="locations-by-max-ticket-points">By Max Ticket Points</h3>
 				<div class="table">
 					<table>
@@ -446,8 +446,8 @@
 						</xsl:for-each-group>
 					</table>
 				</div>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="locations-by-points-per-ticket">By Points per Ticket</h3>
 				<div class="table">
 					<table>
@@ -490,8 +490,8 @@
 						</xsl:for-each-group>
 					</table>
 				</div>
-			</section>
-		</section>
+			</div>
+		</div>
 	</xsl:template>
 
 
@@ -509,39 +509,39 @@
 
 
 	<xsl:template match="routes">
-		<section class="routes">
+		<div class="section routes">
 			<h2 id="routes">Routes</h2>
-			<section>
+			<div class="section">
 				<h3 id="route-lengths">Length</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="double-routes">Double Routes</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route[count(colour) &gt; 1]" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="tunnel-routes">Tunnels</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route[@tunnel = 'true']" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="microlight-routes">Microlights</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route[@microlight = 'true']" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="ferry-routes">Ferries</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route[@ferry/number(.) &gt; 0]" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-		</section>
+			</div>
+		</div>
 	</xsl:template>
 
 
@@ -653,9 +653,9 @@
 				<xsl:sequence select="$game/map/locations/descendant::location[@id = current-grouping-key()]" />
 			</xsl:for-each-group>
 		</xsl:variable>
-		<section class="shortest-paths">
+		<div class="section shortest-paths">
 			<h2 id="shortest-paths">Shortest Paths</h2>
-			<section>
+			<div class="section">
 				<h3 id="shortest-paths-cross-referenced">Cross-referenced</h3>
 				<div class="table">
 					<table class="cross-reference">
@@ -702,8 +702,8 @@
 						</xsl:for-each>
 					</table>
 				</div>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="shortest-paths-by-distance">By Distance</h3>
 				<ul class="zebra">
 					<xsl:for-each-group group-by="@distance" select="path">
@@ -726,8 +726,8 @@
 						</li>
 					</xsl:for-each-group>
 				</ul>
-			</section>
-		</section>
+			</div>
+		</div>
 	</xsl:template>
 
 
@@ -758,9 +758,9 @@
 		<xsl:param as="element()*" name="tickets" select="ticket" tunnel="no" />
 		<xsl:param as="element()*" name="destinations" tunnel="no" />
 		<xsl:variable as="element()" name="game" select="ancestor::game[1]" />
-		<section class="tickets">
+		<div class="section tickets">
 			<h2 id="tickets">Tickets</h2>
-			<section>
+			<div class="section">
 				<h3 id="tickets-by-points-frequency">Points Frequency</h3>
 				<div class="table">
 					<table>
@@ -785,8 +785,8 @@
 						</xsl:for-each-group>
 					</table>
 				</div>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="tickets-cross-referenced">Cross-referenced</h3>
 				<div class="table">
 					<table class="cross-reference">
@@ -887,8 +887,8 @@
 						</xsl:for-each>
 					</table>
 				</div>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="tickets-by-type">By Type</h3>
 				<ul class="zebra">
 					<li class="odd">
@@ -947,8 +947,8 @@
 						</xsl:choose>
 					</li>
 				</ul>
-			</section>
-		</section>
+			</div>
+		</div>
 	</xsl:template>
 
 

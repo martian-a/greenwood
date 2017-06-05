@@ -21,107 +21,107 @@ div.network-visualisation .canvas {
 
 
 /* Red columns */
-section.routes table th.RED,
-section.routes table td.RED {
+div.routes table th.RED,
+div.routes table td.RED {
 	background-color: rgba(204, 0, 0, 1);
 }
-section.routes table tr.odd td.RED {
+div.routes table tr.odd td.RED {
 	background-color: rgba(204, 0, 0, 0.5);
 }
-section.routes table tr.even td.RED {
+div.routes table tr.even td.RED {
 	background-color: rgba(204, 0, 0, 0.75);
 }
 
 /* Orange columns */
-section.routes table th.ORA,
-section.routes table td.ORA {
+div.routes table th.ORA,
+div.routes table td.ORA {
 	background-color: rgba(252, 125, 0, 1);
 }
-section.routes table tr.odd td.ORA {
+div.routes table tr.odd td.ORA {
 	background-color: rgba(252, 125, 0, 0.5);
 }
-section.routes table tr.even td.ORA {
+div.routes table tr.even td.ORA {
 	background-color: rgba(252, 125, 0, 0.75);
 }
 
 /* Yellow columns */
-section.routes table th.YEL,
-section.routes table td.YEL {
+div.routes table th.YEL,
+div.routes table td.YEL {
 	background-color: rgba(226, 192, 56, 1);
 }
-section.routes table tr.odd td.YEL {
+div.routes table tr.odd td.YEL {
 	background-color: rgba(226, 192, 56, 0.5);
 }
-section.routes table tr.even td.YEL {
+div.routes table tr.even td.YEL {
 	background-color: rgba(226, 192, 56, 0.75);
 }
 
 /* Green columns */
-section.routes table th.GRN,
-section.routes table td.GRN {
+div.routes table th.GRN,
+div.routes table td.GRN {
 	background-color: rgba(144, 185, 22, 1);
 }
-section.routes table tr.odd td.GRN {
+div.routes table tr.odd td.GRN {
 	background-color: rgba(144, 185, 22, 0.5);
 }
-section.routes table tr.even td.GRN {
+div.routes table tr.even td.GRN {
 	background-color: rgba(144, 185, 22, 0.75);
 }
 
 /* Blue columns */
-section.routes table th.BLU,
-section.routes table td.BLU {
+div.routes table th.BLU,
+div.routes table td.BLU {
 	background-color: rgba(0, 153, 255, 1);
 }
-section.routes table tr.odd td.BLU {
+div.routes table tr.odd td.BLU {
 	background-color: rgba(0, 153, 255, 0.5);
 }
-section.routes table tr.even td.BLU {
+div.routes table tr.even td.BLU {
 	background-color: rgba(0, 153, 255, 0.75);
 }
 
 /* Violet columns */
-section.routes table th.VIO,
-section.routes table td.VIO {
+div.routes table th.VIO,
+div.routes table td.VIO {
 	background-color: rgba(204, 102, 255, 1);
 }
-section.routes table tr.odd td.VIO {
+div.routes table tr.odd td.VIO {
 	background-color: rgba(204, 102, 255, 0.5);
 }
-section.routes table tr.even td.VIO {
+div.routes table tr.even td.VIO {
 	background-color: rgba(204, 102, 255, 0.75);
 }
 
 /* White columns */
-section.routes table th.WHI {
+div.routes table th.WHI {
 	background-color: rgba(245, 245, 245, 1);
 }
-section.routes table tr.odd td.WHI {
+div.routes table tr.odd td.WHI {
 	background-color: rgba(255, 255, 255, 1);
 }
 
 /* Black columns */
-section.routes table th.BLA,
-section.routes table td.BLA {
+div.routes table th.BLA,
+div.routes table td.BLA {
 	background-color: rgba(2, 2, 2, 1);
 	color: rgba(255, 255, 255, 1);
 }
-section.routes table tr.odd td.BLA {
+div.routes table tr.odd td.BLA {
 	background-color: rgba(2, 2, 2, 0.5);
 }
-section.routes table tr.even td.BLA {
+div.routes table tr.even td.BLA {
 	background-color: rgba(2, 2, 2, 0.75);
 }
 
 /* Grey columns */
-section.routes table th.GRY,
-section.routes table td.GRY {
+div.routes table th.GRY,
+div.routes table td.GRY {
 	background-color: rgba(202, 202, 202, 1);
 }
-section.routes table tr.odd td.GRY {
+div.routes table tr.odd td.GRY {
 	background-color: rgba(202, 202, 202, 0.5);
 }
-section.routes table tr.even td.GRY {
+div.routes table tr.even td.GRY {
 	background-color: rgba(202, 202, 202, 0.75);
 }
 
@@ -129,18 +129,18 @@ section.routes table tr.even td.GRY {
  * Overview
  */
 
-section.overview section.summary div.description * {
+div.overview div.summary div.description * {
 	margin-bottom: 1.25em;
 }
 
-section.overview section.summary img,
-section.overview section.summary div.description {
+div.overview div.summary img,
+div.overview div.summary div.description {
 	margin-bottom: 1.5em;
 }
 
 @media only screen and (max-width: 1224px) {
 
-	section.overview section.summary img {
+	div.overview div.summary img {
 		width: 200px !important;
 		height: 200px !important;
 	}
@@ -149,7 +149,7 @@ section.overview section.summary div.description {
 
 @media only screen and (max-width: 599px) {
 
-	section.overview section.summary div.table {
+	div.overview div.summary div.table {
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -158,12 +158,12 @@ section.overview section.summary div.description {
 
 @media only screen and (min-width: 480px) and (max-width: 599px) {
 	
-	section.overview section.summary img {
+	div.overview div.summary img {
 		float: left;
 		margin-right: 1em;
 	}
 	
-	section.overview section.summary div.table {
+	div.overview div.summary div.table {
 		clear: both;
 	}
 	
@@ -171,36 +171,36 @@ section.overview section.summary div.description {
  
 @media only screen and (min-width: 600px) {
 
-	section.overview section.summary {
+	div.overview div.summary {
 		position: relative;
 	}
 	
-	section.overview section.summary img {
+	div.overview div.summary img {
 		float: none;
 		position: absolute;
 	}
 
-	section.overview section.summary > div > div {
+	div.overview div.summary > div > div {
 		overflow: hidden;
 		clear: both;
 	}
 	
-	section.overview section.summary div.description,
-	section.overview section.summary div.related,
-	section.overview section.summary div.purchase {
+	div.overview div.summary div.description,
+	div.overview div.summary div.related,
+	div.overview div.summary div.purchase {
 		float: left;
 		clear: left;
 		width: 45%;
 		margin-right: 1.5em;
 	}
 	
-	section.overview section.summary div.description {
+	div.overview div.summary div.description {
 		margin-top: 200px;
 		margin-bottom: 0;
 		padding-top: 1em;
 	}
 	
-	section.overview section.summary div.table {
+	div.overview div.summary div.table {
 		float: right;
 		width: 45%;
 		clear: right;
@@ -210,11 +210,11 @@ section.overview section.summary div.description {
  
 @media only screen and (min-width: 900px) {
 
-	section.overview section.summary {
+	div.overview div.summary {
 		position: relative;
 	}
 	
-	section.overview section.summary img {
+	div.overview div.summary img {
 		position: relative;
 		float: left;
 		clear: both;
@@ -222,34 +222,34 @@ section.overview section.summary div.description {
 		margin-bottom: 1.5em;
 	}
 	
-	section.overview section.summary > div {
+	div.overview div.summary > div {
 		column-count: 1;
 	}
 	
-	section.overview section.summary > div > div {
+	div.overview div.summary > div > div {
 		overflow: hidden;
 		clear: none;
 	}
 	
-	section.overview section.summary div.description,
-	section.overview section.summary div.related,
-	section.overview section.summary div.purchase {
+	div.overview div.summary div.description,
+	div.overview div.summary div.related,
+	div.overview div.summary div.purchase {
 		float: left;
 		width: 45%;
 	}
 
-	section.overview section.summary div.table {
+	div.overview div.summary div.table {
 		float: right;
 		max-width: 26em;
 		margin-left: 1.5em;
 	}
 	
-	section.overview section.summary div.description {
+	div.overview div.summary div.description {
 		margin-top: 0;
 		margin-bottom: 1.5em;
 	}
 	
-	section.overview section.summary div.related {
+	div.overview div.summary div.related {
 		margin-top: 0;
 	}
 	
@@ -258,7 +258,7 @@ section.overview section.summary div.description {
 
 @media only screen and (min-width: 1750px) {
 	
-	section.overview section.summary > div > div  {
+	div.overview div.summary > div > div  {
 		max-width: 1200px;
 	}
 	

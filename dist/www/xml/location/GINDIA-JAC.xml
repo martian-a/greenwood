@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location id="JAC">
+   <name>Jacobabad</name>
+   <games>
+      <game id="GINDIA">
+         <title>India</title>
+      </game>
+   </games>
+   <connections>
+      <location id="PSH"
+                length="3"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Peshawar</name>
+         <colour>Orange</colour>
+         <colour>Yellow</colour>
+      </location>
+      <location id="LAH"
+                length="3"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Lahore</name>
+         <colour>Red</colour>
+      </location>
+      <location id="KAR"
+                length="4"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Karachi</name>
+         <colour>White</colour>
+      </location>
+      <location id="ROH"
+                length="2"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Rohri</name>
+         <colour>Green</colour>
+         <colour>Blue</colour>
+      </location>
+   </connections>
+   <shortest-paths>
+      <location id="PSH" distance="3">
+         <name>Peshawar</name>
+      </location>
+      <location id="LAH" distance="3">
+         <name>Lahore</name>
+      </location>
+      <location id="BHA" distance="4">
+         <name>Bhatinda</name>
+      </location>
+      <location id="AMB" distance="6">
+         <name>Ambala</name>
+      </location>
+      <location id="ROH" distance="2">
+         <name>Rohri</name>
+      </location>
+      <location id="DHL" distance="7">
+         <name>Delhi</name>
+      </location>
+      <location id="JOD" distance="7">
+         <name>Jodhpur</name>
+      </location>
+      <location id="KAR" distance="4">
+         <name>Karachi</name>
+      </location>
+      <location id="JAI" distance="9">
+         <name>Jaipur</name>
+      </location>
+      <location id="AGR" distance="9">
+         <name>Agra</name>
+      </location>
+      <location id="RAT" distance="11">
+         <name>Ratiam</name>
+      </location>
+      <location id="AHM" distance="10">
+         <name>Ahmadabad</name>
+      </location>
+      <location id="BHO" distance="11">
+         <name>Bhopal</name>
+      </location>
+      <location id="KHA" distance="12">
+         <name>Khandwa</name>
+      </location>
+      <location id="MAN" distance="11">
+         <name>Manmad</name>
+      </location>
+      <location id="BMB" distance="10">
+         <name>Bombay</name>
+      </location>
+      <location id="PNA" distance="11">
+         <name>Poona</name>
+      </location>
+      <location id="WAD" distance="12">
+         <name>Wadi</name>
+      </location>
+      <location id="MMG" distance="11">
+         <name>Mormugau</name>
+      </location>
+      <location id="GUN" distance="13">
+         <name>Guntakal</name>
+      </location>
+      <location id="MGL" distance="13">
+         <name>Mangalore</name>
+      </location>
+      <location id="CAL" distance="15">
+         <name>Calicut</name>
+      </location>
+      <location id="QUI" distance="17">
+         <name>Quilon</name>
+      </location>
+      <location id="BEZ" distance="15">
+         <name>Bezwada</name>
+      </location>
+      <location id="RAI" distance="12">
+         <name>Raipur</name>
+      </location>
+      <location id="BAR" distance="8">
+         <name>Bareilly</name>
+      </location>
+      <location id="LUC" distance="9">
+         <name>Lucknow</name>
+      </location>
+      <location id="KAT" distance="10">
+         <name>Katni</name>
+      </location>
+      <location id="PAT" distance="12">
+         <name>Patna</name>
+      </location>
+      <location id="JAR" distance="16">
+         <name>Jarhat</name>
+      </location>
+      <location id="DHU" distance="14">
+         <name>Dhubri</name>
+      </location>
+      <location id="CHI" distance="16">
+         <name>Chittagong</name>
+      </location>
+      <location id="CTA" distance="14">
+         <name>Calcutta</name>
+      </location>
+      <location id="BIL" distance="11">
+         <name>Bilaspur</name>
+      </location>
+      <location id="WAL" distance="16">
+         <name>Waltain</name>
+      </location>
+      <location id="MAD" distance="15">
+         <name>Madras</name>
+      </location>
+      <location id="ERO" distance="17">
+         <name>Erode</name>
+      </location>
+      <location id="IND" distance="14">
+         <name>Indur</name>
+      </location>
+   </shortest-paths>
+</location>

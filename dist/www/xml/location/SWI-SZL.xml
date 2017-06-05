@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location id="SZL">
+   <name>Schweiz</name>
+   <games>
+      <game id="SWI">
+         <title>Switzerland</title>
+      </game>
+   </games>
+   <sub-locations>
+      <location id="GEN">
+         <name>Geneve</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="LAU">
+         <name>Lausanne</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="MAR">
+         <name>Martigny</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="SIO">
+         <name>Sion</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="BRI">
+         <name>Brig</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="LOC">
+         <name>Locarno</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="WAS">
+         <name>Wassen</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="INT">
+         <name>Interlaken</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="FRI">
+         <name>Fribourg</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="YVE">
+         <name>Yverdon</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="LUG">
+         <name>Lugano</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="BEL">
+         <name>Bellinzona</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="CDF">
+         <name>La Chaux-de-fonds</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="NEU">
+         <name sort="Neuchatel">Neuchâtel</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="BER">
+         <name>Bern</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="DEL">
+         <name sort="Delemont">Delémont</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="BAS">
+         <name>Basel</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="SOL">
+         <name>Solothurn</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="BAD">
+         <name>Baden</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="OLT">
+         <name>Olten</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="LUZ">
+         <name>Luzern</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="ZUG">
+         <name>Zug</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="SWZ">
+         <name>Schwyz</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="PFA">
+         <name sort="Pfaffikon">Pfäffikon</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="ZUR">
+         <name sort="Zurich">Zürich</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="SFH">
+         <name>Schaffhausen</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="WIN">
+         <name>Winterthur</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="STG">
+         <name>St Gallen</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="VAD">
+         <name>Vaduz</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="KRE">
+         <name>Kreuzlingen</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="SAR">
+         <name>Sargans</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="CHU">
+         <name>Chur</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="DAV">
+         <name>Davos</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="BRU">
+         <name>Brusio</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+   </sub-locations>
+</location>

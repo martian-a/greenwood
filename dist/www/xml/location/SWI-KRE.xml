@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location id="KRE">
+   <name>Kreuzlingen</name>
+   <games>
+      <game id="SWI">
+         <title>Switzerland</title>
+      </game>
+   </games>
+   <connections>
+      <location id="GER3"
+                length="1"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Deutschland (GER3)</name>
+         <colour>Orange</colour>
+      </location>
+      <location id="GER4"
+                length="1"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Deutschland (GER4)</name>
+         <colour>White</colour>
+      </location>
+      <location id="STG"
+                length="1"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>St Gallen</name>
+         <colour>Green</colour>
+      </location>
+      <location id="WIN"
+                length="2"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Winterthur</name>
+         <colour>Yellow</colour>
+      </location>
+      <location id="SFH"
+                length="3"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Schaffhausen</name>
+         <colour>Pink</colour>
+      </location>
+   </connections>
+   <shortest-paths>
+      <location id="GEN" distance="17">
+         <name>Geneve</name>
+      </location>
+      <location id="LAU" distance="13">
+         <name>Lausanne</name>
+      </location>
+      <location id="MAR" distance="16">
+         <name>Martigny</name>
+      </location>
+      <location id="SIO" distance="14">
+         <name>Sion</name>
+      </location>
+      <location id="BRI" distance="11">
+         <name>Brig</name>
+      </location>
+      <location id="LOC" distance="12">
+         <name>Locarno</name>
+      </location>
+      <location id="WAS" distance="7">
+         <name>Wassen</name>
+      </location>
+      <location id="INT" distance="9">
+         <name>Interlaken</name>
+      </location>
+      <location id="FRI" distance="10">
+         <name>Fribourg</name>
+      </location>
+      <location id="YVE" distance="13">
+         <name>Yverdon</name>
+      </location>
+      <location id="LUG" distance="12">
+         <name>Lugano</name>
+      </location>
+      <location id="BEL" distance="11">
+         <name>Bellinzona</name>
+      </location>
+      <location id="CDF" distance="11">
+         <name>La Chaux-de-fonds</name>
+      </location>
+      <location id="NEU" distance="11">
+         <name sort="Neuchatel">Neuchâtel</name>
+      </location>
+      <location id="BER" distance="9">
+         <name>Bern</name>
+      </location>
+      <location id="DEL" distance="8">
+         <name sort="Delemont">Delémont</name>
+      </location>
+      <location id="BAS" distance="7">
+         <name>Basel</name>
+      </location>
+      <location id="SOL" distance="7">
+         <name>Solothurn</name>
+      </location>
+      <location id="BAD" distance="4">
+         <name>Baden</name>
+      </location>
+      <location id="OLT" distance="6">
+         <name>Olten</name>
+      </location>
+      <location id="LUZ" distance="5">
+         <name>Luzern</name>
+      </location>
+      <location id="ZUG" distance="4">
+         <name>Zug</name>
+      </location>
+      <location id="SWZ" distance="5">
+         <name>Schwyz</name>
+      </location>
+      <location id="PFA" distance="4">
+         <name sort="Pfaffikon">Pfäffikon</name>
+      </location>
+      <location id="ZUR" distance="3">
+         <name sort="Zurich">Zürich</name>
+      </location>
+      <location id="SFH" distance="3">
+         <name>Schaffhausen</name>
+      </location>
+      <location id="WIN" distance="2">
+         <name>Winterthur</name>
+      </location>
+      <location id="STG" distance="1">
+         <name>St Gallen</name>
+      </location>
+      <location id="VAD" distance="3">
+         <name>Vaduz</name>
+      </location>
+      <location id="SAR" distance="4">
+         <name>Sargans</name>
+      </location>
+      <location id="CHU" distance="5">
+         <name>Chur</name>
+      </location>
+      <location id="DAV" distance="7">
+         <name>Davos</name>
+      </location>
+      <location id="BRU" distance="10">
+         <name>Brusio</name>
+      </location>
+      <location id="FRA1" distance="10">
+         <name>France (FRA1)</name>
+      </location>
+      <location id="FRA2" distance="13">
+         <name>France (FRA2)</name>
+      </location>
+      <location id="FRA3" distance="18">
+         <name>France (FRA3)</name>
+      </location>
+      <location id="FRA4" distance="18">
+         <name>France (FRA4)</name>
+      </location>
+      <location id="ITA1" distance="14">
+         <name>Italia (ITA1)</name>
+      </location>
+      <location id="ITA2" distance="14">
+         <name>Italia (ITA2)</name>
+      </location>
+      <location id="ITA3" distance="14">
+         <name>Italia (ITA3)</name>
+      </location>
+      <location id="ITA4" distance="12">
+         <name>Italia (ITA4)</name>
+      </location>
+      <location id="ITA5" distance="10">
+         <name>Italia (ITA5)</name>
+      </location>
+      <location id="GER1" distance="8">
+         <name>Deutschland (GER1)</name>
+      </location>
+      <location id="GER2" distance="4">
+         <name>Deutschland (GER2)</name>
+      </location>
+      <location id="GER3" distance="1">
+         <name>Deutschland (GER3)</name>
+      </location>
+      <location id="GER4" distance="1">
+         <name>Deutschland (GER4)</name>
+      </location>
+      <location id="GER5" distance="3">
+         <name>Deutschland (GER5)</name>
+      </location>
+      <location id="AUS1" distance="5">
+         <name sort="Osterreich (AUS1)">Österreich (AUS1)</name>
+      </location>
+      <location id="AUS2" distance="4">
+         <name sort="Osterreich (AUS2)">Österreich (AUS2)</name>
+      </location>
+      <location id="AUS3" distance="10">
+         <name sort="Osterreich (AUS3)">Österreich (AUS3)</name>
+      </location>
+   </shortest-paths>
+</location>

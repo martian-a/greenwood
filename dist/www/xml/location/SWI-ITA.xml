@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location id="ITA">
+   <name>Italia</name>
+   <games>
+      <game id="SWI">
+         <title>Switzerland</title>
+      </game>
+   </games>
+   <sub-locations>
+      <location id="ITA1">
+         <name>Italia (ITA1)</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="ITA2">
+         <name>Italia (ITA2)</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="ITA3">
+         <name>Italia (ITA3)</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="ITA4">
+         <name>Italia (ITA4)</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+      <location id="ITA5">
+         <name>Italia (ITA5)</name>
+         <games>
+            <game id="SWI">
+               <title>Switzerland</title>
+            </game>
+         </games>
+      </location>
+   </sub-locations>
+</location>

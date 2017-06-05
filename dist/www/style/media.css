@@ -1,0 +1,47 @@
+@media only screen and (min-width: 280px) {
+	main {
+		background-color: rgba(255, 0, 0, .5) !important;
+	}
+}
+
+@media only screen and (min-width: 375px) {
+	main {
+		background-color: red !important;
+	}
+}
+
+@media only screen and (min-width: 411px) {
+	main {
+		background-color: orange !important;
+	}
+}
+
+@media only screen and (min-width: 480px) {
+	main {
+		background-color: yellow !important;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	main {
+		background-color: lime !important;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	main {
+		background-color: cyan !important;
+	}
+}
+
+@media only screen and (min-width: 1224px) {
+	main {
+		background-color: indigo !important;
+	}
+}
+
+@media only screen and (min-width: 1750px) {
+	main {
+		background-color: violet !important;
+	}
+}

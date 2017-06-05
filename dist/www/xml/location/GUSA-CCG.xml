@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location id="CCG">
+   <name>Chicago</name>
+   <games>
+      <game id="GUSA">
+         <title>USA</title>
+      </game>
+   </games>
+   <connections>
+      <location id="DUL"
+                length="3"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Duluth</name>
+         <colour>Red</colour>
+      </location>
+      <location id="OMA"
+                length="4"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Omaha</name>
+         <colour>Blue</colour>
+      </location>
+      <location id="TOR"
+                length="4"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Toronto</name>
+         <colour>White</colour>
+      </location>
+      <location id="STL"
+                length="2"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Saint Louis</name>
+         <colour>Green</colour>
+         <colour>White</colour>
+      </location>
+      <location id="PIT"
+                length="3"
+                tunnel="false"
+                ferry="0"
+                microlight="false">
+         <name>Pittsburgh</name>
+         <colour>Orange</colour>
+         <colour>Black</colour>
+      </location>
+   </connections>
+   <shortest-paths>
+      <location id="VAN" distance="16">
+         <name>Vancouver</name>
+      </location>
+      <location id="CGY" distance="13">
+         <name>Calgary</name>
+      </location>
+      <location id="WIN" distance="7">
+         <name>Winnipeg</name>
+      </location>
+      <location id="TOR" distance="4">
+         <name>Toronto</name>
+      </location>
+      <location id="MON" distance="7">
+         <name>Montréal</name>
+      </location>
+      <location id="SAU" distance="6">
+         <name>Sault St Marie</name>
+      </location>
+      <location id="SEA" distance="15">
+         <name>Seattle</name>
+      </location>
+      <location id="HEL" distance="9">
+         <name>Helena</name>
+      </location>
+      <location id="POR" distance="16">
+         <name>Portland</name>
+      </location>
+      <location id="SFR" distance="16">
+         <name>San Francisco</name>
+      </location>
+      <location id="LOS" distance="15">
+         <name>Los Angeles</name>
+      </location>
+      <location id="PHO" distance="12">
+         <name>Phoenix</name>
+      </location>
+      <location id="LAS" distance="14">
+         <name>Las Vegas</name>
+      </location>
+      <location id="SLC" distance="11">
+         <name>Salt Lake City</name>
+      </location>
+      <location id="SFE" distance="9">
+         <name>Santa Fe</name>
+      </location>
+      <location id="ELP" distance="10">
+         <name>El Paso</name>
+      </location>
+      <location id="DEN" distance="8">
+         <name>Denver</name>
+      </location>
+      <location id="OKL" distance="6">
+         <name>Oklahoma City</name>
+      </location>
+      <location id="DUL" distance="3">
+         <name>Duluth</name>
+      </location>
+      <location id="OMA" distance="4">
+         <name>Omaha</name>
+      </location>
+      <location id="KAN" distance="4">
+         <name>Kansas City</name>
+      </location>
+      <location id="DAL" distance="6">
+         <name>Dallas</name>
+      </location>
+      <location id="HOU" distance="7">
+         <name>Houston</name>
+      </location>
+      <location id="NOL" distance="7">
+         <name>New Orleans</name>
+      </location>
+      <location id="LRK" distance="4">
+         <name>Little Rock</name>
+      </location>
+      <location id="STL" distance="2">
+         <name>Saint Louis</name>
+      </location>
+      <location id="PIT" distance="3">
+         <name>Pittsburgh</name>
+      </location>
+      <location id="BOS" distance="7">
+         <name>Boston</name>
+      </location>
+      <location id="NYC" distance="5">
+         <name>New York</name>
+      </location>
+      <location id="WAS" distance="5">
+         <name>Washington</name>
+      </location>
+      <location id="RAL" distance="5">
+         <name>Raleigh</name>
+      </location>
+      <location id="NAS" distance="4">
+         <name>Nashville</name>
+      </location>
+      <location id="ATL" distance="5">
+         <name>Atlanta</name>
+      </location>
+      <location id="CHA" distance="7">
+         <name>Charleston</name>
+      </location>
+      <location id="MIA" distance="10">
+         <name>Miami</name>
+      </location>
+   </shortest-paths>
+</location>

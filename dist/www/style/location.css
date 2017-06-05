@@ -1,0 +1,39 @@
+/**********
+ * Page Title 
+ */
+
+html.location h1 {
+	margin-bottom: 0;
+}
+html.location #games {
+	margin-bottom: 1em;
+	font-style: italic;
+}
+ 
+/* End of Page Title */
+
+/**********
+ * Summary 
+ */
+ 
+main section p.summary {
+	margin-bottom: 1.5em;
+}
+
+/* End of Summary */
+
+
+/**********
+ * Locations Index List
+ */
+ 
+ html.locations main ul {
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+	-moz-column-count: 3; /* Firefox */
+	column-count: 3;
+	-webkit-column-gap: 5em; /* Chrome, Safari, Opera */
+	-moz-column-gap: 5em; /* Firefox */
+	column-gap: 5em;
+}
+
+/* End of Locations Index List */

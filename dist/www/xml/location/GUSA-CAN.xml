@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location id="CAN">
+   <name>Canada</name>
+   <games>
+      <game id="GUSA">
+         <title>USA</title>
+      </game>
+   </games>
+   <sub-locations>
+      <location id="VAN">
+         <name>Vancouver</name>
+         <games>
+            <game id="GUSA">
+               <title>USA</title>
+            </game>
+         </games>
+      </location>
+      <location id="CGY">
+         <name>Calgary</name>
+         <games>
+            <game id="GUSA">
+               <title>USA</title>
+            </game>
+         </games>
+      </location>
+      <location id="WIN">
+         <name>Winnipeg</name>
+         <games>
+            <game id="GUSA">
+               <title>USA</title>
+            </game>
+         </games>
+      </location>
+      <location id="TOR">
+         <name>Toronto</name>
+         <games>
+            <game id="GUSA">
+               <title>USA</title>
+            </game>
+         </games>
+      </location>
+      <location id="MON">
+         <name>Montréal</name>
+         <games>
+            <game id="GUSA">
+               <title>USA</title>
+            </game>
+         </games>
+      </location>
+      <location id="SAU">
+         <name>Sault St Marie</name>
+         <games>
+            <game id="GUSA">
+               <title>USA</title>
+            </game>
+         </games>
+      </location>
+   </sub-locations>
+</location>

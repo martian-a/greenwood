@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<games>
+   <game id="GUSA">
+      <title>USA</title>
+   </game>
+   <game id="GINDIA">
+      <title>India</title>
+   </game>
+   <game id="SWI">
+      <title>Switzerland</title>
+   </game>
+</games>

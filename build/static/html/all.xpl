@@ -201,7 +201,6 @@
 						</p:input>
 						<p:with-param name="path-to-js" select="'../assets/js'" />
 						<p:with-param name="path-to-css" select="'../assets/style'" />
-						<p:with-param name="path-to-xml" select="'../xml'" />
 						<p:with-param name="path-to-html" select="'../'" />
 						<p:with-param name="path-to-images" select="'../assets/images'" />
 						<p:with-param name="static" select="'true'" />
@@ -250,7 +249,7 @@
 	
 	<p:documentation>
 		<d:doc scope="step">
-			<d:desc>Copy javascript and style assets that the result will depend on the output directory.</d:desc>
+			<d:desc>Generate homepage.</d:desc>
 		</d:doc>
 	</p:documentation>
 	<tcy:generate-static-html-publish-homepage name="process-homepage">

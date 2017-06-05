@@ -104,7 +104,9 @@
 					<li>
 						<a href="{$normalised-path-to-html}location/{$index}{$ext-html}">Locations</a>
 					</li>
-					<xsl:apply-templates select="self::game | self::location" mode="nav.site.xml"/>
+					<xsl:if test="$static = 'false'">
+						<xsl:apply-templates select="self::game | self::location" mode="nav.site.xml"/>
+					</xsl:if>
 				</ul>
 			</nav>
 		</header>

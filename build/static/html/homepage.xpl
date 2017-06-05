@@ -93,7 +93,6 @@
 		</p:input>
 		<p:with-param name="path-to-js" select="'assets/js'" />
 		<p:with-param name="path-to-css" select="'assets/style'" />
-		<p:with-param name="path-to-xml" select="'xml'" />
 		<p:with-param name="path-to-html" select="'.'" />
 		<p:with-param name="path-to-images" select="'assets/images'" />
 		<p:with-param name="static" select="'true'" />

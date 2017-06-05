@@ -1,7 +1,5 @@
 @import 'reset.css';
 @import 'default.css';
-@import 'media.css';
-
 /**********
  * Body 
  */
@@ -14,6 +12,7 @@ body {
 
 main {
 	background-color: #ffffff;
+	overflow: scroll;
 }
 
 /* End of Body */

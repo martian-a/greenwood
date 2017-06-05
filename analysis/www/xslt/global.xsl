@@ -52,6 +52,7 @@
 		<html class="{/*/local-name()}">
 			<head>
 				<xsl:apply-templates mode="html.header"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<script type="text/javascript" src="{$normalised-path-to-js}jquery.min.js"/>
 				<script type="text/javascript">
             		jQuery.noConflict();

@@ -23,7 +23,7 @@
     <xsl:template match="locations | location" mode="html.header.scripts html.footer.scripts"/>
     <xsl:template match="locations" mode="html.body">
         <h1>Locations</h1>
-        <ul>
+        <ul class="multi-column">
             <xsl:for-each select="*">
                 <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                 <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
@@ -163,11 +163,14 @@
         </tr>
     </xsl:template>
 	
-<xsl:template match="sub-locations">
+	<xsl:template match="sub-locations">
         <section class="sub-locations">
             <h2 id="sub-locations">Locations</h2>
             <p class="summary">All locations in <xsl:value-of select="/location/name"/>.</p>
             <ul>
+            	<xsl:if test="count(*) &gt; 12">
+            		<xsl:attribute name="class">multi-column</xsl:attribute>
+            	</xsl:if>
                 <xsl:for-each select="*">
                     <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                     <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>

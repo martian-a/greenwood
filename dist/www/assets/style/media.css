@@ -10,7 +10,7 @@
 	}
 }
 
-@media only screen and (min-width: 411px) {
+@media only screen and (min-width: 410px) {
 	main {
 		background-color: orange !important;
 	}
@@ -28,13 +28,19 @@
 	}
 }
 
+@media only screen and (min-width: 750px) {
+	main {
+		background-color: green !important;
+	}
+}
+
 @media only screen and (min-width: 900px) {
 	main {
 		background-color: cyan !important;
 	}
 }
 
-@media only screen and (min-width: 1224px) {
+@media only screen and (min-width: 1225px) {
 	main {
 		background-color: indigo !important;
 	}

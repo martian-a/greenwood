@@ -1,5 +1,6 @@
 @import 'reset.css';
 @import 'default.css';
+@import 'media.css';
 
 /**********
  * Body 
@@ -115,7 +116,7 @@ nav.site li {
 	
 }
 
-@media only screen and (min-width: 411px) {
+@media only screen and (min-width: 410px) {
 	
 	.header img {
 		height: 73px;
@@ -295,7 +296,7 @@ table.cross-reference tr.even td.self {
 
 /* Multi-column */
 
-@media only screen and (min-width: 411px) {
+@media only screen and (min-width: 410px) {
 	
 	ul.multi-column {
 		column-count: 2;
@@ -413,7 +414,7 @@ table.cross-reference tr.even td.self {
 
 }
 
-@media only screen and (min-width: 1224px) {
+@media only screen and (min-width: 1225px) {
 	
 	ul.multi-column {
 		column-count: 4;	

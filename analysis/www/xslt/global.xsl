@@ -65,9 +65,9 @@
 			</head>
 			<body>
 				<xsl:apply-templates mode="nav.site"/>
-				<main>
+				<div class="main">
 					<xsl:apply-templates mode="html.body"/>
-				</main>
+				</div>
 				<xsl:apply-templates mode="html.footer"/>
                 <xsl:apply-templates mode="html.footer.scripts"/>
 			</body>

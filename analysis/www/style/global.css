@@ -10,7 +10,7 @@ body {
 	padding: 0;
 }
 
-main {
+.main {
 	background-color: #ffffff;
 }
 
@@ -141,7 +141,7 @@ nav.site li {
  * Content 
  */
  
- main {
+.main {
  	margin: 0;
  	padding: 1.5em;
  }

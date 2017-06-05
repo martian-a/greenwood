@@ -6,8 +6,8 @@ jQuery(document).ready(function($) {
 	 * Insert containers for javascript dependent visualisations
 	 */
 	if (pageClass == "game") {
-		$("main > section.overview > section").filter(":last").after("<section class=\"network\"><h3 id=\"network\">Network</h3><div id=\"vis1\" class=\"network-visualisation\"/></section>");
-		$("main > section.tickets > section").filter(":first").after("<section><h3 id=\"ticket-distribution\">Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></section>");	 	
+		$(".main > section.overview > section").filter(":last").after("<section class=\"network\"><h3 id=\"network\">Network</h3><div id=\"vis1\" class=\"network-visualisation\"/></section>");
+		$(".main > section.tickets > section").filter(":first").after("<section><h3 id=\"ticket-distribution\">Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></section>");	 	
 	};
 
 	/* 
@@ -188,7 +188,7 @@ jQuery(document).ready(function($) {
 	 };
 	 
 	 // Convert each of the main sections into tabs (tabbed content).
-	 var mainTabs = new Tabs($("main").has("> .contents"));
+	 var mainTabs = new Tabs($(".main").has("> .contents"));
 	 mainTabs.init();
 	
 	generateVisualisations($);

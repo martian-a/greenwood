@@ -110,7 +110,7 @@
         <xsl:variable name="games" select="game" as="element()*"/>
     <div class="contents">
             <h2 class="heading">Contents</h2>
-            <nav>
+            <div class="nav">
                 <ul>
                     <li>
                         <a href="#overview">Overview</a>
@@ -122,7 +122,7 @@
                         </li>
                     </xsl:for-each>
                 </ul>
-            </nav>
+            </div>
         </div>
         <section>
             <h2 id="overview">Overview</h2>

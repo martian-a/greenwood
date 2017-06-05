@@ -97,7 +97,7 @@
                     <img src="{$normalised-path-to-images}ttr.png" alt="TTR Analysis"/>
                 </a>
             </h2>
-			<nav class="site">
+			<div class="nav nav-site">
 				<ul>
 					<li>
 						<a href="{$normalised-path-to-html}game/{$index}{$ext-html}">Games</a>
@@ -109,7 +109,7 @@
 						<xsl:apply-templates select="self::game | self::location" mode="nav.site.xml"/>
 					</xsl:if>
 				</ul>
-			</nav>
+			</div>
 		</header>
 	</xsl:template>
 
@@ -139,11 +139,11 @@
 	<xsl:template match="game | location" mode="nav.page" priority="100">
 		<div class="contents">
 			<h2 class="heading">Contents</h2>
-			<nav>
+			<div class="nav">
 				<ul>
 					<xsl:next-match/>
 				</ul>
-			</nav>
+			</div>
 		</div>
 	</xsl:template>
 

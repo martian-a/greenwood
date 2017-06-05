@@ -73,7 +73,7 @@ jQuery(document).ready(function($) {
                     subsectionIds.push($(this).attr("id"));
                  }); 
                 
-                 $(subTabsContainer).find(" > h2").after("<div class=\"contents\"><h3 class=\"heading\">Contents</h3><nav><ul></ul></nav></div>");
+                 $(subTabsContainer).find(" > h2").after("<div class=\"contents\"><h3 class=\"heading\">Contents</h3><div class=\"nav\"><ul></ul></div></div>");
                  for (var i = 0; i < subsectionHeadings.length; i++) {
                      $(subTabsContainer).find(" > .contents ul").append("<li><a href=\"#" + subsectionIds[i] + "\">" + subsectionHeadings[i] + "</a></li>");
                  };

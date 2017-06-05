@@ -1,5 +1,5 @@
 @media only screen and (min-width: 280px) {
-	div.div.main {
+	div.main {
 		background-color: rgba(255, 0, 0, .5) !important;
 	}
 }

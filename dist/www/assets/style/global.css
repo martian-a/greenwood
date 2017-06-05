@@ -12,7 +12,6 @@ body {
 
 main {
 	background-color: #ffffff;
-	overflow: scroll;
 }
 
 /* End of Body */
@@ -163,6 +162,13 @@ nav.site li {
  
 
 /* Tables: Generic */
+
+div.table {
+	display: block;
+	overflow-x: auto;
+	margin: 0;
+	padding: 0;
+}
 
 table {
 	border-collapse: collapse;

@@ -84,20 +84,22 @@
         <section class="connections">
         	<h2 id="connections">Connections</h2>
         	<p class="summary">All locations adjacent to <xsl:value-of select="/location/name" />.</p>
-        	<table>
-        		<tr>
-        			<th>Location</th>
-        			<th>Length</th>
-        			<th>Double</th>
-        			<th>Colours</th>
-        			<th>Type</th>
-        			<th>Locomotives Required (Min)</th>
-        		</tr>
-        		<xsl:apply-templates select="location" mode="connections">
-                    <xsl:sort select="@length" data-type="number" order="ascending"/>
-                    <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
-                </xsl:apply-templates>
-        	</table>
+        	<div class="table">
+        		<table>
+        			<tr>
+        				<th>Location</th>
+        				<th>Length</th>
+        				<th>Double</th>
+        				<th>Colours</th>
+        				<th>Type</th>
+        				<th>Locomotives Required (Min)</th>
+        			</tr>
+        			<xsl:apply-templates select="location" mode="connections">
+        				<xsl:sort select="@length" data-type="number" order="ascending"/>
+        				<xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
+        			</xsl:apply-templates>
+        		</table>
+        	</div>
         </section>
     </xsl:template>
     
@@ -136,16 +138,18 @@
         <section class="shortest-paths">
         	<h2 id="shortest-paths">Shortest Paths</h2>
         	<p class="summary">The minimum number of carriages (distance) required to claim a route between <xsl:value-of select="/location/name" /> and each other reachable location on the map.</p>
-        	<table>
-        		<tr>
-        			<th>Location</th>
-        			<th>Distance</th>
-        		</tr>
-        		<xsl:apply-templates select="location" mode="shortest-path">
-                    <xsl:sort select="@distance" data-type="number" order="ascending"/>
-                    <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
-                </xsl:apply-templates>
-        	</table>
+        	<div class="table">
+        		<table>
+        			<tr>
+        				<th>Location</th>
+        				<th>Distance</th>
+        			</tr>
+        			<xsl:apply-templates select="location" mode="shortest-path">
+        				<xsl:sort select="@distance" data-type="number" order="ascending"/>
+        				<xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
+        			</xsl:apply-templates>
+        		</table>
+        	</div>
         </section>
     </xsl:template>
     

@@ -3,16 +3,6 @@ li{
 	line-height: 1.25em;
 }
 
-div.locations ul{
-	-webkit-column-count: 3; /* Chrome, Safari, Opera */
-	-moz-column-count: 3; /* Firefox */
-	column-count: 3;
-	-webkit-column-gap: 5em; /* Chrome, Safari, Opera */
-	-moz-column-gap: 5em; /* Firefox */
-	column-gap: 5em;
-}
-
-
 span.ticket{
 	display: inline-block;
 	font-size: 1.25em;
@@ -159,7 +149,7 @@ section.overview section.summary div.description {
 
 @media only screen and (max-width: 599px) {
 
-	section.overview section.summary table {
+	section.overview section.summary div.table {
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -173,7 +163,7 @@ section.overview section.summary div.description {
 		margin-right: 1em;
 	}
 	
-	section.overview section.summary table {
+	section.overview section.summary div.table {
 		clear: both;
 	}
 	
@@ -192,10 +182,12 @@ section.overview section.summary div.description {
 
 	section.overview section.summary > div > div {
 		overflow: hidden;
-		clear: left;
+		clear: both;
 	}
-
-	section.overview section.summary > div > div > div {
+	
+	section.overview section.summary div.description,
+	section.overview section.summary div.related,
+	section.overview section.summary div.purchase {
 		float: left;
 		clear: left;
 		width: 45%;
@@ -208,9 +200,10 @@ section.overview section.summary div.description {
 		padding-top: 1em;
 	}
 	
-	section.overview section.summary table {
+	section.overview section.summary div.table {
 		float: right;
 		width: 45%;
+		clear: right;
 	}
 	
 } 
@@ -238,12 +231,14 @@ section.overview section.summary div.description {
 		clear: none;
 	}
 	
-	section.overview section.summary > div > div > div {
+	section.overview section.summary div.description,
+	section.overview section.summary div.related,
+	section.overview section.summary div.purchase {
 		float: left;
 		width: 45%;
 	}
 
-	section.overview section.summary table {
+	section.overview section.summary div.table {
 		float: right;
 		max-width: 26em;
 		margin-left: 1.5em;

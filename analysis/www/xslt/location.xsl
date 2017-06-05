@@ -28,7 +28,7 @@
                 <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                 <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                 <li>
-                    <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                    <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                         <xsl:value-of select="gw:get-location-name(.)"/>
                     </a>
                 </li>
@@ -69,7 +69,7 @@
 				<span class="label">Game</span>
 				<span class="delimiter">:</span><xsl:text> </xsl:text>
 				<xsl:for-each select="game">
-					<a href="{$normalised-path-to-html}/game/{@id}{$ext-html}">
+					<a href="{$normalised-path-to-html}game/{@id}{$ext-html}">
 						<xsl:value-of select="title"/>
 					</a>
 					<xsl:if test="position() != last()">
@@ -105,7 +105,7 @@
         <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
 		<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
             <td>
-                <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                     <xsl:value-of select="gw:get-location-name(.)"/>
                 </a>
             </td>
@@ -153,7 +153,7 @@
         <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
 		<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
             <td>
-                <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                     <xsl:value-of select="gw:get-location-name(.)"/>
                 </a>
             </td>
@@ -172,7 +172,7 @@
                     <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                     <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                     <li>
-                        <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                        <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                             <xsl:value-of select="gw:get-location-name(.)"/>
                         </a>
                     </li>

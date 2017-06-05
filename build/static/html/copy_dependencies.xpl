@@ -51,6 +51,7 @@
 			<p:pipe port="result" step="copy-dependencies-images" />
 			<p:pipe port="result" step="copy-dependencies-fonts" />
 		</p:output>
+		
 	
 		<p:documentation>
 			<d:doc scope="step">

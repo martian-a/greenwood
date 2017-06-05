@@ -87,6 +87,10 @@
 				<p:with-option name="href" select="$target" />
 			</cxf:mkdir>
 			
+			<cxf:mkdir name="create-target-assets-dir">
+				<p:with-option name="href" select="concat($target, '/assets/')" />
+			</cxf:mkdir>
+			
 		</p:group>
 		
 		<p:sink />

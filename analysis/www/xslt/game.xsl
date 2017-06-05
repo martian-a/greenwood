@@ -144,7 +144,7 @@
                             <xsl:sort data-type="number" order="ascending" select="players/@double-routes-min"/>
                             <xsl:sort data-type="text" order="ascending" select="title"/>
                             <th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-                                <a href="{$normalised-path-to-html}/game/{@id}{$ext-html}">
+                                <a href="{$normalised-path-to-html}game/{@id}{$ext-html}">
                                     <xsl:apply-templates mode="game.name" select="."/>
                                 </a>
                             </th>
@@ -172,7 +172,7 @@
 		<ul>
 			<xsl:for-each select="//game">
 				<li>
-					<a href="{$normalised-path-to-html}/game/{@id}{$ext-html}">
+					<a href="{$normalised-path-to-html}game/{@id}{$ext-html}">
 						<xsl:apply-templates mode="game.name" select="." />
 					</a>
 				</li>
@@ -343,7 +343,7 @@
                         <xsl:for-each select="descendant::location">
                             <xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
                             <li>
-                                <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                                <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                                     <xsl:value-of select="gw:get-location-name(.)"/>
                                 </a>
                             </li>
@@ -378,7 +378,7 @@
 									sum($destination-tickets/gw:get-max-ticket-points-for-location(self::ticket, $destination-id))" />
 						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
 							<td>
-								<a href="{$normalised-path-to-html}/location/{$game-id}-{$destination-id}{$ext-html}">
+								<a href="{$normalised-path-to-html}location/{$game-id}-{$destination-id}{$ext-html}">
 									<xsl:value-of select="gw:get-location-name(self::*)" />
 								</a>
 							</td>
@@ -418,7 +418,7 @@
 							<td>
 								<xsl:choose>
 									<xsl:when test="$destinations[@id = current-grouping-key()]">
-										<a href="{$normalised-path-to-html}/location/{$game-id}-{current-grouping-key()}{$ext-html}">
+										<a href="{$normalised-path-to-html}location/{$game-id}-{current-grouping-key()}{$ext-html}">
 											<xsl:value-of select="gw:get-location-name($destinations[@id = current-grouping-key()])" />
 										</a>
 									</xsl:when>
@@ -460,7 +460,7 @@
 							<td>
 								<xsl:choose>
 									<xsl:when test="$destinations[@id = current-grouping-key()]">
-										<a href="{$normalised-path-to-html}/location/{$game-id}{current-grouping-key()}{$ext-html}">
+										<a href="{$normalised-path-to-html}location/{$game-id}{current-grouping-key()}{$ext-html}">
 											<xsl:value-of select="gw:get-location-name($destinations[@id = current-grouping-key()])" />
 										</a>
 									</xsl:when>
@@ -664,7 +664,7 @@
 						<xsl:variable as="element()*" name="paths-from" select="$paths[*/@ref = $from/@id]" />
 						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
 							<td class="destination">
-								<a href="{$normalised-path-to-html}/location/{$game-id}-{$from/@id}{$ext-html}">
+								<a href="{$normalised-path-to-html}location/{$game-id}-{$from/@id}{$ext-html}">
 									<xsl:value-of select="gw:get-location-name($from)" />
 								</a>
 							</td>
@@ -793,7 +793,7 @@
 						<xsl:variable as="element()*" name="tickets-from" select="$tickets[*/@ref = $from/@id]" />
 						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
 							<td class="destination {if (position() mod 2 = 0) then 'even' else 'odd'}">
-								<a href="{$normalised-path-to-html}/location/{$game-id}-{$from/@id}{$ext-html}">
+								<a href="{$normalised-path-to-html}location/{$game-id}-{$from/@id}{$ext-html}">
 									<xsl:value-of select="gw:get-location-name($from)" />
 								</a>
 							</td>
@@ -974,7 +974,7 @@
 		<xsl:param as="xs:string" name="game-id" tunnel="yes" />
 		<xsl:for-each select="location">
 			<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
-			<a href="{$normalised-path-to-html}/location/{$game-id}-{@ref}{$ext-html}">
+			<a href="{$normalised-path-to-html}location/{$game-id}-{@ref}{$ext-html}">
 				<xsl:value-of select="gw:get-location-name(self::location)" />
 			</a>
 			<xsl:if test="position() = 1">

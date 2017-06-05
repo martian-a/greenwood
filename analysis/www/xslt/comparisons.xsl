@@ -89,7 +89,7 @@
                     <th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
                         <xsl:choose>
                             <xsl:when test="count($games) &gt; 1">
-                                <a href="{$normalised-path-to-html}/game/{@id}{$ext-html}">
+                                <a href="{$normalised-path-to-html}game/{@id}{$ext-html}">
                                     <xsl:apply-templates mode="game.name" select="."/>
                                 </a>
                             </xsl:when>

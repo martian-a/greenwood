@@ -37,6 +37,7 @@
 	</p:documentation>
 	<p:option name="href-app" required="true" />
 	
+	
 	<p:documentation>
 		<d:doc>
 			<d:desc>A URL to the directory where output results should be stored.</d:desc>
@@ -57,7 +58,7 @@
 	
 	<p:import href="copy_dependencies.xpl" />
 	<p:import href="homepage.xpl" />
-
+	
 
 	<p:documentation>
 		<d:doc scope="step">
@@ -66,7 +67,7 @@
 	</p:documentation>
 	<tcy:copy-dependencies name="copy-dependencies">
 		<p:with-option name="href" select="$href-app" />
-		<p:with-option name="target" select="$target" />
+		<p:with-option name="target" select="concat($target, '/assets/')" />
 	</tcy:copy-dependencies>
 
 	<p:sink />
@@ -198,10 +199,11 @@
 						<p:input port="source">
 							<p:pipe port="result" step="data" />
 						</p:input>
-						<p:with-param name="path-to-js" select="'../../js'" />
-						<p:with-param name="path-to-css" select="'../../style'" />
-						<p:with-param name="path-to-xml" select="'../../xml'" />
-						<p:with-param name="path-to-images" select="'../../images'" />
+						<p:with-param name="path-to-js" select="'../assets/js'" />
+						<p:with-param name="path-to-css" select="'../assets/style'" />
+						<p:with-param name="path-to-xml" select="'../xml'" />
+						<p:with-param name="path-to-html" select="'../'" />
+						<p:with-param name="path-to-images" select="'../assets/images'" />
 						<p:with-param name="static" select="'true'" />
 					</p:xslt> 
 					
@@ -221,7 +223,7 @@
 						<p:input port="source">
 							<p:pipe port="result" step="generate-summary" />
 						</p:input>
-						<p:with-option name="href" select="concat($target, '/html/', $directory-name, '/', substring-before($filename, '.xml'), '.html')" />
+						<p:with-option name="href" select="concat($target, '/', $directory-name, '/', substring-before($filename, '.xml'), '.html')" />
 					</p:store>
 					
 					

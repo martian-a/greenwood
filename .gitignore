@@ -4,3 +4,4 @@
 test/data/results
 test/unit/**/*.html
 **/local.xq
+dist

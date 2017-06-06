@@ -1,0 +1,23 @@
+/**********
+ * Page Title 
+ */
+
+html.location h1 {
+	margin-bottom: 0;
+}
+html.location #games {
+	margin-bottom: 1em;
+	font-style: italic;
+}
+ 
+/* End of Page Title */
+
+/**********
+ * Summary 
+ */
+ 
+div.main div.section p.summary {
+	margin-bottom: 1.5em;
+}
+
+/* End of Summary */

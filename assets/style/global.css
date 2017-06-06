@@ -1,0 +1,487 @@
+@import 'reset.css';
+@import 'default.css';
+/**********
+ * Body 
+ */
+
+body {
+	background-color: rgba(36, 41, 46, 1);
+	margin: 0;
+	padding: 0;
+}
+
+div.main {
+	background-color: #ffffff;
+}
+
+/* End of Body */
+
+
+/**********
+ * Fonts 
+ */
+
+@font-face {
+    font-family: rosario;
+    src: url('../fonts/rosario/Rosario-Regular.eot');
+        src: 	url('../fonts/rosario/Rosario-Regular.eot?#iefix') format('embedded-opentype'),
+    			url('../fonts/rosario/Rosario-Regular.woff') format('woff'),
+    			url('../fonts/rosario/Rosario-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: rosarioBold;
+    src: url('../fonts/rosario/Rosario-Bold.eot');
+    src: 	url('../fonts/rosario/Rosario-Bold.eot?#iefix') format('embedded-opentype'),
+    		url('../fonts/rosario/Rosario-Bold.woff') format('woff'),
+    		url('../fonts/rosario/Rosario-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+	font-family: rosario;
+}
+
+div.nav li,
+h1, h2, h3, h4, h5, h6,
+table tr th,
+table tr td:first-of-type {
+ 	font-family: rosarioBold;
+}
+
+
+/**********
+ * Header 
+ */
+
+.header {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0.5em 0;
+	background-color: #24292e;
+	color: rgba(255, 255, 255, 1);
+}
+
+.header h2,
+.header .nav-site {
+	display: block;
+	vertical-align: bottom;
+}
+
+.header h2 {
+	margin: 0.25em 1em;
+	padding: 0;	
+}
+.header h2 a {
+	display: inline-block;
+}
+
+.nav-site ul {
+	list-style-type: none;
+	margin: 0 1em;
+	padding: 0;
+}
+
+.nav-site li {
+	display: inline-block;
+	margin: 0 1em;
+	padding: 0;	
+}
+
+.header a:link,
+.header a:hover,
+.header a:visited {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.header a:link,
+.header a:visited {
+	text-decoration: none;
+}
+
+.header a:hover {
+	text-decoration: underline;
+}
+
+@media only screen and (max-width: 410px) {
+	
+	.header .logo img {
+		width: 100%;
+	}
+	
+}
+
+@media only screen and (min-width: 410px) {
+	
+	.header img {
+		height: 73px;
+		width: 385px;
+	}
+	
+}
+
+/* End of Header */
+
+
+/* 
+ * Footer
+ */
+
+#footer {
+ margin: 0;
+ padding: 0.5em 1em;
+}
+
+ /* End of Footer */
+
+/**********
+ * Content 
+ */
+ 
+div.main {
+ 	margin: 0;
+ 	padding: 1.5em;
+ }
+ 
+/* End of Content */
+ 
+ 
+/**********
+ * Page Title 
+ */
+ 
+ h1 {
+ 	margin: 0em 0 0.5em 0;
+ }
+ 
+/* End of Page Title */
+ 
+ 
+
+/* Tables: Generic */
+
+div.table {
+	display: block;
+	overflow-x: auto;
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+}
+table td, 
+table th {
+	padding: 0.25em 1em;
+    color: rgba(0,0,0,1);
+    border-width: 0 3px 3px 0;
+	border-style: solid;
+	border-color: rgba(255,255,255,1);
+	text-align: center;
+}
+table tr th:first-of-type,
+table tr td:first-of-type {
+	text-align: left;
+}
+
+table tr th:last-of-type,
+table tr td:last-of-type {
+	border-right-width: 0;
+}
+
+/* Header Row */
+table th {
+	background-color: rgba(210, 215, 223, 1);
+}
+
+/* Odd Rows */
+table tr.odd td {
+	background-color: rgba(235, 235, 235, .5);
+}
+
+/* Even Rows */
+table tr.even td {
+	background-color: rgba(228, 231, 236, 0.75);
+}
+
+/* Cross-referencing self cells */
+table tr.odd td.self,
+table tr.even td.self {
+	background-color: rgba(210, 215, 223, 1);
+}
+
+/* End of Tables: Generic */
+
+/* Tables: Cross-reference */
+
+
+table.cross-reference{
+	border-collapse: collapse;
+}
+table.cross-reference th,
+table.cross-reference td {
+	padding: .25em;
+}
+table.cross-reference th {
+	text-align: left;
+	white-space: normal;
+}
+table.cross-reference td {
+	text-align: center;
+}
+table.cross-reference th.destination {
+	height: 13em;
+	white-space: nowrap;
+	width: 2em;
+	vertical-align: middle;
+}
+table.cross-reference th.destination span {
+	display: inline-block;
+	position: relative;
+	width: 1.5em;
+	line-height: 2em;
+	margin: 0;
+	transform: rotate(-90deg);
+	transform-origin: 3.5em 3.5em 0;
+}
+table.cross-reference th.total{
+	white-space: normal;
+	width: 3em;
+	vertical-align: bottom;
+}
+table.cross-reference td.destination{
+	text-align: left;
+	font-family: rosarioBold;
+}
+
+/* Header Row */
+table.cross-reference th {
+	background-color: rgba(210, 215, 223, 1);
+}
+table.cross-reference th.odd {
+	background-color: rgba(210, 215, 223, 0.5);
+}
+table.cross-reference th.even {
+	background-color: rgba(210, 215, 223, 0.75);
+}
+
+/* Odd Rows */
+table.cross-reference tr.odd td {
+	background-color: rgba(235, 235, 235, 1);
+}
+table.cross-reference tr.odd td.odd {
+	background-color: rgba(235, 235, 235, 0.25);
+}
+table.cross-reference tr.odd td.even {
+	background-color: rgba(235, 235, 235, 0.5);
+}
+
+/* Even Rows */
+table.cross-reference tr.even td {
+	background-color: rgba(228, 231, 236, 1);
+}
+table.cross-reference tr.even td.odd {
+	background-color: rgba(228, 231, 236, 0.5);
+}
+table.cross-reference tr.even td.even {
+	background-color: rgba(228, 231, 236, 0.85);
+}
+
+/* Cross-referencing self cells */
+table.cross-reference tr.odd td.self,
+table.cross-reference tr.even td.self {
+	background-color: rgba(210, 215, 223, 1);
+}
+
+/* End of Tables: Cross-reference */
+
+
+/* Multi-column */
+
+@media only screen and (min-width: 410px) {
+	
+	ul.multi-column {
+		column-count: 2;
+		column-gap: 5em;	
+	}
+
+}
+
+@media only screen and (max-width: 599px) {
+	
+	div.tabbed .contents {
+		display: none;
+	}
+	
+}
+
+@media only screen and (min-width: 600px) {
+	
+	ul.multi-column {
+		column-count: 3;	
+	}
+
+	/**********
+	 * Tabbed Content 
+	 */
+	
+	.tabbed .contents {
+		margin: 0;
+	}
+	
+	/* ToC Heading */
+	.tabbed .contents .heading {
+		display: none;
+	}
+	
+	/* Tab Headings */
+	.tabbed .nav ul {
+		list-style-type: none;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		background-color: #330000;
+		color: rgba(255, 255, 255, 1);
+	}
+	
+	.tabbed .nav li {
+		display: inline-block;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.tabbed .nav a {
+		display: inline-block;
+		box-sizing: border-box;
+		margin: 0;
+		padding: .5em 1em;
+		color: rgba(255, 255, 255, 0.75);
+		text-decoration: none;
+	}
+	
+	.tabbed .nav ul,
+	.tabbed .nav li,
+	.tabbed .nav a {
+		max-height: 2.5em;
+	}
+	
+	.tabbed .nav li.focus a:link,
+	.tabbed .nav li.focus a:visited,
+	.tabbed .nav li.focus a:hover,
+	.tabbed .nav li.focus a:active,
+	.tabbed .tabbed .nav a:link,
+	.tabbed .tabbed .nav a:visited,
+	.tabbed .tabbed .nav a:hover,
+	.tabbed .tabbed .nav a:active,
+	.tabbed .nav a:hover {
+		color: rgba(0, 0, 0, 0.75);
+	}
+	
+	.tabbed .nav li.focus a,
+	.tabbed .tabbed .nav ul {
+		background-color:  #ffcc00;
+	}
+	
+	.tabbed .tabbed .nav li.focus a {
+	    background-color: #ebb800;
+	}
+	
+	.tabbed .nav li:hover a,
+	.tabbed .tabbed .nav li:hover a {
+		background-color:  #cc9900;
+	}
+	
+	
+	/* Show/Hide */
+	.tabbed > div.section {
+		display: none;	
+	} 
+	
+	.tabbed > div.focus {
+		display: block;
+	}
+	
+	/* Content Panels */
+	div.tab {
+	    padding-top: 1em;
+	}
+	div.tab.tabbed {
+	    padding-top: 0;
+	}
+	
+	.tabbed > div.section h2:first-child,
+	.tabbed .tabbed > div.section h3:first-child {	
+		display: none;
+		position: absolute;
+		top: -1em;
+		left: 0;
+	} 
+	 
+	 
+	/* End of Tabbed Content */
+
+}
+
+@media only screen and (min-width: 1225px) {
+	
+	ul.multi-column {
+		column-count: 4;	
+	}
+
+}
+
+/* End of Multi-column */
+
+
+/* Zebra */
+
+ul.zebra {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.zebra > li {
+	padding: 1em;
+}
+ul.zebra > li > h4 {
+	margin-top: 0;
+} 
+
+ul.zebra > li:first-of-type {
+	padding-top: 0;
+}
+
+ul.zebra li.even {
+	background-color: rgba(228, 231, 236, 0.5);
+}
+
+/* End of Zebra */
+
+
+/* Purchase Disclaimer */
+ 
+ .purchase .disclaimer {
+ 	margin-top: 1em;
+ 	padding: .5em;
+ 	background-color: rgba(255, 204, 0, 0.1);
+ 	font-size: .7em;
+ 	color: rgba(51, 0, 0, 0.5);
+}
+ 
+/* End of Purchase Disclaimer */
+
+ 
+/* Copyright Notice */
+ 
+ .copyright {
+ 	color: rgba(255, 255, 255, .5);
+ 	text-align: center;
+ 	font-size: small;
+ }
+ 
+ /* End of Copyright Notice */

@@ -216,7 +216,7 @@
 						method="html"
 						encoding="utf-8"
 						media-type="text/html"
-						indent="true" 
+						indent="false" 
 						omit-xml-declaration="true"
 						version="5">
 						<p:input port="source">

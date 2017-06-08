@@ -78,37 +78,39 @@
         <xsl:param name="games" as="element()*" tunnel="yes"/>
         <xsl:param name="min-players" as="xs:integer?" tunnel="no"/>
         <xsl:param name="max-players" as="xs:integer?" tunnel="no"/>
-        <table>
-            <tr>
-                <th/>
-                <xsl:for-each select="$games">
-                    <xsl:sort data-type="number" order="ascending" select="players/@min"/>
-                    <xsl:sort data-type="number" order="ascending" select="players/@max"/>
-                    <xsl:sort data-type="number" order="ascending" select="players/@double-routes-min"/>
-                    <xsl:sort data-type="text" order="ascending" select="title"/>
-                    <th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-                        <xsl:choose>
-                            <xsl:when test="count($games) &gt; 1">
-                                <a href="{$normalised-path-to-html}/game/{@id}{$ext-html}">
-                                    <xsl:apply-templates mode="game.name" select="."/>
-                                </a>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="concat($min-players, ' - ', $max-players, ' Players')"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </th>
-                </xsl:for-each>
-            </tr>
-            <xsl:for-each select="$comparisons//compare[not(@overview = 'false')]">
-                <tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-                    <td>
-                        <xsl:value-of select="label"/>
-                    </td>
-                    <xsl:apply-templates select="self::compare" mode="games.compare"/>
-                </tr>
-            </xsl:for-each>
-        </table>
+        <div class="table">
+        	<table>
+        		<tr>
+        			<th/>
+        			<xsl:for-each select="$games">
+        				<xsl:sort data-type="number" order="ascending" select="players/@min"/>
+        				<xsl:sort data-type="number" order="ascending" select="players/@max"/>
+        				<xsl:sort data-type="number" order="ascending" select="players/@double-routes-min"/>
+        				<xsl:sort data-type="text" order="ascending" select="title"/>
+        				<th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+        					<xsl:choose>
+        						<xsl:when test="count($games) &gt; 1">
+        							<a href="{$normalised-path-to-html}game/{@id}{$ext-html}">
+        								<xsl:apply-templates mode="game.name" select="."/>
+        							</a>
+        						</xsl:when>
+        						<xsl:otherwise>
+        							<xsl:value-of select="concat($min-players, ' - ', $max-players, ' Players')"/>
+        						</xsl:otherwise>
+        					</xsl:choose>
+        				</th>
+        			</xsl:for-each>
+        		</tr>
+        		<xsl:for-each select="$comparisons//compare[not(@overview = 'false')]">
+        			<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+        				<td>
+        					<xsl:value-of select="label"/>
+        				</td>
+        				<xsl:apply-templates select="self::compare" mode="games.compare"/>
+        			</tr>
+        		</xsl:for-each>
+        	</table>
+        </div>
     </xsl:template>
     <xsl:template match="comparisons/compare" mode="games.compare">
         <xsl:param name="players" select="0" as="xs:integer" tunnel="yes"/>

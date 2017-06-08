@@ -23,12 +23,12 @@
     <xsl:template match="locations | location" mode="html.header.scripts html.footer.scripts"/>
     <xsl:template match="locations" mode="html.body">
         <h1>Locations</h1>
-        <ul>
+        <ul class="multi-column">
             <xsl:for-each select="*">
                 <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                 <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                 <li>
-                    <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                    <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                         <xsl:value-of select="gw:get-location-name(.)"/>
                     </a>
                 </li>
@@ -69,7 +69,7 @@
 				<span class="label">Game</span>
 				<span class="delimiter">:</span><xsl:text> </xsl:text>
 				<xsl:for-each select="game">
-					<a href="{$normalised-path-to-html}/game/{@id}{$ext-html}">
+					<a href="{$normalised-path-to-html}game/{@id}{$ext-html}">
 						<xsl:value-of select="title"/>
 					</a>
 					<xsl:if test="position() != last()">
@@ -81,31 +81,33 @@
     </xsl:template>
     
 	<xsl:template match="connections">
-        <section class="connections">
+        <div class="section connections">
         	<h2 id="connections">Connections</h2>
         	<p class="summary">All locations adjacent to <xsl:value-of select="/location/name" />.</p>
-        	<table>
-        		<tr>
-        			<th>Location</th>
-        			<th>Length</th>
-        			<th>Double</th>
-        			<th>Colours</th>
-        			<th>Type</th>
-        			<th>Locomotives Required (Min)</th>
-        		</tr>
-        		<xsl:apply-templates select="location" mode="connections">
-                    <xsl:sort select="@length" data-type="number" order="ascending"/>
-                    <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
-                </xsl:apply-templates>
-        	</table>
-        </section>
+        	<div class="table">
+        		<table>
+        			<tr>
+        				<th>Location</th>
+        				<th>Length</th>
+        				<th>Double</th>
+        				<th>Colours</th>
+        				<th>Type</th>
+        				<th>Locomotives Required (Min)</th>
+        			</tr>
+        			<xsl:apply-templates select="location" mode="connections">
+        				<xsl:sort select="@length" data-type="number" order="ascending"/>
+        				<xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
+        			</xsl:apply-templates>
+        		</table>
+        	</div>
+        </div>
     </xsl:template>
     
 	<xsl:template match="location" mode="connections">
         <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
 		<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
             <td>
-                <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                     <xsl:value-of select="gw:get-location-name(.)"/>
                 </a>
             </td>
@@ -133,27 +135,29 @@
     </xsl:template>
     
 	<xsl:template match="location/shortest-paths">
-        <section class="shortest-paths">
+        <div class="section shortest-paths">
         	<h2 id="shortest-paths">Shortest Paths</h2>
         	<p class="summary">The minimum number of carriages (distance) required to claim a route between <xsl:value-of select="/location/name" /> and each other reachable location on the map.</p>
-        	<table>
-        		<tr>
-        			<th>Location</th>
-        			<th>Distance</th>
-        		</tr>
-        		<xsl:apply-templates select="location" mode="shortest-path">
-                    <xsl:sort select="@distance" data-type="number" order="ascending"/>
-                    <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
-                </xsl:apply-templates>
-        	</table>
-        </section>
+        	<div class="table">
+        		<table>
+        			<tr>
+        				<th>Location</th>
+        				<th>Distance</th>
+        			</tr>
+        			<xsl:apply-templates select="location" mode="shortest-path">
+        				<xsl:sort select="@distance" data-type="number" order="ascending"/>
+        				<xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
+        			</xsl:apply-templates>
+        		</table>
+        	</div>
+        </div>
     </xsl:template>
     
 	<xsl:template match="location" mode="shortest-path">
         <xsl:variable name="game-id" select="/location/games/game[1]/@id" as="xs:string"/>
 		<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
             <td>
-                <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                     <xsl:value-of select="gw:get-location-name(.)"/>
                 </a>
             </td>
@@ -163,21 +167,24 @@
         </tr>
     </xsl:template>
 	
-<xsl:template match="sub-locations">
-        <section class="sub-locations">
+	<xsl:template match="sub-locations">
+        <div class="section sub-locations">
             <h2 id="sub-locations">Locations</h2>
             <p class="summary">All locations in <xsl:value-of select="/location/name"/>.</p>
             <ul>
+            	<xsl:if test="count(*) &gt; 12">
+            		<xsl:attribute name="class">multi-column</xsl:attribute>
+            	</xsl:if>
                 <xsl:for-each select="*">
                     <xsl:sort select="gw:get-location-sort-name(.)" data-type="text" order="ascending"/>
                     <xsl:variable name="game-id" select="games/game[1]/@id" as="xs:string"/>
                     <li>
-                        <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                        <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                             <xsl:value-of select="gw:get-location-name(.)"/>
                         </a>
                     </li>
                 </xsl:for-each>
             </ul>
-        </section>
+        </div>
     </xsl:template>
 </xsl:stylesheet>

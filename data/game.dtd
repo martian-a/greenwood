@@ -87,7 +87,7 @@
 	href CDATA #REQUIRED
 	type (publisher|provider|review) #REQUIRED>
 <!ATTLIST image
-	role (product-illustration) #REQUIRED>
+	role (product-illustration|network-diagram|ticket-distribution-diagram) #REQUIRED>
 <!ATTLIST file
 	path CDATA #REQUIRED
 	height CDATA #IMPLIED

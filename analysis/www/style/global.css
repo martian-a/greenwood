@@ -1,6 +1,5 @@
 @import 'reset.css';
 @import 'default.css';
-
 /**********
  * Body 
  */
@@ -11,7 +10,7 @@ body {
 	padding: 0;
 }
 
-main {
+div.main {
 	background-color: #ffffff;
 }
 
@@ -46,7 +45,7 @@ body {
 	font-family: rosario;
 }
 
-nav li,
+div.nav li,
 h1, h2, h3, h4, h5, h6,
 table tr th,
 table tr td:first-of-type {
@@ -67,7 +66,7 @@ table tr td:first-of-type {
 }
 
 .header h2,
-.header nav.site {
+.header .nav-site {
 	display: block;
 	vertical-align: bottom;
 }
@@ -80,13 +79,13 @@ table tr td:first-of-type {
 	display: inline-block;
 }
 
-nav.site ul {
+.nav-site ul {
 	list-style-type: none;
 	margin: 0 1em;
 	padding: 0;
 }
 
-nav.site li {
+.nav-site li {
 	display: inline-block;
 	margin: 0 1em;
 	padding: 0;	
@@ -115,7 +114,7 @@ nav.site li {
 	
 }
 
-@media only screen and (min-width: 411px) {
+@media only screen and (min-width: 410px) {
 	
 	.header img {
 		height: 73px;
@@ -142,7 +141,7 @@ nav.site li {
  * Content 
  */
  
- main {
+div.main {
  	margin: 0;
  	padding: 1.5em;
  }
@@ -163,6 +162,13 @@ nav.site li {
  
 
 /* Tables: Generic */
+
+div.table {
+	display: block;
+	overflow-x: auto;
+	margin: 0;
+	padding: 0;
+}
 
 table {
 	border-collapse: collapse;
@@ -295,7 +301,7 @@ table.cross-reference tr.even td.self {
 
 /* Multi-column */
 
-@media only screen and (min-width: 411px) {
+@media only screen and (min-width: 410px) {
 	
 	ul.multi-column {
 		column-count: 2;
@@ -306,7 +312,7 @@ table.cross-reference tr.even td.self {
 
 @media only screen and (max-width: 599px) {
 	
-	section.tabbed .contents {
+	div.tabbed .contents {
 		display: none;
 	}
 	
@@ -332,7 +338,7 @@ table.cross-reference tr.even td.self {
 	}
 	
 	/* Tab Headings */
-	.tabbed nav ul {
+	.tabbed .nav ul {
 		list-style-type: none;
 		box-sizing: border-box;
 		margin: 0;
@@ -341,13 +347,14 @@ table.cross-reference tr.even td.self {
 		color: rgba(255, 255, 255, 1);
 	}
 	
-	.tabbed nav li {
+	.tabbed .nav li {
 		display: inline-block;
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
 	}
-	.tabbed nav a {
+	
+	.tabbed .nav a {
 		display: inline-block;
 		box-sizing: border-box;
 		margin: 0;
@@ -356,52 +363,58 @@ table.cross-reference tr.even td.self {
 		text-decoration: none;
 	}
 	
-	.tabbed nav li.focus a:link,
-	.tabbed nav li.focus a:visited,
-	.tabbed nav li.focus a:hover,
-	.tabbed nav li.focus a:active,
-	.tabbed .tabbed nav a:link,
-	.tabbed .tabbed nav a:visited,
-	.tabbed .tabbed nav a:hover,
-	.tabbed .tabbed nav a:active,
-	.tabbed nav a:hover {
+	.tabbed .nav ul,
+	.tabbed .nav li,
+	.tabbed .nav a {
+		max-height: 2.5em;
+	}
+	
+	.tabbed .nav li.focus a:link,
+	.tabbed .nav li.focus a:visited,
+	.tabbed .nav li.focus a:hover,
+	.tabbed .nav li.focus a:active,
+	.tabbed .tabbed .nav a:link,
+	.tabbed .tabbed .nav a:visited,
+	.tabbed .tabbed .nav a:hover,
+	.tabbed .tabbed .nav a:active,
+	.tabbed .nav a:hover {
 		color: rgba(0, 0, 0, 0.75);
 	}
 	
-	.tabbed nav li.focus a,
-	.tabbed .tabbed nav ul {
+	.tabbed .nav li.focus a,
+	.tabbed .tabbed .nav ul {
 		background-color:  #ffcc00;
 	}
 	
-	.tabbed .tabbed nav li.focus a {
+	.tabbed .tabbed .nav li.focus a {
 	    background-color: #ebb800;
 	}
 	
-	.tabbed nav li:hover a,
-	.tabbed .tabbed nav li:hover a {
+	.tabbed .nav li:hover a,
+	.tabbed .tabbed .nav li:hover a {
 		background-color:  #cc9900;
 	}
 	
 	
 	/* Show/Hide */
-	.tabbed > section {
+	.tabbed > div.section {
 		display: none;	
 	} 
 	
-	.tabbed > section.focus {
+	.tabbed > div.focus {
 		display: block;
 	}
 	
 	/* Content Panels */
-	section.tab {
+	div.tab {
 	    padding-top: 1em;
 	}
-	section.tab.tabbed {
+	div.tab.tabbed {
 	    padding-top: 0;
 	}
 	
-	.tabbed > section h2:first-child,
-	.tabbed .tabbed > section h3:first-child {	
+	.tabbed > div.section h2:first-child,
+	.tabbed .tabbed > div.section h3:first-child {	
 		display: none;
 		position: absolute;
 		top: -1em;
@@ -413,7 +426,7 @@ table.cross-reference tr.even td.self {
 
 }
 
-@media only screen and (min-width: 1224px) {
+@media only screen and (min-width: 1225px) {
 	
 	ul.multi-column {
 		column-count: 4;	

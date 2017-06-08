@@ -36,13 +36,17 @@
 
 
 	<xsl:template match="game" mode="html.header.scripts">
-		<script src="{$normalised-path-to-js}vis.js" type="text/javascript" />
-		<xsl:call-template name="generate-network-map">
-			<xsl:with-param as="element()" name="game" select="self::game" />
-		</xsl:call-template>
-		<xsl:call-template name="generate-tickets-map">
-			<xsl:with-param as="element()" name="game" select="self::game" />
-		</xsl:call-template>
+		<xsl:if test="not(assets[image/@role = 'network-diagram' and image/@role = 'ticket-distribution-diagram'])">
+			<script src="{$normalised-path-to-js}vis.js" type="text/javascript" />
+			<xsl:call-template name="generate-network-map">
+				<xsl:with-param as="element()" name="game" select="self::game"/>
+			</xsl:call-template>
+		</xsl:if>
+		<xsl:if test="not(assets[image/@role = 'ticket-distribution-diagram'])">
+			<xsl:call-template name="generate-tickets-map">
+				<xsl:with-param as="element()" name="game" select="self::game" />
+			</xsl:call-template>
+		</xsl:if>
 		<script src="{$normalised-path-to-js}game.js" type="text/javascript" />
 		<xsl:choose>
 			<xsl:when test="$static = 'false'">
@@ -70,7 +74,9 @@
 
 
 	<xsl:template match="game" mode="html.header.style">
-		<link href="{$normalised-path-to-js}vis.css" rel="stylesheet" type="text/css" />
+		<xsl:if test="not(assets[image/@role = 'network-diagram' and image/@role = 'ticket-distribution-diagram'])">
+			<link href="{$normalised-path-to-js}vis.css" rel="stylesheet" type="text/css" />
+		</xsl:if>
 		<link href="{$normalised-path-to-css}game.css" rel="stylesheet" type="text/css" />
 	</xsl:template>
 
@@ -108,9 +114,9 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:variable name="games" select="game" as="element()*"/>
-    <div class="contents">
+    	<div class="contents">
             <h2 class="heading">Contents</h2>
-            <nav>
+            <div class="nav">
                 <ul>
                     <li>
                         <a href="#overview">Overview</a>
@@ -122,47 +128,49 @@
                         </li>
                     </xsl:for-each>
                 </ul>
-            </nav>
+            </div>
         </div>
-        <section>
+        <div class="section">
             <h2 id="overview">Overview</h2>
             <xsl:call-template name="all-players">
                 <xsl:with-param name="games" select="$games" as="element()*" tunnel="yes"/>
                 </xsl:call-template>
-        </section>
+        </div>
         <xsl:for-each select="$min-players to $max-players">
             <xsl:variable name="players" select="current()" as="xs:integer"/>
-            <section>
+            <div class="section">
                 <h2 id="players-{$players}">
                     <xsl:value-of select="$players"/> Players</h2>
-                <table>
-                    <tr>
-                        <th/>
-                        <xsl:for-each select="$games[not($players &gt; players/@max/number(.))]">
-                            <xsl:sort data-type="number" order="ascending" select="players/@min"/>
-                            <xsl:sort data-type="number" order="ascending" select="players/@max"/>
-                            <xsl:sort data-type="number" order="ascending" select="players/@double-routes-min"/>
-                            <xsl:sort data-type="text" order="ascending" select="title"/>
-                            <th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-                                <a href="{$normalised-path-to-html}/game/{@id}{$ext-html}">
-                                    <xsl:apply-templates mode="game.name" select="."/>
-                                </a>
-                            </th>
-                        </xsl:for-each>
-                    </tr>
-                    <xsl:for-each select="$comparisons//compare[not(@players = 'false')]">
-                        <tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-                            <td>
-                                <xsl:value-of select="label"/>
-                            </td>
-                            <xsl:apply-templates select="self::compare" mode="games.compare">
-                                <xsl:with-param name="games" select="$games" as="element()*" tunnel="yes"/>
-                                <xsl:with-param name="players" select="$players" as="xs:integer" tunnel="yes"/>
-                            </xsl:apply-templates>
-                        </tr>
-                    </xsl:for-each>
-                </table>
-            </section>
+                	<div class="table">
+                		<table>
+                			<tr>
+                				<th/>
+                				<xsl:for-each select="$games[not($players &gt; players/@max/number(.))]">
+                					<xsl:sort data-type="number" order="ascending" select="players/@min"/>
+                					<xsl:sort data-type="number" order="ascending" select="players/@max"/>
+                					<xsl:sort data-type="number" order="ascending" select="players/@double-routes-min"/>
+                					<xsl:sort data-type="text" order="ascending" select="title"/>
+                					<th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+                						<a href="{$normalised-path-to-html}game/{@id}{$ext-html}">
+                							<xsl:apply-templates mode="game.name" select="."/>
+                						</a>
+                					</th>
+                				</xsl:for-each>
+                			</tr>
+                			<xsl:for-each select="$comparisons//compare[not(@players = 'false')]">
+                				<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+                					<td>
+                						<xsl:value-of select="label"/>
+                					</td>
+                					<xsl:apply-templates select="self::compare" mode="games.compare">
+                						<xsl:with-param name="games" select="$games" as="element()*" tunnel="yes"/>
+                						<xsl:with-param name="players" select="$players" as="xs:integer" tunnel="yes"/>
+                					</xsl:apply-templates>
+                				</tr>
+                			</xsl:for-each>
+                		</table>
+                	</div>
+            </div>
         </xsl:for-each>
     </xsl:template>
 	
@@ -172,7 +180,7 @@
 		<ul>
 			<xsl:for-each select="//game">
 				<li>
-					<a href="{$normalised-path-to-html}/game/{@id}{$ext-html}">
+					<a href="{$normalised-path-to-html}game/{@id}{$ext-html}">
 						<xsl:apply-templates mode="game.name" select="." />
 					</a>
 				</li>
@@ -234,11 +242,11 @@
     <xsl:template name="game-overview">
         <xsl:variable name="min-players" select="if (players/@min &gt; 0) then players/@min else 2" as="xs:integer"/>
         <xsl:variable name="max-players" select="if (players/@max &gt; 0) then players/@max else $min-players" as="xs:integer"/>
-        <section class="overview">
+        <div class="section overview">
             <h2 id="overview">Overview</h2>
-        	<section class="summary">
+        	<div class="section summary">
                 <h3 id="overview-summary">Summary</h3>
-			<div>
+				<div>
                     <xsl:apply-templates select="assets/image[@role = 'product-illustration']"/>
                     <div>
 	                    <xsl:apply-templates select="summary[p]"/>
@@ -250,38 +258,54 @@
 	                    <xsl:apply-templates select="related[link/@type = ('publisher', 'review')]"/>
 	                <xsl:apply-templates select="related[link/@type = 'provider']" mode="purchase"/>
             		</div>
-                    </div>
-            </section>
+                </div>
+            </div>
             <xsl:variable name="game" select="self::game" as="element()"/>
-            <section>
+            <div class="section">
                 <h3 id="by-players">By Players</h3>
-				<!-- h3 id="players-{$players}"></h3 -->
-                <table>
-                    <tr>
-                        <th/>
-                        <xsl:for-each select="$min-players to $max-players">
-                            <th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-                                <xsl:value-of select="current()"/> Players</th>
-                        </xsl:for-each>
-                    </tr>
-                    <xsl:for-each select="$comparisons//compare[not(@players = 'false')]">
-                        <xsl:variable name="data-point" select="self::compare" as="element()"/>
-                        <tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-                            <td>
-                                <xsl:value-of select="label"/>
-                            </td>
-                            <xsl:for-each select="$min-players to $max-players">
-                                <xsl:apply-templates select="$data-point" mode="games.compare">
-                                    <xsl:with-param name="games" select="$game" as="element()*" tunnel="yes"/>
-                                    <xsl:with-param name="players" select="current()" as="xs:integer" tunnel="yes"/>
-                                </xsl:apply-templates>
-                            </xsl:for-each>
-                        </tr>
-                    </xsl:for-each>
-                </table>
-            </section>
-        </section>
+                <div class="table">
+                	<table>
+                		<tr>
+                			<th/>
+                			<xsl:for-each select="$min-players to $max-players">
+                				<th class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+                					<xsl:value-of select="current()"/> Players</th>
+                			</xsl:for-each>
+                		</tr>
+                		<xsl:for-each select="$comparisons//compare[not(@players = 'false')]">
+                			<xsl:variable name="data-point" select="self::compare" as="element()"/>
+                			<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+                				<td>
+                					<xsl:value-of select="label"/>
+                				</td>
+                				<xsl:for-each select="$min-players to $max-players">
+                					<xsl:apply-templates select="$data-point" mode="games.compare">
+                						<xsl:with-param name="games" select="$game" as="element()*" tunnel="yes"/>
+                						<xsl:with-param name="players" select="current()" as="xs:integer" tunnel="yes"/>
+                					</xsl:apply-templates>
+                				</xsl:for-each>
+                			</tr>
+                		</xsl:for-each>
+                	</table>
+                </div>
+            </div>
+        	<xsl:apply-templates select="assets/image[@role = 'network-diagram']" />
+        </div>
     </xsl:template>
+	
+	
+	<xsl:template match="assets/image[@role = 'network-diagram']" priority="10">
+		<div class="section network">
+			<h3 id="network">Network</h3>
+			<div id="vis1" class="network-visualisation">
+				<div class="frame">
+					<xsl:next-match/>
+				</div>
+			</div>
+		</div>
+	</xsl:template>
+	
+	
     <xsl:template match="assets/image">
 		<xsl:apply-templates select="file[1]"/>				
 	</xsl:template>
@@ -335,154 +359,160 @@
 		<xsl:param as="xs:string" name="game-id" tunnel="yes" />
 		<xsl:param as="element()*" name="tickets" select="ticket" tunnel="no" />
 		<xsl:param as="element()*" name="destinations" tunnel="no" />
-		<section class="locations">
+		<div class="section locations">
 			<h2 id="locations">Locations</h2>
-			<section>
+			<div class="section">
 				<h3 id="locations-list">List</h3>
 				<div class="multi-column"> <ul class="multi-column">
                         <xsl:for-each select="descendant::location">
                             <xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
                             <li>
-                                <a href="{$normalised-path-to-html}/location/{$game-id}-{@id}{$ext-html}">
+                                <a href="{$normalised-path-to-html}location/{$game-id}-{@id}{$ext-html}">
                                     <xsl:value-of select="gw:get-location-name(.)"/>
                                 </a>
                             </li>
                         </xsl:for-each>
                     </ul>
                 </div>
-				</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="locations-by-total-tickets">By Total Tickets</h3>
-				<table>
-					<tr>
-						<th>Location</th>
-						<th>Total Tickets</th>
-						<th>Max Points</th>
-						<th>Points per Ticket</th>
-					</tr>
-					<xsl:for-each select="/game/map/locations/descendant::*[self::location[@id and name] or self::country[@id = $destinations/@id]]">
-						<xsl:sort data-type="number" order="descending" select="count(key('ticket', current()/@id))" />
-						<xsl:sort data-type="number" order="descending" select="
+				<div class="table">
+					<table>
+						<tr>
+							<th>Location</th>
+							<th>Total Tickets</th>
+							<th>Max Points</th>
+							<th>Points per Ticket</th>
+						</tr>
+						<xsl:for-each select="/game/map/locations/descendant::*[self::location[@id and name] or self::country[@id = $destinations/@id]]">
+							<xsl:sort data-type="number" order="descending" select="count(key('ticket', current()/@id))" />
+							<xsl:sort data-type="number" order="descending" select="
 								if (count(key('ticket', current()/@id)) = 0) then
-									'0'
+								'0'
 								else
-									sum(key('ticket', current()/@id)/gw:get-max-ticket-points-for-location(self::ticket, current()/@id))" />
-						<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
-						<xsl:variable as="xs:string" name="destination-id" select="current()/@id" />
-						<xsl:variable as="element()*" name="destination-tickets" select="key('ticket', $destination-id)" />
-						<xsl:variable as="xs:integer" name="total-tickets" select="count($destination-tickets)" />
-						<xsl:variable as="xs:integer" name="max-points" select="
+								sum(key('ticket', current()/@id)/gw:get-max-ticket-points-for-location(self::ticket, current()/@id))" />
+							<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
+							<xsl:variable as="xs:string" name="destination-id" select="current()/@id" />
+							<xsl:variable as="element()*" name="destination-tickets" select="key('ticket', $destination-id)" />
+							<xsl:variable as="xs:integer" name="total-tickets" select="count($destination-tickets)" />
+							<xsl:variable as="xs:integer" name="max-points" select="
 								if ($total-tickets = 0) then
-									0
+								0
 								else
-									sum($destination-tickets/gw:get-max-ticket-points-for-location(self::ticket, $destination-id))" />
-						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-							<td>
-								<a href="{$normalised-path-to-html}/location/{$game-id}-{$destination-id}{$ext-html}">
-									<xsl:value-of select="gw:get-location-name(self::*)" />
-								</a>
-							</td>
-							<td>
-								<xsl:value-of select="$total-tickets" />
-							</td>
-							<td>
-								<xsl:value-of select="$max-points" />
-							</td>
-							<td>
-								<xsl:value-of select="
+								sum($destination-tickets/gw:get-max-ticket-points-for-location(self::ticket, $destination-id))" />
+							<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+								<td>
+									<a href="{$normalised-path-to-html}location/{$game-id}-{$destination-id}{$ext-html}">
+										<xsl:value-of select="gw:get-location-name(self::*)" />
+									</a>
+								</td>
+								<td>
+									<xsl:value-of select="$total-tickets" />
+								</td>
+								<td>
+									<xsl:value-of select="$max-points" />
+								</td>
+								<td>
+									<xsl:value-of select="
 										format-number(if ($max-points = 0) then
-											0
+										0
 										else
-											$max-points div $total-tickets, '0.#')" />
-							</td>
-						</tr>
-					</xsl:for-each>
-				</table>
-			</section>
-			<section>
+										$max-points div $total-tickets, '0.#')" />
+								</td>
+							</tr>
+						</xsl:for-each>
+					</table>
+				</div>
+			</div>
+			<div class="section">
 				<h3 id="locations-by-max-ticket-points">By Max Ticket Points</h3>
-				<table>
-					<tr>
-						<th>Location</th>
-						<th>Max Points</th>
-						<th>Points per Ticket</th>
-						<th>Total Tickets</th>
-					</tr>
-					<xsl:for-each-group group-by="*[self::location or self::country]/@ref" select="$tickets">
-						<xsl:sort data-type="number" order="descending" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key()))" />
-						<xsl:sort data-type="number" order="ascending" select="count(current-group())" />
-						<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name($destinations[@id = current-grouping-key()])"/>
-						<xsl:variable name="total-tickets" select="count(current-group())" />
-						<xsl:variable name="max-points" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key()))" />
-						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-							<td>
-								<xsl:choose>
-									<xsl:when test="$destinations[@id = current-grouping-key()]">
-										<a href="{$normalised-path-to-html}/location/{$game-id}-{current-grouping-key()}{$ext-html}">
-											<xsl:value-of select="gw:get-location-name($destinations[@id = current-grouping-key()])" />
-										</a>
-									</xsl:when>
-									<xsl:otherwise>
-										<xsl:value-of select="current-grouping-key()" />
-									</xsl:otherwise>
-								</xsl:choose>
-							</td>
-							<td>
-								<xsl:value-of select="$max-points" />
-							</td>
-							<td>
-								<xsl:value-of select="format-number($max-points div $total-tickets, '0.#')" />
-							</td>
-							<td>
-								<xsl:value-of select="$total-tickets" />
-							</td>
+				<div class="table">
+					<table>
+						<tr>
+							<th>Location</th>
+							<th>Max Points</th>
+							<th>Points per Ticket</th>
+							<th>Total Tickets</th>
 						</tr>
-					</xsl:for-each-group>
-				</table>
-			</section>
-			<section>
+						<xsl:for-each-group group-by="*[self::location or self::country]/@ref" select="$tickets">
+							<xsl:sort data-type="number" order="descending" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key()))" />
+							<xsl:sort data-type="number" order="ascending" select="count(current-group())" />
+							<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name($destinations[@id = current-grouping-key()])"/>
+							<xsl:variable name="total-tickets" select="count(current-group())" />
+							<xsl:variable name="max-points" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key()))" />
+							<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+								<td>
+									<xsl:choose>
+										<xsl:when test="$destinations[@id = current-grouping-key()]">
+											<a href="{$normalised-path-to-html}location/{$game-id}-{current-grouping-key()}{$ext-html}">
+												<xsl:value-of select="gw:get-location-name($destinations[@id = current-grouping-key()])" />
+											</a>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:value-of select="current-grouping-key()" />
+										</xsl:otherwise>
+									</xsl:choose>
+								</td>
+								<td>
+									<xsl:value-of select="$max-points" />
+								</td>
+								<td>
+									<xsl:value-of select="format-number($max-points div $total-tickets, '0.#')" />
+								</td>
+								<td>
+									<xsl:value-of select="$total-tickets" />
+								</td>
+							</tr>
+						</xsl:for-each-group>
+					</table>
+				</div>
+			</div>
+			<div class="section">
 				<h3 id="locations-by-points-per-ticket">By Points per Ticket</h3>
-				<table>
-					<tr>
-						<th>Location</th>
-						<th>Points per Ticket</th>
-						<th>Total Tickets</th>
-						<th>Max Points</th>
-					</tr>
-					<xsl:for-each-group group-by="*[self::location or self::country]/@ref" select="$tickets">
-						<xsl:sort data-type="number" order="descending" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key())) div count(current-group())" />
-						<xsl:sort data-type="number" order="descending" select="count(current-group())" />
-						<xsl:sort data-type="number" order="descending" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key()))" />
-						<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name($destinations[@id = current-grouping-key()])"/>
-						<xsl:variable name="total-tickets" select="count(current-group())" />
-						<xsl:variable name="max-points" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key()))" />
-						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-							<td>
-								<xsl:choose>
-									<xsl:when test="$destinations[@id = current-grouping-key()]">
-										<a href="{$normalised-path-to-html}/location/{$game-id}{current-grouping-key()}{$ext-html}">
-											<xsl:value-of select="gw:get-location-name($destinations[@id = current-grouping-key()])" />
-										</a>
-									</xsl:when>
-									<xsl:otherwise>
-										<xsl:value-of select="current-grouping-key()" />
-									</xsl:otherwise>
-								</xsl:choose>
-							</td>
-							<td>
-								<xsl:value-of select="format-number($max-points div $total-tickets, '0.#')" />
-							</td>
-							<td>
-								<xsl:value-of select="$total-tickets" />
-							</td>
-							<td>
-								<xsl:value-of select="$max-points" />
-							</td>
+				<div class="table">
+					<table>
+						<tr>
+							<th>Location</th>
+							<th>Points per Ticket</th>
+							<th>Total Tickets</th>
+							<th>Max Points</th>
 						</tr>
-					</xsl:for-each-group>
-				</table>
-			</section>
-		</section>
+						<xsl:for-each-group group-by="*[self::location or self::country]/@ref" select="$tickets">
+							<xsl:sort data-type="number" order="descending" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key())) div count(current-group())" />
+							<xsl:sort data-type="number" order="descending" select="count(current-group())" />
+							<xsl:sort data-type="number" order="descending" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key()))" />
+							<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name($destinations[@id = current-grouping-key()])"/>
+							<xsl:variable name="total-tickets" select="count(current-group())" />
+							<xsl:variable name="max-points" select="sum(current-group()/gw:get-max-ticket-points-for-location(self::ticket, current-grouping-key()))" />
+							<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+								<td>
+									<xsl:choose>
+										<xsl:when test="$destinations[@id = current-grouping-key()]">
+											<a href="{$normalised-path-to-html}location/{$game-id}{current-grouping-key()}{$ext-html}">
+												<xsl:value-of select="gw:get-location-name($destinations[@id = current-grouping-key()])" />
+											</a>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:value-of select="current-grouping-key()" />
+										</xsl:otherwise>
+									</xsl:choose>
+								</td>
+								<td>
+									<xsl:value-of select="format-number($max-points div $total-tickets, '0.#')" />
+								</td>
+								<td>
+									<xsl:value-of select="$total-tickets" />
+								</td>
+								<td>
+									<xsl:value-of select="$max-points" />
+								</td>
+							</tr>
+						</xsl:for-each-group>
+					</table>
+				</div>
+			</div>
+		</div>
 	</xsl:template>
 
 
@@ -500,39 +530,39 @@
 
 
 	<xsl:template match="routes">
-		<section class="routes">
+		<div class="section routes">
 			<h2 id="routes">Routes</h2>
-			<section>
+			<div class="section">
 				<h3 id="route-lengths">Length</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="double-routes">Double Routes</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route[count(colour) &gt; 1]" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="tunnel-routes">Tunnels</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route[@tunnel = 'true']" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="microlight-routes">Microlights</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route[@microlight = 'true']" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-			<section>
+			</div>
+			<div class="section">
 				<h3 id="ferry-routes">Ferries</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
 					<xsl:with-param as="element()*" name="routes-filtered" select="route[@ferry/number(.) &gt; 0]" tunnel="no" />
 				</xsl:apply-templates>
-			</section>
-		</section>
+			</div>
+		</div>
 	</xsl:template>
 
 
@@ -543,90 +573,92 @@
 		<xsl:param as="element()*" name="routes-filtered" tunnel="no" />
 		<xsl:param as="element()*" name="colour" tunnel="yes" />
 
-		<table>
-			<tr>
-
-				<!-- Segment length column heading -->
-				<th>Length</th>
-
-				<!-- Track colour column headings -->
-				<xsl:for-each select="$colour">
-					<th class="{@id}">
-						<xsl:value-of select="name" />
-					</th>
-				</xsl:for-each>
-
-				<!-- Segment length sub-total column heading -->
-				<th>Total</th>
-			</tr>
-			<xsl:for-each-group group-by="@length" select="self::routes/route">
-				<xsl:sort data-type="number" order="descending" select="current-grouping-key()" />
-
-				<!-- 1 row per segment length -->
-				<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-
-					<!-- Row heading: the length of this segment -->
-					<td>
-						<xsl:value-of select="current-grouping-key()" />
-					</td>
-
+		<div class="table">
+			<table>
+				<tr>
+					
+					<!-- Segment length column heading -->
+					<th>Length</th>
+					
+					<!-- Track colour column headings -->
+					<xsl:for-each select="$colour">
+						<th class="{@id}">
+							<xsl:value-of select="name" />
+						</th>
+					</xsl:for-each>
+					
+					<!-- Segment length sub-total column heading -->
+					<th>Total</th>
+				</tr>
+				<xsl:for-each-group group-by="@length" select="self::routes/route">
+					<xsl:sort data-type="number" order="descending" select="current-grouping-key()" />
+					
+					<!-- 1 row per segment length -->
+					<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+						
+						<!-- Row heading: the length of this segment -->
+						<td>
+							<xsl:value-of select="current-grouping-key()" />
+						</td>
+						
+						<xsl:for-each select="$colour">
+							<xsl:variable name="colour-id" select="@id" />
+							
+							<!-- The number of segments of this length, in this colour -->
+							<td class="{$colour-id}">
+								<xsl:value-of select="count($routes-filtered[@length = current-grouping-key()]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							</td>
+							
+						</xsl:for-each>
+						
+						<!-- The total number of segments of this length, in any colour -->
+						<td>
+							<xsl:value-of select="count($routes-filtered[@length = current-grouping-key()]/(@colour | colour/@ref))" />
+						</td>
+						
+					</tr>
+					
+				</xsl:for-each-group>
+				<xsl:variable name="total-unique-route-lengths" select="count(distinct-values(self::routes/route/@length))" />
+				<tr class="total{if (sum($total-unique-route-lengths + 1) mod 2 = 0) then ' even' else ' odd'}">
+					
+					<td>Total</td>
 					<xsl:for-each select="$colour">
 						<xsl:variable name="colour-id" select="@id" />
-
-						<!-- The number of segments of this length, in this colour -->
+						
+						<!-- The total number of segments in this colour, of any length -->
 						<td class="{$colour-id}">
-							<xsl:value-of select="count($routes-filtered[@length = current-grouping-key()]/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+							<xsl:value-of select="count($routes-filtered/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
 						</td>
-
+						
 					</xsl:for-each>
-
-					<!-- The total number of segments of this length, in any colour -->
+					
+					<!-- The total number of segments in any colour, of any length -->
 					<td>
-						<xsl:value-of select="count($routes-filtered[@length = current-grouping-key()]/(@colour | colour/@ref))" />
+						<xsl:value-of select="count($routes-filtered/(@colour | colour/@ref))" />
 					</td>
-
+					
 				</tr>
-
-			</xsl:for-each-group>
-			<xsl:variable name="total-unique-route-lengths" select="count(distinct-values(self::routes/route/@length))" />
-			<tr class="total{if (sum($total-unique-route-lengths + 1) mod 2 = 0) then ' even' else ' odd'}">
-
-				<td>Total</td>
-				<xsl:for-each select="$colour">
-					<xsl:variable name="colour-id" select="@id" />
-
-					<!-- The total number of segments in this colour, of any length -->
-					<td class="{$colour-id}">
-						<xsl:value-of select="count($routes-filtered/(@colour[. = $colour-id] | colour[@ref = $colour-id]))" />
+				<tr class="value{if (sum($total-unique-route-lengths + 2) mod 2 = 0) then ' even' else ' odd'}">
+					
+					<td>Value</td>
+					<xsl:for-each select="$colour">
+						<xsl:variable name="colour-id" select="@id" />
+						
+						<!-- The total value of the segments in this colour -->
+						<td class="{$colour-id}">
+							<xsl:value-of select="sum(21 * count($routes-filtered[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 18 * count($routes-filtered[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 15 * count($routes-filtered[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 10 * count($routes-filtered[@length = '5']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 7 * count($routes-filtered[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 4 * count($routes-filtered[@length = '3']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 2 * count($routes-filtered[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + count($routes-filtered[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))" />
+						</td>
+						
+					</xsl:for-each>
+					
+					<!-- The total value of all segments (of any length) in any colour -->
+					<td>
+						<xsl:value-of select="sum(21 * count($routes-filtered[@length = '8']) + 18 * count($routes-filtered[@length = '7']) + 15 * count($routes-filtered[@length = '6']) + 10 * count($routes-filtered[@length = '5']) + 7 * count($routes-filtered[@length = '4']) + 4 * count($routes-filtered[@length = '3']) + 2 * count($routes-filtered[@length = '2']) + count($routes-filtered[@length = '1']))" />
 					</td>
-
-				</xsl:for-each>
-
-				<!-- The total number of segments in any colour, of any length -->
-				<td>
-					<xsl:value-of select="count($routes-filtered/(@colour | colour/@ref))" />
-				</td>
-
-			</tr>
-			<tr class="value{if (sum($total-unique-route-lengths + 2) mod 2 = 0) then ' even' else ' odd'}">
-
-				<td>Value</td>
-				<xsl:for-each select="$colour">
-					<xsl:variable name="colour-id" select="@id" />
-
-					<!-- The total value of the segments in this colour -->
-					<td class="{$colour-id}">
-						<xsl:value-of select="sum(21 * count($routes-filtered[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 18 * count($routes-filtered[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 15 * count($routes-filtered[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 10 * count($routes-filtered[@length = '5']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 7 * count($routes-filtered[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 4 * count($routes-filtered[@length = '3']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 2 * count($routes-filtered[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + count($routes-filtered[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))" />
-					</td>
-
-				</xsl:for-each>
-
-				<!-- The total value of all segments (of any length) in any colour -->
-				<td>
-					<xsl:value-of select="sum(21 * count($routes-filtered[@length = '8']) + 18 * count($routes-filtered[@length = '7']) + 15 * count($routes-filtered[@length = '6']) + 10 * count($routes-filtered[@length = '5']) + 7 * count($routes-filtered[@length = '4']) + 4 * count($routes-filtered[@length = '3']) + 2 * count($routes-filtered[@length = '2']) + count($routes-filtered[@length = '1']))" />
-				</td>
-			</tr>
-		</table>
+				</tr>
+			</table>
+		</div>
 	</xsl:template>
 
 
@@ -642,55 +674,57 @@
 				<xsl:sequence select="$game/map/locations/descendant::location[@id = current-grouping-key()]" />
 			</xsl:for-each-group>
 		</xsl:variable>
-		<section class="shortest-paths">
+		<div class="section shortest-paths">
 			<h2 id="shortest-paths">Shortest Paths</h2>
-			<section>
+			<div class="section">
 				<h3 id="shortest-paths-cross-referenced">Cross-referenced</h3>
-				<table class="cross-reference">
-					<tr>
-						<th> </th>
-						<xsl:for-each select="$destinations">
-							<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
-							<th class="destination {if (position() mod 2 = 0) then 'even' else 'odd'}">
-								<span>
-									<xsl:value-of select="gw:get-location-name(self::*)" />
-								</span>
-							</th>
-						</xsl:for-each>
-					</tr>
-					<xsl:for-each select="$destinations">
-						<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
-						<xsl:variable as="element()" name="from" select="." />
-						<xsl:variable as="element()*" name="paths-from" select="$paths[*/@ref = $from/@id]" />
-						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-							<td class="destination">
-								<a href="{$normalised-path-to-html}/location/{$game-id}-{$from/@id}{$ext-html}">
-									<xsl:value-of select="gw:get-location-name($from)" />
-								</a>
-							</td>
+				<div class="table">
+					<table class="cross-reference">
+						<tr>
+							<th> </th>
 							<xsl:for-each select="$destinations">
 								<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
-								<xsl:variable as="element()" name="to" select="." />
-								<td class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-									<xsl:choose>
-										<xsl:when test="$from/@id = $to/@id">
-											<xsl:attribute name="class">self</xsl:attribute>
-											<xsl:text>-</xsl:text>
-										</xsl:when>
-										<xsl:when test="not($paths-from[*/@ref = $to/@id])">
-											<xsl:attribute name="class">empty</xsl:attribute>
-										</xsl:when>
-										<xsl:otherwise>
-											<xsl:value-of select="$paths-from[*/@ref = $to/@id]/@distance" />
-										</xsl:otherwise>
-									</xsl:choose>
-								</td>
+								<th class="destination {if (position() mod 2 = 0) then 'even' else 'odd'}">
+									<span>
+										<xsl:value-of select="gw:get-location-name(self::*)" />
+									</span>
+								</th>
 							</xsl:for-each>
 						</tr>
-					</xsl:for-each>
-				</table>
-			</section>
-			<section>
+						<xsl:for-each select="$destinations">
+							<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
+							<xsl:variable as="element()" name="from" select="." />
+							<xsl:variable as="element()*" name="paths-from" select="$paths[*/@ref = $from/@id]" />
+							<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+								<td class="destination">
+									<a href="{$normalised-path-to-html}location/{$game-id}-{$from/@id}{$ext-html}">
+										<xsl:value-of select="gw:get-location-name($from)" />
+									</a>
+								</td>
+								<xsl:for-each select="$destinations">
+									<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
+									<xsl:variable as="element()" name="to" select="." />
+									<td class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+										<xsl:choose>
+											<xsl:when test="$from/@id = $to/@id">
+												<xsl:attribute name="class">self</xsl:attribute>
+												<xsl:text>-</xsl:text>
+											</xsl:when>
+											<xsl:when test="not($paths-from[*/@ref = $to/@id])">
+												<xsl:attribute name="class">empty</xsl:attribute>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="$paths-from[*/@ref = $to/@id]/@distance" />
+											</xsl:otherwise>
+										</xsl:choose>
+									</td>
+								</xsl:for-each>
+							</tr>
+						</xsl:for-each>
+					</table>
+				</div>
+			</div>
+			<div class="section">
 				<h3 id="shortest-paths-by-distance">By Distance</h3>
 				<ul class="zebra">
 					<xsl:for-each-group group-by="@distance" select="path">
@@ -713,8 +747,8 @@
 						</li>
 					</xsl:for-each-group>
 				</ul>
-			</section>
-		</section>
+			</div>
+		</div>
 	</xsl:template>
 
 
@@ -740,138 +774,155 @@
 
 
 
+	<xsl:template match="assets/image[@role = 'ticket-distribution-diagram']" priority="10">
+		<div class="section">
+			<h3 id="ticket-distribution">Distribution</h3>
+			<div id="vis2" class="network-visualisation">
+				<div class="frame">
+					<xsl:next-match/>
+				</div>
+			</div>
+		</div>
+	</xsl:template>
+	
+
 	<xsl:template match="tickets">
 		<xsl:param as="xs:string" name="game-id" tunnel="yes" />
 		<xsl:param as="element()*" name="tickets" select="ticket" tunnel="no" />
 		<xsl:param as="element()*" name="destinations" tunnel="no" />
 		<xsl:variable as="element()" name="game" select="ancestor::game[1]" />
-		<section class="tickets">
+		<div class="section tickets">
 			<h2 id="tickets">Tickets</h2>
-			<section>
+			<div class="section">
 				<h3 id="tickets-by-points-frequency">Points Frequency</h3>
-				<table>
-					<tr>
-						<th>Ticket Value</th>
-						<th>Total Tickets</th>
-					</tr>
-					<xsl:for-each-group group-by="
-							if (@points) then
-								@points
-							else
-								*/@points" select="$tickets">
-						<xsl:sort data-type="number" order="ascending" select="current-grouping-key()" />
-						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-							<td>
-								<xsl:value-of select="current-grouping-key()" />
-							</td>
-							<td>
-								<xsl:value-of select="count(current-group())" />
-							</td>
+				<div class="table">
+					<table>
+						<tr>
+							<th>Ticket Value</th>
+							<th>Total Tickets</th>
 						</tr>
-					</xsl:for-each-group>
-				</table>
-			</section>
-			<section>
+						<xsl:for-each-group group-by="
+							if (@points) then
+							@points
+							else
+							*/@points" select="$tickets">
+							<xsl:sort data-type="number" order="ascending" select="current-grouping-key()" />
+							<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+								<td>
+									<xsl:value-of select="current-grouping-key()" />
+								</td>
+								<td>
+									<xsl:value-of select="count(current-group())" />
+								</td>
+							</tr>
+						</xsl:for-each-group>
+					</table>
+				</div>
+			</div>
+			<xsl:apply-templates select="ancestor::game[1]/assets/image[@role = 'ticket-distribution-diagram']"/>
+			<div class="section">
 				<h3 id="tickets-cross-referenced">Cross-referenced</h3>
-				<table class="cross-reference">
-					<tr>
-						<th> </th>
-						<xsl:for-each select="$destinations">
-							<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
-							<th class="destination {if (position() mod 2 = 0) then 'even' else 'odd'}">
-								<span>
-									<xsl:value-of select="gw:get-location-name(self::*)" />
-								</span>
-							</th>
-						</xsl:for-each>
-						<th class="total">Total Tickets</th>
-						<th class="total">Max Points</th>
-					</tr>
-					<xsl:for-each select="$destinations">
-						<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
-						<xsl:variable as="element()" name="from" select="." />
-						<xsl:variable as="element()*" name="tickets-from" select="$tickets[*/@ref = $from/@id]" />
-						<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
-							<td class="destination {if (position() mod 2 = 0) then 'even' else 'odd'}">
-								<a href="{$normalised-path-to-html}/location/{$game-id}-{$from/@id}{$ext-html}">
-									<xsl:value-of select="gw:get-location-name($from)" />
-								</a>
-							</td>
+				<div class="table">
+					<table class="cross-reference">
+						<tr>
+							<th> </th>
 							<xsl:for-each select="$destinations">
 								<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
-								<xsl:variable as="element()" name="to" select="." />
-								<xsl:variable as="xs:boolean" name="odd" select="
-										if (position() mod 2 = 0) then
-											false()
-										else
-											true()" />
-								<td>
-									<xsl:choose>
-										<xsl:when test="$from/@id = $to/@id">
-											<xsl:attribute name="class">self<xsl:value-of select="
-													if ($odd = true()) then
-														'odd'
-													else
-														'even'" /> </xsl:attribute>
-											<xsl:text>-</xsl:text>
-										</xsl:when>
-										<xsl:when test="not($tickets-from[*/@ref = $to/@id])">
-											<xsl:attribute name="class">empty<xsl:value-of select="
-													if ($odd = true()) then
-														'odd'
-													else
-														'even'" /> </xsl:attribute>
-										</xsl:when>
-										<xsl:otherwise>
-											<xsl:attribute name="class">
-												<xsl:value-of select="
-														if ($odd = true()) then
-															'odd'
-														else
-															'even'" />
-											</xsl:attribute>
-											<xsl:value-of select="sum($tickets-from[*/@ref = $to/@id]/@points) + sum($tickets-from[not(@points)][*[not(@points)]/@ref = $from/@id]/*[@ref = $to/@id]/@points) + sum($tickets-from[not(@points)][*[not(@points)]/@ref = $to/@id]/*[@ref = $from/@id]/@points)" />
-										</xsl:otherwise>
-									</xsl:choose>
-								</td>
+								<th class="destination {if (position() mod 2 = 0) then 'even' else 'odd'}">
+									<span>
+										<xsl:value-of select="gw:get-location-name(self::*)" />
+									</span>
+								</th>
 							</xsl:for-each>
-							<td>
-								<xsl:value-of select="count($tickets-from)" />
-							</td>
-							<td>
-								<xsl:variable as="element()*" name="max-points">
-									<!-- city-to-city tickets -->
-									<xsl:for-each select="$tickets-from[@points]">
-										<points>
-											<xsl:value-of select="@points" />
-										</points>
-									</xsl:for-each>
-									<!-- dependency on this location -->
-									<xsl:for-each select="$tickets-from[not(@points)][*[not(@points)]/@ref = $from/@id]">
-										<!-- Find the destination with the highest points -->
-										<xsl:for-each select="*[@points]">
-											<xsl:sort data-type="number" order="descending" select="@points" />
-											<xsl:if test="position() = 1">
-												<points>
-													<xsl:value-of select="@points" />
-												</points>
-											</xsl:if>
-										</xsl:for-each>
-									</xsl:for-each>
-									<!--dpendency on another location -->
-									<xsl:for-each select="$tickets-from[not(@points)]/*[@ref = $from/@id][@points]">
-										<points>
-											<xsl:value-of select="@points" />
-										</points>
-									</xsl:for-each>
-								</xsl:variable>
-								<xsl:value-of select="sum($max-points)" />
-							</td>
+							<th class="total">Total Tickets</th>
+							<th class="total">Max Points</th>
 						</tr>
-					</xsl:for-each>
-				</table>
-			</section>
-			<section>
+						<xsl:for-each select="$destinations">
+							<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
+							<xsl:variable as="element()" name="from" select="." />
+							<xsl:variable as="element()*" name="tickets-from" select="$tickets[*/@ref = $from/@id]" />
+							<tr class="{if (position() mod 2 = 0) then 'even' else 'odd'}">
+								<td class="destination {if (position() mod 2 = 0) then 'even' else 'odd'}">
+									<a href="{$normalised-path-to-html}location/{$game-id}-{$from/@id}{$ext-html}">
+										<xsl:value-of select="gw:get-location-name($from)" />
+									</a>
+								</td>
+								<xsl:for-each select="$destinations">
+									<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
+									<xsl:variable as="element()" name="to" select="." />
+									<xsl:variable as="xs:boolean" name="odd" select="
+										if (position() mod 2 = 0) then
+										false()
+										else
+										true()" />
+									<td>
+										<xsl:choose>
+											<xsl:when test="$from/@id = $to/@id">
+												<xsl:attribute name="class">self<xsl:value-of select="
+													if ($odd = true()) then
+													'odd'
+													else
+													'even'" /> </xsl:attribute>
+												<xsl:text>-</xsl:text>
+											</xsl:when>
+											<xsl:when test="not($tickets-from[*/@ref = $to/@id])">
+												<xsl:attribute name="class">empty<xsl:value-of select="
+													if ($odd = true()) then
+													'odd'
+													else
+													'even'" /> </xsl:attribute>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:attribute name="class">
+													<xsl:value-of select="
+														if ($odd = true()) then
+														'odd'
+														else
+														'even'" />
+												</xsl:attribute>
+												<xsl:value-of select="sum($tickets-from[*/@ref = $to/@id]/@points) + sum($tickets-from[not(@points)][*[not(@points)]/@ref = $from/@id]/*[@ref = $to/@id]/@points) + sum($tickets-from[not(@points)][*[not(@points)]/@ref = $to/@id]/*[@ref = $from/@id]/@points)" />
+											</xsl:otherwise>
+										</xsl:choose>
+									</td>
+								</xsl:for-each>
+								<td>
+									<xsl:value-of select="count($tickets-from)" />
+								</td>
+								<td>
+									<xsl:variable as="element()*" name="max-points">
+										<!-- city-to-city tickets -->
+										<xsl:for-each select="$tickets-from[@points]">
+											<points>
+												<xsl:value-of select="@points" />
+											</points>
+										</xsl:for-each>
+										<!-- dependency on this location -->
+										<xsl:for-each select="$tickets-from[not(@points)][*[not(@points)]/@ref = $from/@id]">
+											<!-- Find the destination with the highest points -->
+											<xsl:for-each select="*[@points]">
+												<xsl:sort data-type="number" order="descending" select="@points" />
+												<xsl:if test="position() = 1">
+													<points>
+														<xsl:value-of select="@points" />
+													</points>
+												</xsl:if>
+											</xsl:for-each>
+										</xsl:for-each>
+										<!--dpendency on another location -->
+										<xsl:for-each select="$tickets-from[not(@points)]/*[@ref = $from/@id][@points]">
+											<points>
+												<xsl:value-of select="@points" />
+											</points>
+										</xsl:for-each>
+									</xsl:variable>
+									<xsl:value-of select="sum($max-points)" />
+								</td>
+							</tr>
+						</xsl:for-each>
+					</table>
+				</div>
+			</div>
+			<div class="section">
 				<h3 id="tickets-by-type">By Type</h3>
 				<ul class="zebra">
 					<li class="odd">
@@ -930,8 +981,8 @@
 						</xsl:choose>
 					</li>
 				</ul>
-			</section>
-		</section>
+			</div>
+		</div>
 	</xsl:template>
 
 
@@ -974,7 +1025,7 @@
 		<xsl:param as="xs:string" name="game-id" tunnel="yes" />
 		<xsl:for-each select="location">
 			<xsl:sort data-type="text" order="ascending" select="gw:get-location-sort-name(.)"/>
-			<a href="{$normalised-path-to-html}/location/{$game-id}-{@ref}{$ext-html}">
+			<a href="{$normalised-path-to-html}location/{$game-id}-{@ref}{$ext-html}">
 				<xsl:value-of select="gw:get-location-name(self::location)" />
 			</a>
 			<xsl:if test="position() = 1">

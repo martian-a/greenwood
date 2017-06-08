@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE game
+  SYSTEM "game.dtd">
 <game id="GUSA" publish="true">
     <title>USA</title>
     <summary>
@@ -8507,6 +8510,14 @@
 			<title>Ticket to Ride: USA</title>
 			<file path="usa.png" height="462" width="462"/>
 			<file path="usa_small.png" height="231" width="231"/>
+		</image>
+		<image role="network-diagram">
+			<title>Network diagram: USA</title>
+			<file path="network/usa.png"/>
+		</image>
+		<image role="ticket-distribution-diagram">
+			<title>Ticket Distribution: USA</title>
+			<file path="ticket-distribution/usa.png"/>
 		</image>
 	</assets>
 </game>

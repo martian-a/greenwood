@@ -58,6 +58,7 @@
 			<p:pipe port="result" step="reset" />			
 			<p:pipe port="result" step="generate-xml" />
 			<p:pipe port="result" step="generate-html" />
+			<p:pipe port="result" step="delete-xml" />
 		</p:output>
 		
 		<p:group name="reset">
@@ -87,6 +88,10 @@
 				<p:with-option name="href" select="$target" />
 			</cxf:mkdir>
 			
+			<cxf:mkdir name="create-target-assets-dir">
+				<p:with-option name="href" select="concat($target, '/assets/')" />
+			</cxf:mkdir>
+			
 		</p:group>
 		
 		<p:sink />
@@ -114,8 +119,23 @@
 			<p:with-option name="target" select="$target" />
 		</tcy:generate-static-html>
 		
+		<p:sink />
+		
+		<p:documentation>
+			<d:doc scope="step">
+				<d:desc>Delete the XML snapshot as not deployed with site.</d:desc>
+			</d:doc>
+		</p:documentation>
+		<tcy:delete-static-site name="delete-xml">
+			<p:with-option name="href" select="concat($target, '/xml/')" />	
+		</tcy:delete-static-site>
+		
+		<p:sink />
+		
 	</p:group>
 	
+	
 	<p:wrap-sequence wrapper="c:results" />
+
 		
 </p:pipeline>

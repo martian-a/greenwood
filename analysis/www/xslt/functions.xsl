@@ -603,14 +603,30 @@
             <object>
                 <property label="from" data-type="xs:string"><xsl:value-of select="$edge/location[1]/@ref" /></property>
                 <property label="to" data-type="xs:string"><xsl:value-of select="$edge/location[2]/@ref" /></property>
-                <property label="color" data-type="xs:string">
-                    <xsl:choose>
-                        <xsl:when test="$ticket-points > 14">#6534ff</xsl:when>
-                        <xsl:when test="$ticket-points > 6">#ff66cc</xsl:when>
-                        <xsl:otherwise>#66ccff</xsl:otherwise>
-                    </xsl:choose>
+                <property label="color" data-type="object">
+                    <property label="color" data-type="xs:string">
+                        <xsl:choose>
+                			<xsl:when test="$ticket-points &gt; 14">#6534ff</xsl:when>
+                			<xsl:when test="$ticket-points &gt; 6">#ff66cc</xsl:when>
+                			<xsl:otherwise>#66ccff</xsl:otherwise>
+                		</xsl:choose>
+                        </property>
+                <property label="opacity" data-type="xs:string">
+                		<xsl:choose>
+                			<xsl:when test="$ticket-points &gt; 14">1</xsl:when>
+                			<xsl:when test="$ticket-points &gt; 6">.25</xsl:when>
+                			<xsl:otherwise>.5</xsl:otherwise>
+                		</xsl:choose>
+                	</property>
                 </property>
                 <property label="length" data-type="xs:integer"><xsl:value-of select="sum(150 * number($edge/@length))" /></property>
+            	<property label="width" data-type="xs:string">
+            		<xsl:choose>
+            			<xsl:when test="$ticket-points &gt; 14">18</xsl:when>
+            			<xsl:when test="$ticket-points &gt; 6">6</xsl:when>
+            			<xsl:otherwise>12</xsl:otherwise>
+            		</xsl:choose>
+            	</property>
             </object>
         </xsl:for-each>
         

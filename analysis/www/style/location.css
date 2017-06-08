@@ -16,24 +16,8 @@ html.location #games {
  * Summary 
  */
  
-main section p.summary {
+div.main div.section p.summary {
 	margin-bottom: 1.5em;
 }
 
 /* End of Summary */
-
-
-/**********
- * Locations Index List
- */
- 
- html.locations main ul {
-	-webkit-column-count: 3; /* Chrome, Safari, Opera */
-	-moz-column-count: 3; /* Firefox */
-	column-count: 3;
-	-webkit-column-gap: 5em; /* Chrome, Safari, Opera */
-	-moz-column-gap: 5em; /* Firefox */
-	column-gap: 5em;
-}
-
-/* End of Locations Index List */

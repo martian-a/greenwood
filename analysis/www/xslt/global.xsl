@@ -31,9 +31,17 @@
 		<xsl:variable name="directory-separators" select="translate($path-to-images, '\', '/')"/>
 		<xsl:value-of select="concat($directory-separators, if (ends-with($directory-separators, '/')) then '' else '/')"/>
 	</xsl:variable>
+	
+	<xsl:variable name="normalised-path-to-xml">
+		<xsl:variable name="directory-separators" select="translate($path-to-xml, '\', '/')"/>
+		<xsl:value-of select="concat($directory-separators, if (ends-with($directory-separators, '/')) then '' else '/')"/>
+	</xsl:variable>
+	
+	<xsl:variable name="normalised-path-to-html">
+		<xsl:variable name="directory-separators" select="translate($path-to-html, '\', '/')"/>
+		<xsl:value-of select="concat($directory-separators, if (ends-with($directory-separators, '/')) then '' else '/')"/>
+	</xsl:variable>
 
-	<xsl:variable name="normalised-path-to-xml" select="translate($path-to-xml, '\', '/')"/>
-	<xsl:variable name="normalised-path-to-html" select="translate($path-to-html, '\', '/')"/>
 	<xsl:variable name="ext-xml" select="if (xs:boolean($static)) then '.xml' else ''" as="xs:string?"/>
 	<xsl:variable name="ext-html" select="if (xs:boolean($static)) then '.html' else ''" as="xs:string?"/>
 	<xsl:variable name="index" select="if (xs:boolean($static)) then 'index' else ''" as="xs:string?"/>
@@ -41,9 +49,10 @@
 
 
 	<xsl:template match="/">
-		<html class="{/*/local-name()}">
+		<html class="{/*/local-name()}" lang="en">
 			<head>
 				<xsl:apply-templates mode="html.header"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<script type="text/javascript" src="{$normalised-path-to-js}jquery.min.js"/>
 				<script type="text/javascript">
             		jQuery.noConflict();
@@ -56,9 +65,9 @@
 			</head>
 			<body>
 				<xsl:apply-templates mode="nav.site"/>
-				<main>
+				<div class="main">
 					<xsl:apply-templates mode="html.body"/>
-				</main>
+				</div>
 				<xsl:apply-templates mode="html.footer"/>
                 <xsl:apply-templates mode="html.footer.scripts"/>
 			</body>
@@ -84,35 +93,37 @@
 	<xsl:template match="game | games | location | locations" mode="nav.site">
 		<header class="header">
 			<h2 class="logo">
-                <a href="{$normalised-path-to-html}/{$index}{$ext-html}">
+                <a href="{$normalised-path-to-html}{$index}{$ext-html}">
                     <img src="{$normalised-path-to-images}ttr.png" alt="TTR Analysis"/>
                 </a>
             </h2>
-			<nav class="site">
+			<div class="nav nav-site">
 				<ul>
 					<li>
-						<a href="{$normalised-path-to-html}/game/{$index}{$ext-html}">Games</a>
+						<a href="{$normalised-path-to-html}game/{$index}{$ext-html}">Games</a>
 					</li>
 					<li>
-						<a href="{$normalised-path-to-html}/location/{$index}{$ext-html}">Locations</a>
+						<a href="{$normalised-path-to-html}location/{$index}{$ext-html}">Locations</a>
 					</li>
-					<xsl:apply-templates select="self::game | self::location" mode="nav.site.xml"/>
+					<xsl:if test="$static = 'false'">
+						<xsl:apply-templates select="self::game | self::location" mode="nav.site.xml"/>
+					</xsl:if>
 				</ul>
-			</nav>
+			</div>
 		</header>
 	</xsl:template>
 
 
 	<xsl:template match="game" mode="nav.site.xml" priority="10">
 		<xsl:next-match>
-			<xsl:with-param name="href" select="concat($normalised-path-to-xml, '/game/', @id, $ext-xml)" as="xs:string"/>
+			<xsl:with-param name="href" select="concat($normalised-path-to-xml, 'game/', @id, $ext-xml)" as="xs:string"/>
 		</xsl:next-match>
 	</xsl:template>
 
 
 	<xsl:template match="location" mode="nav.site.xml" priority="10">
 		<xsl:next-match>
-			<xsl:with-param name="href" select="concat($normalised-path-to-xml, '/location/', games/game[1]/@id, '-', @id, $ext-xml)" as="xs:string"/>
+			<xsl:with-param name="href" select="concat($normalised-path-to-xml, 'location/', games/game[1]/@id, '-', @id, $ext-xml)" as="xs:string"/>
 		</xsl:next-match>
 	</xsl:template>
 
@@ -128,11 +139,11 @@
 	<xsl:template match="game | location" mode="nav.page" priority="100">
 		<div class="contents">
 			<h2 class="heading">Contents</h2>
-			<nav>
+			<div class="nav">
 				<ul>
 					<xsl:next-match/>
 				</ul>
-			</nav>
+			</div>
 		</div>
 	</xsl:template>
 

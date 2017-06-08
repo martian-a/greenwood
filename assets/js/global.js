@@ -6,8 +6,12 @@ jQuery(document).ready(function($) {
 	 * Insert containers for javascript dependent visualisations
 	 */
 	if (pageClass == "game") {
-		$(".main > div.overview > div.section").filter(":last").after("<div class=\"section network\"><h3 id=\"network\">Network</h3><div id=\"vis1\" class=\"network-visualisation\"/></div>");
-		$(".main > div.tickets > div.section").filter(":first").after("<div class=\"section\"><h3 id=\"ticket-distribution\">Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></div>");	 	
+		if ($("#network").length == 0) {
+			$(".main > div.overview > div.section").filter(":last").after("<div class=\"section network\"><h3 id=\"network\">Network</h3><div id=\"vis1\" class=\"network-visualisation\"/></div>");
+		}
+		if ($("#ticket-distribution").length == 0) {
+			$(".main > div.tickets > div.section").filter(":first").after("<div class=\"section\"><h3 id=\"ticket-distribution\">Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></div>");	 				
+		}	
 	};
 
 	/* 

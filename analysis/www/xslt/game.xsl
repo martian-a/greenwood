@@ -36,13 +36,17 @@
 
 
 	<xsl:template match="game" mode="html.header.scripts">
-		<script src="{$normalised-path-to-js}vis.js" type="text/javascript" />
-		<xsl:call-template name="generate-network-map">
-			<xsl:with-param as="element()" name="game" select="self::game" />
-		</xsl:call-template>
-		<xsl:call-template name="generate-tickets-map">
-			<xsl:with-param as="element()" name="game" select="self::game" />
-		</xsl:call-template>
+		<xsl:if test="not(assets[image/@role = 'network-diagram' and image/@role = 'ticket-distribution-diagram'])">
+			<script src="{$normalised-path-to-js}vis.js" type="text/javascript" />
+			<xsl:call-template name="generate-network-map">
+				<xsl:with-param as="element()" name="game" select="self::game"/>
+			</xsl:call-template>
+		</xsl:if>
+		<xsl:if test="not(assets[image/@role = 'ticket-distribution-diagram'])">
+			<xsl:call-template name="generate-tickets-map">
+				<xsl:with-param as="element()" name="game" select="self::game" />
+			</xsl:call-template>
+		</xsl:if>
 		<script src="{$normalised-path-to-js}game.js" type="text/javascript" />
 		<xsl:choose>
 			<xsl:when test="$static = 'false'">
@@ -70,7 +74,9 @@
 
 
 	<xsl:template match="game" mode="html.header.style">
-		<link href="{$normalised-path-to-js}vis.css" rel="stylesheet" type="text/css" />
+		<xsl:if test="not(assets[image/@role = 'network-diagram' and image/@role = 'ticket-distribution-diagram'])">
+			<link href="{$normalised-path-to-js}vis.css" rel="stylesheet" type="text/css" />
+		</xsl:if>
 		<link href="{$normalised-path-to-css}game.css" rel="stylesheet" type="text/css" />
 	</xsl:template>
 
@@ -108,7 +114,7 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:variable name="games" select="game" as="element()*"/>
-    <div class="contents">
+    	<div class="contents">
             <h2 class="heading">Contents</h2>
             <div class="nav">
                 <ul>
@@ -240,7 +246,7 @@
             <h2 id="overview">Overview</h2>
         	<div class="section summary">
                 <h3 id="overview-summary">Summary</h3>
-			<div>
+				<div>
                     <xsl:apply-templates select="assets/image[@role = 'product-illustration']"/>
                     <div>
 	                    <xsl:apply-templates select="summary[p]"/>
@@ -252,7 +258,7 @@
 	                    <xsl:apply-templates select="related[link/@type = ('publisher', 'review')]"/>
 	                <xsl:apply-templates select="related[link/@type = 'provider']" mode="purchase"/>
             		</div>
-                    </div>
+                </div>
             </div>
             <xsl:variable name="game" select="self::game" as="element()"/>
             <div class="section">
@@ -283,8 +289,23 @@
                 	</table>
                 </div>
             </div>
+        	<xsl:apply-templates select="assets/image[@role = 'network-diagram']" />
         </div>
     </xsl:template>
+	
+	
+	<xsl:template match="assets/image[@role = 'network-diagram']" priority="10">
+		<div class="section network">
+			<h3 id="network">Network</h3>
+			<div id="vis1" class="network-visualisation">
+				<div class="frame">
+					<xsl:next-match/>
+				</div>
+			</div>
+		</div>
+	</xsl:template>
+	
+	
     <xsl:template match="assets/image">
 		<xsl:apply-templates select="file[1]"/>				
 	</xsl:template>
@@ -753,6 +774,18 @@
 
 
 
+	<xsl:template match="assets/image[@role = 'ticket-distribution-diagram']" priority="10">
+		<div class="section">
+			<h3 id="ticket-distribution">Distribution</h3>
+			<div id="vis2" class="network-visualisation">
+				<div class="frame">
+					<xsl:next-match/>
+				</div>
+			</div>
+		</div>
+	</xsl:template>
+	
+
 	<xsl:template match="tickets">
 		<xsl:param as="xs:string" name="game-id" tunnel="yes" />
 		<xsl:param as="element()*" name="tickets" select="ticket" tunnel="no" />
@@ -786,6 +819,7 @@
 					</table>
 				</div>
 			</div>
+			<xsl:apply-templates select="ancestor::game[1]/assets/image[@role = 'ticket-distribution-diagram']"/>
 			<div class="section">
 				<h3 id="tickets-cross-referenced">Cross-referenced</h3>
 				<div class="table">

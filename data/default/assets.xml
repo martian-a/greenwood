@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assets>
+	<asset id="CAR" class="card">
+		<asset id="TRA" class="train">
+			<name>Train card</name>
+			<asset id="TRN" class="standard">
+				<name>Train car</name>
+			</asset>
+			<asset id="TRW" class="wild">
+				<name>Locomotive card</name>
+			</asset>
+		</asset>
+		<asset id="TIC" class="ticket">
+			<name>Route Ticket</name>
+			<asset id="TIL" class="long">
+				<name>Long</name>
+			</asset>
+			<asset id="TIN" class="standard">
+				<name>Standard</name>
+			</asset>
+		</asset>
+	</asset>
+	<asset id="TOK" class="token">
+		<asset id="TOC" class="carriage">
+			<name>Carriage</name>
+		</asset>
+		<asset id="TOS" class="station">
+			<name>Station</name>
+		</asset>
+		<asset id="TOP" class="points-marker">
+			<name>Points marker</name>
+		</asset>
+	</asset>
+	<asset id="ROU" class="route-option">
+		<name>Route option</name>
+		<asset id="RON" class="standard">
+			<name>Standard</name>
+		</asset>
+		<asset id="ROT" class="tunnel">
+			<name>Tunnel</name>
+			<!-- 0-3 extra cards required -->
+		</asset>
+		<asset id="ROF" class="ferry">
+			<name>Ferry</name>
+			<!-- 1+ wildcards required -->
+		</asset>
+		<asset id="ROM" class="microlight">
+			<name>Microlight</name>
+			<!-- 0-3 extra cards required,
+				 0-3 cards refunded -->
+		</asset>
+		<asset id="ROR" class="restricted">
+			<name>Restricted Access</name>
+			<!-- No wildcards allowed -->
+		</asset>
+	</asset>
+	<asset id="LOC" class="location">
+		<name>Location</name>
+	</asset>
+</assets>

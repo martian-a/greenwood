@@ -122,14 +122,14 @@
             </td>
             <td>
                 <xsl:choose>
-                    <xsl:when test="@tunnel = 'true'">Tunnel</xsl:when>
-                    <xsl:when test="@microlight = 'true'">Microlight</xsl:when>
-                    <xsl:when test="@ferry &gt; 0">Ferry</xsl:when>
+                	<xsl:when test="asset/@ref = 'ROT'">Tunnel</xsl:when>
+                	<xsl:when test="asset/@ref = 'ROM'">Microlight</xsl:when>
+                	<xsl:when test="asset/@ref = 'ROF'">Ferry</xsl:when>
                     <xsl:otherwise>Normal</xsl:otherwise>
                 </xsl:choose>
             </td>
             <td>
-                <xsl:value-of select="if (@ferry &gt; 0) then @ferry else 0"/>
+            	<xsl:value-of select="if (asset[@ref = 'ROF']/@min &gt; 0) then asset[@ref = 'ROF']/@min else 0"/>
             </td>
         </tr>
     </xsl:template>

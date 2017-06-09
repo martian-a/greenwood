@@ -2,6 +2,11 @@
     <xsl:variable name="comparisons" as="document-node()">
         <xsl:document>
             <comparisons>
+            	<!-- starting-hand stations="3" carriages="45">
+			        <cards train="4">
+			            <destinations regular="4" long="1" must-keep="2"/>
+			        </cards>
+			    </starting-hand -->
                 <compare id="players-min" players="false">
                     <label>Minimum number of players</label>
                 </compare>
@@ -257,10 +262,10 @@
         <xsl:param name="players" tunnel="yes" as="xs:integer"/>
         <xsl:choose>
             <xsl:when test="$players &gt; 0 and $players &lt; $game/players/@double-routes-min/number(.)">
-                <xsl:value-of select="count($game/map/routes/descendant::route[@tunnel = 'true'][(@colour | colour/@ref)])"/>
+            	<xsl:value-of select="count($game/map/routes/descendant::route[asset/@ref = 'ROT'][(@colour | colour/@ref)])"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="count($game/map/routes/descendant::route[@tunnel = 'true']/(@colour | colour/@ref))"/>
+            	<xsl:value-of select="count($game/map/routes/descendant::route[asset/@ref = 'ROT']/(@colour | colour/@ref))"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -269,10 +274,10 @@
         <xsl:param name="players" tunnel="yes" as="xs:integer"/>
         <xsl:choose>
             <xsl:when test="$players &gt; 0 and $players &lt; $game/players/@double-routes-min/number(.)">
-                <xsl:value-of select="count($game/map/routes/descendant::route[@ferry &gt; 0][(@colour | colour/@ref)])"/>
+                <xsl:value-of select="count($game/map/routes/descendant::route[asset/@ref = 'ROF'][(@colour | colour/@ref)])"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="count($game/map/routes/descendant::route[@ferry &gt; 0]/(@colour | colour/@ref))"/>
+            	<xsl:value-of select="count($game/map/routes/descendant::route[asset/@ref = 'ROF']/(@colour | colour/@ref))"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -281,10 +286,10 @@
         <xsl:param as="xs:integer" name="players" tunnel="yes"/>
         <xsl:choose>
             <xsl:when test="$players &gt; 0 and $players &lt; $game/players/@double-routes-min/number(.)">
-                <xsl:value-of select="count($game/map/routes/descendant::route[@microlight = 'true'][(@colour | colour/@ref)])"/>
+            	<xsl:value-of select="count($game/map/routes/descendant::route[asset/@ref = 'ROM'][(@colour | colour/@ref)])"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="count($game/map/routes/descendant::route[@microlight = 'true'][(@colour | colour/@ref)])"/>
+            	<xsl:value-of select="count($game/map/routes/descendant::route[asset/@ref = 'ROM'][(@colour | colour/@ref)])"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>

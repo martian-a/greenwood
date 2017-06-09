@@ -1,7 +1,13 @@
-<!ELEMENT game (title?, summary?, players?, starting-hand?, map?, tickets*, related?, assets?)>
+<!ELEMENT game (title?, summary?, players?, turn?, actions?, map?, tickets*, related?, assets*)>
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT summary (p*)>
 <!ELEMENT players (#PCDATA)>
+<!ELEMENT turn EMPTY>
+<!ELEMENT actions (action+)>
+<!ELEMENT action (source?, target+, description?)>
+<!ELEMENT target EMPTY>
+<!ELEMENT source (asset*)>
+<!ELEMENT description (#PCDATA)>
 <!ELEMENT starting-hand (cards?)>
 <!ELEMENT cards (destinations?)>
 <!ELEMENT destinations (#PCDATA)>
@@ -11,7 +17,7 @@
 <!ELEMENT location (name?)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT routes (route*)>
-<!ELEMENT route (location+, colour*)> 
+<!ELEMENT route (location+, colour*, asset*)> 
 <!ELEMENT colour (name?)>
 <!ELEMENT colours (colour*)>
 <!ELEMENT tickets (ticket*)>
@@ -28,13 +34,16 @@
 <!ELEMENT related (link*)>
 <!ELEMENT link (title)>
 <!ELEMENT p (#PCDATA)*>
-<!ELEMENT assets (image*)>
+<!ELEMENT assets (collection*, asset*, image*)>
+<!ELEMENT collection (asset+, name, description)>
+<!ELEMENT asset (name?, asset*) >
 <!ELEMENT image (title, file+)>
 <!ELEMENT file EMPTY>
 
 <!ATTLIST game 
 	id ID #REQUIRED
-	publish (true|false) "true">
+	publish (true|false) "true"
+	xmlns:xi CDATA #FIXED "http://www.w3.org/2001/XInclude">
 <!ATTLIST map
 	seed CDATA #IMPLIED>
 <!ATTLIST country 
@@ -51,10 +60,9 @@
 	sort CDATA #IMPLIED>
 <!ATTLIST route 
 	length (1|2|3|4|5|6|8) #REQUIRED
-	colour IDREF #IMPLIED
-	tunnel (true|false) "false"
-	ferry  (0|1|2) "0"
-	microlight (true|false) "false">
+	colour IDREF #IMPLIED>
+<!ATTLIST colours
+	xml:base CDATA #IMPLIED>
 <!ATTLIST colour 
 	id ID #IMPLIED
 	ref IDREF #IMPLIED>
@@ -74,9 +82,37 @@
 	min (2|4) "2"
 	max (3|4|5|6|7) "5"
 	double-routes-min (3|4|5) "4">
-<!ATTLIST starting-hand
-	carriages (40|45) "45"
-	stations (0|3) "0">
+<!ATTLIST turn
+	min-actions (1) "1"
+	max-actions (1) "1"
+	xml:base CDATA #IMPLIED>
+<!ATTLIST actions
+	xml:base CDATA #IMPLIED>
+<!ATTLIST action
+	id ID #REQUIRED
+	type (claim|draw|award) #REQUIRED
+	xml:base CDATA #IMPLIED>
+<!ATTLIST target
+	ref IDREF #REQUIRED
+	min (0|1|2|3|4|5|10) #IMPLIED
+	max (0|1|2|3|4|10|40) #IMPLIED>
+<!ATTLIST source
+	ref IDREF #REQUIRED
+	min (0|1|2|3|4) #IMPLIED
+	max (0|1|2|3|4) #IMPLIED>
+<!ATTLIST collection
+	id ID #REQUIRED
+	face-up (true|false) #IMPLIED
+	recycle (true|false) #IMPLIED>
+<!ATTLIST assets
+	xml:base CDATA #IMPLIED>
+<!ATTLIST asset
+	id ID #IMPLIED
+	ref IDREF #IMPLIED
+	init (1|2|3|4|5|40|45) #IMPLIED
+	min (0|1|2) #IMPLIED
+	max (1|2) #IMPLIED
+	class (card|train|standard|wild|ticket|long|token|carriage|station|points-marker|route-option|tunnel|ferry|microlight|location|restricted) #IMPLIED>
 <!ATTLIST cards
 	train (4) "4">
 <!ATTLIST destinations

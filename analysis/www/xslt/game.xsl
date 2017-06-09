@@ -547,19 +547,19 @@
 			<div class="section">
 				<h3 id="tunnel-routes">Tunnels</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
-					<xsl:with-param as="element()*" name="routes-filtered" select="route[@tunnel = 'true']" tunnel="no" />
+					<xsl:with-param as="element()*" name="routes-filtered" select="route[asset/@ref = 'ROT']" tunnel="no" />
 				</xsl:apply-templates>
 			</div>
 			<div class="section">
 				<h3 id="microlight-routes">Microlights</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
-					<xsl:with-param as="element()*" name="routes-filtered" select="route[@microlight = 'true']" tunnel="no" />
+					<xsl:with-param as="element()*" name="routes-filtered" select="route[asset/@ref = 'ROM']" tunnel="no" />
 				</xsl:apply-templates>
 			</div>
 			<div class="section">
 				<h3 id="ferry-routes">Ferries</h3>
 				<xsl:apply-templates mode="routes.table" select="self::routes">
-					<xsl:with-param as="element()*" name="routes-filtered" select="route[@ferry/number(.) &gt; 0]" tunnel="no" />
+					<xsl:with-param as="element()*" name="routes-filtered" select="route[asset/@ref = 'ROF']" tunnel="no" />
 				</xsl:apply-templates>
 			</div>
 		</div>

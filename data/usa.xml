@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="ticket-to-ride.sch" type="application/xml"?>
 <!DOCTYPE game
   SYSTEM "game.dtd">
 <game id="GUSA" publish="true">
@@ -7,11 +8,14 @@
         <p>The first — and probably the simplest — version of the game.  There are no special conditions or considerations when buying track and plenty of valuable, long lengths of track.</p>
     </summary>
     <players max="5" min="2" double-routes-min="4"/>
-    <starting-hand carriages="45" stations="0">
-        <cards train="4">
-            <destinations regular="3" long="1" must-keep="2"/>
-        </cards>
-    </starting-hand>
+	<xi:include href="default/turn.xml" />
+	<actions>
+		<xi:include href="default/actions/claim_route.xml" />
+		<xi:include href="default/actions/draw_tickets.xml" />
+		<xi:include href="default/actions/draw_train_cards_open.xml" />
+		<xi:include href="default/actions/draw_train_cards_blind.xml" />
+		<xi:include href="default/actions/award_longest_path.xml" />		
+	</actions>
     <map>
         <locations>
             <country id="CAN">
@@ -130,392 +134,364 @@
             </country>
         </locations>
         <routes>
-            <route length="1" tunnel="false" ferry="0" microlight="false">
+            <route length="1">
                 <location ref="VAN"/>
                 <location ref="SEA"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="3" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="GRY">
                 <location ref="VAN"/>
                 <location ref="CGY"/>
             </route>
-            <route length="4" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="GRY">
                 <location ref="CGY"/>
                 <location ref="SEA"/>
             </route>
-            <route length="1" tunnel="false" ferry="0" microlight="false">
+            <route length="1">
                 <location ref="SEA"/>
                 <location ref="POR"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="6" colour="YEL" tunnel="false" ferry="0" microlight="false">
+            <route length="6" colour="YEL">
                 <location ref="SEA"/>
                 <location ref="HEL"/>
             </route>
-            <route length="6" colour="BLU" tunnel="false" ferry="0" microlight="false">
+            <route length="6" colour="BLU">
                 <location ref="POR"/>
                 <location ref="SLC"/>
             </route>
-            <route length="5" tunnel="false" ferry="0" microlight="false">
+            <route length="5">
                 <location ref="POR"/>
                 <location ref="SFR"/>
                 <colour ref="VIO"/>
                 <colour ref="GRN"/>
             </route>
-            <route length="3" tunnel="false" ferry="0" microlight="false">
+            <route length="3">
                 <location ref="SFR"/>
                 <location ref="LOS"/>
                 <colour ref="VIO"/>
                 <colour ref="YEL"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="LOS"/>
                 <location ref="LAS"/>
             </route>
-            <route length="3" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="GRY">
                 <location ref="LOS"/>
                 <location ref="PHO"/>
             </route>
-            <route length="3" colour="ORA" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="ORA">
                 <location ref="LAS"/>
                 <location ref="SLC"/>
             </route>
-            <route length="3" colour="VIO" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="VIO">
                 <location ref="SLC"/>
                 <location ref="HEL"/>
             </route>
-            <route length="4" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="GRY">
                 <location ref="CGY"/>
                 <location ref="HEL"/>
             </route>
-            <route length="6" colour="WHI" tunnel="false" ferry="0" microlight="false">
+            <route length="6" colour="WHI">
                 <location ref="CGY"/>
                 <location ref="WIN"/>
             </route>
-            <route length="6" colour="BLA" tunnel="false" ferry="0" microlight="false">
+            <route length="6" colour="BLA">
                 <location ref="LOS"/>
                 <location ref="ELP"/>
             </route>
-            <route length="3" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="GRY">
                 <location ref="PHO"/>
                 <location ref="SFE"/>
             </route>
-            <route length="5" colour="WHI" tunnel="false" ferry="0" microlight="false">
+            <route length="5" colour="WHI">
                 <location ref="PHO"/>
                 <location ref="DEN"/>
             </route>
-            <route length="4" colour="GRN" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="GRN">
                 <location ref="HEL"/>
                 <location ref="DEN"/>
             </route>
-            <route length="3" tunnel="false" ferry="0" microlight="false">
+            <route length="3">
                 <location ref="SLC"/>
                 <location ref="DEN"/>
                 <colour ref="RED"/>
                 <colour ref="YEL"/>
             </route>
-            <route length="4" colour="BLU" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="BLU">
                 <location ref="HEL"/>
                 <location ref="WIN"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="DEN"/>
                 <location ref="SFE"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="ELP"/>
                 <location ref="SFE"/>
             </route>
-            <route length="6" colour="GRN" tunnel="false" ferry="0" microlight="false">
+            <route length="6" colour="GRN">
                 <location ref="ELP"/>
                 <location ref="HOU"/>
             </route>
-            <route length="4" colour="RED" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="RED">
                 <location ref="ELP"/>
                 <location ref="DAL"/>
             </route>
-            <route length="5" colour="YEL" tunnel="false" ferry="0" microlight="false">
+            <route length="5" colour="YEL">
                 <location ref="ELP"/>
                 <location ref="OKL"/>
             </route>
-            <route length="3" colour="BLU" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="BLU">
                 <location ref="SFE"/>
                 <location ref="OKL"/>
             </route>
-            <route length="4" colour="RED" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="RED">
                 <location ref="DEN"/>
                 <location ref="OKL"/>
             </route>
-            <route length="4" tunnel="false" ferry="0" microlight="false">
+            <route length="4">
                 <location ref="DEN"/>
                 <location ref="KAN"/>
                 <colour ref="BLA"/>
                 <colour ref="ORA"/>
             </route>
-            <route length="4" colour="VIO" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="VIO">
                 <location ref="DEN"/>
                 <location ref="OMA"/>
             </route>
-            <route length="5" colour="RED" tunnel="false" ferry="0" microlight="false">
+            <route length="5" colour="RED">
                 <location ref="HEL"/>
                 <location ref="OMA"/>
             </route>
-            <route length="6" colour="ORA" tunnel="false" ferry="0" microlight="false">
+            <route length="6" colour="ORA">
                 <location ref="HEL"/>
                 <location ref="DUL"/>
             </route>
-            <route length="4" colour="BLA" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="BLA">
                 <location ref="WIN"/>
                 <location ref="DUL"/>
             </route>
-            <route length="6" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="6" colour="GRY">
                 <location ref="WIN"/>
                 <location ref="SAU"/>
             </route>
-            <route length="5" colour="BLA" tunnel="false" ferry="0" microlight="false">
+            <route length="5" colour="BLA">
                 <location ref="SAU"/>
                 <location ref="MON"/>
             </route>
-            <route length="3" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="GRY">
                 <location ref="DUL"/>
                 <location ref="SAU"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="SAU"/>
                 <location ref="TOR"/>
             </route>
-            <route length="6" colour="VIO" tunnel="false" ferry="0" microlight="false">
+            <route length="6" colour="VIO">
                 <location ref="DUL"/>
                 <location ref="TOR"/>
             </route>
-            <route length="3" colour="RED" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="RED">
                 <location ref="DUL"/>
                 <location ref="CCG"/>
             </route>
-            <route length="4" colour="BLU" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="BLU">
                 <location ref="OMA"/>
                 <location ref="CCG"/>
             </route>
-            <route length="4" colour="WHI" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="WHI">
                 <location ref="TOR"/>
                 <location ref="CCG"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="CCG"/>
                 <location ref="STL"/>
                 <colour ref="GRN"/>
                 <colour ref="WHI"/>
             </route>
-            <route length="3" tunnel="false" ferry="0" microlight="false">
+            <route length="3">
                 <location ref="CCG"/>
                 <location ref="PIT"/>
                 <colour ref="ORA"/>
                 <colour ref="BLA"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="KAN"/>
                 <location ref="STL"/>
                 <colour ref="BLU"/>
                 <colour ref="VIO"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="DUL"/>
                 <location ref="OMA"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="KAN"/>
                 <location ref="OMA"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="KAN"/>
                 <location ref="OKL"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="OKL"/>
                 <location ref="DAL"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="1" tunnel="false" ferry="0" microlight="false">
+            <route length="1">
                 <location ref="DAL"/>
                 <location ref="HOU"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="HOU"/>
                 <location ref="NOL"/>
             </route>
-            <route length="3" colour="GRN" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="GRN">
                 <location ref="NOL"/>
                 <location ref="LRK"/>
             </route>
-            <route length="6" colour="RED" tunnel="false" ferry="0" microlight="false">
+            <route length="6" colour="RED">
                 <location ref="NOL"/>
                 <location ref="MIA"/>
             </route>
-            <route length="5" colour="BLU" tunnel="false" ferry="0" microlight="false">
+            <route length="5" colour="BLU">
                 <location ref="MIA"/>
                 <location ref="ATL"/>
             </route>
-            <route length="4" tunnel="false" ferry="0" microlight="false">
+            <route length="4">
                 <location ref="NOL"/>
                 <location ref="ATL"/>
                 <colour ref="YEL"/>
                 <colour ref="ORA"/>
             </route>
-            <route length="1" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="1" colour="GRY">
                 <location ref="ATL"/>
                 <location ref="NAS"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="ATL"/>
                 <location ref="CHA"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="RAL"/>
                 <location ref="CHA"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="ATL"/>
                 <location ref="RAL"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="WAS"/>
                 <location ref="RAL"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="MON"/>
                 <location ref="BOS"/>
                 <colour ref="GRY"/>
                 <colour ref="GRY"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="BOS"/>
                 <location ref="NYC"/>
                 <colour ref="YEL"/>
                 <colour ref="RED"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="NYC"/>
                 <location ref="PIT"/>
                 <colour ref="GRN"/>
                 <colour ref="WHI"/>
             </route>
-            <route length="2" tunnel="false" ferry="0" microlight="false">
+            <route length="2">
                 <location ref="NYC"/>
                 <location ref="WAS"/>
                 <colour ref="BLA"/>
                 <colour ref="ORA"/>
             </route>
-            <route length="3" colour="BLA" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="BLA">
                 <location ref="NAS"/>
                 <location ref="RAL"/>
             </route>
-            <route length="4" colour="YEL" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="YEL">
                 <location ref="NAS"/>
                 <location ref="PIT"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="TOR"/>
                 <location ref="PIT"/>
             </route>
-            <route length="3" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="GRY">
                 <location ref="TOR"/>
                 <location ref="MON"/>
             </route>
-            <route length="3" colour="BLU" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="BLU">
                 <location ref="MON"/>
                 <location ref="NYC"/>
             </route>
-            <route length="4" colour="VIO" tunnel="false" ferry="0" microlight="false">
+            <route length="4" colour="VIO">
                 <location ref="MIA"/>
                 <location ref="CHA"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="LRK"/>
                 <location ref="DAL"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="LRK"/>
                 <location ref="OKL"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="LRK"/>
                 <location ref="STL"/>
             </route>
-            <route length="3" colour="WHI" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="WHI">
                 <location ref="LRK"/>
                 <location ref="NAS"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="RAL"/>
                 <location ref="PIT"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="WAS"/>
                 <location ref="PIT"/>
             </route>
-            <route length="3" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="3" colour="GRY">
                 <location ref="PHO"/>
                 <location ref="ELP"/>
             </route>
-            <route length="5" tunnel="false" ferry="0" microlight="false">
+            <route length="5">
                 <location ref="SFR"/>
                 <location ref="SLC"/>
                 <colour ref="WHI"/>
                 <colour ref="ORA"/>
             </route>
-            <route length="5" colour="GRN" tunnel="false" ferry="0" microlight="false">
+            <route length="5" colour="GRN">
                 <location ref="STL"/>
                 <location ref="PIT"/>
             </route>
-            <route length="2" colour="GRY" tunnel="false" ferry="0" microlight="false">
+            <route length="2" colour="GRY">
                 <location ref="STL"/>
                 <location ref="NAS"/>
             </route>
         </routes>
-        <colours>
-            <colour id="RED">
-                <name>Red</name>
-            </colour>
-            <colour id="ORA">
-                <name>Orange</name>
-            </colour>
-            <colour id="YEL">
-                <name>Yellow</name>
-            </colour>
-            <colour id="GRN">
-                <name>Green</name>
-            </colour>
-            <colour id="BLU">
-                <name>Blue</name>
-            </colour>
-            <colour id="VIO">
-                <name>Pink</name>
-            </colour>
-            <colour id="WHI">
-                <name>White</name>
-            </colour>
-            <colour id="BLA">
-                <name>Black</name>
-            </colour>
-            <colour id="GRY">
-                <name>Grey</name>
-            </colour>
-        </colours>
+    	<xi:include href="default/colours.xml" />
         <shortest-paths>
             <path distance="3">
                 <location ref="VAN"/>
@@ -8520,4 +8496,30 @@
 			<file path="ticket-distribution/usa.png"/>
 		</image>
 	</assets>
+	<assets>
+		<collection id="SOU6">
+			<asset ref="CAR" init="4" />
+			<name>Players hand</name>
+			<description>Train cards.</description>
+		</collection>
+		<collection id="SOU7">
+			<asset ref="TIC" min="2">
+				<asset ref="TIN" init="3" />
+			</asset>
+			<name>Players tickets</name>
+			<description>Tickets that the player is expected to complete.</description>
+		</collection>
+		<collection id="SOU10">
+			<asset ref="TOC" init="45" />
+			<name>Players carriages</name>
+			<description>Carriage tokens in the players colour (that haven't yet been used to claim anything).</description>
+		</collection>
+		<collection id="SOU8" recycle="true">
+			<asset ref="TIC" />
+			<name>Ticket discard pile</name>
+			<description>Tickets that have been discarded by players.</description>
+		</collection>
+	</assets>
+	<xi:include href="default/collections.xml" />
+	<xi:include href="default/assets.xml" />
 </game>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colours>
+	<colour id="RED">
+		<name>Red</name>
+	</colour>
+	<colour id="ORA">
+		<name>Orange</name>
+	</colour>
+	<colour id="YEL">
+		<name>Yellow</name>
+	</colour>
+	<colour id="GRN">
+		<name>Green</name>
+	</colour>
+	<colour id="BLU">
+		<name>Blue</name>
+	</colour>
+	<colour id="VIO">
+		<name>Pink</name>
+	</colour>
+	<colour id="WHI">
+		<name>White</name>
+	</colour>
+	<colour id="BLA">
+		<name>Black</name>
+	</colour>
+	<colour id="GRY">
+		<name>Grey</name>
+	</colour>
+</colours>

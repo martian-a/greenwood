@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action type="claim" id="ACT1">
+	<source ref="SOU10" />
+	<target ref="SOU4" max="1" />
+	<description>Claim a route option.  Mark it as claimed using claimants carriages.</description>
+</action>

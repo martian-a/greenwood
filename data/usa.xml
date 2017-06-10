@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="ticket-to-ride.rnc" type="application/relax-ng-compact-syntax"?>
-<?xml-model href="ticket-to-ride.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../schemas/ticket-to-ride.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="../schemas/ticket-to-ride.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <game id="GUSA" publish="true" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>USA</title>
     <summary>

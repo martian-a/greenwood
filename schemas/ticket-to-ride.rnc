@@ -1,148 +1,154 @@
-namespace xml = "http://www.w3.org/XML/1998/namespace"
 namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace xi = "http://www.w3.org/2001/XInclude"
 
-## Root Element ##
+include "xml.rnc"
+
+
+# Root Element #
 start = game
 
-
-## Elements ##
+# Elements #
 
 action = element action { 
-	attlist.action, 
+	action.attlist, 
 	source?, 
 	target+, 
-	description? 
+	description?
 }
-
+	
 actions = element actions { 
-	attlist.actions, 
+	actions.attlist, 
 	action+
 }
 
 asset-def = element asset { 
-	attlist.asset-def, 
+	asset-def.attlist, 
 	name?, 
 	asset-def*
 }
 
 asset-ref = element asset { 
-	attlist.asset-ref,
+	asset-ref.attlist, 
 	asset-ref*
 }
 
 assets = element assets { 
-	attlist.assets, 
+	assets.attlist, 
 	collection*, 
 	asset-def*, 
-	image* 
+	image*
 }
 
 collection = element collection { 
-	attlist.collection, 
+	collection.attlist, 
 	asset-ref+, 
 	name, 
 	description
 }
 
 colour-def = element colour { 
-	attlist.colour-def, 
+	colour-def.attlist, 
 	name 
 }
 
 colour-ref = element colour { 
-	attlist.colour-ref
+	colour-ref.attlist,
+	empty
 }
 
 colours = element colours { 
-	attlist.colours, 
+	colours.attlist, 
 	colour-def* 
 }
 
 country-def = element country { 
-	attlist.country-def, 
+	country-def.attlist, 
 	name?, 
 	location-def*
 }
 
 country-ref = element country { 
-	attlist.country-ref
+	country-ref.attlist,
+	empty
 }
 
 description = element description { 
-	attlist.description, 
-	text
+	description.attlist, 
+	text*
 }
 
 destination-ref = (
 	element location {
-		attlist.destination-ref,
+		destination-ref.attlist, 
 		empty
 	} 
 	| element country {
-		attlist.destination-ref,
+		destination-ref.attlist, 
 		empty
 	}
 )
 
 edge = element edge { 
-	attlist.edge, 
+	edge.attlist, 
 	node-ref,
 	node-ref
 }
 
 edges = element edges { 
-	attlist.edges, 
+	edges.attlist, 
 	edge+ 
 }
 
 file = element file { 
-	attlist.file, 
+	file.attlist, 
 	empty
 }
 
+
 game = element game { 
-	attlist.game, 
+	game.attlist,
 	title?, 
 	summary?, 
 	players?, 
-	turn?, 
-	actions?, 
-	map?, 
+	turn?,
+	actions?,
+	map?,
 	tickets*, 
 	related?, 
-	assets* 
+	assets*
 }
 
 image = element image { 
-	attlist.image, 
+	image.attlist, 
 	title, 
-	file+ 
+	file+
 }
 
 link = element link { 
-	attlist.link, 
+	link.attlist, 
 	title 
 }
 
 location-def = element location { 
-	attlist.location-def, 
+	location-def.attlist, 
 	name?
 }
 
 location-ref = element location { 
-	attlist.location-ref
+	location-ref.attlist, 
+	empty
 }
 
 locations = element locations { 
-	attlist.locations, 
+	locations.attlist, 
 	location-def*, 
-	country-def* 
+	country-def*
 }
 
 map = element map {
-    attlist.map,
-    (
-    	(
+    map.attlist, 
+	(
+		(
     		locations?, 
     		routes?, 
     		colours
@@ -153,129 +159,130 @@ map = element map {
 }
 
 name = element name { 
-	attlist.name, 
-	text
+	name.attlist, 
+	text*
 }
 
 network = element network { 
-	attlist.network, 
+	network.attlist, 
 	nodes, 
-	edges 
+	edges
 }
 
 node-def = element node { 
-	attlist.node-def, 
+	node-def.attlist, 
 	name
 }
 
 node-ref = element node { 
-	attlist.node-ref,
+	node-ref.attlist, 
 	empty
 }
 
 nodes = element nodes { 
-	attlist.nodes, 
+	nodes.attlist, 
 	node-def+ 
 }
 
 note = element note { 
-	attlist.note, 
-	text 
+	note.attlist, 
+	text* 
 }
 
 p = element p { 
-	attlist.p, 
+	p.attlist, 
 	text*
 }
 
 path = element path { 
-	attlist.path, 
+	path.attlist, 
 	location-ref, 
 	location-ref, 
-	via* 
+	via*
 }
 
 players = element players { 
-	attlist.players,
+	players.attlist, 
 	empty
 }
 
 related = element related { 
-	attlist.related, 
+	related.attlist, 
 	link* 
 }
 
 route = element route { 
-	attlist.route, 
+	route.attlist, 
 	destination-ref+, 
 	colour-ref*, 
-	asset-ref* 
+	asset-ref*
 }
 
 routes = element routes { 
-	attlist.routes, 
+	routes.attlist, 
 	route* 
 }
 
 shortest-paths = element shortest-paths { 
-	attlist.shortest-paths, 
+	shortest-paths.attlist, 
 	path+ 
 }
 
 source = element source { 
-	attlist.source, 
+	source.attlist, 
 	asset-ref*
 }
 
 summary = element summary { 
-	attlist.summary, 
+	summary.attlist, 
 	p* 
 }
 
 target = element target { 
-	attlist.target, 
+	target.attlist, 
 	empty 
 }
 
 ticket = element ticket { 
-	attlist.ticket, 
+	ticket.attlist, 
 	destination-ref*, 
 	note?
 }
 
 tickets = element tickets { 
-	attlist.tickets, 
+	tickets.attlist, 
 	ticket* 
 }
 
 title = element title {
-	attlist.title, 
-	text 
+	title.attlist, 
+	text* 
 }
 
 turn = element turn { 
-	attlist.turn, 
+	turn.attlist, 
 	empty
 }
 
 via = element via { 
-	attlist.via, 
+	via.attlist, 
 	location-ref*
 }
 
 
-## Attributes ##
 
-attlist.action =
-	attlist.xml,
+# Attributes #
+
+action.attlist =
+	xml.attlist,
     attribute id { xsd:ID },
     attribute type { "claim" | "draw" | "award" }
 
-attlist.actions = 
-	attlist.xml
+actions.attlist = 
+	xml.attlist
 
-attlist.asset-def =
-	attlist.xml,
+asset-def.attlist =
+	xml.attlist,
     attribute id { xsd:ID }?,
     attribute class {
         "card"
@@ -296,77 +303,77 @@ attlist.asset-def =
         | "restricted"
     }?
     
-attlist.asset-ref =
-	attlist.xml,
+asset-ref.attlist =
+	xml.attlist,
     attribute ref { xsd:IDREF }?,
     attribute init { "1" | "2" | "3" | "4" | "5" | "40" | "45" }?,
     attribute min { "0" | "1" | "2" }?,
     attribute max { "1" | "2" }?
 
-attlist.assets = 
-	attlist.xml
+assets.attlist = 
+	xml.attlist
 
-attlist.collection =
-	attlist.xml,
+collection.attlist =
+	xml.attlist,
     attribute id { xsd:ID },
     attribute face-up { "true" | "false" }?,
     attribute recycle { "true" | "false" }?
     
-attlist.colour-def =
-	attlist.xml,
+colour-def.attlist =
+	xml.attlist,
     attribute id { xsd:ID }
     
-attlist.colour-ref =
-	attlist.xml,
+colour-ref.attlist =
+	xml.attlist,
     attribute ref { xsd:IDREF }
     
-attlist.colours =
-	attlist.xml
+colours.attlist =
+	xml.attlist
 
-attlist.country-def =
-	attlist.xml,
+country-def.attlist =
+	xml.attlist,
     attribute id { xsd:ID }
     
-attlist.country-ref =
-	attlist.xml,
+country-ref.attlist =
+	xml.attlist,
     attribute ref { xsd:IDREF }
     
-attlist.description = 
-	attlist.xml
+description.attlist = 
+	xml.attlist
 
-attlist.destination-ref =
-	attlist.location-ref,
+destination-ref.attlist =
+	location-ref.attlist,
     attribute points { text }?
 
-attlist.edge =
-	attlist.xml,
+edge.attlist =
+	xml.attlist,
     attribute id { xsd:ID },
     attribute length { text }
     
-attlist.edges = 
-	attlist.xml
+edges.attlist = 
+	xml.attlist
 
-attlist.file =
-	attlist.xml,
+file.attlist =
+	xml.attlist,
     attribute path { text },
     attribute height { text }?,
     attribute width { text }?
 
-attlist.game =
-	attlist.xml,
+game.attlist =
+	xml.attlist,
     attribute id { xsd:ID },
     [ a:defaultValue = "true" ] attribute publish { "true" | "false" }?
 
-attlist.image = 
-	attlist.xml,
+image.attlist = 
+	xml.attlist,
 	attribute role { 
 		"product-illustration" 
 		| "network-diagram" 
 		| "ticket-distribution-diagram"
 	}
 
-attlist.link =
-	attlist.xml,
+link.attlist =
+	xml.attlist,
     attribute href { text },
     attribute type { 
     	"publisher" 
@@ -374,110 +381,142 @@ attlist.link =
     	| "review" 
     }
 
-attlist.location-def =
-	attlist.xml,
+location-def.attlist =
+	xml.attlist,
     attribute id { xsd:ID },
     attribute x { text }?,
     attribute y { text }?
     
-attlist.location-ref =
-	attlist.xml,
+location-ref.attlist =
+	xml.attlist,
 	attribute ref { xsd:IDREF }
 
-attlist.locations = 
-	attlist.xml
+locations.attlist = 
+	xml.attlist
 
-attlist.map = 
-	attlist.xml,
+map.attlist = 
+	xml.attlist,
 	attribute seed { text }?
 	
-attlist.name = 
-	attlist.xml,
+name.attlist = 
+	xml.attlist,
 	attribute sort { text }?
 
-attlist.network = 
-	attlist.xml
+network.attlist = 
+	xml.attlist
 
-attlist.node-def =
-	attlist.xml,
+node-def.attlist =
+	xml.attlist,
     attribute id { xsd:ID }
 
-attlist.node-ref =
-	attlist.xml,
+node-ref.attlist =
+	xml.attlist,
     attribute ref { xsd:IDREF }
     
-attlist.nodes = 
-	attlist.xml
+nodes.attlist = 
+	xml.attlist
 
-attlist.note = 
-	attlist.xml
+note.attlist = 
+	xml.attlist
 
-attlist.p = 
-	attlist.xml
+p.attlist = 
+	xml.attlist
 
-attlist.path = 
-	attlist.xml,
+path.attlist = 
+	xml.attlist,
 	attribute distance { text }
 
-attlist.players =
-	attlist.xml,
+players.attlist =
+	xml.attlist,
     [ a:defaultValue = "2" ] attribute min { "2" | "4" }?,
     [ a:defaultValue = "5" ] attribute max { "3" | "4" | "5" | "6" | "7" }?,
     [ a:defaultValue = "4" ] attribute double-routes-min { "3" | "4" | "5" }?
 
-attlist.related = 
-	attlist.xml
+related.attlist = 
+	xml.attlist
 
-attlist.route =
-	attlist.xml,
+route.attlist =
+	xml.attlist,
     attribute length { "1" | "2" | "3" | "4" | "5" | "6" | "8" },
     attribute colour { xsd:IDREF }?
     
-attlist.routes = 
-	attlist.xml
+routes.attlist = 
+	xml.attlist
 
-attlist.shortest-paths = 
-	attlist.xml
+shortest-paths.attlist = 
+	xml.attlist
 
-attlist.source =
-	attlist.xml,
+source.attlist =
+	xml.attlist,
     attribute ref { xsd:IDREF },
     attribute min { "0" | "1" | "2" | "3" | "4" }?,
     attribute max { "0" | "1" | "2" | "3" | "4" }?   
 
-attlist.starting-hand = 
-	attlist.xml
+starting-hand.attlist = 
+	xml.attlist
 
-attlist.summary = 
-	attlist.xml
+summary.attlist = 
+	xml.attlist
 
-attlist.target =
-	attlist.xml,
+target.attlist =
+	xml.attlist,
     attribute ref { xsd:IDREF },
     attribute min { "0" | "1" | "2" | "3" | "4" | "5" | "10" }?,
     attribute max { "0" | "1" | "2" | "3" | "4" | "10" | "40" }?
 
-attlist.ticket = 
-	attlist.xml,
+ticket.attlist = 
+	xml.attlist,
 	attribute points { text }?
 
-attlist.tickets = 
-	attlist.xml
+tickets.attlist = 
+	xml.attlist
 
-attlist.title = 
-	attlist.xml
+title.attlist = 
+	xml.attlist
 
-attlist.turn =
-	attlist.xml,
+turn.attlist =
+	xml.attlist,
     [ a:defaultValue = "1" ] attribute min-actions { "1" },
     [ a:defaultValue = "1" ] attribute max-actions { "1" }
     
-attlist.via = 
-	attlist.xml,
+via.attlist = 
+	xml.attlist,
 	[ a:defaultValue = "false" ] attribute direct { "true" | "false" }
 	
-attlist.xml =
-	attribute xml:base { xsd:anyURI }?,
-	attribute xml:lang { xsd:language }?,
-	[ a:defaultValue = "preserve" ] attribute xml:space { "default" | "preserve" }?
+xml.attlist = 
+	xml.anyElement.attlist
 	
+	
+## Xinclude # (import errors) #
+
+turn |= xinclude
+action |= xinclude
+colours |= xinclude
+assets |= xinclude
+
+
+# Elements
+
+xinclude = element xi:include {
+  xinclude.attlist,
+  fallback?
+}
+
+fallback = element xi:fallback {
+      fallback.attlist, 
+      (xinclude | text)*
+}
+
+# Attributes
+
+fallback.attlist = notAllowed
+
+xinclude.attlist =
+   attribute href { xsd:anyURI }?,
+   [ a:defaultValue = "xml" ] attribute parse    { "xml" | "text" }?,
+   attribute xpointer { xsd:string }?,
+   attribute fragid { xsd:string }?,
+   attribute set-xml-id { xsd:string }?,
+   attribute encoding { xsd:string }?,
+   attribute accept   { xsd:string }?,
+   attribute accept-language { xsd:string }?

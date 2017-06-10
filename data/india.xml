@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="ticket-to-ride.sch" type="application/xml"?>
-<!DOCTYPE game
-  SYSTEM "game.dtd">
-<game id="GINDIA" publish="true">
+<?xml-model href="ticket-to-ride.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="ticket-to-ride.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<game id="GINDIA" publish="true" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>India</title>
     <summary>
         <p>Don't be surprised if the ticket draw pile has been exhausted by the time this game is complete!  This board gets crowded and there are some significant pinch-points, so the competition for specific stretches of track can get intense.  There are very few long route options, hence the focus on tickets.  However, this is still one of the simplest versions of the game and so an excellent option for newer players.</p>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="ticket-to-ride.sch" type="application/xml"?>
-<!DOCTYPE game
-  SYSTEM "game.dtd">
-<game id="GUSA" publish="true">
+<?xml-model href="ticket-to-ride.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="ticket-to-ride.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<game id="GUSA" publish="true" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>USA</title>
     <summary>
         <p>The first — and probably the simplest — version of the game.  There are no special conditions or considerations when buying track and plenty of valuable, long lengths of track.</p>

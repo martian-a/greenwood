@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="ticket-to-ride.sch" type="application/xml"?>
-<!DOCTYPE game
-  SYSTEM "game.dtd">
-<game id="WDR" publish="false">
+<?xml-model href="ticket-to-ride.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="ticket-to-ride.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<game id="WDR" publish="false" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>West Dorset</title>
     <summary>
         <p>This is an unofficial version of the game, created by a fan, and has not been validated by the creator of Ticket to Ride, Alan R. Moon, or Days of Wonder.  You need to buy at least one of the official base versions to play this map.</p>

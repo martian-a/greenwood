@@ -113,4 +113,17 @@
 		
 	</sch:pattern>
 	
+	
+	<sch:pattern>
+		
+		<sch:title>Tickets</sch:title>
+		
+		<sch:rule context="/game/tickets/ticket">
+			
+			<sch:assert test="self::ticket[@points or (country|location)/@points]">Missing points.  Every ticket must have a points value.  Add a points attribute to either the ticket element or a child destination (country|location) element.</sch:assert>
+			
+		</sch:rule>
+		
+	</sch:pattern>
+	
 </sch:schema>

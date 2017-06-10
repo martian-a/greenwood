@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="ticket-to-ride.sch" type="application/xml"?>
-<!DOCTYPE game
-  SYSTEM "game.dtd">
-<game id="SWI" publish="true">
+<?xml-model href="ticket-to-ride.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="ticket-to-ride.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<game id="SWI" publish="true" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Switzerland</title>
     <summary>
         <p>Approximately half of the route options on this map are tunnels.  Not only that, but wildcards can't be used to purchase normal stretches of track — making them also more challenging to acquire.  However, some tickets are easier to complete as they offer multiple options of varying value, lending flexibility to the cost of incomplete tickets.  Duplication of routes across tickets serves as an added incentive to keep drawing more tickets.</p>

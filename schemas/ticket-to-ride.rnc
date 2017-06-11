@@ -63,8 +63,8 @@ colours = element colours {
 
 country-def = element country { 
 	country-def.attlist, 
-	name?, 
-	location-def*
+	name, 
+	location-def+
 }
 
 country-ref = element country { 

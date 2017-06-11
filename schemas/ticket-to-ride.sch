@@ -126,4 +126,48 @@
 		
 	</sch:pattern>
 	
+	
+	<sch:pattern>
+	
+		<sch:title>Locations</sch:title>
+		
+		<sch:rule context="location[ancestor::locations/parent::map]">
+			
+			<sch:assert test="self::location[@id = ancestor::map/routes/route/location/@ref]">Unused Location: <sch:value-of select="if (name) then concat(name, ' (', @id, ')') else @id" />. Every location must be linked to at least one other by a route.</sch:assert>
+			
+		</sch:rule>
+		
+	</sch:pattern>
+	
+	
+	<sch:pattern>
+		
+		<sch:title>Routes</sch:title>
+		
+		<sch:rule context="/game/map/routes/route">
+			
+			<sch:assert test="self::route[@colour or colour/@ref]">Missing colour. Every route must have a colour.  Add a colour attribute if the route is single, or colour elements if the route is double or greater (one per route option).</sch:assert>
+			
+		</sch:rule>
+		
+		<sch:rule context="/game/map/routes/route/location">
+			
+			<sch:assert test="self::location[@ref = ancestor::map/locations/descendant::location/@id]">Invalid location ID: <sch:value-of select="@ref" />. Every route location reference must use an ID defined in map/locations.</sch:assert>
+			
+		</sch:rule>
+		
+	</sch:pattern>
+		
+	<sch:pattern>
+		
+		<sch:title>Shortest Paths</sch:title>
+		
+		<sch:rule context="/game/map/shortest-paths/path/location">
+			
+			<sch:assert test="self::location[@ref = ancestor::map/locations/descendant::location/@id]">Invalid location ID: <sch:value-of select="@ref" />. Every shortest-path location reference must use an ID defined in map/locations.</sch:assert>
+			
+		</sch:rule>
+		
+	</sch:pattern>
+	
 </sch:schema>

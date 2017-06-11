@@ -1,18 +1,18 @@
 <xsl:stylesheet 
- xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
- exclude-result-prefixes="#all" 
+ exclude-result-prefixes="#all"
  version="2.0">
 
-	<xsl:import href="game.xsl" />
-	<xsl:import href="location.xsl" />
+	<xsl:import href="game.xsl"/>
+	<xsl:import href="location.xsl"/>
 	<xsl:import href="script.xsl"/>
 
 	<xsl:param name="path-to-js" select="'../../../js/'" as="xs:string"/>
 	<xsl:param name="path-to-css" select="'../../../style/'" as="xs:string"/>
 	<xsl:param name="path-to-xml" select="'../../xml'" as="xs:string"/>
 	<xsl:param name="path-to-html" select="'../../html'" as="xs:string"/>
-	<xsl:param name="path-to-images" select="'../../../images'" as="xs:string" />
+	<xsl:param name="path-to-images" select="'../../../images'" as="xs:string"/>
 	<xsl:param name="static" select="'false'" as="xs:string"/>
 
 	<xsl:output method="html" encoding="utf-8" media-type="text/html" indent="yes" omit-xml-declaration="yes" version="5"/>
@@ -52,7 +52,7 @@
 		<html class="{/*/local-name()}" lang="en">
 			<head>
 				<xsl:apply-templates mode="html.header"/>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<script type="text/javascript" src="{$normalised-path-to-js}jquery.min.js"/>
 				<script type="text/javascript">
             		jQuery.noConflict();

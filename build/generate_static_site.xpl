@@ -63,7 +63,7 @@
 		
 		<p:group name="reset">
 			
-			<p:output port="result">
+			<p:output port="result" sequence="true">
 				<p:pipe port="result" step="create-target-dir" />
 				<p:pipe port="result" step="create-target-assets-dir" />
 			</p:output>

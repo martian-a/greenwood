@@ -105,9 +105,9 @@
 			<location 
 				id="{xs:string($terminus/@id)}" 
 				length="{xs:integer($route/@length)}" 
-				tunnel="{xs:boolean($route/@tunnel)}" 
-				ferry="{if ($route/@ferry > 0) then $route/@ferry else 0}" 
-				microlight="{xs:boolean($route/@microlight)}">
+				tunnel="{xs:boolean($route/asset/@ref = 'ROT')}" 
+				ferry="{if ($route/asset/@ref = 'ROF') then $route/asset[@ref = 'ROF']/@min else 0}" 
+				microlight="{xs:boolean($route/asset/@ref = 'ROM')}">
 				<xsl:apply-templates select="$terminus" mode="name" />
 				<xsl:apply-templates select="$route/(@colour | colour/@ref)" mode="colour" />
 			</location>

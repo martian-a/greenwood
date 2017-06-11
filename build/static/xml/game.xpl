@@ -36,6 +36,16 @@
 	</p:documentation>
 	<p:option name="target" required="true" />
 	
+	<p:documentation>
+		<p:doc>
+			<d:desc>Whether the output is intended for distribution via the static site. (true|false)</d:desc>
+			<d:note>
+				<d:p>This affects which fame files are included in the output.</d:p>
+			</d:note>
+		</p:doc>
+	</p:documentation>
+	<p:option name="static" select="true()" />
+	
 	<p:output port="result">
 		<p:pipe step="results" port="result"/>
 	</p:output>
@@ -88,7 +98,7 @@
 				</p:variable>
 				
 				<p:choose>
-					<p:when test="$publish = true()">
+					<p:when test="($static = true() and $publish = true()) or $static = false()">
 						
 						<p:variable name="game-id" select="/game/@id">
 							<p:pipe port="result" step="game-data" />

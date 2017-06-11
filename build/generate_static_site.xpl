@@ -65,6 +65,7 @@
 			
 			<p:output port="result">
 				<p:pipe port="result" step="create-target-dir" />
+				<p:pipe port="result" step="create-target-assets-dir" />
 			</p:output>
 			
 			<!-- Ensure that the target directory exists before

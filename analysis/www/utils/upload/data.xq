@@ -9,9 +9,9 @@ declare option exist:serialize "method=xml media-type=text/xml indent=yes";
 
 let $target-collection := $loc:upload-path-to-data
 let $source-directory := $local:path-to-data
-let $pattern := "**/*.xml"
+let $pattern := "*.xml"
 let $mime-type := "text/xml"
-let $preserve-structure := true()
+let $preserve-structure := false()
 return 
 	<results>{
 	        <request>

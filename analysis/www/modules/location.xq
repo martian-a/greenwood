@@ -116,7 +116,7 @@ function loc:get-connections($id as xs:string) as item() {
             let $terminus-id := concat($game-id, '-', string($route/location/@ref[. != $location-id]))
             let $location := loc:get-location($terminus-id)
             return
-                <location id="{$location/@id}" length="{$route/@length}" tunnel="{$route/@tunnel/xs:boolean(.)}" ferry="{if ($route/@ferry > 0) then ($route/@ferry) else 0}" microlight="{$route/@microlight/xs:boolean(.)}">
+                <location id="{$location/@id}" length="{$route/@length}" tunnel="{$route/asset/@ref = 'ROT'}" ferry="{if ($route/asset/@ref = 'ROF') then ($route/asset[@ref = 'ROF']/@min) else 0}" microlight="{$route/asset/@ref = 'RIM'}">
 		           	{
 		           		$location/name,
                         for $colour-id in $route/(@colour | colour/@ref)

@@ -647,14 +647,14 @@
 						
 						<!-- The total value of the segments in this colour -->
 						<td class="{$colour-id}">
-							<xsl:value-of select="sum(21 * count($routes-filtered[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 18 * count($routes-filtered[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 15 * count($routes-filtered[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 10 * count($routes-filtered[@length = '5']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 7 * count($routes-filtered[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 4 * count($routes-filtered[@length = '3']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + 2 * count($routes-filtered[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])) + count($routes-filtered[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))" />
+							<xsl:value-of select="sum(            (21 * count($routes-filtered[@length = '8']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))            + (18 * count($routes-filtered[@length = '7']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))             + (15 * count($routes-filtered[@length = '6']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))             + (10 * count($routes-filtered[@length = '5']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))             + ( 7 * count($routes-filtered[@length = '4']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))             + ( 4 * count($routes-filtered[@length = '3']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))             + ( 2 * count($routes-filtered[@length = '2']/(@colour[. = $colour-id] | colour[@ref = $colour-id])))              +       count($routes-filtered[@length = '1']/(@colour[. = $colour-id] | colour[@ref = $colour-id]))        )"/>
 						</td>
 						
 					</xsl:for-each>
 					
 					<!-- The total value of all segments (of any length) in any colour -->
 					<td>
-						<xsl:value-of select="sum(21 * count($routes-filtered[@length = '8']) + 18 * count($routes-filtered[@length = '7']) + 15 * count($routes-filtered[@length = '6']) + 10 * count($routes-filtered[@length = '5']) + 7 * count($routes-filtered[@length = '4']) + 4 * count($routes-filtered[@length = '3']) + 2 * count($routes-filtered[@length = '2']) + count($routes-filtered[@length = '1']))" />
+						<xsl:value-of select="sum(           (21 * count($routes-filtered[@length = '8']/(@colour | colour)))         + (18 * count($routes-filtered[@length = '7']/(@colour | colour)))         + (15 * count($routes-filtered[@length = '6']/(@colour | colour)))         + (10 * count($routes-filtered[@length = '5']/(@colour | colour)))         + ( 7 * count($routes-filtered[@length = '4']/(@colour | colour)))         + ( 4 * count($routes-filtered[@length = '3']/(@colour | colour)))         + ( 2 * count($routes-filtered[@length = '2']/(@colour | colour)))         +       count($routes-filtered[@length = '1']/(@colour | colour))       )"/>
 					</td>
 				</tr>
 			</table>

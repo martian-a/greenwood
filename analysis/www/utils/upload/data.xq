@@ -7,27 +7,29 @@ import module namespace local = "http://ns.greenwood.thecodeyard.co.uk/settings/
 
 declare option exist:serialize "method=xml media-type=text/xml indent=yes";
 
-<results>{
-    let $collection := $loc:upload-path-to-data
-    let $directory := $local:path-to-data
-    let $pattern := "*.xml"
-    let $mime-type := "text/xml"
-    return 
-        <request>
-            <collection>{$collection}</collection>
-            <directory>{$directory}</directory>
-            <pattern>{$pattern}</pattern>
-            <mime-type>{$mime-type}</mime-type>
-            <uploaded>{
-                for $file in xmldb:store-files-from-pattern(
-                    $collection, 
-                    $directory, 
-                    $pattern, 
-                    $mime-type
-                )
-                return
-                    <file>{$file}</file>
-            }</uploaded>
-     </request>
-}</results>
-    
+let $target-collection := $loc:upload-path-to-data
+let $source-directory := $local:path-to-data
+let $pattern := "**/*.xml"
+let $mime-type := "text/xml"
+let $preserve-structure := true()
+return 
+	<results>{
+	        <request>
+	            <collection>{$target-collection}</collection>
+	            <directory>{$source-directory}</directory>
+	            <pattern>{$pattern}</pattern>
+	            <mime-type>{$mime-type}</mime-type>
+	            <uploaded>{
+	                for $file in xmldb:store-files-from-pattern(
+	                    $target-collection, 
+	                    $source-directory, 
+	                    $pattern, 
+	                    $mime-type,
+	                    $preserve-structure
+	                )
+	                return
+	                    <file>{$file}</file>
+	            }</uploaded>
+	     </request>
+	}</results>
+	    

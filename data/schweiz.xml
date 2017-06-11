@@ -192,12 +192,12 @@
             	<asset ref="ROT" />
             </route>
             <route length="6" colour="GRY">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
             	<location ref="BRI"/>
             	<asset ref="ROT" />
             </route>
             <route length="2" colour="ORA">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
             	<location ref="ITA2"/>
             	<asset ref="ROT" />
             </route>
@@ -224,12 +224,12 @@
             	<asset ref="ROR" />
             </route>
             <route length="1" colour="VIO">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
             	<location ref="LUG"/>
             	<asset ref="ROT" />
             </route>
             <route length="1" colour="BLA">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
             	<location ref="BEL"/>
             	<asset ref="ROT" />
             </route>
@@ -598,7 +598,7 @@
             </path>
             <path distance="19">
                 <location ref="GEN"/>
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <via direct="false">
                     <location ref="LAU"/>
                     <location ref="MAR"/>
@@ -1388,7 +1388,7 @@
             </path>
             <path distance="15">
                 <location ref="LAU"/>
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <via direct="false">
                     <location ref="MAR"/>
                     <location ref="SIO"/>
@@ -2078,7 +2078,7 @@
             </path>
             <path distance="11">
                 <location ref="MAR"/>
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <via direct="false">
                     <location ref="SIO"/>
                     <location ref="BRI"/>
@@ -2679,7 +2679,7 @@
             </path>
             <path distance="9">
                 <location ref="SIO"/>
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <via direct="false">
                     <location ref="BRI"/>
                 </via>
@@ -3274,7 +3274,7 @@
             </path>
             <path distance="6">
                 <location ref="BRI"/>
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <via direct="true"/>
             </path>
             <path distance="4">
@@ -3788,21 +3788,21 @@
                 </via>
             </path>
             <path distance="5">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="WAS"/>
                 <via direct="false">
                     <location ref="BEL"/>
                 </via>
             </path>
             <path distance="8">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="INT"/>
                 <via direct="false">
                     <location ref="BRI"/>
                 </via>
             </path>
             <path distance="12">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="FRI"/>
                 <via direct="false">
                     <location ref="BRI"/>
@@ -3811,7 +3811,7 @@
                 </via>
             </path>
             <path distance="15">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="YVE"/>
                 <via direct="false">
                     <location ref="BRI"/>
@@ -3821,17 +3821,17 @@
                 </via>
             </path>
             <path distance="1">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="LUG"/>
                 <via direct="true"/>
             </path>
             <path distance="1">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="BEL"/>
                 <via direct="true"/>
             </path>
             <path distance="14">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="CDF"/>
                 <via direct="false">
                     <location ref="BRI"/>
@@ -3841,7 +3841,7 @@
                 </via>
             </path>
             <path distance="13">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="NEU"/>
                 <via direct="false">
                     <location ref="BRI"/>
@@ -3850,7 +3850,7 @@
                 </via>
             </path>
             <path distance="11">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="BER"/>
                 <via direct="false">
                     <location ref="BRI"/>
@@ -3858,7 +3858,7 @@
                 </via>
             </path>
             <path distance="13">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="DEL"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3870,7 +3870,7 @@
                 </via>
             </path>
             <path distance="13">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="BAS"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3889,7 +3889,7 @@
                 </via>
             </path>
             <path distance="12">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="SOL"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3900,7 +3900,7 @@
                 </via>
             </path>
             <path distance="10">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="BAD"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3911,7 +3911,7 @@
                 </via>
             </path>
             <path distance="11">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="OLT"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3921,7 +3921,7 @@
                 </via>
             </path>
             <path distance="8">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="LUZ"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3930,7 +3930,7 @@
                 </via>
             </path>
             <path distance="8">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="ZUG"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3939,7 +3939,7 @@
                 </via>
             </path>
             <path distance="7">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="SWZ"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3947,7 +3947,7 @@
                 </via>
             </path>
             <path distance="8">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="PFA"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3956,7 +3956,7 @@
                 </via>
             </path>
             <path distance="9">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="ZUR"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3966,7 +3966,7 @@
                 </via>
             </path>
             <path distance="11">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="SFH"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3978,7 +3978,7 @@
                 </via>
             </path>
             <path distance="10">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="WIN"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3989,7 +3989,7 @@
                 </via>
             </path>
             <path distance="11">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="STG"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -3999,7 +3999,7 @@
                 </via>
             </path>
             <path distance="12">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="VAD"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4016,7 +4016,7 @@
                 </via>
             </path>
             <path distance="12">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="KRE"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4035,7 +4035,7 @@
                 </via>
             </path>
             <path distance="11">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="SAR"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4050,7 +4050,7 @@
                 </via>
             </path>
             <path distance="10">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="CHU"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4058,7 +4058,7 @@
                 </via>
             </path>
             <path distance="12">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="DAV"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4067,7 +4067,7 @@
                 </via>
             </path>
             <path distance="15">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="BRU"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4076,7 +4076,7 @@
                 </via>
             </path>
             <path distance="15">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="FRA1"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4089,7 +4089,7 @@
                 </via>
             </path>
             <path distance="16">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="FRA2"/>
                 <via direct="false">
                     <location ref="BRI"/>
@@ -4100,7 +4100,7 @@
                 </via>
             </path>
             <path distance="20">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="FRA3"/>
                 <via direct="false">
                     <location ref="BRI"/>
@@ -4119,7 +4119,7 @@
                 </via>
             </path>
             <path distance="13">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="FRA4"/>
                 <via direct="false">
                     <location ref="BRI"/>
@@ -4128,26 +4128,26 @@
                 </via>
             </path>
             <path distance="9">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="ITA1"/>
                 <via direct="false">
                     <location ref="BRI"/>
                 </via>
             </path>
             <path distance="2">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="ITA2"/>
                 <via direct="true"/>
             </path>
             <path distance="3">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="ITA3"/>
                 <via direct="false">
                     <location ref="LUG"/>
                 </via>
             </path>
             <path distance="17">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="ITA4"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4157,7 +4157,7 @@
                 </via>
             </path>
             <path distance="15">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="ITA5"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4167,7 +4167,7 @@
                 </via>
             </path>
             <path distance="14">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="GER1"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4188,7 +4188,7 @@
                 </via>
             </path>
             <path distance="12">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="GER2"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4201,7 +4201,7 @@
                 </via>
             </path>
             <path distance="13">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="GER3"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4222,7 +4222,7 @@
                 </via>
             </path>
             <path distance="13">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="GER4"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4243,7 +4243,7 @@
                 </via>
             </path>
             <path distance="13">
-                <location ref="LOC"/>
+                <location ref="LCN"/>
                 <location ref="GER5"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4254,7 +4254,7 @@
                 </via>
             </path>
             <path distance="15">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="AUS1"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4265,7 +4265,7 @@
                 </via>
             </path>
             <path distance="13">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="AUS2"/>
                 <via direct="false">
                     <location ref="BEL"/>
@@ -4284,7 +4284,7 @@
                 </via>
             </path>
             <path distance="15">
-                <location ref="LOC"/>
+            	<location ref="LCN"/>
                 <location ref="AUS3"/>
                 <via direct="false">
                     <location ref="BEL"/>

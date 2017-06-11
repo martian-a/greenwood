@@ -12,6 +12,7 @@ declare variable $loc:host := "http://localhost:8080";
 declare variable $loc:path-to-view := "/exist/rest/db/apps/greenwood/view/";
 declare variable $loc:path-to-view-xml := concat($loc:path-to-view, "xml/");
 declare variable $loc:upload-path-to-data := "/db/apps/greenwood/data/";
+declare variable $loc:upload-path-to-schemas := "/db/apps/greenwood/schemas/";
 declare variable $loc:upload-path-to-view := "/db/apps/greenwood/view/";
 declare variable $loc:upload-path-to-css := "/db/apps/greenwood/style/";
 declare variable $loc:upload-path-to-xslt := "/db/apps/greenwood/xslt/";

@@ -108,7 +108,6 @@ var generateVisualisations = function generateVisualisations($) {
 	 * Default settings for tickets network visualisation 
 	 */
 	var ticketsOptions = routesOptions;
-		
 	
 	/* 
 	 * Create a vis.js network visualisation  

@@ -192,6 +192,14 @@ table tr td:last-of-type {
 	border-right-width: 0;
 }
 
+/* Group Title */
+table tr.title td {
+	padding-top: 1em;
+	padding-bottom: .5em;
+	font-style: italic;
+	color: rgba(36, 41, 46, 1);
+}
+
 /* Header Row */
 table th {
 	background-color: rgba(210, 215, 223, 1);

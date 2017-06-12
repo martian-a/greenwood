@@ -107,8 +107,37 @@
                 	<compare id="tickets-per-route-option" overview="false">
                 		<label>Tickets per route option</label>
                 	</compare>
+                <compare id="tickets-draw-total" players="false">
+                		<label>New tickets to draw (max per action)</label>
+                	</compare>
+                	<compare id="tickets-draw-must-keep" players="false">
+                		<label>New tickets must keep (min per action)</label>
+                	</compare>
                 </group>
-                </comparisons>
+                <group>
+            		<title>Train Cards</title>
+            		<compare id="train-car-draw-max" players="false">
+            			<label>Maximum draw (per action, inc. locomotives)</label>
+            		</compare>
+            		<compare id="locomotive-draw-open-max" players="false">
+            			<label>Maximum open draw of locomotives (per action)</label>
+            		</compare>
+            		<!--
+            		<compare id="locomotive-substitute-total" players="false">
+            			<label>Total train cards equivalent to a single locomotive (spending)</label>
+            		</compare>
+            		-->
+            	</group>
+            	<group>
+            		<title>Scoring bonuses</title>
+            		<compare id="bonus-total" players="false">
+            			<label>Total bonuses</label>
+            		</compare>
+            		<compare id="bonus-value-max" players="false">
+            			<label>Maximum total bonus value</label>
+            		</compare>
+            	</group>
+            </comparisons>
         </xsl:document>
     </xsl:variable>
     
@@ -132,7 +161,7 @@
         					<xsl:sort data-type="text" order="ascending" select="title"/>
         					<xsl:choose>
         						
-        						<xsl:when test="count($games) = 1 and $filter = 'players'">
+        						<xsl:when test="count($games) = 1 and $filter = 'players' and $min-players &gt; 0">
         							
         							<!-- Game profile: Comparing more than one player number -->
         							<xsl:for-each select="$min-players to $max-players">
@@ -174,10 +203,9 @@
         			
         			<xsl:variable name="total-columns" as="xs:integer">
         				<xsl:choose>
-        					<xsl:when test="count($games) = 1 and $filter = 'players'"><xsl:value-of select="($max-players - $min-players) + 2" /></xsl:when>
-							<xsl:when test="count($games) &gt; 1"><xsl:value-of select="count(games) + 1" /></xsl:when>
-        					<xsl:otherwise>2</xsl:otherwise>
-        				</xsl:choose>
+        					<xsl:when test="count($games) = 1 and $filter = 'players' and $min-players &gt; 0"><xsl:value-of select="($max-players - $min-players) + 2" /></xsl:when>
+							<xsl:otherwise><xsl:value-of select="count(games) + 1" /></xsl:otherwise>
+        					</xsl:choose>
         			</xsl:variable>
         			
         			<tbody>
@@ -193,7 +221,7 @@
         						<td><xsl:value-of select="label" /></td>
         						<xsl:choose>
         							
-        							<xsl:when test="count($games) = 1 and $filter = 'players'">
+        							<xsl:when test="count($games) = 1 and $filter = 'players' and $min-players &gt; 0">
         								
         								<!-- Game profile: Comparing more than one player number -->
         								<xsl:for-each select="$min-players to $max-players">
@@ -215,7 +243,9 @@
         									
         									<!-- Home page: Comparing games. -->
         									<xsl:otherwise>
-        										<xsl:apply-templates select="$data-point" mode="games.compare" />
+        										<xsl:apply-templates select="$data-point" mode="games.compare">
+        											<xsl:with-param name="players" select="$players" as="xs:integer" tunnel="yes"/>
+        										</xsl:apply-templates>
         									</xsl:otherwise>
         									
         								</xsl:choose>
@@ -602,5 +632,76 @@
 		
 		<xsl:value-of select="if ($asset) then $asset/@init else 0"/>
 	</xsl:template>
+	
+<xsl:template match="compare[@id = 'bonus-total']">
+		<xsl:param name="game" as="element()" tunnel="yes"/>
+		<xsl:variable name="action" select="$game/actions/action[@type = 'award'][target/@ref = 'SOU12']" as="element()*"/>
+		
+		<xsl:value-of select="if ($action) then count($action) else 0"/>
+	</xsl:template>
+	
+	
+	<xsl:template match="compare[@id = 'bonus-value-max']">
+		<xsl:param name="game" as="element()" tunnel="yes"/>
+		<xsl:variable name="action" select="$game/actions/action[@type = 'award'][target/@ref = 'SOU12']" as="element()*"/>
+		
+		<xsl:value-of select="if ($action) then sum($action/target[@ref = 'SOU12']/@max) else 0"/>
+	</xsl:template>
+	
+	
+	<xsl:template match="compare[@id = 'tickets-draw-total']">
+		<xsl:param name="game" as="element()" tunnel="yes"/>
+		<xsl:variable name="action" select="$game/actions/action[@type = 'draw'][source/@ref = 'SOU5']" as="element()*"/>
+		
+		<xsl:value-of select="if ($action) then sum($action/source/@max) else 0"/>
+	</xsl:template>
+	
+	<xsl:template match="compare[@id = 'tickets-draw-must-keep']">
+		<xsl:param name="game" as="element()" tunnel="yes"/>
+		<xsl:variable name="action" select="$game/actions/action[@type = 'draw'][source/@ref = 'SOU5']" as="element()*"/>
+		
+		<xsl:value-of select="if ($action) then $action/target[@ref = 'SOU6']/@min else 0"/>
+	</xsl:template>
+	
+	
+	<xsl:template match="compare[@id = 'train-car-draw-max']">
+		<xsl:param name="game" as="element()" tunnel="yes"/>
+		<xsl:variable name="face-up" as="xs:integer?">
+			<xsl:for-each select="$game/actions/action[target/@ref = 'SOU6']/source[@ref = 'SOU1'][@max]">
+				<xsl:sort select="@max" data-type="number" order="descending"/>
+				<xsl:if test="position() = 1">
+					<xsl:value-of select="@max"/>
+				</xsl:if>
+			</xsl:for-each>
+		</xsl:variable>
+		<xsl:variable name="face-down" as="xs:integer?">
+			<xsl:for-each select="$game/actions/action[target/@ref = 'SOU6']/source[@ref = 'SOU2'][@max]">
+				<xsl:sort select="@max" data-type="number" order="descending"/>
+				<xsl:if test="position() = 1">
+					<xsl:value-of select="@max"/>
+				</xsl:if>
+			</xsl:for-each>
+		</xsl:variable>
+		
+		<xsl:value-of select="if ($face-up &gt; $face-down) then $face-up else $face-down"/>
+	</xsl:template>
+	
+	<xsl:template match="compare[@id = 'locomotive-draw-open-max']">
+		<xsl:param name="game" as="element()" tunnel="yes"/>
+		<xsl:variable name="face-up" as="xs:integer?">
+			<xsl:for-each select="$game/actions/action[target/@ref = 'SOU6']/source[@ref = 'SOU1'][not(asset)][@max] | $game/actions/action[target/@ref = 'SOU6']/source[@ref = 'SOU1']/asset[@ref = 'TRW'][@max]">
+				<xsl:sort select="@max" data-type="number" order="descending"/>
+				<xsl:if test="position() = 1">
+					<xsl:value-of select="@max"/>
+				</xsl:if>
+			</xsl:for-each>
+		</xsl:variable>
+		
+		<xsl:value-of select="if ($face-up &gt; 0) then $face-up else 0"/>
+	</xsl:template>
+	
+	
+	<xsl:template match="compare"/>
+
 	
 </xsl:stylesheet>

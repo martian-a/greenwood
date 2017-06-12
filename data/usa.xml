@@ -11,8 +11,10 @@
 	<actions>
 		<xi:include href="default/actions/claim_route.xml" />
 		<xi:include href="default/actions/draw_tickets.xml" />
-		<xi:include href="default/actions/draw_train_cards_open.xml" />
+		<xi:include href="default/actions/draw_train_cards_open_standard.xml" />
+		<xi:include href="default/actions/draw_train_cards_open_locomotive.xml" />
 		<xi:include href="default/actions/draw_train_cards_blind.xml" />
+		<xi:include href="default/actions/draw_train_cards_open_standard_blind_any.xml" />
 		<xi:include href="default/actions/award_longest_path.xml" />		
 	</actions>
     <map>

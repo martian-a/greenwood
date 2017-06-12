@@ -142,7 +142,7 @@
             <div class="section">
                 <h2 id="players-{$players}"><xsl:value-of select="$players"/> Players</h2>
             	<xsl:call-template name="games.compare">
-            		<xsl:with-param name="filter" as="xs:string" tunnel="yes">overview</xsl:with-param>
+            		<xsl:with-param name="filter" as="xs:string" tunnel="yes">players</xsl:with-param>
             		<xsl:with-param name="players" select="$players" as="xs:integer" tunnel="no"/>
             		<xsl:with-param name="games" select="$games[not($players &gt; players/@max/number(.))]" as="element()*" tunnel="yes"/>
             	</xsl:call-template>

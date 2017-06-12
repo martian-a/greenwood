@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action type="draw" id="ACT10">
+	<source ref="SOU1" min="0" max="1">
+		<asset ref="TRN" min="0" max="0" />
+		<asset ref="TRW" min="0" max="1" />
+	</source>
+	<target ref="SOU6" min="0" max="2" />
+	<description>Draw up to one locomotive card, from the face-up river.</description>
+</action>

@@ -2,8 +2,8 @@
 <action type="draw" id="ACT6">
 	<source ref="SOU1" min="0" max="2">
 		<asset ref="TRN" min="0" max="2" />
-		<asset ref="TRW" min="0" max="1" />
+		<asset ref="TRW" min="0" max="0" />
 	</source>
 	<target ref="SOU6" min="0" max="2" />
-	<description>Draw up to two normal train cards or one wild card, from the face-up river.</description>
+	<description>Draw up to two standard train cards (no locomotives), from the face-up river.</description>
 </action>

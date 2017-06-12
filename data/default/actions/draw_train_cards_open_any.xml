@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action type="draw" id="ACT4">
+	<source ref="SOU1" min="0" max="2" />
+	<target ref="SOU6" min="0" max="2" />
+	<description>Draw up to two train cards (standard or locomotive) from the face-up river.</description>
+</action>

@@ -12,18 +12,15 @@
 	<actions>
 		<xi:include href="default/actions/claim_route.xml" />
 		<xi:include href="default/actions/claim_location.xml" />
-		<xi:include href="default/actions/draw_train_cards_blind.xml" />
 		<action type="draw" id="ACT3">
 			<source ref="SOU5" min="4" max="4" />
 			<target ref="SOU6" min="1" max="4" />
 			<target ref="SOU7" min="0" max="3" />
 			<description>Draw four cards from the tickets draw pile. Keep at least one. Zero to three of the newly drawn cards may be discarded.</description>
 		</action>
-		<action type="draw" id="ACT4">
-			<source ref="SOU1" min="0" max="2" />
-			<target ref="SOU6" min="0" max="2" />
-			<description>Draw up to two train cards (normal or wild) from the face-up river.</description>
-		</action>
+		<xi:include href="default/actions/draw_train_cards_open_any.xml" />
+		<xi:include href="default/actions/draw_train_cards_blind.xml" />
+		<xi:include href="default/actions/draw_train_cards_open_standard_blind_any.xml" />
 		<xi:include href="default/actions/award_longest_path.xml" />	
 		<xi:include href="default/actions/award_most_tickets.xml" />		
 	</actions>

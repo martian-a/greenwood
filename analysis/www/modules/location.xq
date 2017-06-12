@@ -12,6 +12,7 @@ declare variable $loc:host := "http://localhost:8080";
 declare variable $loc:path-to-view := "/exist/rest/db/apps/greenwood/view/";
 declare variable $loc:path-to-view-xml := concat($loc:path-to-view, "xml/");
 declare variable $loc:upload-path-to-data := "/db/apps/greenwood/data/";
+declare variable $loc:upload-path-to-schemas := "/db/apps/greenwood/schemas/";
 declare variable $loc:upload-path-to-view := "/db/apps/greenwood/view/";
 declare variable $loc:upload-path-to-css := "/db/apps/greenwood/style/";
 declare variable $loc:upload-path-to-xslt := "/db/apps/greenwood/xslt/";
@@ -33,16 +34,19 @@ function loc:get-location($id as xs:string, $with-connections as xs:boolean) as 
     loc:get-location($id, $with-connections, false())
 };
 
+declare function loc:get-location($id as xs:string, $with-connections as xs:boolean, $with-paths as xs:boolean) as item()? {
+    loc:get-location($id, $with-connections, false(), false())
+};
 
 declare 
     %test:args('SWI-GEN', 'true', 'false')
     %test:assertEquals('<location id="GEN"><name>Geneve</name><games><game id="SWI"><title>Schweiz</title></game></games><connections><location id="FRA3" length="1" tunnel="false" ferry="0" microlight="false"><name><name>France (FRA3)</name></name><colour><name>Yellow</name></colour></location><location id="LAU" length="4" tunnel="false" ferry="0" microlight="false"><name><name>Lausanne</name></name><colour><name>Blue</name></colour><colour><name>White</name></colour></location><location id="YVE" length="6" tunnel="false" ferry="0" microlight="false"><name><name>Yverdon</name></name><colour><name>Grey</name></colour></location></connections></location>')
-function loc:get-location($id as xs:string, $with-connections as xs:boolean, $with-paths as xs:boolean) as item()? {
+function loc:get-location($id as xs:string, $with-connections as xs:boolean, $with-paths as xs:boolean, $with-sub-locations as xs:boolean) as item()? {
     
     let $game-id := substring-before($id, '-')
     let $location-id := substring-after($id, '-')
     
-    let $locations := $loc:db/game[@id = $game-id]/map/descendant::location
+    let $locations := $loc:db/game[@id = $game-id]/map/locations//(country|location)[@id]
     for $location in $locations[@id = $location-id]
     let $games := 
         <games>
@@ -60,19 +64,38 @@ function loc:get-location($id as xs:string, $with-connections as xs:boolean, $wi
         if ($with-paths)
         then loc:get-shortest-paths($id)
         else ()
+    let $sub-locations :=
+    	if ($with-sub-locations)
+    	then loc:get-sub-locations($id)
+    	else ()
     return
         <location id="{$location/@id}">
-            <name>{
+            {
                 if ($location/name) 
-                then
-                    string($location/name)
-                else 
-                    concat($location/ancestor::country[1]/name, ' (', $location/@id, ')')
-            }</name>
+                then $location/name
+                else (
+                	for $ancestor in $location/ancestor::*[name][1]
+                	let $name := concat($location/ancestor::country[1]/name, ' (', $location/@id, ')')
+                	return
+                		if ($ancestor/name/@sort)
+                		then 
+                			<name sort="{concat($ancestor/name/@sort, ' (', $location/@id, ')')}">{$name}</name>
+                		else
+                			<name>{$name}</name>
+                    
+                )
+            }
             {
                 $games,
-                $connections,
-                $paths
+                if ($connections/*) 
+                then $connections
+                else (),
+                if ($paths/*)
+                then $paths
+                else (),
+                if ($sub-locations/*)
+                then $sub-locations
+                else ()
             }
         </location>
 };
@@ -93,9 +116,9 @@ function loc:get-connections($id as xs:string) as item() {
             let $terminus-id := concat($game-id, '-', string($route/location/@ref[. != $location-id]))
             let $location := loc:get-location($terminus-id)
             return
-                <location id="{$location/@id}" length="{$route/@length}" tunnel="{$route/@tunnel/xs:boolean(.)}" ferry="{if ($route/@ferry > 0) then ($route/@ferry) else 0}" microlight="{$route/@microlight/xs:boolean(.)}">
-                    <name>{$location/name}</name>
-                    {
+                <location id="{$location/@id}" length="{$route/@length}" tunnel="{$route/asset/@ref = 'ROT'}" ferry="{if ($route/asset/@ref = 'ROF') then ($route/asset[@ref = 'ROF']/@min) else 0}" microlight="{$route/asset/@ref = 'RIM'}">
+		           	{
+		           		$location/name,
                         for $colour-id in $route/(@colour | colour/@ref)
                         let $colour := $colours/colour[@id = $colour-id]/name
                         return
@@ -118,10 +141,25 @@ declare function loc:get-shortest-paths($id as xs:string) as item() {
             let $location := loc:get-location($terminus-id)
             return
                 <location id="{$location/@id}" distance="{$distance}">
-                    <name>{$location/name}</name>
-                    {$path/via}
+                    {
+	                    $location/name,
+    	                $path/via
+    	             }
                 </location>
         }</shortest-paths>
+    
+};
+
+declare function loc:get-sub-locations($id as xs:string) as item() {
+    
+    let $game-id := substring-before($id, '-')
+    let $location-id := substring-after($id, '-')
+    return
+        <sub-locations>{
+            for $sub-location in $loc:db/game[@id = $game-id]/map/locations//*[@id = $location-id]/descendant::*[@id] 
+            let $sub-location-id := concat($game-id, '-', $sub-location/@id)
+            return loc:get-location($sub-location-id)
+        }</sub-locations>
     
 };
 

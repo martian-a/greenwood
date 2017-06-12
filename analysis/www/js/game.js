@@ -61,11 +61,12 @@ var generateVisualisations = function generateVisualisations($) {
 	        shape: 'dot',
 	        mass: 1,
 	        font: {
-	        	size: 50
+	        	size: 100,
+	        	face: 'RosarioBold'
 	        }
 	    },
 	    edges: {
-	        width: 12,
+	        width: 24,
 	        smooth: {
 	        	type: 'dynamic',
 	        	forceDirection: 'none'
@@ -107,7 +108,6 @@ var generateVisualisations = function generateVisualisations($) {
 	 * Default settings for tickets network visualisation 
 	 */
 	var ticketsOptions = routesOptions;
-	
 	
 	/* 
 	 * Create a vis.js network visualisation  

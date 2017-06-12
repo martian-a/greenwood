@@ -1,6 +1,6 @@
 function update($) {
 	
-	$("#network").append("<button id=\"save-network\">Update Saved Layout</button>");
+	$("div.network").append("<button id=\"save-network\">Update Saved Layout</button>");
 	$("#ticket-distribution").append("<button id=\"save-tickets\">Update Saved Layout</button>");
 	
 	function getData(network) {

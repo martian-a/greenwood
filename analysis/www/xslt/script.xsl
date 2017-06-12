@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet 
     xmlns:gw="http://ns.greenwood.thecodeyard.co.uk/xslt/functions" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
@@ -69,6 +68,13 @@
         <xsl:if test="position() != last()">,</xsl:if>
         <xsl:text>&#10;</xsl:text>
     </xsl:template>
+    
+    <xsl:template match="property[@data-type = 'object']" mode="serialize.javascript" priority="5">
+		<xsl:text>{
+</xsl:text>
+		<xsl:apply-templates mode="#current"/>
+		<xsl:text>}</xsl:text>
+	</xsl:template>
     
     <xsl:template match="property[@data-type = 'xs:string'] | property[@data-type = 'boolean'] | property[@data-type = 'xs:integer'][starts-with(normalize-space(.), '-')]" mode="serialize.javascript" priority="5">
         <xsl:text>'</xsl:text><xsl:next-match /><xsl:text>'</xsl:text>

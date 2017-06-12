@@ -1,0 +1,17 @@
+namespace xml = "http://www.w3.org/XML/1998/namespace"
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+# Root element
+start |= notAllowed
+
+
+# Elements
+
+
+# Attributes
+
+xml.anyElement.attlist =
+	attribute xml:base { xsd:anyURI }?,
+	attribute xml:lang { xsd:language }?,
+	[ a:defaultValue = "preserve" ] attribute xml:space { "default" | "preserve" }?

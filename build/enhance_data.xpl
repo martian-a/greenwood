@@ -18,6 +18,9 @@
 					<d:egress>for assumptions about the input files.</d:egress>
 				</d:ul>
 			</d:note>
+			<d:note>
+				<d:p>In order to preserve xinclude elements, check that xincludes are not being resolved during this transformation.</d:p>
+			</d:note>
 		</d:doc>
 	</p:documentation>
 	
@@ -91,6 +94,7 @@
 			<p:variable name="directory-path" select="c:directory/@xml:base">
 				<p:pipe port="result" step="directory-listing" />
 			</p:variable>
+			
 
 			<p:documentation>
 				<d:doc scope="step">
@@ -129,7 +133,7 @@
 			</p:documentation>
 			<p:xslt name="generate-network"> 
 				<p:input port="stylesheet"> 
-					<p:document href="../data/generate/network.xsl"/> 
+					<p:document href="data/network.xsl"/> 
 				</p:input> 
 				<p:input port="source">
 					<p:pipe port="result" step="remove-existing-shortest-paths" />
@@ -144,7 +148,7 @@
 			</p:documentation>
 			<p:xslt name="identify-shortest-paths"> 
 				<p:input port="stylesheet"> 
-					<p:document href="../data/generate/shortest_paths.xsl"/> 
+					<p:document href="data/shortest_paths.xsl"/> 
 				</p:input> 
 				<p:input port="source">
 					<p:pipe port="result" step="generate-network" />
@@ -175,7 +179,6 @@
 			</p:documentation>
 			<p:store name="store" 
 				indent="true" 
-				doctype-system="game.dtd" 
 				omit-xml-declaration="false" 
 				encoding="utf-8" 
 				method="xml" 

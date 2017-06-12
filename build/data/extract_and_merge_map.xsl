@@ -5,6 +5,7 @@
     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
     xmlns:svg="http://www.w3.org/2000/svg"
     xmlns:d="http://ns.kaikoda.com/documentation/xml"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
     exclude-result-prefixes="xs inkscape svg d"
     version="2.0">
     
@@ -25,6 +26,14 @@
         <d:note>
             <d:p>See extract_and_merge_tickets.xsl for parsing ticket data from an SVG file.</d:p>
         </d:note>
+    	<d:history>
+    		<d:change date="20170610">
+    			<d:desc>
+    				<d:p>Updated to match model defined by RNC/SCH instead of DTD.</d:p>
+    				<d:p>No longer uses game.xml as a base if there is no existing data; basics now embedded in this stylesheet.</d:p>
+    			</d:desc>
+    		</d:change>
+    	</d:history>
     </d:doc>
     
     
@@ -54,13 +63,66 @@
             <d:p>The contents of the existing file will be preserved, except for existing tickets data, which will be replaced with the result of this transform.</d:p>
         </d:note>
     </d:doc>
-    <xsl:param name="path-to-existing-data" select="'../game.xml'" as="xs:string" />
+    <xsl:param name="path-to-existing-data" select="'../../data/game.xml'" as="xs:string" />
     
     
     <d:doc>
         <d:desc>The existing data.</d:desc>
     </d:doc>
-    <xsl:variable name="existing-data" select="document($path-to-existing-data)" as="document-node()" />
+    <xsl:variable name="existing-data" as="document-node()">
+    	<xsl:choose>
+    		<xsl:when test="doc-available($path-to-existing-data)">
+    			<xsl:copy-of select="document($path-to-existing-data)" />
+    		</xsl:when>
+    		<xsl:otherwise>
+    			<xsl:document>
+    				<xsl:processing-instruction name="xml-model">href="../schemas/ticket-to-ride.rnc" type="application/relax-ng-compact-syntax"</xsl:processing-instruction>
+					<xsl:processing-instruction name="xml-model">href="../schemas/ticket-to-ride.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"</xsl:processing-instruction>
+    				<game id="{$game-id}" xmlns:xi="http://www.w3.org/2001/XInclude">
+    					<title><xsl:value-of select="$game-title" /></title>
+    					<xi:include href="default/turn.xml" />
+    					<actions>
+    						<xi:include href="default/actions/claim_route.xml" />
+    						<xi:include href="default/actions/draw_tickets.xml" />
+    						<xi:include href="default/actions/draw_train_cards_open.xml" />
+    						<xi:include href="default/actions/draw_train_cards_blind.xml" />
+    						<xi:include href="default/actions/award_longest_path.xml" />		
+    						<xi:include href="default/actions/award_grand_tour_of_india.xml" />		
+    					</actions>
+    					<map>
+    						<xi:include href="default/colours.xml" />
+    					</map>
+    					<assets>
+    						<collection id="SOU6">
+    							<asset ref="CAR" init="4" />
+    							<name>Players hand</name>
+    							<description>Train cards.</description>
+    						</collection>
+    						<collection id="SOU7">
+    							<asset ref="TIC" min="2">
+    								<asset ref="TIN" init="4" />
+    							</asset>
+    							<name>Players tickets</name>
+    							<description>Tickets that the player is expected to complete.</description>
+    						</collection>
+    						<collection id="SOU10">
+    							<asset ref="TOC" init="45" />
+    							<name>Players carriages</name>
+    							<description>Carriage tokens in the players colour (that haven't yet been used to claim anything).</description>
+    						</collection>
+    						<collection id="SOU8" recycle="true">
+    							<asset ref="TIC" />
+    							<name>Ticket discard pile</name>
+    							<description>Tickets that have been discarded by players.</description>
+    						</collection>
+    					</assets>
+    					<xi:include href="default/collections.xml" />
+    					<xi:include href="default/assets.xml" />
+    				</game>
+    			</xsl:document>
+    		</xsl:otherwise>
+    	</xsl:choose>
+    </xsl:variable>
     
     
     

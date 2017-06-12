@@ -42,7 +42,7 @@
 			<p:document href="../images/map/west_dorset/board/board.svg" />
 		</p:input>
 		<p:input port="stylesheet"> 
-			<p:document href="../data/generate/extract_and_merge_map.xsl"/> 
+			<p:document href="data/extract_and_merge_map.xsl"/> 
 		</p:input> 
 	</p:xslt> 
 	
@@ -95,7 +95,7 @@
 			<p:pipe port="result" step="merge-cards-svg-into-binder" />
 		</p:input>
 		<p:input port="stylesheet"> 
-			<p:document href="../data/generate/extract_and_merge_tickets.xsl"/> 
+			<p:document href="data/extract_and_merge_tickets.xsl"/> 
 		</p:input> 
 	</p:xslt> 
 	

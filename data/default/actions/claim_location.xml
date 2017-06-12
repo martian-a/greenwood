@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action type="claim" id="ACT2">
+	<source ref="SOU11" />
+	<target ref="SOU3" max="1" />
+	<description>Claim a location.  Mark it as claimed using claimants station.</description>
+</action>

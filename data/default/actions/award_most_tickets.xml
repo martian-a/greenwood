@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action type="award" id="ACT9">
+	<target ref="SOU12" min="10" max="10" />
+	<description>Award 10 points to the player who has completed the most tickets.</description>
+</action>

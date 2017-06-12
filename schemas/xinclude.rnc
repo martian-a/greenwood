@@ -1,0 +1,33 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace xi = "http://www.w3.org/2001/XInclude"
+
+# Root element
+start |= xi.xinclude
+
+
+# Elements
+
+xi.xinclude = element xi:include {
+  xinclude.attlist,
+  xi.fallback?
+}
+
+xi.fallback = element xi:fallback {
+      fallback.attlist, 
+      (xi.xinclude | text)*
+}
+
+
+# Attributes
+
+fallback.attlist = notAllowed
+
+xinclude.attlist =
+   attribute href { xsd:anyURI }?,
+   [ a:defaultValue = "xml" ] attribute parse    { "xml" | "text" }?,
+   attribute xpointer { xsd:string }?,
+   attribute fragid { xsd:string }?,
+   attribute set-xml-id { xsd:string },
+   attribute encoding { xsd:string }?,
+   attribute accept   { xsd:string }?,
+   attribute accept-language { xsd:string }?

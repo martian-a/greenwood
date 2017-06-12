@@ -91,10 +91,10 @@
 		<p:input port="source">
 			<p:pipe port="result" step="data" />
 		</p:input>
-		<p:with-param name="path-to-js" select="'../js'" />
-		<p:with-param name="path-to-css" select="'../style'" />
-		<p:with-param name="path-to-xml" select="'../xml'" />
-		<p:with-param name="path-to-html" select="'../html'" />
+		<p:with-param name="path-to-js" select="'assets/js'" />
+		<p:with-param name="path-to-css" select="'assets/style'" />
+		<p:with-param name="path-to-html" select="'.'" />
+		<p:with-param name="path-to-images" select="'assets/images'" />
 		<p:with-param name="static" select="'true'" />
 	</p:xslt> 
 	
@@ -108,13 +108,13 @@
 		method="html"
 		encoding="utf-8"
 		media-type="text/html"
-		indent="true" 
+		indent="false" 
 		omit-xml-declaration="true"
 		version="5">
 		<p:input port="source">
 			<p:pipe port="result" step="generate-summary" />
 		</p:input>
-		<p:with-option name="href" select="concat($target, '/html/index.html')" />
+		<p:with-option name="href" select="concat($target, '/index.html')" />
 	</p:store>
 	
 	

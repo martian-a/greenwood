@@ -4,7 +4,6 @@ declare variable $exist:path external;
 
 import module namespace loc = "http://ns.greenwood.thecodeyard.co.uk/location" at "/db/apps/greenwood/modules/location.xq";
 
-
 let $params := tokenize(substring-after($exist:path, '/'), '/')
 return
 	if ($params[1] = ('html', 'xml') and $params[2] = ('game', 'location'))

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action type="award" id="ACT8">
+	<target ref="SOU12" min="5" max="40" />
+	<description>Award points to players who have created mandalas on the board.</description>
+</action>

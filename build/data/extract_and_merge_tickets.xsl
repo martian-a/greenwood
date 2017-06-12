@@ -30,6 +30,13 @@
     			<em>without saving the result of that previous step to the filesystem</em> 
     			the pipeline temporarily merges the two sources into a single document prior to supplying it to this stylesheet.</d:p>
     	</d:note>
+    	<d:history>
+    		<d:change date="20170610">
+    			<d:desc>
+    				<d:p>Updated to match model that uses assets. No longer need to suppress explicit default attributes on routes.</d:p>
+    			</d:desc>
+    		</d:change>
+    	</d:history>
     </d:doc>
     
     
@@ -127,11 +134,10 @@
             <d:ul>
                 <d:ingress>Delete content in the existing data that's not wanted in the result document:</d:ingress>
                 <d:li>tickets (existing)</d:li>
-                <d:li>route attributes set to default values (no need to express explicitly)</d:li>
             </d:ul>
         </d:desc>
     </d:doc>
-    <xsl:template match="tickets | route/@*[name() = ('tunnel', 'microlight')][. = 'false'] | route/@ferry[. = '0']" mode="copy" />
+    <xsl:template match="tickets" mode="copy" />
     
     
     <d:doc>

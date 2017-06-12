@@ -1,0 +1,522 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace xi = "http://www.w3.org/2001/XInclude"
+
+include "xml.rnc"
+
+
+# Root Element #
+start = game
+
+# Elements #
+
+action = element action { 
+	action.attlist, 
+	source?, 
+	target+, 
+	description?
+}
+	
+actions = element actions { 
+	actions.attlist, 
+	action+
+}
+
+asset-def = element asset { 
+	asset-def.attlist, 
+	name?, 
+	asset-def*
+}
+
+asset-ref = element asset { 
+	asset-ref.attlist, 
+	asset-ref*
+}
+
+assets = element assets { 
+	assets.attlist, 
+	collection*, 
+	asset-def*, 
+	image*
+}
+
+collection = element collection { 
+	collection.attlist, 
+	asset-ref+, 
+	name, 
+	description
+}
+
+colour-def = element colour { 
+	colour-def.attlist, 
+	name 
+}
+
+colour-ref = element colour { 
+	colour-ref.attlist,
+	empty
+}
+
+colours = element colours { 
+	colours.attlist, 
+	colour-def* 
+}
+
+country-def = element country { 
+	country-def.attlist, 
+	name, 
+	location-def+
+}
+
+country-ref = element country { 
+	country-ref.attlist,
+	empty
+}
+
+description = element description { 
+	description.attlist, 
+	text*
+}
+
+destination-ref = (
+	element location {
+		destination-ref.attlist, 
+		empty
+	} 
+	| element country {
+		destination-ref.attlist, 
+		empty
+	}
+)
+
+edge = element edge { 
+	edge.attlist, 
+	node-ref,
+	node-ref
+}
+
+edges = element edges { 
+	edges.attlist, 
+	edge+ 
+}
+
+file = element file { 
+	file.attlist, 
+	empty
+}
+
+
+game = element game { 
+	game.attlist,
+	title?, 
+	summary?, 
+	players?, 
+	turn?,
+	actions?,
+	map?,
+	tickets*, 
+	related?, 
+	assets*
+}
+
+image = element image { 
+	image.attlist, 
+	title, 
+	file+
+}
+
+link = element link { 
+	link.attlist, 
+	title 
+}
+
+location-def = element location { 
+	location-def.attlist, 
+	name?
+}
+
+location-ref = element location { 
+	location-ref.attlist, 
+	empty
+}
+
+locations = element locations { 
+	locations.attlist, 
+	location-def*, 
+	country-def*
+}
+
+map = element map {
+    map.attlist, 
+	(
+		(
+    		locations?, 
+    		routes?, 
+    		colours
+    	) | 
+    	network?
+    ),
+    shortest-paths?
+}
+
+name = element name { 
+	name.attlist, 
+	text*
+}
+
+network = element network { 
+	network.attlist, 
+	nodes, 
+	edges
+}
+
+node-def = element node { 
+	node-def.attlist, 
+	name
+}
+
+node-ref = element node { 
+	node-ref.attlist, 
+	empty
+}
+
+nodes = element nodes { 
+	nodes.attlist, 
+	node-def+ 
+}
+
+note = element note { 
+	note.attlist, 
+	text* 
+}
+
+p = element p { 
+	p.attlist, 
+	text*
+}
+
+path = element path { 
+	path.attlist, 
+	location-ref, 
+	location-ref, 
+	via*
+}
+
+players = element players { 
+	players.attlist, 
+	empty
+}
+
+related = element related { 
+	related.attlist, 
+	link* 
+}
+
+route = element route { 
+	route.attlist, 
+	destination-ref+, 
+	colour-ref*, 
+	asset-ref*
+}
+
+routes = element routes { 
+	routes.attlist, 
+	route* 
+}
+
+shortest-paths = element shortest-paths { 
+	shortest-paths.attlist, 
+	path+ 
+}
+
+source = element source { 
+	source.attlist, 
+	asset-ref*
+}
+
+summary = element summary { 
+	summary.attlist, 
+	p* 
+}
+
+target = element target { 
+	target.attlist, 
+	empty 
+}
+
+ticket = element ticket { 
+	ticket.attlist, 
+	destination-ref*, 
+	note?
+}
+
+tickets = element tickets { 
+	tickets.attlist, 
+	ticket* 
+}
+
+title = element title {
+	title.attlist, 
+	text* 
+}
+
+turn = element turn { 
+	turn.attlist, 
+	empty
+}
+
+via = element via { 
+	via.attlist, 
+	location-ref*
+}
+
+
+
+# Attributes #
+
+action.attlist =
+	xml.attlist,
+    attribute id { xsd:ID },
+    attribute type { "claim" | "draw" | "award" }
+
+actions.attlist = 
+	xml.attlist
+
+asset-def.attlist =
+	xml.attlist,
+    attribute id { xsd:ID }?,
+    attribute class {
+        "card"
+        | "train"
+        | "standard"
+        | "wild"
+        | "ticket"
+        | "long"
+        | "token"
+        | "carriage"
+        | "station"
+        | "points-marker"
+        | "route-option"
+        | "tunnel"
+        | "ferry"
+        | "microlight"
+        | "location"
+        | "restricted"
+    }?
+    
+asset-ref.attlist =
+	xml.attlist,
+    attribute ref { xsd:IDREF }?,
+    attribute init { "1" | "2" | "3" | "4" | "5" | "40" | "45" }?,
+    attribute min { "0" | "1" | "2" }?,
+    attribute max { "1" | "2" }?
+
+assets.attlist = 
+	xml.attlist
+
+collection.attlist =
+	xml.attlist,
+    attribute id { xsd:ID },
+    attribute face-up { "true" | "false" }?,
+    attribute recycle { "true" | "false" }?
+    
+colour-def.attlist =
+	xml.attlist,
+    attribute id { xsd:ID }
+    
+colour-ref.attlist =
+	xml.attlist,
+    attribute ref { xsd:IDREF }
+    
+colours.attlist =
+	xml.attlist
+
+country-def.attlist =
+	xml.attlist,
+    attribute id { xsd:ID }
+    
+country-ref.attlist =
+	xml.attlist,
+    attribute ref { xsd:IDREF }
+    
+description.attlist = 
+	xml.attlist
+
+destination-ref.attlist =
+	location-ref.attlist,
+    attribute points { text }?
+
+edge.attlist =
+	xml.attlist,
+    attribute id { xsd:ID },
+    attribute length { text }
+    
+edges.attlist = 
+	xml.attlist
+
+file.attlist =
+	xml.attlist,
+    attribute path { text },
+    attribute height { text }?,
+    attribute width { text }?
+
+game.attlist =
+	xml.attlist,
+    attribute id { xsd:ID },
+    [ a:defaultValue = "true" ] attribute publish { "true" | "false" }?
+
+image.attlist = 
+	xml.attlist,
+	attribute role { 
+		"product-illustration" 
+		| "network-diagram" 
+		| "ticket-distribution-diagram"
+	}
+
+link.attlist =
+	xml.attlist,
+    attribute href { text },
+    attribute type { 
+    	"publisher" 
+    	| "provider" 
+    	| "review" 
+    }
+
+location-def.attlist =
+	xml.attlist,
+    attribute id { xsd:ID },
+    attribute x { text }?,
+    attribute y { text }?
+    
+location-ref.attlist =
+	xml.attlist,
+	attribute ref { xsd:IDREF }
+
+locations.attlist = 
+	xml.attlist
+
+map.attlist = 
+	xml.attlist,
+	attribute seed { text }?
+	
+name.attlist = 
+	xml.attlist,
+	attribute sort { text }?
+
+network.attlist = 
+	xml.attlist
+
+node-def.attlist =
+	xml.attlist,
+    attribute id { xsd:ID }
+
+node-ref.attlist =
+	xml.attlist,
+    attribute ref { xsd:IDREF }
+    
+nodes.attlist = 
+	xml.attlist
+
+note.attlist = 
+	xml.attlist
+
+p.attlist = 
+	xml.attlist
+
+path.attlist = 
+	xml.attlist,
+	attribute distance { text }
+
+players.attlist =
+	xml.attlist,
+    [ a:defaultValue = "2" ] attribute min { "2" | "4" }?,
+    [ a:defaultValue = "5" ] attribute max { "3" | "4" | "5" | "6" | "7" }?,
+    [ a:defaultValue = "4" ] attribute double-routes-min { "3" | "4" | "5" }?
+
+related.attlist = 
+	xml.attlist
+
+route.attlist =
+	xml.attlist,
+    attribute length { "1" | "2" | "3" | "4" | "5" | "6" | "8" },
+    attribute colour { xsd:IDREF }?
+    
+routes.attlist = 
+	xml.attlist
+
+shortest-paths.attlist = 
+	xml.attlist
+
+source.attlist =
+	xml.attlist,
+    attribute ref { xsd:IDREF },
+    attribute min { "0" | "1" | "2" | "3" | "4" }?,
+    attribute max { "0" | "1" | "2" | "3" | "4" }?   
+
+starting-hand.attlist = 
+	xml.attlist
+
+summary.attlist = 
+	xml.attlist
+
+target.attlist =
+	xml.attlist,
+    attribute ref { xsd:IDREF },
+    attribute min { "0" | "1" | "2" | "3" | "4" | "5" | "10" }?,
+    attribute max { "0" | "1" | "2" | "3" | "4" | "10" | "40" }?
+
+ticket.attlist = 
+	xml.attlist,
+	attribute points { text }?
+
+tickets.attlist = 
+	xml.attlist
+
+title.attlist = 
+	xml.attlist
+
+turn.attlist =
+	xml.attlist,
+    [ a:defaultValue = "1" ] attribute min-actions { "1" },
+    [ a:defaultValue = "1" ] attribute max-actions { "1" }
+    
+via.attlist = 
+	xml.attlist,
+	[ a:defaultValue = "false" ] attribute direct { "true" | "false" }
+	
+xml.attlist = 
+	xml.anyElement.attlist
+	
+	
+## Xinclude # (import errors) #
+
+turn |= xinclude
+action |= xinclude
+colours |= xinclude
+assets |= xinclude
+
+
+# Elements
+
+xinclude = element xi:include {
+  xinclude.attlist,
+  fallback?
+}
+
+fallback = element xi:fallback {
+      fallback.attlist, 
+      (xinclude | text)*
+}
+
+# Attributes
+
+fallback.attlist = notAllowed
+
+xinclude.attlist =
+   attribute href { xsd:anyURI }?,
+   [ a:defaultValue = "xml" ] attribute parse    { "xml" | "text" }?,
+   attribute xpointer { xsd:string }?,
+   attribute fragid { xsd:string }?,
+   attribute set-xml-id { xsd:string }?,
+   attribute encoding { xsd:string }?,
+   attribute accept   { xsd:string }?,
+   attribute accept-language { xsd:string }?

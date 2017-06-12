@@ -1,4 +1,4 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0" exclude-result-prefixes="#all">
 	
 	<xsl:param name="location-id" required="yes" />
 	
@@ -30,23 +30,45 @@
 	
 	
 	<xsl:template match="location | country">
-		<location>
-			<xsl:copy-of select="@id" />
+		<xsl:param name="with-connections" select="true()" as="xs:boolean" />
+		<xsl:param name="with-shortest-paths" select="true()" as="xs:boolean" />
+		<xsl:param name="with-sub-locations" select="true()" as="xs:boolean" />
+		<xsl:variable name="id" select="@id" as="xs:string" />
+		
+		<location id="{$id}">
 			<xsl:apply-templates select="self::*" mode="name" />
 			<games>
 				<xsl:apply-templates select="ancestor::game[1]" mode="games" />
 			</games>
-			<connections>
-				<xsl:apply-templates select="ancestor::map[1]/routes/route[location/@ref = $location-id]"  mode="connections" />
-			</connections>
-			<shortest-paths>
-				<xsl:apply-templates select="ancestor::map[1]/shortest-paths/path[location/@ref = $location-id]" mode="shortest-path" />
-			</shortest-paths>
+			<xsl:apply-templates select="ancestor::map[1][$with-connections = true()]/routes[route/location/@ref = $id]"  mode="connections" />
+			<xsl:apply-templates select="ancestor::map[1][$with-shortest-paths = true()]/shortest-paths[path/location/@ref = $id]"  mode="shortest-paths" />	
+			<xsl:apply-templates select="self::*[$with-sub-locations = true()][descendant::*/@id]"  mode="sub-locations" />
 		</location>
 		
 		
 	</xsl:template>
 	
+	<xsl:template match="routes" mode="connections">
+		<connections>
+			<xsl:apply-templates select="route[location/@ref = $location-id]" mode="connections" />
+		</connections>
+	</xsl:template>
+	
+	<xsl:template match="shortest-paths" mode="shortest-paths">
+		<shortest-paths>
+			<xsl:apply-templates select="path[location/@ref = $location-id]"  mode="shortest-path" />
+		</shortest-paths>
+	</xsl:template>
+	
+	<xsl:template match="*[name() = ('country', 'location')]" mode="sub-locations">
+		<sub-locations>
+			<xsl:apply-templates select="descendant::*[@id]">
+				<xsl:with-param name="with-connections" select="false()" as="xs:boolean" />
+				<xsl:with-param name="with-shortest-paths" select="false()" as="xs:boolean" />
+				<xsl:with-param name="with-sub-locations" select="false()" as="xs:boolean" />
+			</xsl:apply-templates>
+		</sub-locations>
+	</xsl:template>
 	
 	<xsl:template match="*[name() = ('location', 'country')]" mode="name">
 		<xsl:choose>
@@ -54,7 +76,15 @@
 				<xsl:copy-of select="name" />
 			</xsl:when>
 			<xsl:otherwise>
-				<name><xsl:value-of select="concat(ancestor::country[1]/name, ' (', @id, ')')" /></name>
+				<xsl:variable name="id" select="@id" as="xs:string" />
+				<xsl:for-each select="ancestor::*[name][1]">
+					<name>
+						<xsl:if test="name/@sort">
+							<xsl:attribute name="sort" select="concat(name/@sort, ' (', $id, ')')" />
+						</xsl:if>
+						<xsl:value-of select="concat(name, ' (', $id, ')')" />
+					</name>
+				</xsl:for-each>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -75,9 +105,9 @@
 			<location 
 				id="{xs:string($terminus/@id)}" 
 				length="{xs:integer($route/@length)}" 
-				tunnel="{xs:boolean($route/@tunnel)}" 
-				ferry="{if ($route/@ferry > 0) then $route/@ferry else 0}" 
-				microlight="{xs:boolean($route/@microlight)}">
+				tunnel="{xs:boolean($route/asset/@ref = 'ROT')}" 
+				ferry="{if ($route/asset/@ref = 'ROF') then $route/asset[@ref = 'ROF']/@min else 0}" 
+				microlight="{xs:boolean($route/asset/@ref = 'ROM')}">
 				<xsl:apply-templates select="$terminus" mode="name" />
 				<xsl:apply-templates select="$route/(@colour | colour/@ref)" mode="colour" />
 			</location>
@@ -110,6 +140,8 @@
 			<xsl:apply-templates select="$terminus" mode="name" />
 		</location>
 	</xsl:template>
+	
+
 	
 	
 	<xsl:template match="/" mode="error">

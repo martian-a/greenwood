@@ -30,32 +30,11 @@
 	
 	<p:import href="../utils/recursive_delete_directory.xpl"/>
 
-		
-	<p:directory-list name="old">
-		<p:with-option name="path" select="$href" />	
-	</p:directory-list>
-	
-	<p:sink />
-	
-	<p:for-each name="delete-old">
-		
-		<p:iteration-source select="c:directory/*">
-			<p:pipe port="result" step="old" />
-		</p:iteration-source>
-		
-		<p:output port="result" sequence="true" />
-		
-		<p:group>
 
-			<tcy:recursive-delete-directory>
-				<p:with-option name="href" select="concat($href, '/', */@name)">
-					<p:pipe port="current" step="delete-old" />
-				</p:with-option>
-			</tcy:recursive-delete-directory>
+	<tcy:recursive-delete-directory>
+		<p:with-option name="href" select="$href" />
+	</tcy:recursive-delete-directory>
 			
-		</p:group>
-		
-	</p:for-each>
 
 	<p:wrap-sequence wrapper="c:deleted" />
 	

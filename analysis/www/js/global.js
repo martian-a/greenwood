@@ -6,9 +6,12 @@ jQuery(document).ready(function($) {
 	 * Insert containers for javascript dependent visualisations
 	 */
 	if (pageClass == "game") {
-		$("main > section").filter(":first").before("<section class=\"network\"><h2 id=\"network\">Network</h2><div id=\"vis1\" class=\"network-visualisation\"/></section>");
-		$("main > .contents li").filter(":first").before("<li><a href=\"#network\">Network</a></li>");
-		$("main > section.tickets > section").filter(":first").after("<section><h3 id=\"ticket-distribution\">Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></section>");	 	
+		if ($("#network").length == 0) {
+			$(".main > div.overview > div.section").filter(":last").after("<div class=\"section network\"><h3 id=\"network\">Network</h3><div id=\"vis1\" class=\"network-visualisation\"/></div>");
+		}
+		if ($("#ticket-distribution").length == 0) {
+			$(".main > div.tickets > div.section").filter(":first").after("<div class=\"section\"><h3 id=\"ticket-distribution\">Distribution</h3><div id=\"vis2\" class=\"network-visualisation\"/></div>");	 				
+		}	
 	};
 
 	/* 
@@ -56,7 +59,7 @@ jQuery(document).ready(function($) {
 	 		 * Find content that should be organised into
 	 		 * sub-tabs and create those sub-tabs.
 	 		 */
-	 		if ($(this.container).find(" > section").length > 0) {
+	 		if ($(this.container).find(" > div.section").length > 0) {
 	 		    
 	 		     /*
 	 		      * Subsections found.
@@ -69,21 +72,15 @@ jQuery(document).ready(function($) {
     	 		 // Create a contents list from the subsection headings.
     	 		 var subsectionHeadings = [];
     	 		 var subsectionIds = [];
-                 $(subTabsContainer).find(" > section > h3").each(function(){
+                 $(subTabsContainer).find(" > div.section > h3").each(function(){
                     subsectionHeadings.push($(this).text());
                     subsectionIds.push($(this).attr("id"));
                  }); 
                 
-                 $(subTabsContainer).find(" > h2").after("<div class=\"contents\"><h3 class=\"heading\">Contents</h3><nav><ul></ul></nav></div>");
+                 $(subTabsContainer).find(" > h2").after("<div class=\"contents\"><h3 class=\"heading\">Contents</h3><div class=\"nav\"><ul></ul></div></div>");
                  for (var i = 0; i < subsectionHeadings.length; i++) {
                      $(subTabsContainer).find(" > .contents ul").append("<li><a href=\"#" + subsectionIds[i] + "\">" + subsectionHeadings[i] + "</a></li>");
                  };
-                 
-                 // Create a tab from each subsection.
-                 $(subTabsContainer).find(" > .contents li").each(function(){
-                	var i = $(this).prevAll().length;
-                 	subTabs.createTab($(subTabsContainer).find(" > section").eq(i), this);
-                 }); 
     	 		
     	 		// Initialise this collection of sub-tabs.
             	subTabs.init();
@@ -163,9 +160,20 @@ jQuery(document).ready(function($) {
 		};
 
 	 	this.init = function(){
-	 	
+
+			var self = this;
+            var container = this.container;
+            
+            // Create a tab from each subsection.
+		 	$(container).find("> .contents li").each(function(){
+			 	var i = $(this).prevAll().length;
+			 	self.createTab($(container).find("> div.section").eq(i), this);
+		 	});
+		 	
+		 	// Determine which tab should have focus
 	 		var focusOnTab = shouldHaveFocus(this); 
 	 		
+	 		// Set focus
 	 		for (var i = 0; i < this.collection.length; i++) {			
 	 			
 	 			var hasFocus;
@@ -177,7 +185,6 @@ jQuery(document).ready(function($) {
 	 			this.collection[i].init(hasFocus);
 	 		};
 	 		
-            var container = this.container;
 	 		$(container).addClass("tabbed");
 	 		
 	 	};
@@ -185,11 +192,7 @@ jQuery(document).ready(function($) {
 	 };
 	 
 	 // Convert each of the main sections into tabs (tabbed content).
-	 var mainTabs = new Tabs($("main"));
-	 $("main > .contents li").each(function(){
-	 	var i = $(this).prevAll().length;
-	 	mainTabs.createTab($("main > section").eq(i), this);
-	 });
+	 var mainTabs = new Tabs($(".main").has("> .contents"));
 	 mainTabs.init();
 	
 	generateVisualisations($);

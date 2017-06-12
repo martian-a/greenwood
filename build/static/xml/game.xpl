@@ -36,6 +36,16 @@
 	</p:documentation>
 	<p:option name="target" required="true" />
 	
+	<p:documentation>
+		<p:doc>
+			<d:desc>Whether the output is intended for distribution via the static site. (true|false)</d:desc>
+			<d:note>
+				<d:p>This affects which fame files are included in the output.</d:p>
+			</d:note>
+		</p:doc>
+	</p:documentation>
+	<p:option name="static" select="true()" />
+	
 	<p:output port="result">
 		<p:pipe step="results" port="result"/>
 	</p:output>
@@ -83,37 +93,60 @@
 			
 			<p:group>
 				
-				<p:variable name="game-id" select="/game/@id">
+				<p:variable name="publish" select="/game/@publish">
 					<p:pipe port="result" step="game-data" />
 				</p:variable>
 				
-				<p:documentation>
-					<d:doc scope="step">
-						<d:desc>Store the game data.</d:desc>
-					</d:doc>
-				</p:documentation>
-				<p:store name="store" 
-					indent="true" 
-					omit-xml-declaration="false" 
-					encoding="utf-8" 
-					method="xml" 
-					media-type="text/xml">
-					<p:input port="source">
-						<p:pipe port="result" step="game-data" />
-					</p:input>
-					<p:with-option name="href" select="concat($target, '/', $game-id, '.xml')" />
-				</p:store>
-
-				<p:documentation>
-					<d:doc scope="step">
-						<d:desc>Return a path to where the updated game data has been stored.</d:desc>
-					</d:doc>
-				</p:documentation>
-				<p:identity>
-					<p:input port="source">
-						<p:pipe port="result" step="store" />
-					</p:input>
-				</p:identity>
+				<p:choose>
+					<p:when test="($static = true() and $publish = true()) or $static = false()">
+						
+						<p:variable name="game-id" select="/game/@id">
+							<p:pipe port="result" step="game-data" />
+						</p:variable>
+						
+						<p:documentation>
+							<d:doc scope="step">
+								<d:desc>Store the game data.</d:desc>
+							</d:doc>
+						</p:documentation>
+						<p:store name="store" 
+							indent="true" 
+							omit-xml-declaration="false" 
+							encoding="utf-8" 
+							method="xml" 
+							media-type="text/xml">
+							<p:input port="source">
+								<p:pipe port="result" step="game-data" />
+							</p:input>
+							<p:with-option name="href" select="concat($target, '/', $game-id, '.xml')" />
+						</p:store>
+						
+						<p:documentation>
+							<d:doc scope="step">
+								<d:desc>Return a path to where the updated game data has been stored.</d:desc>
+							</d:doc>
+						</p:documentation>
+						<p:identity>
+							<p:input port="source">
+								<p:pipe port="result" step="store" />
+							</p:input>
+						</p:identity>
+						
+						<p:wrap match="/" wrapper="included" />
+						
+					</p:when>
+					<p:otherwise>
+						
+						<p:identity>
+							<p:input port="source">
+								<p:pipe port="current" step="copy-files" />
+							</p:input>
+						</p:identity>
+						
+						<p:wrap match="/" wrapper="excluded" />
+						
+					</p:otherwise>
+				</p:choose>
 
 			</p:group>
 			

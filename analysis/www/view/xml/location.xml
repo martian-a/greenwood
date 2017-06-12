@@ -9,7 +9,7 @@ let $request-id := string(request:get-parameter("id", ""))
 return
     if ($request-id != "")
     then
-        let $location := loc:get-location($request-id, true(), true())
+        let $location := loc:get-location($request-id, true(), true(), true())
         return $location
                 
 	else 
@@ -17,7 +17,7 @@ return
     		{
     			for $location in $loc:db/game/map/locations//descendant::*[@id]
     			let $location-id := concat($location/ancestor::game/@id, '-', $location/@id)
-    			return loc:get-location($location-id, false(), false())
+    			return loc:get-location($location-id)
     		}
     	</locations>
  

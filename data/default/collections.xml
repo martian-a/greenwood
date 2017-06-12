@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assets>
+	<collection id="SOU4">
+		<asset ref="ROU" />
+		<name>Route options</name>
+		<description>The paths connecting together locations on the map (edge).</description>
+	</collection>
+	<collection id="SOU1" face-up="true">
+		<asset ref="TRA" init="5" />
+		<name>Train card river</name>
+		<description>A river consisting of 5 train cards, laid face-up.</description>
+	</collection>
+	<collection id="SOU2" face-up="false">
+		<asset ref="TRA" />
+		<name>Train card draw pile</name>
+		<description>A pile of train cards, stacked face-down.</description>
+	</collection>
+	<collection id="SOU5" face-up="false">
+		<asset ref="TIN" />
+		<name>Tickets draw pile</name>
+		<description>A pile of ticket cards, stacked face-down.</description>
+	</collection>
+	<collection id="SOU9" recycle="true">
+		<asset ref="CAR" />
+		<name>Train card discard pile</name>
+		<description>Train cards that have been spent by players.</description>
+	</collection>
+	<collection id="SOU12">
+		<asset ref="TOP" />
+		<name>Players points</name>
+		<description>The points accrued by each player.</description>
+	</collection>
+</assets>

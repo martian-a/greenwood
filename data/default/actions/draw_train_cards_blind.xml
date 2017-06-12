@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action type="draw" id="ACT5">
+	<source ref="SOU2" min="0" max="2" />
+	<target ref="SOU6" min="0" max="2" />
+	<description>Draw up to two train cards (normal or wild) from the face-down draw pile.</description>
+</action>
